@@ -1,7 +1,5 @@
 {
-  "locales": [
-    "zh-CN"
-  ],
+  "locales": ["zh-CN"],
   "folder_patterns": [
     {
       "source_dir_relative_to_docusaurus_root": "docs",

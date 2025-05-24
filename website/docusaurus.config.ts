@@ -192,30 +192,30 @@ export default async function createConfigAsync() {
         type: 'text/css',
       },
     ],
-        i18n: {
-        defaultLocale: 'en',
-        locales: ['en', 'fr', 'pt-BR', 'ko', 'zh-CN', 'ja'],
-        localeConfigs: {
-          en: {
-            label: 'English',
-          },
-          fr: {
-            label: 'Français',
-          },
-          'pt-BR': {
-            label: 'Português (Brasil)',
-          },
-          ko: {
-            label: '한국어',
-          },
-          'zh-CN': {
-            label: '简体中文',
-          },
-          ja: {
-            label: '日本語',
-          },
+    i18n: {
+      defaultLocale: 'en',
+      locales: ['en', 'fr', 'pt-BR', 'ko', 'zh-CN', 'ja'],
+      localeConfigs: {
+        en: {
+          label: 'English',
+        },
+        fr: {
+          label: 'Français',
+        },
+        'pt-BR': {
+          label: 'Português (Brasil)',
+        },
+        ko: {
+          label: '한국어',
+        },
+        'zh-CN': {
+          label: '简体中文',
+        },
+        ja: {
+          label: '日本語',
         },
       },
+    },
     markdown: {
       format: 'detect',
       mermaid: true,
