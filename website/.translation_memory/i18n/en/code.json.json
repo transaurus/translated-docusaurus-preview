@@ -1,93 +1,7 @@
 {
   "source_file_path_relative_to_docusaurus_root": "i18n/en/code.json",
-  "source_file_content_hash": "b357305073ad8904a303c3d5897a7c71ce254f8655aa604a209aabe84607b3e6",
+  "source_file_content_hash": "57e3e2b5b303091eb846a65c3172c81b64385c8dac129c7ccdcdfbfc0789fdf2",
   "segments": [
-    {
-      "segment_id": "Preset options",
-      "source_content": "Preset options",
-      "source_content_hash": "64e7d125979adc0a92e43e97287d5c37a2d95ed5959bd6577c5edca61edbee23",
-      "node_type": "json_message",
-      "translatable": true,
-      "translations": {
-        "zh-CN": "预设选项"
-      }
-    },
-    {
-      "segment_id": "apiDocs.configTabs.presetOptions.description",
-      "source_content": "If you use a preset, configure this plugin through the {presetLink}:",
-      "source_content_hash": "82a73144b4c6a3dbb733a37f16f55e3828333b748fa15f0726facd825a4d1a5d",
-      "node_type": "json_message",
-      "translatable": true,
-      "translations": {
-        "zh-CN": "如果使用预设，可通过 {presetLink} 配置此插件："
-      }
-    },
-    {
-      "segment_id": "preset options",
-      "source_content": "preset options",
-      "source_content_hash": "5189b84863678e3fc5d6c86eaadbe218f0fc72d0a73816e6b93bde41ed23bf71",
-      "node_type": "json_message",
-      "translatable": true,
-      "translations": {
-        "zh-CN": "预设选项"
-      }
-    },
-    {
-      "segment_id": "Plugin options",
-      "source_content": "Plugin options",
-      "source_content_hash": "764e765624bf9168b376824059f5b6bbafd75932fe856e10a2bfa831c9f4aa2f",
-      "node_type": "json_message",
-      "translatable": true,
-      "translations": {
-        "zh-CN": "插件选项"
-      }
-    },
-    {
-      "segment_id": "If you are using a standalone plugin, provide options directly to the plugin:",
-      "source_content": "If you are using a standalone plugin, provide options directly to the plugin:",
-      "source_content_hash": "497d1fed2b94a88e44449764e92151b7c0957b867e15298992a3d52b6c1a7aa0",
-      "node_type": "json_message",
-      "translatable": true,
-      "translations": {
-        "zh-CN": "如果使用独立插件，请直接向插件提供配置选项："
-      }
-    },
-    {
-      "segment_id": "Current: {canaryVersionName}",
-      "source_content": "Current: {canaryVersionName}",
-      "source_content_hash": "9079272503c5775ef2c994415df5387ca9f44fa8bec73c265f7ca68315f4e61e",
-      "node_type": "json_message",
-      "translatable": true,
-      "translations": {
-        "zh-CN": "当前版本：{canaryVersionName}"
-      },
-      "metadata": {
-        "json_description": "The hint text for the current canary version tag."
-      }
-    },
-    {
-      "segment_id": "Example: 0.0.0-4922",
-      "source_content": "Example: 0.0.0-4922",
-      "source_content_hash": "a6f1e68e31a42eeb70a8c2fd40c657c87b8bfc76b7916ad102d1e0ce020fbdf9",
-      "node_type": "json_message",
-      "translatable": true,
-      "translations": {
-        "zh-CN": "示例：0.0.0-4922"
-      },
-      "metadata": {
-        "json_description": "An example canary version tag when the actual version can't be fetched."
-      }
-    },
-    {
-      "segment_id": "The latest canary version that's available on npm is published at {time}.",
-      "source_content": "The latest canary version that's available on npm is published at {time}.",
-      "source_content_hash": "dc05a757d12e3d51d7b00f631d85fb8abc3b3fa75280320ae648fca3709ccbbf",
-      "node_type": "json_message",
-      "translatable": true,
-      "translations": {
-        "zh-CN": "npm 上可用的最新金丝雀版本发布于 {time}。"
-      }
-    },
     {
       "segment_id": "Docusaurus with Keytar",
       "source_content": "Docusaurus with Keytar",
@@ -105,7 +19,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "快速构建<b>高性能</b>网站，专注<b>内容创作</b>"
+        "zh-CN": "快速构建<b>优化</b>网站，专注您的<b>内容</b>"
       },
       "metadata": {
         "json_description": "Home page hero title, can contain simple html tags"
@@ -118,7 +32,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "快速开始"
+        "zh-CN": "开始使用"
       }
     },
     {
@@ -128,7 +42,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "体验演示"
+        "zh-CN": "尝试演示"
       }
     },
     {
@@ -138,7 +52,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "深受工程师喜爱"
+        "zh-CN": "深受众多工程师喜爱"
       }
     },
     {
@@ -148,7 +62,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "观看介绍视频"
+        "zh-CN": "查看介绍视频"
       }
     },
     {
@@ -158,7 +72,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "Docusaurus {newVersion} 震撼发布！️"
+        "zh-CN": "Docusaurus {newVersion} 已发布！️"
       }
     },
     {
@@ -208,7 +122,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "此处可查阅当前发布版本的文档"
+        "zh-CN": "此处可查阅当前发布版本的文档。"
       }
     },
     {
@@ -228,7 +142,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "此处可查阅开发中未发布版本的文档"
+        "zh-CN": "此处可查阅尚未发布的开发中版本文档。"
       }
     },
     {
@@ -248,7 +162,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "此处可查阅Docusaurus历史版本的文档"
+        "zh-CN": "此处可查阅 Docusaurus 过往版本的文档。"
       }
     },
     {
@@ -268,7 +182,93 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "此处可查阅Docusaurus旧版本文档"
+        "zh-CN": "此处可查阅 Docusaurus 旧版的文档。"
+      }
+    },
+    {
+      "segment_id": "Preset options",
+      "source_content": "Preset options",
+      "source_content_hash": "64e7d125979adc0a92e43e97287d5c37a2d95ed5959bd6577c5edca61edbee23",
+      "node_type": "json_message",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "预设选项"
+      }
+    },
+    {
+      "segment_id": "apiDocs.configTabs.presetOptions.description",
+      "source_content": "If you use a preset, configure this plugin through the {presetLink}:",
+      "source_content_hash": "82a73144b4c6a3dbb733a37f16f55e3828333b748fa15f0726facd825a4d1a5d",
+      "node_type": "json_message",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "若使用预设，通过{presetLink}配置此插件："
+      }
+    },
+    {
+      "segment_id": "preset options",
+      "source_content": "preset options",
+      "source_content_hash": "5189b84863678e3fc5d6c86eaadbe218f0fc72d0a73816e6b93bde41ed23bf71",
+      "node_type": "json_message",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "预设选项"
+      }
+    },
+    {
+      "segment_id": "Plugin options",
+      "source_content": "Plugin options",
+      "source_content_hash": "764e765624bf9168b376824059f5b6bbafd75932fe856e10a2bfa831c9f4aa2f",
+      "node_type": "json_message",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "插件选项"
+      }
+    },
+    {
+      "segment_id": "If you are using a standalone plugin, provide options directly to the plugin:",
+      "source_content": "If you are using a standalone plugin, provide options directly to the plugin:",
+      "source_content_hash": "497d1fed2b94a88e44449764e92151b7c0957b867e15298992a3d52b6c1a7aa0",
+      "node_type": "json_message",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "若使用独立插件，请直接将选项提供给插件："
+      }
+    },
+    {
+      "segment_id": "Current: {canaryVersionName}",
+      "source_content": "Current: {canaryVersionName}",
+      "source_content_hash": "9079272503c5775ef2c994415df5387ca9f44fa8bec73c265f7ca68315f4e61e",
+      "node_type": "json_message",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "当前：{canaryVersionName}"
+      },
+      "metadata": {
+        "json_description": "The hint text for the current canary version tag."
+      }
+    },
+    {
+      "segment_id": "Example: 0.0.0-4922",
+      "source_content": "Example: 0.0.0-4922",
+      "source_content_hash": "a6f1e68e31a42eeb70a8c2fd40c657c87b8bfc76b7916ad102d1e0ce020fbdf9",
+      "node_type": "json_message",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "示例：0.0.0-4922"
+      },
+      "metadata": {
+        "json_description": "An example canary version tag when the actual version can't be fetched."
+      }
+    },
+    {
+      "segment_id": "The latest canary version that's available on npm is published at {time}.",
+      "source_content": "The latest canary version that's available on npm is published at {time}.",
+      "source_content_hash": "dc05a757d12e3d51d7b00f631d85fb8abc3b3fa75280320ae648fca3709ccbbf",
+      "node_type": "json_message",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "npm 上可用的最新 Canary 版本发布于 {time}。"
       }
     },
     {
@@ -278,7 +278,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "基于MDX驱动"
+        "zh-CN": "基于 MDX 驱动"
       }
     },
     {
@@ -288,7 +288,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "节省时间专注文档创作。使用MDX编写文档和博客，Docusaurus会将其构建为可直接部署的静态HTML文件。借助MDX，您甚至可以在Markdown中嵌入React组件。"
+        "zh-CN": "节省时间，专注文本内容。用 MDX 编写文档和博客文章，Docusaurus 会将其构建为可立即部署的静态 HTML 文件。借助 MDX，您甚至可以在 Markdown 中嵌入 React 组件。"
       }
     },
     {
@@ -298,7 +298,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "基于React构建"
+        "zh-CN": "基于 React 构建"
       }
     },
     {
@@ -308,7 +308,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "通过编写React组件扩展和定制项目布局。利用可插拔架构，在复用Docusaurus插件生成数据的同时设计专属站点。"
+        "zh-CN": "通过编写 React 组件扩展和定制项目布局。利用可插拔架构，在复用 Docusaurus 插件生成数据的同时设计专属站点。"
       }
     },
     {
@@ -328,7 +328,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "原生支持多语言。使用git、Crowdin或任何翻译管理系统翻译文档，并支持独立部署。"
+        "zh-CN": "原生支持多语言。使用 git、Crowdin 或其他翻译管理系统翻译文档，并独立部署。"
       }
     },
     {
@@ -348,7 +348,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "为所有项目版本用户提供支持。文档版本控制功能可保持文档与项目版本同步更新。"
+        "zh-CN": "为所有项目版本的用户提供支持。文档版本控制帮助您保持文档与项目发布同步。"
       }
     },
     {
@@ -368,7 +368,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "让社区成员轻松查找所需文档。我们自豪地支持Algolia文档搜索服务。"
+        "zh-CN": "让社区轻松找到所需文档内容。我们自豪地支持 Algolia 文档搜索。"
       }
     },
     {
@@ -378,7 +378,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "Prettier项目负责人"
+        "zh-CN": "Prettier 首席开发者"
       },
       "metadata": {
         "json_description": "Title of quote of Christopher Chedeau on the home page"
@@ -391,7 +391,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "我在Facebook参与过许多开源项目，每个项目都需要网站建设。它们都有相似的约束：文档必须用Markdown编写并通过GitHub Pages部署。Docusaurus的出现让我如释重负，再也不必每次都花费一周时间搭建新网站。"
+        "zh-CN": "我在 Facebook 协助开源了许多项目，每个项目都需要一个网站。它们都有相似的约束：文档需用 Markdown 编写并通过 GitHub Pages 部署。Docusaurus 的出现让我不必每次再花一周时间从头搭建。"
       },
       "metadata": {
         "json_description": "Quote of Christopher Chedeau on the home page"
@@ -404,7 +404,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "React Native首席布道师"
+        "zh-CN": "React Native 首席布道师"
       },
       "metadata": {
         "json_description": "Title of quote of Hector Ramos on the home page"
@@ -417,7 +417,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "自从我们将React Native文档迁移到Docusaurus后，开源贡献量激增。文档现在托管在一个简洁的Markdown小仓库中，完全摆脱了传统静态站点生成器的繁琐配置。感谢Slash团队！"
+        "zh-CN": "自从我们将React Native文档迁移到Docusaurus后，开源贡献量直线上升。现在文档托管在一个简洁的Markdown小仓库中，完全摆脱了传统静态站点生成器的繁琐配置。感谢Slash！"
       },
       "metadata": {
         "json_description": "Quote of Hector Ramos on the home page"
@@ -443,7 +443,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "Docusaurus成为ReasonML系列项目的绝佳选择。它使我们的文档保持统一风格、支持国际化、易于维护，并且对新贡献者非常友好。"
+        "zh-CN": "Docusaurus是ReasonML系列项目的绝佳选择。它使我们的文档保持统一风格、支持国际化、易于维护，并且对新贡献者非常友好。"
       },
       "metadata": {
         "json_description": "Quote of Ricky Vetter on the home page"
@@ -456,7 +456,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "精选案例"
+        "zh-CN": "精选"
       }
     },
     {
@@ -516,7 +516,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "设计美学"
+        "zh-CN": "设计典范"
       }
     },
     {
@@ -526,7 +526,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "设计精美的Docusaurus站点，经过精心打磨且突破初始模板限制！"
+        "zh-CN": "经过精心打磨、从初始模板脱颖而出的精美Docusaurus站点！"
       }
     },
     {
@@ -546,7 +546,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "使用国际化支持、拥有超过1种语言版本的Docusaurus站点。"
+        "zh-CN": "使用国际化支持、包含多语言版本的Docusaurus站点。"
       }
     },
     {
@@ -566,7 +566,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "使用文档插件版本控制功能管理多版本的Docusaurus站点。"
+        "zh-CN": "使用文档插件版本管理功能的多版本Docusaurus站点。"
       }
     },
     {
@@ -586,7 +586,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "超大型Docusaurus站点，包含远超平均数量的页面！"
+        "zh-CN": "远超平均规模的超大型Docusaurus站点！"
       }
     },
     {
@@ -596,7 +596,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "Meta项目"
+        "zh-CN": "Meta系"
       }
     },
     {
@@ -606,7 +606,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "Meta（原Facebook）旗下项目使用的Docusaurus站点"
+        "zh-CN": "Meta（原Facebook）旗下项目的Docusaurus站点"
       }
     },
     {
@@ -616,7 +616,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "个人站点"
+        "zh-CN": "个人网站"
       }
     },
     {
@@ -626,7 +626,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "用Docusaurus构建的个人网站、博客和数字花园"
+        "zh-CN": "使用Docusaurus构建的个人网站、博客和数字花园"
       }
     },
     {
@@ -650,13 +650,56 @@
       }
     },
     {
+      "segment_id": "showcase.filters.resultCount",
+      "source_content": "1 site|{sitesCount} sites",
+      "source_content_hash": "a0aec9c91462c607a49eb380cdbab20a57e2e0976b53b5c75adc93f9dec50ccc",
+      "node_type": "json_message",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "1个站点|{sitesCount}个站点"
+      },
+      "metadata": {
+        "json_description": "Pluralized label for the number of sites found on the showcase. Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+      }
+    },
+    {
+      "segment_id": "Docusaurus Site Showcase",
+      "source_content": "Docusaurus Site Showcase",
+      "source_content_hash": "76a5a9fa077485a667c6e61ec4d633f1ca74b29bbedeaec564fe28f220bf02f3",
+      "node_type": "json_message",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "Docusaurus站点展示墙"
+      }
+    },
+    {
+      "segment_id": "List of websites people are building with Docusaurus",
+      "source_content": "List of websites people are building with Docusaurus",
+      "source_content_hash": "5710a7888d6bdcc36cdb70951a2248a5523595e9851b18a8d9865862f97282cc",
+      "node_type": "json_message",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "开发者使用Docusaurus构建的网站列表"
+      }
+    },
+    {
+      "segment_id": "showcase.header.button",
+      "source_content": "🙏 Please add your site",
+      "source_content_hash": "08b1d897fd9188637a09dbc2d7a4edafe11287573ceff3ed30b0a8d742e064f8",
+      "node_type": "json_message",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "🙏 欢迎提交您的站点"
+      }
+    },
+    {
       "segment_id": "colorGenerator.tip.body",
       "source_content": "Aim for at least {wcagLink} for the primary color to ensure readability. Use the Docusaurus website itself to preview how your color palette would look like. You can use alternative palettes in dark mode because one color doesn't usually work in both light and dark mode.",
       "source_content_hash": "aed6d34a66bf8fb1fd7f361b50ffbd58cc2461d3f4f466ad5073606c8d609224",
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "主色建议至少达到{wcagLink}标准以确保可读性。可直接在Docusaurus官网上预览配色效果。由于单一颜色通常无法适配明暗双模式，建议为暗色模式配置替代调色板。"
+        "zh-CN": "主色建议至少满足{wcagLink}对比度以确保可读性。可使用Docusaurus官网预览配色效果。由于单一配色通常无法同时适应深浅模式，建议为深色模式准备替代方案。"
       }
     },
     {
@@ -696,7 +739,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "明亮"
+        "zh-CN": "浅色"
       }
     },
     {
@@ -706,7 +749,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "暗黑"
+        "zh-CN": "深色"
       }
     },
     {
@@ -785,37 +828,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "用这些新变量替换{cssPath}中的原有变量。"
-      }
-    },
-    {
-      "segment_id": "playground.codesandbox.description",
-      "source_content": "CodeSandbox is an online code editor and development environment that allows developers to create, share and collaborate on web development projects in a browser-based environment",
-      "source_content_hash": "dd02130ea8590828ccb155b60a21e0ff9b7700355630499d0ec54deef8ad9b32",
-      "node_type": "json_message",
-      "translatable": true,
-      "translations": {
-        "zh-CN": "CodeSandbox是一个在线代码编辑器和开发环境，允许开发者在浏览器中创建、分享和协作开发网页项目"
-      }
-    },
-    {
-      "segment_id": "playground.stackblitz.description",
-      "source_content": "StackBlitz uses a novel {webContainersLink} technology to run Docusaurus directly in your browser.",
-      "source_content_hash": "2eccaf5ac9850383d9eb3f2a67f2a8dc5a0b70cb3eeaf1438558b3d457bcc60f",
-      "node_type": "json_message",
-      "translatable": true,
-      "translations": {
-        "zh-CN": "StackBlitz采用创新的{webContainersLink}技术，让您直接在浏览器中运行Docusaurus。"
-      }
-    },
-    {
-      "segment_id": "playground.tryItButton",
-      "source_content": "Try it now!",
-      "source_content_hash": "f940c736c14ace5a7ca687bd89a1a93b9215e1dfde85561b21a4ec7c4acc68cd",
-      "node_type": "json_message",
-      "translatable": true,
-      "translations": {
-        "zh-CN": "立即体验！"
+        "zh-CN": "请将{cssPath}中的变量替换为这些新变量。"
       }
     },
     {
@@ -835,7 +848,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "2014年起成为React爱好者。自由职业者，协助Facebook发布Docusaurus v2。定期在个人{website}和{devto}上撰写技术文章。"
+        "zh-CN": "2014年起成为React爱好者。自由职业者，协助Facebook发布Docusaurus v2。定期在其{website}和{devto}上撰文。"
       }
     },
     {
@@ -845,7 +858,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "来自中国上海的学生。热衷创建开源项目，但对自己发起的项目从不下苦功。"
+        "zh-CN": "来自中国上海的学生。热衷创建开源项目，但对自己创建的项目从不下苦功。"
       }
     },
     {
@@ -855,7 +868,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "法国CPE Lyon学院学生。充满激情的Web开发者，致力于成为专家级开发者。"
+        "zh-CN": "法国CPE Lyon的学生。充满激情的Web开发者，致力于成为专家级开发者。"
       }
     },
     {
@@ -865,7 +878,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "Docusaurus创始人，如今是该项目最忠实的啦啦队员，对实际贡献代码的开发者们心怀感激。"
+        "zh-CN": "Docusaurus创始人，现为该项目摇旗呐喊的啦啦队长，对实际编写代码的贡献者心怀感激。"
       }
     },
     {
@@ -875,7 +888,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "痴迷的开源爱好者 👋 万事通但万事不精 🤷‍♂️ 维护PHP、React、Kubernetes等俄语文档 🧐"
+        "zh-CN": "开源狂热爱好者 👋 万事皆半吊子 🤷‍♂️ PHP、React、Kubernetes等俄语文档维护者 🧐"
       }
     },
     {
@@ -885,7 +898,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "全栈前端开发者，热衷于Jamstack技术。参与Docusaurus开发使他成为Facebook非官方的兼职开源网站管理员，这是个超棒的角色。"
+        "zh-CN": "全栈前端开发者，热衷于Jamstack。参与Docusaurus开发使他成为Facebook非官方的兼职开源网站管理员，这个角色简直太棒了。"
       }
     },
     {
@@ -905,7 +918,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "👨‍🌾 成长中的React开发者，维护Docusaurus项目，撰写文档并在互联网上创建大量网站。"
+        "zh-CN": "🏻‍🌾 React开发者（持续进化中），维护Docusaurus，撰写文档并在互联网世界疯狂建站。"
       }
     },
     {
@@ -915,7 +928,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "全栈开发者，热爱编程和尝试新技术。业余时间贡献开源项目，在{websiteLink}撰写博客文章，还是个动漫迷。"
+        "zh-CN": "全栈开发者，热爱编程与尝试新技术。闲暇时贡献开源项目，在个人{websiteLink}写博客，还是个动漫迷。"
       }
     },
     {
@@ -945,7 +958,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "Fanny高中时开始接触网页开发，为学校厨房创建项目。闲暇时热爱贡献开源，偶尔在{blogLink}记录经历，也喜欢烹饪和制作{spotifyLink}。"
+        "zh-CN": "Fanny高中开始接触网页开发，为学校厨房做过项目。她热衷开源贡献，偶尔在{blogLink}分享经历，也爱下厨和制作{spotifyLink}。"
       }
     },
     {
@@ -955,7 +968,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "她的博客"
+        "zh-CN": "个人博客"
       }
     },
     {
@@ -975,7 +988,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "Sam自2011年开始编程，2015年建立了{websiteLink}。对编程语言、开发基础设施和网页开发感兴趣，曾开发自己的{samLangLink}和{miniReactLink}。"
+        "zh-CN": "Sam 2011年开始编程，2015年搭建了{websiteLink}。对编程语言、开发基础设施和Web开发感兴趣，曾开发自己的{samLangLink}和{miniReactLink}。"
       }
     },
     {
@@ -995,7 +1008,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "迷你React框架"
+        "zh-CN": "迷你React"
       }
     },
     {
@@ -1005,7 +1018,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "开源爱好者，以成为与本页其他成员同样优秀的人为目标。参与Docusaurus开发让他离这个目标更近了一步。🌱"
+        "zh-CN": "开源爱好者，立志成为与本页其他大神比肩的存在。参与Docusaurus开发让他离目标更近一步。🌱"
       }
     },
     {
@@ -1015,50 +1028,37 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "全栈网页开发者，热爱学习新技术并付诸实践！热衷开源贡献与技术文章写作。"
+        "zh-CN": "全栈Web开发者，热衷学习新技术并实践！热爱开源贡献，也喜欢撰写技术文章和教程。"
       }
     },
     {
-      "segment_id": "showcase.filters.resultCount",
-      "source_content": "1 site|{sitesCount} sites",
-      "source_content_hash": "a0aec9c91462c607a49eb380cdbab20a57e2e0976b53b5c75adc93f9dec50ccc",
+      "segment_id": "playground.codesandbox.description",
+      "source_content": "CodeSandbox is an online code editor and development environment that allows developers to create, share and collaborate on web development projects in a browser-based environment",
+      "source_content_hash": "dd02130ea8590828ccb155b60a21e0ff9b7700355630499d0ec54deef8ad9b32",
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "1个站点|{sitesCount}个站点"
-      },
-      "metadata": {
-        "json_description": "Pluralized label for the number of sites found on the showcase. Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+        "zh-CN": "CodeSandbox是在线代码编辑器与开发环境，允许开发者在浏览器中创建、分享和协作开发Web项目"
       }
     },
     {
-      "segment_id": "Docusaurus Site Showcase",
-      "source_content": "Docusaurus Site Showcase",
-      "source_content_hash": "76a5a9fa077485a667c6e61ec4d633f1ca74b29bbedeaec564fe28f220bf02f3",
+      "segment_id": "playground.stackblitz.description",
+      "source_content": "StackBlitz uses a novel {webContainersLink} technology to run Docusaurus directly in your browser.",
+      "source_content_hash": "2eccaf5ac9850383d9eb3f2a67f2a8dc5a0b70cb3eeaf1438558b3d457bcc60f",
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "Docusaurus站点展示"
+        "zh-CN": "StackBlitz采用创新的{webContainersLink}技术，直接在浏览器中运行Docusaurus。"
       }
     },
     {
-      "segment_id": "List of websites people are building with Docusaurus",
-      "source_content": "List of websites people are building with Docusaurus",
-      "source_content_hash": "5710a7888d6bdcc36cdb70951a2248a5523595e9851b18a8d9865862f97282cc",
+      "segment_id": "playground.tryItButton",
+      "source_content": "Try it now!",
+      "source_content_hash": "f940c736c14ace5a7ca687bd89a1a93b9215e1dfde85561b21a4ec7c4acc68cd",
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "基于Docusaurus构建的网站列表"
-      }
-    },
-    {
-      "segment_id": "showcase.header.button",
-      "source_content": "🙏 Please add your site",
-      "source_content_hash": "08b1d897fd9188637a09dbc2d7a4edafe11287573ceff3ed30b0a8d742e064f8",
-      "node_type": "json_message",
-      "translatable": true,
-      "translations": {
-        "zh-CN": "🙏 欢迎提交您的站点"
+        "zh-CN": "立即体验！"
       }
     },
     {
@@ -1068,7 +1068,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "您正在浏览归档版本，以下代码片段已过期。请访问{mainSiteLink}并按照指引升级至最新版本。"
+        "zh-CN": "您正在浏览归档版本，下方代码片段已过期。请访问{mainSiteLink}并按照指引升级至最新版本。"
       }
     },
     {
@@ -1088,7 +1088,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "您正在浏览未发布版本的文档。如需使用任何未发布功能，可参考{canaryDocLink}。"
+        "zh-CN": "您正在浏览未发布版本的文档。如需使用未发布功能，可参考{canaryDocLink}。"
       }
     },
     {
@@ -1108,7 +1108,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "您正在浏览过时版本的文档。以下代码片段展示如何升级至最新版本。"
+        "zh-CN": "您正在浏览过时版本的文档。下方代码片段展示如何升级至最新版本。"
       }
     },
     {
@@ -1118,7 +1118,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "想实现相同页面？阅读{guideLink}了解方法！"
+        "zh-CN": "想实现相同页面？阅读{guideLink}了解详情！"
       }
     },
     {
@@ -1129,6 +1129,16 @@
       "translatable": true,
       "translations": {
         "zh-CN": "自动生成索引页指南"
+      }
+    },
+    {
+      "segment_id": "showcase.card.sourceLink",
+      "source_content": "source",
+      "source_content_hash": "41cf6794ba4200b839c53531555f0f3998df4cbb01a4d5cb0b94e3ca5e23947d",
+      "node_type": "json_message",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "源码"
       }
     },
     {
@@ -1162,16 +1172,6 @@
       }
     },
     {
-      "segment_id": "showcase.card.sourceLink",
-      "source_content": "source",
-      "source_content_hash": "41cf6794ba4200b839c53531555f0f3998df4cbb01a4d5cb0b94e3ca5e23947d",
-      "node_type": "json_message",
-      "translatable": true,
-      "translations": {
-        "zh-CN": "源代码"
-      }
-    },
-    {
       "segment_id": "showcase.filters.title",
       "source_content": "Filters",
       "source_content_hash": "546ebb8eb993ea561029d9febd84c363bdb09010bb2cb915a8287762b76b9a64",
@@ -1189,16 +1189,6 @@
       "translatable": true,
       "translations": {
         "zh-CN": "搜索站点名称..."
-      }
-    },
-    {
-      "segment_id": "changelog.backLink",
-      "source_content": "← Back to index page",
-      "source_content_hash": "bb56b963602f17f2df73efe7915686da2e6d5ae3bda108f94303c3181c914c37",
-      "node_type": "json_message",
-      "translatable": true,
-      "translations": {
-        "zh-CN": "← 返回索引页"
       }
     },
     {
@@ -1221,7 +1211,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "较新版本"
+        "zh-CN": "新版发布"
       },
       "metadata": {
         "json_description": "The changelog button label to navigate to the newer release"
@@ -1234,10 +1224,20 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "较旧版本"
+        "zh-CN": "旧版发布"
       },
       "metadata": {
         "json_description": "The changelog button label to navigate to the older release"
+      }
+    },
+    {
+      "segment_id": "changelog.backLink",
+      "source_content": "← Back to index page",
+      "source_content_hash": "bb56b963602f17f2df73efe7915686da2e6d5ae3bda108f94303c3181c914c37",
+      "node_type": "json_message",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "← 返回索引页"
       }
     },
     {
@@ -1257,7 +1257,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "通过{rssLink}订阅或关注我们的{xLink}账号，随时获取新版本发布信息！"
+        "zh-CN": "通过{rssLink}订阅或关注我们的{xLink}账号，随时获取新版本动态！"
       }
     },
     {
@@ -1287,6 +1287,45 @@
       }
     },
     {
+      "segment_id": "theme.blog.paginator.navAriaLabel",
+      "source_content": "Blog list page navigation",
+      "source_content_hash": "b61fc99000ea4a88f4d7fdbf30df4c1075697699bc7fa932093fb8e1681e0821",
+      "node_type": "json_message",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "博客列表页导航"
+      },
+      "metadata": {
+        "json_description": "The ARIA label for the blog pagination"
+      }
+    },
+    {
+      "segment_id": "theme.blog.paginator.newerEntries",
+      "source_content": "Newer entries",
+      "source_content_hash": "61d6ff4e7f3c0d2193f3906b90c3bce8609ae9245d2888df70b47cb2db6ed145",
+      "node_type": "json_message",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "较新文章"
+      },
+      "metadata": {
+        "json_description": "The label used to navigate to the newer blog posts page (previous page)"
+      }
+    },
+    {
+      "segment_id": "theme.blog.paginator.olderEntries",
+      "source_content": "Older entries",
+      "source_content_hash": "62f32f746e40653407ebd56403069598f35654c0f56725c3fccfca50055a4425",
+      "node_type": "json_message",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "较旧文章"
+      },
+      "metadata": {
+        "json_description": "The label used to navigate to the older blog posts page (next page)"
+      }
+    },
+    {
       "segment_id": "theme.blog.archive.title",
       "source_content": "Archive",
       "source_content_hash": "66f4804ee23ddc092d1bae43cb88186aa541187fff7c1cc8a4aa17e59a9f4123",
@@ -1313,52 +1352,13 @@
       }
     },
     {
-      "segment_id": "theme.blog.paginator.navAriaLabel",
-      "source_content": "Blog list page navigation",
-      "source_content_hash": "b61fc99000ea4a88f4d7fdbf30df4c1075697699bc7fa932093fb8e1681e0821",
-      "node_type": "json_message",
-      "translatable": true,
-      "translations": {
-        "zh-CN": "博客列表分页导航"
-      },
-      "metadata": {
-        "json_description": "The ARIA label for the blog pagination"
-      }
-    },
-    {
-      "segment_id": "theme.blog.paginator.newerEntries",
-      "source_content": "Newer entries",
-      "source_content_hash": "61d6ff4e7f3c0d2193f3906b90c3bce8609ae9245d2888df70b47cb2db6ed145",
-      "node_type": "json_message",
-      "translatable": true,
-      "translations": {
-        "zh-CN": "较新条目"
-      },
-      "metadata": {
-        "json_description": "The label used to navigate to the newer blog posts page (previous page)"
-      }
-    },
-    {
-      "segment_id": "theme.blog.paginator.olderEntries",
-      "source_content": "Older entries",
-      "source_content_hash": "62f32f746e40653407ebd56403069598f35654c0f56725c3fccfca50055a4425",
-      "node_type": "json_message",
-      "translatable": true,
-      "translations": {
-        "zh-CN": "较旧条目"
-      },
-      "metadata": {
-        "json_description": "The label used to navigate to the older blog posts page (next page)"
-      }
-    },
-    {
       "segment_id": "theme.blog.post.paginator.navAriaLabel",
       "source_content": "Blog post page navigation",
       "source_content_hash": "57501fdeec3bc10bd5384d5d73e680e9b6965f394d6c394cc3fca1d867c81c7b",
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "博客文章分页导航"
+        "zh-CN": "博客文章页导航"
       },
       "metadata": {
         "json_description": "The ARIA label for the blog posts pagination"
@@ -1449,23 +1449,10 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "切换深色/浅色模式（当前为{mode}）"
+        "zh-CN": "切换深浅色模式（当前为{mode}）"
       },
       "metadata": {
         "json_description": "The ARIA label for the color mode toggle"
-      }
-    },
-    {
-      "segment_id": "theme.docs.DocCard.categoryDescription.plurals",
-      "source_content": "1 item|{count} items",
-      "source_content_hash": "d4a87d6b454caf524fbc1f9ec4b20fa83ab81c622dd21bae2a6df389a1fd4c8e",
-      "node_type": "json_message",
-      "translatable": true,
-      "translations": {
-        "zh-CN": "1个项目|{count}个项目"
-      },
-      "metadata": {
-        "json_description": "The default description for a category card in the generated index about how many items this category includes"
       }
     },
     {
@@ -1482,13 +1469,26 @@
       }
     },
     {
+      "segment_id": "theme.docs.DocCard.categoryDescription.plurals",
+      "source_content": "1 item|{count} items",
+      "source_content_hash": "d4a87d6b454caf524fbc1f9ec4b20fa83ab81c622dd21bae2a6df389a1fd4c8e",
+      "node_type": "json_message",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "1个项目|{count}个项目"
+      },
+      "metadata": {
+        "json_description": "The default description for a category card in the generated index about how many items this category includes"
+      }
+    },
+    {
       "segment_id": "theme.docs.paginator.navAriaLabel",
       "source_content": "Docs pages",
       "source_content_hash": "758061873727938c87007174dc0a69949cb7c7e423ece886c92f4c0bce246b70",
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "文档分页"
+        "zh-CN": "文档页面"
       },
       "metadata": {
         "json_description": "The ARIA label for the docs pagination"
@@ -1589,7 +1589,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "查看最新文档，请访问{latestVersionLink}（{versionLabel}）。"
+        "zh-CN": "要查看最新文档，请参阅{latestVersionLink}（{versionLabel}）。"
       },
       "metadata": {
         "json_description": "The label used to tell the user to check the latest version"
@@ -1674,19 +1674,6 @@
       }
     },
     {
-      "segment_id": "theme.navbar.mobileVersionsDropdown.label",
-      "source_content": "Versions",
-      "source_content_hash": "f89ea27036ac1d3174e2160a4d291d006ad6f85d466726ba04760beec0940c24",
-      "node_type": "json_message",
-      "translatable": true,
-      "translations": {
-        "zh-CN": "版本"
-      },
-      "metadata": {
-        "json_description": "The label for the navbar versions dropdown on mobile view"
-      }
-    },
-    {
       "segment_id": "theme.NotFound.title",
       "source_content": "Page Not Found",
       "source_content_hash": "cb2f00d1e554baf96001ddb5e22ee63a8053fd3f8b6cad8acd74504af0dadb52",
@@ -1697,6 +1684,19 @@
       },
       "metadata": {
         "json_description": "The title of the 404 page"
+      }
+    },
+    {
+      "segment_id": "theme.navbar.mobileVersionsDropdown.label",
+      "source_content": "Versions",
+      "source_content_hash": "f89ea27036ac1d3174e2160a4d291d006ad6f85d466726ba04760beec0940c24",
+      "node_type": "json_message",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "版本"
+      },
+      "metadata": {
+        "json_description": "The label for the navbar versions dropdown on mobile view"
       }
     },
     {
@@ -1784,7 +1784,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "提示"
+        "zh-CN": "小技巧"
       },
       "metadata": {
         "json_description": "The default label used for the Tip admonition (:::tip)"
@@ -1862,7 +1862,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "我们找不到您要访问的内容。"
+        "zh-CN": "未能找到您要访问的内容。"
       },
       "metadata": {
         "json_description": "The first paragraph of the 404 page"
@@ -1875,7 +1875,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "请联系原始链接的所有者并告知他们该链接已失效。"
+        "zh-CN": "请联系原链接提供者并告知该链接已失效。"
       },
       "metadata": {
         "json_description": "The 2nd paragraph of the 404 page"
@@ -1927,7 +1927,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "阅读更多关于{title}"
+        "zh-CN": "阅读更多关于{title}的内容"
       },
       "metadata": {
         "json_description": "The ARIA label for the link to full blog posts from excerpts"
@@ -1944,32 +1944,6 @@
       },
       "metadata": {
         "json_description": "Pluralized label for \"{readingTime} min read\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
-      }
-    },
-    {
-      "segment_id": "theme.CodeBlock.wordWrapToggle",
-      "source_content": "Toggle word wrap",
-      "source_content_hash": "ecd0f38a04446721e9a09b1994bae262fe43d2d47b050870a2d3b1d9e9a11a6b",
-      "node_type": "json_message",
-      "translatable": true,
-      "translations": {
-        "zh-CN": "切换自动换行"
-      },
-      "metadata": {
-        "json_description": "The title attribute for toggle word wrapping button of code block lines"
-      }
-    },
-    {
-      "segment_id": "theme.docs.breadcrumbs.home",
-      "source_content": "Home page",
-      "source_content_hash": "11d58b08de98e05930a7f73b5f5d75367e4a58ac27335a420d55583cb16ad1ff",
-      "node_type": "json_message",
-      "translatable": true,
-      "translations": {
-        "zh-CN": "首页"
-      },
-      "metadata": {
-        "json_description": "The ARIA label for the home page in the breadcrumbs"
       }
     },
     {
@@ -2009,6 +1983,32 @@
       },
       "metadata": {
         "json_description": "The ARIA label for copy code blocks button"
+      }
+    },
+    {
+      "segment_id": "theme.CodeBlock.wordWrapToggle",
+      "source_content": "Toggle word wrap",
+      "source_content_hash": "ecd0f38a04446721e9a09b1994bae262fe43d2d47b050870a2d3b1d9e9a11a6b",
+      "node_type": "json_message",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "切换自动换行"
+      },
+      "metadata": {
+        "json_description": "The title attribute for toggle word wrapping button of code block lines"
+      }
+    },
+    {
+      "segment_id": "theme.docs.breadcrumbs.home",
+      "source_content": "Home page",
+      "source_content_hash": "11d58b08de98e05930a7f73b5f5d75367e4a58ac27335a420d55583cb16ad1ff",
+      "node_type": "json_message",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "首页"
+      },
+      "metadata": {
+        "json_description": "The ARIA label for the home page in the breadcrumbs"
       }
     },
     {
@@ -2109,7 +2109,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "折叠下拉菜单"
+        "zh-CN": "收起下拉菜单"
       },
       "metadata": {
         "json_description": "The ARIA label of the button to collapse the mobile dropdown navbar item"
@@ -2149,110 +2149,6 @@
       "translatable": true,
       "translations": {
         "zh-CN": "查看全部 {count} 条结果"
-      }
-    },
-    {
-      "segment_id": "theme.SearchPage.documentsFound.plurals",
-      "source_content": "One document found|{count} documents found",
-      "source_content_hash": "6d44a43c22210405b2d7b7271809278ab97ffa0ea1110f24aa2ad9bd161a517c",
-      "node_type": "json_message",
-      "translatable": true,
-      "translations": {
-        "zh-CN": "找到1个文档|找到{count}个文档"
-      },
-      "metadata": {
-        "json_description": "Pluralized label for \"{count} documents found\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
-      }
-    },
-    {
-      "segment_id": "theme.SearchPage.existingResultsTitle",
-      "source_content": "Search results for \"{query}\"",
-      "source_content_hash": "43947f3cdcf1186ae158fdecaf543b18fd0b1188c875b8cadb116d8d32790ba1",
-      "node_type": "json_message",
-      "translatable": true,
-      "translations": {
-        "zh-CN": "\"{query}\"的搜索结果"
-      },
-      "metadata": {
-        "json_description": "The search page title for non-empty query"
-      }
-    },
-    {
-      "segment_id": "theme.SearchPage.emptyResultsTitle",
-      "source_content": "Search the documentation",
-      "source_content_hash": "2bdb6b49bb2c69b550828f75df7d54d6f44318022fc735d7ecd82207e6885b88",
-      "node_type": "json_message",
-      "translatable": true,
-      "translations": {
-        "zh-CN": "搜索文档"
-      },
-      "metadata": {
-        "json_description": "The search page title for empty query"
-      }
-    },
-    {
-      "segment_id": "theme.SearchPage.inputPlaceholder",
-      "source_content": "Type your search here",
-      "source_content_hash": "8ace0cba09aa578e47bf84032e3968616ee75e4d09a611db6bb060d5817750cb",
-      "node_type": "json_message",
-      "translatable": true,
-      "translations": {
-        "zh-CN": "在此输入搜索内容"
-      },
-      "metadata": {
-        "json_description": "The placeholder for search page input"
-      }
-    },
-    {
-      "segment_id": "theme.SearchPage.inputLabel",
-      "source_content": "Search",
-      "source_content_hash": "49c266baaaa70981ea188fa714d5c40cf13830d786a861c9943ae0d26a7f3fe9",
-      "node_type": "json_message",
-      "translatable": true,
-      "translations": {
-        "zh-CN": "搜索"
-      },
-      "metadata": {
-        "json_description": "The ARIA label for search page input"
-      }
-    },
-    {
-      "segment_id": "theme.SearchPage.algoliaLabel",
-      "source_content": "Search by Algolia",
-      "source_content_hash": "1f4f568cec4f3d4bae359fe5649894190d7a94cebac999148eb897cd7365da40",
-      "node_type": "json_message",
-      "translatable": true,
-      "translations": {
-        "zh-CN": "由Algolia提供搜索"
-      },
-      "metadata": {
-        "json_description": "The ARIA label for Algolia mention"
-      }
-    },
-    {
-      "segment_id": "theme.SearchPage.noResultsText",
-      "source_content": "No results were found",
-      "source_content_hash": "8fb7e1ee6a3ad73b4676d7578e23b7585cbef054e52934c78b091eb30ab53f67",
-      "node_type": "json_message",
-      "translatable": true,
-      "translations": {
-        "zh-CN": "未找到结果"
-      },
-      "metadata": {
-        "json_description": "The paragraph for empty search result"
-      }
-    },
-    {
-      "segment_id": "theme.SearchPage.fetchingNewResults",
-      "source_content": "Fetching new results...",
-      "source_content_hash": "8b5f3b89021efe16afdb08e83d522b13fa94a426930f2795a0023a72bfce42a4",
-      "node_type": "json_message",
-      "translatable": true,
-      "translations": {
-        "zh-CN": "正在获取新结果..."
-      },
-      "metadata": {
-        "json_description": "The paragraph for fetching new search results"
       }
     },
     {
@@ -2392,7 +2288,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "您可能需要检查网络连接。"
+        "zh-CN": "请检查您的网络连接。"
       },
       "metadata": {
         "json_description": "The help text for error screen of search modal"
@@ -2418,7 +2314,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "Enter键"
+        "zh-CN": "回车键"
       },
       "metadata": {
         "json_description": "The ARIA label for the Enter key button that makes the selection"
@@ -2444,7 +2340,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "上箭头"
+        "zh-CN": "向上箭头"
       },
       "metadata": {
         "json_description": "The ARIA label for the Arrow up key button that makes the navigation"
@@ -2457,7 +2353,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "下箭头"
+        "zh-CN": "向下箭头"
       },
       "metadata": {
         "json_description": "The ARIA label for the Arrow down key button that makes the navigation"
@@ -2483,7 +2379,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "Escape键"
+        "zh-CN": "ESC键"
       },
       "metadata": {
         "json_description": "The ARIA label for the Escape key button that close the modal"
@@ -2535,7 +2431,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "认为此查询应该返回结果？"
+        "zh-CN": "认为该查询应返回结果？"
       },
       "metadata": {
         "json_description": "The text for the question where the user thinks there are missing results"
@@ -2548,7 +2444,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "告诉我们。"
+        "zh-CN": "请告知我们。"
       },
       "metadata": {
         "json_description": "The text for the link to report missing results"
@@ -2565,6 +2461,110 @@
       },
       "metadata": {
         "json_description": "The placeholder of the input of the DocSearch pop-up modal"
+      }
+    },
+    {
+      "segment_id": "theme.SearchPage.documentsFound.plurals",
+      "source_content": "One document found|{count} documents found",
+      "source_content_hash": "6d44a43c22210405b2d7b7271809278ab97ffa0ea1110f24aa2ad9bd161a517c",
+      "node_type": "json_message",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "找到1个文档|找到{count}个文档"
+      },
+      "metadata": {
+        "json_description": "Pluralized label for \"{count} documents found\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+      }
+    },
+    {
+      "segment_id": "theme.SearchPage.existingResultsTitle",
+      "source_content": "Search results for \"{query}\"",
+      "source_content_hash": "43947f3cdcf1186ae158fdecaf543b18fd0b1188c875b8cadb116d8d32790ba1",
+      "node_type": "json_message",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "\"{query}\"的搜索结果"
+      },
+      "metadata": {
+        "json_description": "The search page title for non-empty query"
+      }
+    },
+    {
+      "segment_id": "theme.SearchPage.emptyResultsTitle",
+      "source_content": "Search the documentation",
+      "source_content_hash": "2bdb6b49bb2c69b550828f75df7d54d6f44318022fc735d7ecd82207e6885b88",
+      "node_type": "json_message",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "搜索文档"
+      },
+      "metadata": {
+        "json_description": "The search page title for empty query"
+      }
+    },
+    {
+      "segment_id": "theme.SearchPage.inputPlaceholder",
+      "source_content": "Type your search here",
+      "source_content_hash": "8ace0cba09aa578e47bf84032e3968616ee75e4d09a611db6bb060d5817750cb",
+      "node_type": "json_message",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "在此输入搜索内容"
+      },
+      "metadata": {
+        "json_description": "The placeholder for search page input"
+      }
+    },
+    {
+      "segment_id": "theme.SearchPage.inputLabel",
+      "source_content": "Search",
+      "source_content_hash": "49c266baaaa70981ea188fa714d5c40cf13830d786a861c9943ae0d26a7f3fe9",
+      "node_type": "json_message",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "搜索"
+      },
+      "metadata": {
+        "json_description": "The ARIA label for search page input"
+      }
+    },
+    {
+      "segment_id": "theme.SearchPage.algoliaLabel",
+      "source_content": "Search by Algolia",
+      "source_content_hash": "1f4f568cec4f3d4bae359fe5649894190d7a94cebac999148eb897cd7365da40",
+      "node_type": "json_message",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "由Algolia提供搜索"
+      },
+      "metadata": {
+        "json_description": "The ARIA label for Algolia mention"
+      }
+    },
+    {
+      "segment_id": "theme.SearchPage.noResultsText",
+      "source_content": "No results were found",
+      "source_content_hash": "8fb7e1ee6a3ad73b4676d7578e23b7585cbef054e52934c78b091eb30ab53f67",
+      "node_type": "json_message",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "未找到结果"
+      },
+      "metadata": {
+        "json_description": "The paragraph for empty search result"
+      }
+    },
+    {
+      "segment_id": "theme.SearchPage.fetchingNewResults",
+      "source_content": "Fetching new results...",
+      "source_content_hash": "8b5f3b89021efe16afdb08e83d522b13fa94a426930f2795a0023a72bfce42a4",
+      "node_type": "json_message",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "正在获取新结果..."
+      },
+      "metadata": {
+        "json_description": "The paragraph for fetching new search results"
       }
     },
     {
@@ -2613,7 +2613,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "404. 图片未找到"
+        "zh-CN": "404。图片未找到"
       },
       "metadata": {
         "json_description": "When the image is not found"
@@ -2782,7 +2782,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "此页面是草稿。仅在开发环境中可见，且不会包含在生产构建中。"
+        "zh-CN": "此页面是草稿。仅在开发环境中可见，且不会包含在生产版本中。"
       },
       "metadata": {
         "json_description": "The draft content banner message"
@@ -2829,32 +2829,6 @@
     }
   ],
   "original_json_structure": {
-    "Preset options": {
-      "message": "Preset options"
-    },
-    "apiDocs.configTabs.presetOptions.description": {
-      "message": "If you use a preset, configure this plugin through the {presetLink}:"
-    },
-    "preset options": {
-      "message": "preset options"
-    },
-    "Plugin options": {
-      "message": "Plugin options"
-    },
-    "If you are using a standalone plugin, provide options directly to the plugin:": {
-      "message": "If you are using a standalone plugin, provide options directly to the plugin:"
-    },
-    "Current: {canaryVersionName}": {
-      "message": "Current: {canaryVersionName}",
-      "description": "The hint text for the current canary version tag."
-    },
-    "Example: 0.0.0-4922": {
-      "message": "Example: 0.0.0-4922",
-      "description": "An example canary version tag when the actual version can't be fetched."
-    },
-    "The latest canary version that's available on npm is published at {time}.": {
-      "message": "The latest canary version that's available on npm is published at {time}."
-    },
     "Docusaurus with Keytar": {
       "message": "Docusaurus with Keytar"
     },
@@ -2909,6 +2883,32 @@
     },
     "versionsPage.legacy.description": {
       "message": "Here you can find documentation for legacy version of Docusaurus."
+    },
+    "Preset options": {
+      "message": "Preset options"
+    },
+    "apiDocs.configTabs.presetOptions.description": {
+      "message": "If you use a preset, configure this plugin through the {presetLink}:"
+    },
+    "preset options": {
+      "message": "preset options"
+    },
+    "Plugin options": {
+      "message": "Plugin options"
+    },
+    "If you are using a standalone plugin, provide options directly to the plugin:": {
+      "message": "If you are using a standalone plugin, provide options directly to the plugin:"
+    },
+    "Current: {canaryVersionName}": {
+      "message": "Current: {canaryVersionName}",
+      "description": "The hint text for the current canary version tag."
+    },
+    "Example: 0.0.0-4922": {
+      "message": "Example: 0.0.0-4922",
+      "description": "An example canary version tag when the actual version can't be fetched."
+    },
+    "The latest canary version that's available on npm is published at {time}.": {
+      "message": "The latest canary version that's available on npm is published at {time}."
     },
     "homepage.features.powered-by-mdx.title": {
       "message": "Powered by MDX"
@@ -3024,6 +3024,19 @@
     "showcase.tag.rtl.description": {
       "message": "Docusaurus sites using the right-to-left reading direction support."
     },
+    "showcase.filters.resultCount": {
+      "message": "1 site|{sitesCount} sites",
+      "description": "Pluralized label for the number of sites found on the showcase. Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+    },
+    "Docusaurus Site Showcase": {
+      "message": "Docusaurus Site Showcase"
+    },
+    "List of websites people are building with Docusaurus": {
+      "message": "List of websites people are building with Docusaurus"
+    },
+    "showcase.header.button": {
+      "message": "🙏 Please add your site"
+    },
     "colorGenerator.tip.body": {
       "message": "Aim for at least {wcagLink} for the primary color to ensure readability. Use the Docusaurus website itself to preview how your color palette would look like. You can use alternative palettes in dark mode because one color doesn't usually work in both light and dark mode."
     },
@@ -3065,15 +3078,6 @@
     },
     "colorGenerator.text": {
       "message": "Replace the variables in {cssPath} with these new variables."
-    },
-    "playground.codesandbox.description": {
-      "message": "CodeSandbox is an online code editor and development environment that allows developers to create, share and collaborate on web development projects in a browser-based environment"
-    },
-    "playground.stackblitz.description": {
-      "message": "StackBlitz uses a novel {webContainersLink} technology to run Docusaurus directly in your browser."
-    },
-    "playground.tryItButton": {
-      "message": "Try it now!"
     },
     "team.profile.websiteLinkLabel": {
       "message": "website"
@@ -3135,18 +3139,14 @@
     "team.profile.Nisarag Bhatt.body": {
       "message": "Fullstack web developer who loves learning new technologies and applying them! Loves contributing to open source as well as writing content articles and tutorials."
     },
-    "showcase.filters.resultCount": {
-      "message": "1 site|{sitesCount} sites",
-      "description": "Pluralized label for the number of sites found on the showcase. Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+    "playground.codesandbox.description": {
+      "message": "CodeSandbox is an online code editor and development environment that allows developers to create, share and collaborate on web development projects in a browser-based environment"
     },
-    "Docusaurus Site Showcase": {
-      "message": "Docusaurus Site Showcase"
+    "playground.stackblitz.description": {
+      "message": "StackBlitz uses a novel {webContainersLink} technology to run Docusaurus directly in your browser."
     },
-    "List of websites people are building with Docusaurus": {
-      "message": "List of websites people are building with Docusaurus"
-    },
-    "showcase.header.button": {
-      "message": "🙏 Please add your site"
+    "playground.tryItButton": {
+      "message": "Try it now!"
     },
     "upgradeGuide.archivedVersion.notice": {
       "message": "You are browsing an archived version and the snippet below is outdated. Please go to the {mainSiteLink} and follow the instructions there to upgrade to the latest version."
@@ -3169,6 +3169,9 @@
     "the generated index page guide": {
       "message": "the generated index page guide"
     },
+    "showcase.card.sourceLink": {
+      "message": "source"
+    },
     "showcase.usersList.noResult": {
       "message": "No result"
     },
@@ -3178,17 +3181,11 @@
     "showcase.usersList.allUsers": {
       "message": "All sites"
     },
-    "showcase.card.sourceLink": {
-      "message": "source"
-    },
     "showcase.filters.title": {
       "message": "Filters"
     },
     "showcase.searchBar.placeholder": {
       "message": "Search for site name..."
-    },
-    "changelog.backLink": {
-      "message": "← Back to index page"
     },
     "theme.changelog.post.paginator.navAriaLabel": {
       "message": "Changelog item navigation",
@@ -3201,6 +3198,9 @@
     "theme.changelog.post.paginator.olderRelease": {
       "message": "Older release",
       "description": "The changelog button label to navigate to the older release"
+    },
+    "changelog.backLink": {
+      "message": "← Back to index page"
     },
     "changelog.description.rssLink": {
       "message": "RSS feeds"
@@ -3216,14 +3216,6 @@
       "message": "Scroll back to top",
       "description": "The ARIA label for the back to top button"
     },
-    "theme.blog.archive.title": {
-      "message": "Archive",
-      "description": "The page & hero title of the blog archive page"
-    },
-    "theme.blog.archive.description": {
-      "message": "Archive",
-      "description": "The page & hero description of the blog archive page"
-    },
     "theme.blog.paginator.navAriaLabel": {
       "message": "Blog list page navigation",
       "description": "The ARIA label for the blog pagination"
@@ -3235,6 +3227,14 @@
     "theme.blog.paginator.olderEntries": {
       "message": "Older entries",
       "description": "The label used to navigate to the older blog posts page (next page)"
+    },
+    "theme.blog.archive.title": {
+      "message": "Archive",
+      "description": "The page & hero title of the blog archive page"
+    },
+    "theme.blog.archive.description": {
+      "message": "Archive",
+      "description": "The page & hero description of the blog archive page"
     },
     "theme.blog.post.paginator.navAriaLabel": {
       "message": "Blog post page navigation",
@@ -3268,13 +3268,13 @@
       "message": "Switch between dark and light mode (currently {mode})",
       "description": "The ARIA label for the color mode toggle"
     },
-    "theme.docs.DocCard.categoryDescription.plurals": {
-      "message": "1 item|{count} items",
-      "description": "The default description for a category card in the generated index about how many items this category includes"
-    },
     "theme.docs.breadcrumbs.navAriaLabel": {
       "message": "Breadcrumbs",
       "description": "The ARIA label for the breadcrumbs"
+    },
+    "theme.docs.DocCard.categoryDescription.plurals": {
+      "message": "1 item|{count} items",
+      "description": "The default description for a category card in the generated index about how many items this category includes"
     },
     "theme.docs.paginator.navAriaLabel": {
       "message": "Docs pages",
@@ -3335,13 +3335,13 @@
       "message": "Last updated{atDate}{byUser}",
       "description": "The sentence used to display when a page has been last updated, and by who"
     },
-    "theme.navbar.mobileVersionsDropdown.label": {
-      "message": "Versions",
-      "description": "The label for the navbar versions dropdown on mobile view"
-    },
     "theme.NotFound.title": {
       "message": "Page Not Found",
       "description": "The title of the 404 page"
+    },
+    "theme.navbar.mobileVersionsDropdown.label": {
+      "message": "Versions",
+      "description": "The label for the navbar versions dropdown on mobile view"
     },
     "theme.tags.tagsListLabel": {
       "message": "Tags:",
@@ -3419,14 +3419,6 @@
       "message": "One min read|{readingTime} min read",
       "description": "Pluralized label for \"{readingTime} min read\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
     },
-    "theme.CodeBlock.wordWrapToggle": {
-      "message": "Toggle word wrap",
-      "description": "The title attribute for toggle word wrapping button of code block lines"
-    },
-    "theme.docs.breadcrumbs.home": {
-      "message": "Home page",
-      "description": "The ARIA label for the home page in the breadcrumbs"
-    },
     "theme.CodeBlock.copy": {
       "message": "Copy",
       "description": "The copy button label on code blocks"
@@ -3438,6 +3430,14 @@
     "theme.CodeBlock.copyButtonAriaLabel": {
       "message": "Copy code to clipboard",
       "description": "The ARIA label for copy code blocks button"
+    },
+    "theme.CodeBlock.wordWrapToggle": {
+      "message": "Toggle word wrap",
+      "description": "The title attribute for toggle word wrapping button of code block lines"
+    },
+    "theme.docs.breadcrumbs.home": {
+      "message": "Home page",
+      "description": "The ARIA label for the home page in the breadcrumbs"
     },
     "theme.docs.sidebar.collapseButtonTitle": {
       "message": "Collapse sidebar",
@@ -3481,38 +3481,6 @@
     },
     "theme.SearchBar.seeAll": {
       "message": "See all {count} results"
-    },
-    "theme.SearchPage.documentsFound.plurals": {
-      "message": "One document found|{count} documents found",
-      "description": "Pluralized label for \"{count} documents found\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
-    },
-    "theme.SearchPage.existingResultsTitle": {
-      "message": "Search results for \"{query}\"",
-      "description": "The search page title for non-empty query"
-    },
-    "theme.SearchPage.emptyResultsTitle": {
-      "message": "Search the documentation",
-      "description": "The search page title for empty query"
-    },
-    "theme.SearchPage.inputPlaceholder": {
-      "message": "Type your search here",
-      "description": "The placeholder for search page input"
-    },
-    "theme.SearchPage.inputLabel": {
-      "message": "Search",
-      "description": "The ARIA label for search page input"
-    },
-    "theme.SearchPage.algoliaLabel": {
-      "message": "Search by Algolia",
-      "description": "The ARIA label for Algolia mention"
-    },
-    "theme.SearchPage.noResultsText": {
-      "message": "No results were found",
-      "description": "The paragraph for empty search result"
-    },
-    "theme.SearchPage.fetchingNewResults": {
-      "message": "Fetching new results...",
-      "description": "The paragraph for fetching new search results"
     },
     "theme.SearchBar.label": {
       "message": "Search",
@@ -3610,6 +3578,38 @@
       "message": "Search docs",
       "description": "The placeholder of the input of the DocSearch pop-up modal"
     },
+    "theme.SearchPage.documentsFound.plurals": {
+      "message": "One document found|{count} documents found",
+      "description": "Pluralized label for \"{count} documents found\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+    },
+    "theme.SearchPage.existingResultsTitle": {
+      "message": "Search results for \"{query}\"",
+      "description": "The search page title for non-empty query"
+    },
+    "theme.SearchPage.emptyResultsTitle": {
+      "message": "Search the documentation",
+      "description": "The search page title for empty query"
+    },
+    "theme.SearchPage.inputPlaceholder": {
+      "message": "Type your search here",
+      "description": "The placeholder for search page input"
+    },
+    "theme.SearchPage.inputLabel": {
+      "message": "Search",
+      "description": "The ARIA label for search page input"
+    },
+    "theme.SearchPage.algoliaLabel": {
+      "message": "Search by Algolia",
+      "description": "The ARIA label for Algolia mention"
+    },
+    "theme.SearchPage.noResultsText": {
+      "message": "No results were found",
+      "description": "The paragraph for empty search result"
+    },
+    "theme.SearchPage.fetchingNewResults": {
+      "message": "Fetching new results...",
+      "description": "The paragraph for fetching new search results"
+    },
     "theme.IdealImageMessage.loading": {
       "message": "Loading...",
       "description": "When the full-scale image is loading"
@@ -3692,9 +3692,9 @@
     }
   },
   "target_i18n_subpath": "code.json",
-  "last_updated_timestamp": "2025-05-24T16:02:25.332772+00:00",
+  "last_updated_timestamp": "2025-05-24T16:21:03.936840+00:00",
   "schema_version": "1.0",
   "translated_versions": {
-    "zh-CN": "b357305073ad8904a303c3d5897a7c71ce254f8655aa604a209aabe84607b3e6"
+    "zh-CN": "57e3e2b5b303091eb846a65c3172c81b64385c8dac129c7ccdcdfbfc0789fdf2"
   }
 }
