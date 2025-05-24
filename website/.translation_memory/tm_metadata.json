@@ -1,0 +1,101 @@
+{
+  "locales": [
+    "zh-CN"
+  ],
+  "folder_patterns": [
+    {
+      "source_dir_relative_to_docusaurus_root": "docs",
+      "target_i18n_subpath": "docusaurus-plugin-content-docs/current",
+      "original_agent_pattern": {
+        "source_pattern": "docs/**/*.{md,mdx}",
+        "translation_pattern": "i18n/%locale%/docusaurus-plugin-content-docs/current/**/*.{md,mdx}",
+        "type": "docs",
+        "description": "Documentation files for the default docs instance, current version."
+      },
+      "type": "docs",
+      "description": "Documentation files for the default docs instance, current version.",
+      "ignore_patterns": null
+    },
+    {
+      "source_dir_relative_to_docusaurus_root": "versioned_docs",
+      "target_i18n_subpath": "docusaurus-plugin-content-docs",
+      "original_agent_pattern": {
+        "source_pattern": "versioned_docs/version-*/**/*.{md,mdx}",
+        "translation_pattern": "i18n/%locale%/docusaurus-plugin-content-docs/version-*/**/*.{md,mdx}",
+        "type": "versioned_docs",
+        "description": "Documentation files for the default docs instance, versioned. The first '*' in 'version-*' represents a version identifier (e.g., '2.x', '3.0.1')."
+      },
+      "type": "versioned_docs",
+      "description": "Documentation files for the default docs instance, versioned. The first '*' in 'version-*' represents a version identifier (e.g., '2.x', '3.0.1').",
+      "ignore_patterns": null
+    },
+    {
+      "source_dir_relative_to_docusaurus_root": "community",
+      "target_i18n_subpath": "docusaurus-plugin-content-docs-community/current",
+      "original_agent_pattern": {
+        "source_pattern": "community/**/*.{md,mdx}",
+        "translation_pattern": "i18n/%locale%/docusaurus-plugin-content-docs-community/current/**/*.{md,mdx}",
+        "type": "docs-community",
+        "description": "Documentation files for the 'community' docs instance (ID: community), current version."
+      },
+      "type": "docs-community",
+      "description": "Documentation files for the 'community' docs instance (ID: community), current version.",
+      "ignore_patterns": null
+    },
+    {
+      "source_dir_relative_to_docusaurus_root": "blog",
+      "target_i18n_subpath": "docusaurus-plugin-content-blog",
+      "original_agent_pattern": {
+        "source_pattern": "blog/**/*.{md,mdx}",
+        "translation_pattern": "i18n/%locale%/docusaurus-plugin-content-blog/**/*.{md,mdx}",
+        "type": "blog",
+        "description": "Blog posts for the default blog instance. This includes content from subdirectories like 'blog/releases/' if they contain Markdown/MDX files."
+      },
+      "type": "blog",
+      "description": "Blog posts for the default blog instance. This includes content from subdirectories like 'blog/releases/' if they contain Markdown/MDX files.",
+      "ignore_patterns": null
+    },
+    {
+      "source_dir_relative_to_docusaurus_root": "blog",
+      "target_i18n_subpath": "docusaurus-plugin-content-blog/authors.yml",
+      "original_agent_pattern": {
+        "source_pattern": "blog/authors.yml",
+        "translation_pattern": "i18n/%locale%/docusaurus-plugin-content-blog/authors.yml",
+        "type": "blog_config",
+        "description": "Blog authors configuration file for the default blog instance."
+      },
+      "type": "blog_config",
+      "description": "Blog authors configuration file for the default blog instance.",
+      "ignore_patterns": null
+    },
+    {
+      "source_dir_relative_to_docusaurus_root": "src/pages",
+      "target_i18n_subpath": "docusaurus-plugin-content-pages",
+      "original_agent_pattern": {
+        "source_pattern": "src/pages/**/*.{md,mdx}",
+        "translation_pattern": "i18n/%locale%/docusaurus-plugin-content-pages/**/*.{md,mdx}",
+        "type": "pages",
+        "description": "Markdown/MDX files from the 'src/pages' directory."
+      },
+      "type": "pages",
+      "description": "Markdown/MDX files from the 'src/pages' directory.",
+      "ignore_patterns": null
+    },
+    {
+      "source_dir_relative_to_docusaurus_root": "i18n/en",
+      "target_i18n_subpath": "",
+      "original_agent_pattern": {
+        "source_pattern": "i18n/en/**/*.json",
+        "translation_pattern": "i18n/%locale%/**/*.json",
+        "type": "json_translations",
+        "description": "JSON translation files for UI text, theme labels, and other code messages. 'en' is the source locale specified."
+      },
+      "type": "json_translations",
+      "description": "JSON translation files for UI text, theme labels, and other code messages. 'en' is the source locale specified.",
+      "ignore_patterns": null
+    }
+  ],
+  "docusaurus_root_dir_relative_to_repo": "website",
+  "docusaurus_config_filepath_relative_to_repo": "website/docusaurus.config.ts",
+  "source_language": "en"
+}

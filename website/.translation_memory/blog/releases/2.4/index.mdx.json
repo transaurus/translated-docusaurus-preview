@@ -1,0 +1,412 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "blog/releases/2.4/index.mdx",
+  "source_file_content_hash": "d7f12ddba6d5c7ffe4f816e3b2f6b91a4c2ed56b9469069974a01b0223350b81",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\ntitle: Docusaurus 2.4\nauthors: [slorber]\ntags: [release]\nimage: ./img/social-card.png\ndate: 2023-03-23\n---",
+      "source_content_hash": "a77da077a975dbb45241aaae825f36086550e281dc2ee1e7828bfe1b069ba4da",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "53eaf0e1",
+      "source_content": "We are happy to announce **Docusaurus 2.4**.",
+      "source_content_hash": "94be7691b29fb5ab285ce56fa614ec5a9d8427526687e17b9fa5c9c9e32becf6",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "我们很高兴地宣布 **Docusaurus 2.4** 正式发布。"
+      }
+    },
+    {
+      "segment_id": "8ac585fb",
+      "source_content": "The upgrade should be easy: as explained in our [release process documentation](/community/release-process), minor versions respect [Semantic Versioning](https://semver.org/).",
+      "source_content_hash": "c798b6e35eb0c79c81cf7d49c78ac7cde6fc60897b64f9cfc3abb86bb45cd729",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "本次升级过程应该很顺利：正如我们的[发布流程文档](/community/release-process)所述，次要版本更新遵循[语义化版本规范](https://semver.org/)。"
+      }
+    },
+    {
+      "segment_id": "180bddb1",
+      "source_content": "![Docusaurus blog post social card](./img/social-card.png)",
+      "source_content_hash": "0d6cc67b96187c80e96effdbccdb8ebd594812778ff93d7f85e45f47c4131a88",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "![Docusaurus 博客文章社交媒体卡片](./img/social-card.png)"
+      }
+    },
+    {
+      "segment_id": "28a64196",
+      "source_content": "<!--truncate-->",
+      "source_content_hash": "f5cded2aa7e288e395fe4f67f9dabda2281904b2f5358d07302b3aa8be0acdfa",
+      "node_type": "comment",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_28a64196"
+      }
+    },
+    {
+      "segment_id": "55ad7c88",
+      "source_content": "import BrowserWindow from '@site/src/components/BrowserWindow';\nimport IframeWindow from '@site/src/components/BrowserWindow/IframeWindow';\nimport ErrorBoundaryTestButton from '@site/src/components/ErrorBoundaryTestButton';",
+      "source_content_hash": "8c93e81e8a225449e6e076e57a6598caac30c15068353affa40cd87553e66099",
+      "node_type": "mdxjsEsm",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_55ad7c88"
+      }
+    },
+    {
+      "segment_id": "418617bd",
+      "source_content": "## Highlights",
+      "source_content_hash": "f5aedb14b6b9da4899c54cdf031961cfbda60d336dc60afdb5e12f0b83945e84",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 重点更新"
+      }
+    },
+    {
+      "segment_id": "40f9552a",
+      "source_content": "### Sidebar item description",
+      "source_content_hash": "08ab9e860ec21ef22734f7a080ca2d42d342b7866b08e92c66c934a8bc0673da",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### 侧边栏项目描述"
+      }
+    },
+    {
+      "segment_id": "f2c2bdd0",
+      "source_content": "In [#8236](https://github.com/facebook/docusaurus/pull/8236), we made it possible to provide a new `description` attribute for docs sidebar items of type `link` and `category`.",
+      "source_content_hash": "1a043ba55f4f421f4c7d3f656025190877bfa7553ac83f1fcd091c751890fa6b",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "在 [#8236](https://github.com/facebook/docusaurus/pull/8236) 中，我们为文档侧边栏的 `link` 和 `category` 类型项目新增了 `description` 属性支持。"
+      }
+    },
+    {
+      "segment_id": "08021a08",
+      "source_content": "```tsx title=\"sidebars.js\"\n[\n  {\n    type: 'link',\n    label: 'Link with description',\n    href: 'https://docusaurus.io',\n    // highlight-next-line\n    description: 'Some link description',\n  },\n  {\n    type: 'category',\n    label: 'Category with description',\n    // highlight-next-line\n    description: 'Some category description',\n    items: [],\n  },\n];\n```",
+      "source_content_hash": "41271edbfe979ccaccd566a6e6b0f93e71585f861546b5d53226d5ed2ea0c4ba",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_08021a08"
+      }
+    },
+    {
+      "segment_id": "8af76f3d",
+      "source_content": "These descriptions will be used in category generated index pages.",
+      "source_content_hash": "e6852483965b7ad40fb62b54438fb1fc2fbe3259c96cad3871b38dc00fb9127d",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "这些描述文字将用于分类生成的索引页面。"
+      }
+    },
+    {
+      "segment_id": "a9d49f92",
+      "source_content": "![Show sidebar category generated index with custom descriptions](./img/sidebar-item-description.jpg)",
+      "source_content_hash": "8d916ea9cf1e2a3f6f549fa78069c77b672be13f420e5a41a3f204abc945f1e2",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "![展示带有自定义描述的侧边栏分类生成索引页](./img/sidebar-item-description.jpg)"
+      }
+    },
+    {
+      "segment_id": "6d28a77c",
+      "source_content": "### Theme Query String",
+      "source_content_hash": "7d1ff51c3ca3dba4901c4455d13ebb9db5f9525b7e2dde59fef65c16ff544155",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### 主题查询参数"
+      }
+    },
+    {
+      "segment_id": "f7ef78f9",
+      "source_content": "In [#8708](https://github.com/facebook/docusaurus/pull/8708), we added the possibility to force Docusaurus to initialize itself in `light` or `dark` mode through a new `docusaurus-theme` query-string parameter.",
+      "source_content_hash": "859444df1ad41030de7231a2b0f0e769ae582edd4768bdbe8e2925e66c15b142",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "通过 [#8708](https://github.com/facebook/docusaurus/pull/8708)，我们新增了通过 `docusaurus-theme` 查询字符串参数强制初始化浅色/深色主题的功能。"
+      }
+    },
+    {
+      "segment_id": "b36c6338",
+      "source_content": "This is useful to ensure a consistent theme when embedding an existing Docusaurus page into an iframe or WebView.",
+      "source_content_hash": "cf2dba12f0b033db5a02d13b38257250598d498167d10d0ace6f526763e9f0f0",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "这对于在 iframe 或 WebView 中嵌入 Docusaurus 页面时保持主题一致性非常有用。"
+      }
+    },
+    {
+      "segment_id": "6b969f9f",
+      "source_content": "<IframeWindow url=\"/docs/?docusaurus-theme=light\" />",
+      "source_content_hash": "dc61a905b04df202379e75c9370f784a227809e2ff1e1e89072a34619732f49b",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_6b969f9f"
+      }
+    },
+    {
+      "segment_id": "17300566",
+      "source_content": "<IframeWindow url=\"/docs/?docusaurus-theme=dark\" />",
+      "source_content_hash": "b4eb593f0681e5f449e81d4d94555e81ece3164c01b862f2b575f437ef9f9140",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_17300566"
+      }
+    },
+    {
+      "segment_id": "7283cdac",
+      "source_content": "### Remark plugin npm2yarn upgrade",
+      "source_content_hash": "2214ddaefd8c3247f8e9604a12c92efd69d83f485985205efb12a48872e0515f",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### Remark插件npm2yarn升级"
+      }
+    },
+    {
+      "segment_id": "1131ef75",
+      "source_content": "In [#8690](https://github.com/facebook/docusaurus/pull/8690), we upgraded our Remark plugin [@docusaurus/remark-plugin-npm2yarn](https://github.com/facebook/docusaurus/tree/main/packages/docusaurus-remark-plugin-npm2yarn) with many conversion bug fixes, first-class support for pnpm, and the ability to register custom converters producing new tabs.",
+      "source_content_hash": "5465c7f2a50bc3dc38bc8bebee0c68287a5267a51423e616ee5c358cef1fb034",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "在 [#8690](https://github.com/facebook/docusaurus/pull/8690) 中，我们升级了 Remark 插件 [@docusaurus/remark-plugin-npm2yarn](https://github.com/facebook/docusaurus/tree/main/packages/docusaurus-remark-plugin-npm2yarn)，修复了多个转换错误，新增对 pnpm 的一流支持，并支持注册生成新标签页的自定义转换器。"
+      }
+    },
+    {
+      "segment_id": "750e2f7e",
+      "source_content": "````markdown\nRun these commands!\n\n```bash npm2yarn\nnpm install\nnpm run build\nnpm run myCustomScript -- --some-arg\n```\n````",
+      "source_content_hash": "397ad1d4143a869873c882e0f03b8ca50e5b446265fe711c242b1b3508ede1dd",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_750e2f7e"
+      }
+    },
+    {
+      "segment_id": "32db7046",
+      "source_content": "<BrowserWindow>\n\n```bash npm2yarn\nnpm install\nnpm run build\nnpm run myCustomScript -- --some-arg\n```\n\n</BrowserWindow>",
+      "source_content_hash": "97bba070c5002ddfee593b6660eceafdc538f25b6ba377611c4deb8a81980f8a",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_32db7046"
+      }
+    },
+    {
+      "segment_id": "66819c78",
+      "source_content": "### gtag support for multiple tracking IDs",
+      "source_content_hash": "e1324b0b3178e8a6081361dbe38f4a69626c56b4b3e9fe356ea7d9ffe81fae86",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### gtag支持多跟踪ID"
+      }
+    },
+    {
+      "segment_id": "fbc2db85",
+      "source_content": "In [#8620](https://github.com/facebook/docusaurus/pull/8620) we added support for the [@docusaurus/plugin-google-gtag](/docs/api/plugins/@docusaurus/plugin-google-gtag) plugin to declare multiple tracking IDs.",
+      "source_content_hash": "917fcbb70854696139d8c47ba76922dd06dc777eb87548a3487948a95ab176e2",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "通过 [#8620](https://github.com/facebook/docusaurus/pull/8620)，我们为 [@docusaurus/plugin-google-gtag](/docs/api/plugins/@docusaurus/plugin-google-gtag) 插件添加了声明多个跟踪ID的支持。"
+      }
+    },
+    {
+      "segment_id": "b73a4a7a",
+      "source_content": "```js title=\"docusaurus.config.js\"\nmodule.exports = {\n  presets: [\n    [\n      '@docusaurus/preset-classic',\n      {\n        gtag: {\n          trackingID: [\n            // highlight-next-line\n            'G-<YOUR-NEW-GA4-ID>',\n            // highlight-next-line\n            'UA-<YOUR-OLD-UA-ID>',\n          ],\n        },\n      },\n    ],\n  ],\n};\n```",
+      "source_content_hash": "b9190a7bdba153a39157fbbb322056f184450d110bcd284246d67a2a9c0fd7eb",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_b73a4a7a"
+      }
+    },
+    {
+      "segment_id": "467b2691",
+      "source_content": ":::warning[Google is sunsetting Universal Analytics]\n\n**[Google will sunset its Universal Analytics](https://blog.google/products/marketingplatform/analytics/prepare-for-future-with-google-analytics-4/)** on **July 1, 2023**.\n\nDocusaurus users should migrate to Google Analytics 4. Google **does not permit to migrate your existing Universal Analytics data** to your new Google Analytics 4 property.\n\nTo preserve the continuity of your analytics, we temporarily recommend that you report events to 2 tracking IDs at the same time: the old one (`UA-*`) and new one (`G-*`). Refer to the **[dedicated issue](https://github.com/facebook/docusaurus/issues/7221)** for details.\n\n:::",
+      "source_content_hash": "c18d588fa7243f5bfc63687abf58de1cc399e6c1a3c2ab791ae358fbe827eede",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::warning[Google即将停止Universal Analytics服务]\n\n**[Google将于2023年7月1日停止Universal Analytics服务](https://blog.google/products/marketingplatform/analytics/prepare-for-future-with-google-analytics-4/)**。\n\nDocusaurus用户应迁移至Google Analytics 4。请注意，Google**不允许将现有Universal Analytics数据迁移**到新的Google Analytics 4属性。\n\n为保持分析数据的连续性，我们建议暂时同时向两个跟踪ID（旧版`UA-*`和新版`G-*`）发送事件数据。详情请参阅**[专属issue](https://github.com/facebook/docusaurus/issues/7221)**。\n\n:::"
+      }
+    },
+    {
+      "segment_id": "48155948",
+      "source_content": "### Developer Experience",
+      "source_content_hash": "0aa6ecd08cecf542a7ec05db16b114e07d767d9864bdfd553c5a86cacf1ccb33",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### 开发者体验"
+      }
+    },
+    {
+      "segment_id": "1958bc43",
+      "source_content": "In [#8736](https://github.com/facebook/docusaurus/pull/8736), we improved how we render error messages and added initial support to render the full causal chain of an error (see [ES2022 Error Cause](https://h3manth.com/ES2022/#error-cause)).",
+      "source_content_hash": "034060e507c821e821de7800c1fb65d01a472c02e539cb35caaed1579bab87bb",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "在 [#8736](https://github.com/facebook/docusaurus/pull/8736) 中，我们优化了错误信息渲染方式，并新增了对错误完整因果链的初步支持（参见[ES2022错误原因](https://h3manth.com/ES2022/#error-cause)）。"
+      }
+    },
+    {
+      "segment_id": "0309a88d",
+      "source_content": ":::tip\n\nTo see it in action, click here: <ErrorBoundaryTestButton cause=\"Probably undefined is not a function 😄\"/>\n\n:::",
+      "source_content_hash": "bc4f145e4b7d21b11db6397f46fcb7b88b2d16e7086ada3297165a2633fd5275",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::tip\n\n点击此处查看效果：<ErrorBoundaryTestButton cause=\"可能是未定义不是函数 😄\"/>\n\n:::"
+      }
+    },
+    {
+      "segment_id": "b9331170",
+      "source_content": "In [#8735](https://github.com/facebook/docusaurus/pull/8735) we also made navbar-related error messages clearer to help users understand what they did wrong.",
+      "source_content_hash": "37bf8df9669458cff32e69b0a6a1936e0d7c5a9be0d0fa2af4ead0c20aaa46e2",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "通过 [#8735](https://github.com/facebook/docusaurus/pull/8735)，我们还优化了导航栏相关错误信息的清晰度，帮助用户更快定位问题。"
+      }
+    },
+    {
+      "segment_id": "8fcdd6d4",
+      "source_content": "![Docusaurus navbar error message screenshot](./img/navbar-error.jpg)",
+      "source_content_hash": "0ae356402711a28d9f6953dd5384a8851bed7e3bdaa883a555db59ba2a015b63",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "![Docusaurus导航栏错误信息截图](./img/navbar-error.jpg)"
+      }
+    },
+    {
+      "segment_id": "c35e5786",
+      "source_content": "### Translations",
+      "source_content_hash": "1ecceac87af04e40fa9d1fe5ad527d2293336e4e195c13b072d0c5d00958879d",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### 国际化"
+      }
+    },
+    {
+      "segment_id": "9c9e2b64",
+      "source_content": "We made it possible to translate some new elements:",
+      "source_content_hash": "c874c6eb8967cc17bddc027b3219206c25c8bc3cf75d057760d8f70f37d99fea",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "我们新增了以下元素的翻译支持："
+      }
+    },
+    {
+      "segment_id": "6409152f",
+      "source_content": "- [#8677](https://github.com/facebook/docusaurus/pull/8677) introduces a new `process.env.DOCUSAURUS_CURRENT_LOCALE` (experimental) allowing you to localize your config file, including site title, tagline, announcement bar, baseUrl...\n- [#8616](https://github.com/facebook/docusaurus/pull/8616) allows to translate the navbar and footer logo alt text",
+      "source_content_hash": "80df71de01180578dcd39287ddacb90f8e69e4ec751eb5c1150fce0de2228176",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "- [#8677](https://github.com/facebook/docusaurus/pull/8677) 引入了实验性变量 `process.env.DOCUSAURUS_CURRENT_LOCALE`，允许对配置文件（包括站点标题、标语、公告栏、baseUrl等）进行本地化处理\n- [#8616](https://github.com/facebook/docusaurus/pull/8616) 实现了导航栏和页脚Logo替代文本的翻译支持"
+      }
+    },
+    {
+      "segment_id": "14bc6b75",
+      "source_content": "We added default theme translation support for multiple languages:",
+      "source_content_hash": "e30d2334f8597e1bd5e1faa4b8cce063a58a38a690528e4277c721d679d67a7f",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "我们为以下语言新增了默认主题翻译支持："
+      }
+    },
+    {
+      "segment_id": "292df6cb",
+      "source_content": "- 🇭🇺 [#8668](https://github.com/facebook/docusaurus/pull/8668): Hungarian\n- 🇳🇴 [#8631](https://github.com/facebook/docusaurus/pull/8631): Norwegian (Bokmål)",
+      "source_content_hash": "fb0328f07c2b3b52fc7c8646d8ee07e1d44a1516d48846140585c3582215ed79",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "- 🇭🇺 [#8668](https://github.com/facebook/docusaurus/pull/8668)：匈牙利语\n- 🇳🇴 [#8631](https://github.com/facebook/docusaurus/pull/8631)：挪威语（书面挪威语）"
+      }
+    },
+    {
+      "segment_id": "a3f69fad",
+      "source_content": ":::tip\n\nCompleting theme translations is an [ongoing effort](https://github.com/facebook/docusaurus/issues/3526) and an easy way to contribute to Docusaurus. We add new theme features regularly, for which we often [need new translations](https://github.com/facebook/docusaurus/issues/3526).\n\n:::",
+      "source_content_hash": "46b181d681890bb5fcda323bc7e0fcefd9f297b3bb0d83d218cb5eb2a0aaf77c",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::tip\n\n完善主题翻译是[持续进行的工作](https://github.com/facebook/docusaurus/issues/3526)，也是为Docusaurus做贡献的便捷方式。我们会定期新增主题功能，这些功能通常[需要新的翻译支持](https://github.com/facebook/docusaurus/issues/3526)。\n\n:::"
+      }
+    },
+    {
+      "segment_id": "8b448c8b",
+      "source_content": "## Other changes",
+      "source_content_hash": "664d73286695bab6e722d97de9d3e8c2cfcb1f3862e89e29908a9dc19af1fe6d",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 其他变更"
+      }
+    },
+    {
+      "segment_id": "ad3e22c6",
+      "source_content": "Other notable changes include:",
+      "source_content_hash": "7a7f506f7135be9a4fa913b729c202a73a90a1e28932ea8fe72609585c615fe3",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "其他值得注意的变更包括："
+      }
+    },
+    {
+      "segment_id": "a627a446",
+      "source_content": "- [#8674](https://github.com/facebook/docusaurus/pull/8674): respect `prefers-reduced-motion: reduce` media query\n- [#8712](https://github.com/facebook/docusaurus/pull/8712): use a navbar item of type `docSidebar` in template\n- [#8801](https://github.com/facebook/docusaurus/pull/8801): allow tabs children to be falsy\n- [#8757](https://github.com/facebook/docusaurus/pull/8757): make search page react to external query-string changes\n- [#8803](https://github.com/facebook/docusaurus/pull/8803): fix code block buttons position in RTL\n- [#8615](https://github.com/facebook/docusaurus/pull/8615): fix color mode toggle when using dark navbar\n- [#8699](https://github.com/facebook/docusaurus/pull/8699): fix navbar dropdown tab focus bug",
+      "source_content_hash": "7a78fc5f55c1596021e4f60500189ac686e0a5337914913c8e1e26bd2c0a6bb0",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "- [#8674](https://github.com/facebook/docusaurus/pull/8674)：遵循 `prefers-reduced-motion: reduce` 媒体查询设置\n- [#8712](https://github.com/facebook/docusaurus/pull/8712)：在模板中使用 `docSidebar` 类型的导航栏项目\n- [#8801](https://github.com/facebook/docusaurus/pull/8801)：允许标签页子元素为假值\n- [#8757](https://github.com/facebook/docusaurus/pull/8757)：使搜索页面响应外部查询字符串变化\n- [#8803](https://github.com/facebook/docusaurus/pull/8803)：修复RTL布局下代码块按钮位置\n- [#8615](https://github.com/facebook/docusaurus/pull/8615)：修复使用深色导航栏时的色彩模式切换问题\n- [#8699](https://github.com/facebook/docusaurus/pull/8699)：修复导航栏下拉菜单的标签页焦点错误"
+      }
+    },
+    {
+      "segment_id": "dce16ab4",
+      "source_content": "Check the **[2.4.0 changelog entry](/changelog/2.4.0)** for an exhaustive list of changes.",
+      "source_content_hash": "e4448c5c84e82e0117983946d306b62573c9d8107baf7e5bc480b73995a887e8",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "完整变更列表请查看 **[2.4.0版本更新日志](/changelog/2.4.0)**。"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-blog/authors.yml/releases/2.4/index.mdx",
+  "last_updated_timestamp": "2025-05-24T15:26:17.513141+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "zh-CN": "d7f12ddba6d5c7ffe4f816e3b2f6b91a4c2ed56b9469069974a01b0223350b81"
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "versioned_docs/version-3.1.1/api/plugins/plugin-sitemap.mdx",
+  "source_file_content_hash": "f13faf8117a84cf5a6e96a1eaf2ba3fbc81b1b0c41573da53520ff15bf270e20",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\nsidebar_position: 10\nslug: /api/plugins/@docusaurus/plugin-sitemap\n---",
+      "source_content_hash": "3e59f793f478f6e8d33e5aff7f9751d4e27448e16f8fe702ef51046feae3da0d",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "b3de8742",
+      "source_content": "# 📦 plugin-sitemap",
+      "source_content_hash": "5303bb5fa2dea94411ca8e7c4c02cada8a5c20ec4655782c6b64508ec12a80f3",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "# 📦 插件-sitemap"
+      }
+    },
+    {
+      "segment_id": "50387553",
+      "source_content": "import APITable from '@site/src/components/APITable';",
+      "source_content_hash": "617594357be14491b59c35a0417f7d0d89d9eda936d09d760f6b994379006923",
+      "node_type": "mdxjsEsm",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_50387553"
+      }
+    },
+    {
+      "segment_id": "7e5c5a39",
+      "source_content": "This plugin creates sitemaps for your site so that search engine crawlers can crawl your site more accurately.",
+      "source_content_hash": "bf54963c71d7291d2ff2874fcd6b09b5ccc6d24b7953eec8a7dd7b1bbe06da03",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "该插件为您的站点生成站点地图，以便搜索引擎爬虫能更精准地抓取您的网站内容。"
+      }
+    },
+    {
+      "segment_id": "0e7eb58c",
+      "source_content": ":::warning[production only]\n\nThis plugin is always inactive in development and **only active in production** because it works on the build output.\n\n:::",
+      "source_content_hash": "9a3df16769bf9dff0552e47d151e1d6e773b2dbf97634d241f808a109f326877",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::warning[仅生产环境]\n\n此插件在开发环境中始终处于非激活状态，**仅在生产环境生效**，因为它作用于构建输出结果。\n\n:::"
+      }
+    },
+    {
+      "segment_id": "d350c018",
+      "source_content": "## Installation {#installation}",
+      "source_content_hash": "01f99c1a4a9fd44bafc075a19f10269cf4e31a46b9c20b1a4b4cb278a46d10d5",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 安装 {#installation}"
+      }
+    },
+    {
+      "segment_id": "166426c2",
+      "source_content": "```bash npm2yarn\nnpm install --save @docusaurus/plugin-sitemap\n```",
+      "source_content_hash": "91bff432ac9cd5f62f2ad19a6c68ecc0d6ab33d9cf0f3f11269aeaf992867a7d",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_166426c2"
+      }
+    },
+    {
+      "segment_id": "6604338b",
+      "source_content": ":::tip\n\nIf you use the preset `@docusaurus/preset-classic`, you don't need to install this plugin as a dependency.\n\nYou can configure this plugin through the [preset options](../../using-plugins.mdx#docusauruspreset-classic).\n\n:::",
+      "source_content_hash": "737b2a008954011fd073f76b42dc5ff859f8bcaced754eff0b2741c9f733f873",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::tip\n\n若您使用 `@docusaurus/preset-classic` 预设，则无需单独安装此插件作为依赖项。\n\n您可通过[预设选项](../../using-plugins.mdx#docusauruspreset-classic)配置该插件。\n\n:::"
+      }
+    },
+    {
+      "segment_id": "b25f21be",
+      "source_content": "## Configuration {#configuration}",
+      "source_content_hash": "8d40fda5898137d101c15929fa40cb58d8c71e60e8b40b33ce74200512d9f011",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 配置 {#configuration}"
+      }
+    },
+    {
+      "segment_id": "7499a4e7",
+      "source_content": "Accepted fields:",
+      "source_content_hash": "2934eef61bc234f6f002b94be60279fd14197499b541a7659cff140c4058a0d7",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "可配置字段："
+      }
+    },
+    {
+      "segment_id": "e7c54101",
+      "source_content": "<APITable>\n\n| Name | Type | Default | Description |\n| --- | --- | --- | --- |\n| `changefreq` | `string` | `'weekly'` | See [sitemap docs](https://www.sitemaps.org/protocol.html#xmlTagDefinitions) |\n| `priority` | `number` | `0.5` | See [sitemap docs](https://www.sitemaps.org/protocol.html#xmlTagDefinitions) |\n| `ignorePatterns` | `string[]` | `[]` | A list of glob patterns; matching route paths will be filtered from the sitemap. Note that you may need to include the base URL in here. |\n| `filename` | `string` | `sitemap.xml` | The path to the created sitemap file, relative to the output directory. Useful if you have two plugin instances outputting two files. |\n\n</APITable>",
+      "source_content_hash": "d5ca8a97eb847630748f7b3036c510d57a078c296842b1117f6b74cf4f2717b1",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_e7c54101"
+      }
+    },
+    {
+      "segment_id": "3a76cadb",
+      "source_content": ":::info\n\nThis plugin also respects some site config:\n\n- [`noIndex`](../docusaurus.config.js.mdx#noIndex): results in no sitemap generated\n- [`trailingSlash`](../docusaurus.config.js.mdx#trailingSlash): determines if the URLs in the sitemap have trailing slashes\n\n:::",
+      "source_content_hash": "9e4798157098a78082b80f6b2deca03e149854e79ea4f271969d83d91604401f",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::info\n\n该插件同时遵循以下站点配置：\n\n- [`noIndex`](../docusaurus.config.js.mdx#noIndex)：将导致不生成站点地图\n- [`trailingSlash`](../docusaurus.config.js.mdx#trailingSlash)：决定站点地图中的URL是否包含尾部斜杠\n\n:::"
+      }
+    },
+    {
+      "segment_id": "2c1b51df",
+      "source_content": "### Example configuration {#ex-config}",
+      "source_content_hash": "20d25d28dcea8d9ae040da96412bd154d51e0bbdd4d165a57ff0556d46b26849",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### 配置示例 {#ex-config}"
+      }
+    },
+    {
+      "segment_id": "e536ea0d",
+      "source_content": "You can configure this plugin through preset options or plugin options.",
+      "source_content_hash": "118dd7722fc15d0951831695d6b79451361a000dc8a9de8138e737e9fe881ee5",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "您可通过预设选项或插件选项配置此插件。"
+      }
+    },
+    {
+      "segment_id": "d82460ed",
+      "source_content": ":::tip\n\nMost Docusaurus users configure this plugin through the preset options.\n\n:::",
+      "source_content_hash": "0a660704749473b8e0f2d5316b808fdf177b0264e404d29b9d4653e71924c332",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::tip\n\n多数Docusaurus用户通过预设选项配置此插件。\n\n:::"
+      }
+    },
+    {
+      "segment_id": "5d4925eb",
+      "source_content": "```js config-tabs\n// Preset Options: sitemap\n// Plugin Options: @docusaurus/plugin-sitemap\n\nconst config = {\n  changefreq: 'weekly',\n  priority: 0.5,\n  ignorePatterns: ['/tags/**'],\n  filename: 'sitemap.xml',\n};\n```",
+      "source_content_hash": "3d91f205d08800829d9d97d132c95276025b335f88f4f8e46201d1099c677030",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_5d4925eb"
+      }
+    },
+    {
+      "segment_id": "d0dd855b",
+      "source_content": "You can find your sitemap at `/sitemap.xml`.",
+      "source_content_hash": "35a013a73b3b889830b331ffe456e0fea323090bd05a0773cb50973e13411c12",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "您可在 `/sitemap.xml` 路径下找到生成的站点地图。"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs/version-3.1.1/api/plugins/plugin-sitemap.mdx",
+  "last_updated_timestamp": "2025-05-24T15:26:17.577677+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "zh-CN": "f13faf8117a84cf5a6e96a1eaf2ba3fbc81b1b0c41573da53520ff15bf270e20"
+  }
+}

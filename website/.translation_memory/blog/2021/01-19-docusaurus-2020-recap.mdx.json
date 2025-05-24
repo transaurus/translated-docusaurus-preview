@@ -1,0 +1,462 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "blog/2021/01-19-docusaurus-2020-recap.mdx",
+  "source_file_content_hash": "3d3ddfaf3a87a788b936ec141b74658606902d5be422a3ecef07f775cdcf209e",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\ntitle: Docusaurus 2020 Recap\nauthors: [slorber]\ntags: [recap]\nimage: /img/docusaurus-2020-recap.png\n---",
+      "source_content_hash": "365ea57042cb2e8ff657da0789fd4fca8aaace1949690fb233ffcddfa10a274d",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "3fbbcc07",
+      "source_content": "**2020 was great for Docusaurus**, despite [a regrettable start](https://docusaurus.io/blog/2020/01/07/tribute-to-endi) and a tumultuous year for everyone.",
+      "source_content_hash": "2c68a0df393e2f39547095d2eb1b34b167d7a0021d8047eedf6a9c566b844fb2",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "**2020年对Docusaurus而言是卓越的一年**，尽管[年初令人遗憾的事件](https://docusaurus.io/blog/2020/01/07/tribute-to-endi)和全球动荡的局势。"
+      }
+    },
+    {
+      "segment_id": "7e5c5a39",
+      "source_content": "We continued to invest in [Docusaurus 2](https://docusaurus.io/), and made it reach **full feature parity** with [Docusaurus 1](https://v1.docusaurus.io/).",
+      "source_content_hash": "ef2c63d99b7470a1f5952bebec6e57e82f658b48da5c2e48c4cf883948d6e5f4",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "我们持续投入[Docusaurus 2](https://docusaurus.io/)开发，使其实现了与[Docusaurus 1](https://v1.docusaurus.io/)的**完整功能对等**。"
+      }
+    },
+    {
+      "segment_id": "8d66f911",
+      "source_content": "We now **recommend Docusaurus 2** as the **default choice** to start a new Docusaurus project and encourage v1 users to [migrate to Docusaurus 2](https://docusaurus.io/docs/migration).",
+      "source_content_hash": "91682d6b739c020bda0074b42759deb8de32378a27a3bc8a4b9682394cea41ab",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "现在我们将**Docusaurus 2推荐**作为新建项目的**默认选择**，并鼓励v1用户[迁移至Docusaurus 2](https://docusaurus.io/docs/migration)。"
+      }
+    },
+    {
+      "segment_id": "ad8fd492",
+      "source_content": "We are **still in alpha**, but expect **some good news very soon**!",
+      "source_content_hash": "3058d630d2e1891ba44cb22b3d25a47b4c57f9b6949c9fd9896c4ff2da2fad22",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "虽然当前仍处于**alpha阶段**，但**重大好消息即将公布**！"
+      }
+    },
+    {
+      "segment_id": "86b54d44",
+      "source_content": "![Three Docusaurus plushies laid side-by-side on the table](/img/blog/2020-recap/docusaurus-plushie-banner.jpeg)",
+      "source_content_hash": "383b7f15178459d3954d4d4ec0b88341d99e2e52b3f695a62219f38dc92c68b4",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "![三只Docusaurus毛绒玩偶并排摆放在桌面上](/img/blog/2020-recap/docusaurus-plushie-banner.jpeg)"
+      }
+    },
+    {
+      "segment_id": "45c63027",
+      "source_content": "<!--truncate-->",
+      "source_content_hash": "f5cded2aa7e288e395fe4f67f9dabda2281904b2f5358d07302b3aa8be0acdfa",
+      "node_type": "comment",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_45c63027"
+      }
+    },
+    {
+      "segment_id": "bc633244",
+      "source_content": "## Docusaurus 2 highlights",
+      "source_content_hash": "5a128daec6944b07e198a204f647b7d91598966617f77d07e4ee12a80b1ebb71",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## Docusaurus 2年度亮点"
+      }
+    },
+    {
+      "segment_id": "2df4f75f",
+      "source_content": "We have worked on many features this year, and would like to highlight the most significant ones:",
+      "source_content_hash": "aa15c42d9153f1ab557d60b58fd71502182a8f3f7cc99a956974a64390c8a254",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "今年我们开发了诸多功能，以下是其中最具代表性的："
+      }
+    },
+    {
+      "segment_id": "8cf6d045",
+      "source_content": "- **i18n**: easily translate your Docusaurus site, released soon! ([preview](https://github.com/facebook/docusaurus/pull/3325), [doc](https://docusaurus.io/docs/next/i18n/introduction))\n- **Version dropdown**: enable contextual version switch\n- **Versioning options**: solving the most common pain-points users had with versioning\n- **Contextual search**: search in the current version, use the brand-new DocSearch 3 experience\n- **Markdown pages**: use Markdown instead of React components to create standalone pages\n- **Better theme**: various UI, UX and accessibility improvements\n- **PWA**: add offline support to your site, and make it installable\n- **Fail-fast**: strict config validation, detect broken links, and prevent bad production deployments\n- **Multi-instance**: use the docs plugin twice on a single site (e.g. iOS/Android SDK docs)\n- **Migration CLI**: automate the upgrade from Docusaurus 1\n- **CodeSandbox**: assess Docusaurus easily from your browser with [new.docusaurus.io](https://new.docusaurus.io/)\n- **Canary releases**: use the `@canary` npm tag to use the upcoming release before anyone else\n- **TypeScript**: progressive adoption for internal code, and improve usage for users\n- **Publish Infima**: it is now [open-source](https://github.com/facebookincubator/infima)",
+      "source_content_hash": "4ac5aa78a2f9a46087b3daf58f43044e01b1b991eb62bc94141d18d25bda27bb",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "- **国际化(i18n)**：轻松实现站点多语言化，即将发布！([预览](https://github.com/facebook/docusaurus/pull/3325)，[文档](https://docusaurus.io/docs/next/i18n/introduction))\n- **版本下拉菜单**：支持上下文版本切换\n- **版本控制选项**：解决用户最常遇到的版本管理痛点\n- **上下文搜索**：在当前版本中搜索，体验全新的DocSearch 3\n- **Markdown页面**：使用Markdown替代React组件创建独立页面\n- **更优主题**：多项UI、UX及无障碍访问改进\n- **渐进式Web应用(PWA)**：支持离线访问和桌面安装\n- **快速失败机制**：严格的配置验证，检测失效链接，避免生产环境故障\n- **多实例支持**：在单个站点中重复使用文档插件（如iOS/Android SDK文档）\n- **迁移CLI工具**：自动化完成Docusaurus 1升级\n- **CodeSandbox集成**：通过[new.docusaurus.io](https://new.docusaurus.io/)在浏览器中快速评估\n- **Canary版本**：使用`@canary` npm标签抢先体验新功能\n- **TypeScript支持**：内部代码逐步迁移，提升用户使用体验\n- **开源Infima**：现已[开放源代码](https://github.com/facebookincubator/infima)"
+      }
+    },
+    {
+      "segment_id": "62a6890b",
+      "source_content": "## Docusaurus 2 growth",
+      "source_content_hash": "e79a8dbf833366030137a1526304a4ae99afa52131d205938e967f24d6155510",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## Docusaurus 2增长态势"
+      }
+    },
+    {
+      "segment_id": "3cfe6286",
+      "source_content": "The plan to [rebuild Docusaurus from scratch in 2019](https://docusaurus.io/blog/2019/12/30/docusaurus-2019-recap) paid off: after a slow start, Docusaurus 2 has been widely adopted and has **already outgrown Docusaurus 1** usage.",
+      "source_content_hash": "75f40b5d7ebff67aac96148c21cd2dce36d63e7d2cdfdc09dd66cbabd4a6acf1",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "2019年[彻底重构Docusaurus的计划](https://docusaurus.io/blog/2019/12/30/docusaurus-2019-recap)成效显著：经过缓慢起步后，Docusaurus 2已被广泛采用，**使用量现已超越Docusaurus 1**。"
+      }
+    },
+    {
+      "segment_id": "1042b50d",
+      "source_content": "![Docusaurus v1 vs. v2 npm trends of the year 2020. The installations of Docusaurus v2 is visibly up-growing, while v1 is slightly downward. V1 starts at 15000 and ends at 10000, while v2 starts at 2000 and ends at 25000. The intersection happens around June 2020.](/img/blog/2020-recap/docusaurus-npm-trends.png)",
+      "source_content_hash": "201d4f7a1ab8b36ff2bd4e9f34e67b70b7031478b2cfc9ac5f8e3550ba0d2820",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "![2020年Docusaurus v1与v2的npm趋势对比图。v2安装量呈明显上升曲线，v1则小幅下降。v1年初15000次年末10000，v2年初2000年末25000。两条曲线在2020年6月左右交汇](/img/blog/2020-recap/docusaurus-npm-trends.png)"
+      }
+    },
+    {
+      "segment_id": "aa1e7006",
+      "source_content": "Notable **projects, startups, large companies, and individuals** adopted Docusaurus 2 ([showcase](https://docusaurus.io/showcase)):",
+      "source_content_hash": "152cb18a39ff9854e9bcfc6c0e050442084796cbc226066a90e6e2c8bda2b4f7",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "众多**知名项目、初创企业、大型公司及个人开发者**已采用Docusaurus 2（[案例展示](https://docusaurus.io/showcase)）："
+      }
+    },
+    {
+      "segment_id": "b93ddfac",
+      "source_content": "- [Supabase](https://supabase.io)\n- [React Navigation](https://reactnavigation.org)\n- [React Redux](https://react-redux.js.org/)\n- [Vector](https://vector.dev)\n- [Algolia DocSearch](https://docsearch.algolia.com)\n- [SAP Cloud SDK](https://sap.github.io/cloud-sdk)\n- [Palo Alto Cortex XSOAR](https://xsoar.pan.dev)\n- [Quddús George's website](https://portfoliosaurus.now.sh)",
+      "source_content_hash": "45881e45ea1f4e3a59ec31ea4ce81a5285b1b9dcd90a0991350798fa93c122ca",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "- [Supabase](https://supabase.io)\n- [React Navigation](https://reactnavigation.org)\n- [React Redux](https://react-redux.js.org/)\n- [Vector](https://vector.dev)\n- [Algolia DocSearch](https://docsearch.algolia.com)\n- [SAP Cloud SDK](https://sap.github.io/cloud-sdk)\n- [Palo Alto Cortex XSOAR](https://xsoar.pan.dev)\n- [Quddús George个人网站](https://portfoliosaurus.now.sh)"
+      }
+    },
+    {
+      "segment_id": "b9aaa519",
+      "source_content": "We helped **large scale Docusaurus 1 sites to upgrade**, ensuring a proper **migration path** and **feature parity**.",
+      "source_content_hash": "6da182624e0e9a17cf20509488a917de788f04a3ca3557f8fb4bd91017f531d1",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "我们协助**多个大型Docusaurus 1站点完成升级**，确保提供顺畅的**迁移路径**和**功能对等性**。"
+      }
+    },
+    {
+      "segment_id": "e536ea0d",
+      "source_content": "[React Native](https://reactnative.dev/) was successfully upgraded to Docusaurus 2 ([archived v1 site](http://archive.reactnative.dev/)):",
+      "source_content_hash": "fdf43e09f644cea4cd2faae7402d85246464630a608e2c263c9745c86167f32b",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "[React Native](https://reactnative.dev/) 已成功迁移至Docusaurus 2（[v1存档站点](http://archive.reactnative.dev/)）："
+      }
+    },
+    {
+      "segment_id": "40158b4b",
+      "source_content": "![React Native's new website built with Docusaurus v2](/img/blog/2020-recap/react-native-screenshot.png)",
+      "source_content_hash": "d37a4b915477fd857d4175ba8edc8c504b8e7d0ec666a1753a156810575a0a6e",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "![采用Docusaurus v2构建的React Native新官网](/img/blog/2020-recap/react-native-screenshot.png)"
+      }
+    },
+    {
+      "segment_id": "6ea4c715",
+      "source_content": "Localized Docusaurus 1 sites (like **Jest**) will be able to upgrade too:",
+      "source_content_hash": "6f8b2b86be2db504efa96ee8ee51679638cadd9154b2b225489855f8be9c1cf4",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "本地化的Docusaurus 1站点（如**Jest**）也将能够升级："
+      }
+    },
+    {
+      "segment_id": "79ad944d",
+      "source_content": "![Jest's new website built with Docusaurus v2 in Japanese](/img/blog/2020-recap/jest-screenshot.png)",
+      "source_content_hash": "0b6f4641d80299783c0162679cd9a7712c12c2915fb38355fc11ce51639a6808",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "![采用Docusaurus v2构建的日语版Jest新官网](/img/blog/2020-recap/jest-screenshot.png)"
+      }
+    },
+    {
+      "segment_id": "531437ca",
+      "source_content": "We also saw the **[first right-to-left](https://datagit.ir/)** Docusaurus 2 site published:",
+      "source_content_hash": "05642f72eb27ac3a5f98bad6a6126ed22e1b576344371c3c6799827b2fd5fbe5",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "我们还见证了**[首个从右至左布局](https://datagit.ir/)**的Docusaurus 2站点上线："
+      }
+    },
+    {
+      "segment_id": "06e24cc0",
+      "source_content": "![Datagit's website in Persian, a right-to-left language. The sidebar appears on the right of the window and the TOC appears on the left.](/img/blog/2020-recap/datagit-rtl-screenshot.png)",
+      "source_content_hash": "e588ace5389576658857a96babbe45af8deede25e3544833892e2886860feb59",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "![波斯语版Datagit网站采用从右至左布局。侧边栏位于窗口右侧，目录显示在左侧。](/img/blog/2020-recap/datagit-rtl-screenshot.png)"
+      }
+    },
+    {
+      "segment_id": "ee8401db",
+      "source_content": "## GitHub Activity",
+      "source_content_hash": "75d57a5acf760cde9b69b760e33d3104c44ebd678c92a51a31303708975c9d90",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## GitHub动态"
+      }
+    },
+    {
+      "segment_id": "76dbcc76",
+      "source_content": "- **Stars**: 14632 → 20946 (+43.2% y/y)\n- **Total Contributors**: 303 → 512 (+68.9% y/y). Most of which are non-Facebook contributors\n- **Weekly npm Downloads**: 2356 → 25592 (+986% y/y)\n- **On GitHub**, Docusaurus 1 is used by 6311 projects (+62.9% y/y) while Docusaurus 2 is used by 5039 projects (+1940% y/y)",
+      "source_content_hash": "b208065626e64a5c98263505c20e93e30b4413df9431d168741788ea344ad202",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "- **星标数**：14632 → 20946（同比增长43.2%）\n- **总贡献者**：303 → 512（同比增长68.9%），其中大部分为非Facebook贡献者\n- **周npm下载量**：2356 → 25592（同比增长986%）\n- **GitHub上**，Docusaurus 1被6311个项目使用（同比增长62.9%），Docusaurus 2被5039个项目使用（同比增长1940%）"
+      }
+    },
+    {
+      "segment_id": "93028a4e",
+      "source_content": "## Collaboration with Major League Hacking",
+      "source_content_hash": "7605df505ee474446afc7b0d6165cb371977d98c66e8d01e251e5cd0fc03bff5",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 与Major League Hacking的合作"
+      }
+    },
+    {
+      "segment_id": "e8e162a9",
+      "source_content": "We have welcomed [Major League Hacking](https://mlh.io/) (MLH) fellows for 2 seasons already.",
+      "source_content_hash": "f713246c6897339c6df56117b704181c4da525c895f14c8cc18642f41349c056",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "我们已连续两个季度迎来[Major League Hacking](https://mlh.io/)（MLH）的学员。"
+      }
+    },
+    {
+      "segment_id": "463ed165",
+      "source_content": "We are very thankful for the **various contributions** they made, such as:",
+      "source_content_hash": "08df8953fd628bc32e31ed8d175bf6afc47a3be4daf4e95bfdf490ef4dfed555",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "特别感谢他们做出的**多样化贡献**，例如："
+      }
+    },
+    {
+      "segment_id": "536b7b6b",
+      "source_content": "- Writing the foundations of the v1 to v2 migration CLI\n- Help migrate the React Native website from v1 to v2\n- Making the config validation more strict and exhaustive, returning helpful error messages\n- Adding CodeSandbox support\n- Improving the CI pipelines: build size and Lighthouse bots",
+      "source_content_hash": "353330a18963ec976e329c06fd2e5a216fcb678f9c126841a7fa1d2c040e239e",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "- 编写v1至v2迁移CLI的基础代码\n- 协助React Native官网从v1迁移至v2\n- 强化配置验证的严格性与完备性，提供更有帮助的错误信息\n- 增加CodeSandbox支持\n- 改进CI流水线：构建体积检测和Lighthouse机器人"
+      }
+    },
+    {
+      "segment_id": "74dd7937",
+      "source_content": "We look forward to continuing this collaboration in 2021.",
+      "source_content_hash": "989c9c6236fbd48774ba2c04360e3d74ed73f4d2e2201b6a50a5bb3ae46c3313",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "我们期待在202年继续这一合作。"
+      }
+    },
+    {
+      "segment_id": "ec8ed2a1",
+      "source_content": "## Media",
+      "source_content_hash": "20445e1048e6a9b3f4c7a88ab2db47a58aa31967b9c47b83bb8d891c15f6be95",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 媒体报道"
+      }
+    },
+    {
+      "segment_id": "51867d16",
+      "source_content": "Dmitry Vinnik (Developer Advocate @ Facebook) explains Docusaurus in [60 seconds](https://www.youtube.com/watch?v=_An9EsKPhp0) or [15min](https://www.youtube.com/watch?v=Yhyx7otSksg) videos.",
+      "source_content_hash": "ae6a6ca8b50c5cf2835121b7f32f850224781c16acc20d0bbf61053d507458ce",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "Facebook开发者推广专员Dmitry Vinnik通过[60秒](https://www.youtube.com/watch?v=_An9EsKPhp0)和[15分钟](https://www.youtube.com/watch?v=Yhyx7otSksg)视频讲解Docusaurus。"
+      }
+    },
+    {
+      "segment_id": "785750ac",
+      "source_content": "Rachel Nabors (Documentation Engineer @ Facebook) talked a bit about Docusaurus in [React Native Radio 178 (podcast)](https://reactnativeradio.com/episodes/178-documenting-react-native-with-rachel-nabors-gWxwySPl), and William Candillon the [React Native website migration (video)](https://www.youtube.com/watch?v=-zhjq2ECKq4).",
+      "source_content_hash": "1756b61e181b1e765d17251a518adbc462c7783d551d7aebf2eb4e9bfa0e5a6f",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "Facebook文档工程师Rachel Nabors在[React Native Radio第178期（播客）](https://reactnativeradio.com/episodes/178-documenting-react-native-with-rachel-nabors-gWxwySPl)中谈及Docusaurus，William Candillon则分享了[React Native官网迁移历程（视频）](https://www.youtube.com/watch?v=-zhjq2ECKq4)。"
+      }
+    },
+    {
+      "segment_id": "82e90254",
+      "source_content": "Many blog posts have been published:",
+      "source_content_hash": "c2c30a0bce5bb16c85cf9b0bce89835f83ad80e503a042479fb90c598f885c7b",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "多篇技术博客相继发布："
+      }
+    },
+    {
+      "segment_id": "dee20070",
+      "source_content": "- [To the Makers of Docusaurus](https://portfoliosaurus.now.sh/blog/toTheMakers) by Quddus George\n- [Richer API documentation with Redoc and Docusaurus](https://davidgoss.co/blog/api-documentation-redoc-docusaurus/) by David Goss\n- [How to Build a Plugin for Docusaurus v2](https://aknapen.nl/blog/how-to-build-a-plugin-for-docusaurus-v2/) by Adriaan Knapen\n- [React Tracked Documentation Website with Docusaurus v2](https://blog.axlight.com/posts/react-tracked-documentation-website-with-docusaurus-v2/) by Daishi Kato\n- [Easy documentation with Docusaurus](https://blog.logrocket.com/easy-documentation-with-docusaurus/) by Anshul Goyal (MLH fellow)\n- [Build Beautiful Documentation Websites with Docusaurus](https://lo-victoria.com/build-beautiful-documentation-websites-with-docusaurus) by Victoria Lo",
+      "source_content_hash": "55dc2fc072e6b71e8cc34b1d074fcce7f6f9554e99b9557d82de6e47b317b8b8",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "- Quddus George撰写的[致Docusaurus创造者们](https://portfoliosaurus.now.sh/blog/toTheMakers)\n- David Goss的[用Redoc和Docusaurus打造更丰富的API文档](https://davidgoss.co/blog/api-documentation-redoc-docusaurus/)\n- Adriaan Knapen的[如何为Docusaurus v2开发插件](https://aknapen.nl/blog/how-to-build-a-plugin-for-docusaurus-v2/)\n- Daishi Kato的[基于Docusaurus v2构建React Tracked文档站](https://blog.axlight.com/posts/react-tracked-documentation-website-with-docusaurus-v2/)\n- MLH学员Anshul Goyal的[用Docusaurus轻松搭建文档](https://blog.logrocket.com/easy-documentation-with-docusaurus/)\n- Victoria Lo的[用Docusaurus构建美观的文档网站](https://lo-victoria.com/build-beautiful-documentation-websites-with-docusaurus)"
+      }
+    },
+    {
+      "segment_id": "c7c92a79",
+      "source_content": "## Community",
+      "source_content_hash": "be955f6b536547890fd3f3512fb7a25d4eb38f958b5aa6bab1c04c6660f8c9ed",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 社区生态"
+      }
+    },
+    {
+      "segment_id": "f0984c2a",
+      "source_content": "The Docusaurus community continues to grow, the [Discord](https://discord.gg/docusaurus) server is quite active, and [Stack Overflow questions](https://stackoverflow.com/questions/tagged/docusaurus) keep being posted.",
+      "source_content_hash": "cd668f5532aa455c2f1baebecbe813b2e4c764ce87b467f0dc78c822c5321626",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "Docusaurus 社区持续壮大，[Discord](https://discord.gg/docusaurus) 服务器相当活跃，[Stack Overflow 上的提问](https://stackoverflow.com/questions/tagged/docusaurus)也源源不断。"
+      }
+    },
+    {
+      "segment_id": "a81544fd",
+      "source_content": "The **modular architecture** of Docusaurus 2 allowed the community to build and publish [third-party plugins](https://docusaurus.io/community/resources#community-plugins-). As we would like to federate better our community, if you are building a plugin, please [let us know](https://github.com/facebook/docusaurus/discussions/4025).",
+      "source_content_hash": "85e98b2508889820498b065dca08b4d9ed8aa725b7a75b0f3407e6c82eb210b0",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "Docusaurus 2 的**模块化架构**使得社区能够构建并发布[第三方插件](https://docusaurus.io/community/resources#community-plugins-)。为了更好地整合社区资源，如果您正在开发插件，请[告知我们](https://github.com/facebook/docusaurus/discussions/4025)。"
+      }
+    },
+    {
+      "segment_id": "722e4930",
+      "source_content": "## What's next?",
+      "source_content_hash": "4379ac2c9abc70ce4bb8f3ca063a089af17bb4bf6b50966d6f719d1f8b982852",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 下一步计划？"
+      }
+    },
+    {
+      "segment_id": "3c19e221",
+      "source_content": "As the **core features of Docusaurus 2** have finally been built, we will be able to dedicate more time to solve the pain points and bugs reported by the community, and make Docusaurus stable and convenient enough to enter the **beta and release-candidate phase**.",
+      "source_content_hash": "e4c727b7d20424d3e15b546d25f6659d54e370d827a1a52c285ad50f873eb190",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "随着 **Docusaurus 2 核心功能**的最终完成，我们将投入更多时间解决社区报告的痛点与错误，使 Docusaurus 足够稳定和便捷，从而进入**测试版和候选发布阶段**。"
+      }
+    },
+    {
+      "segment_id": "d21af28f",
+      "source_content": "With proper support for **i18n and versioning**, and **large scale migrations** such as **React Native** and **Jest**, we now have a clear migration path for all Docusaurus 1 sites.",
+      "source_content_hash": "201bd74dac4e673f46a5d7e0b1ae3ccbd0597e2f51c831726ec0fba2a01b05cd",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "通过完善的**国际化与版本控制支持**，以及**React Native**、**Jest**等**大规模迁移案例**，我们现已为所有 Docusaurus 1 站点提供了清晰的迁移路径。"
+      }
+    },
+    {
+      "segment_id": "44aaa880",
+      "source_content": "We still have a few **major features** that we would like to work on:",
+      "source_content_hash": "fd746fb56b182b230e2278d2379e133db40f0faf2dabd44b93a8ef71f8954cc2",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "我们仍有几项**重要功能**计划推进："
+      }
+    },
+    {
+      "segment_id": "2a1e835c",
+      "source_content": "- [Create a theme gallery](https://github.com/facebook/docusaurus/issues/3522), make it easy to switch from one another, and include **first-class Tailwind support**\n- [Upgrade to Webpack 5](https://github.com/facebook/docusaurus/issues/4027), improve performances and build times\n- [Better compatibility with CommonMark](https://github.com/facebook/docusaurus/issues/3018), as MDX and makes it harder for CommonMark-based sites to adopt Docusaurus\n- [Upgrade to MDX 2.0](https://github.com/facebook/docusaurus/issues/4029)\n- Other tasks that we might discover during 2021",
+      "source_content_hash": "0be0ddfe794104f8f4d0dc764e6c1a62ba28e858cede3db28cd7ca04c1947c0f",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "- [创建主题画廊](https://github.com/facebook/docusaurus/issues/3522)，简化主题切换流程，并实现**原生 Tailwind 支持**\n- [升级至 Webpack 5](https://github.com/facebook/docusaurus/issues/4027)，提升性能与构建速度\n- [增强对 CommonMark 的兼容性](https://github.com/facebook/docusaurus/issues/3018)，当前 MDX 特性使得基于 CommonMark 的站点难以适配 Docusaurus\n- [升级至 MDX 2.0](https://github.com/facebook/docusaurus/issues/4029)\n- 2021 年可能发现的其他任务"
+      }
+    },
+    {
+      "segment_id": "5f82a1e9",
+      "source_content": "Huge thanks to the community for [their contributions in 2020](https://github.com/facebook/docusaurus/graphs/contributors?from=2020-01-01&to=2021-01-01&type=c), especially:",
+      "source_content_hash": "2b1cc4be913bba98153144abfd51e11eb80e14bac4bfd9f284cc6ed39b024a83",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "衷心感谢社区在[2020年的贡献](https://github.com/facebook/docusaurus/graphs/contributors?from=2020-01-01&to=2021-01-01&type=c)，特别致谢："
+      }
+    },
+    {
+      "segment_id": "683a33d9",
+      "source_content": "- [Joel Marcey](https://github.com/JoelMarcey) for creating Docusaurus and supporting the project all this time\n- the core team - [Alexey Pyltsyn](https://github.com/lex111), [Sébastien Lorber](https://sebastienlorber.com), [Yangshun Tay](https://x.com/yangshunz)\n- the Major League Hacking and Facebook interns for their significant impact\n- the Algolia team for DocSearch 3 and their support\n- [Bartosz Kaszubowski](https://github.com/Simek) for his investment in the React Native migration\n- the whole community for their contributions, and providing support to each other",
+      "source_content_hash": "6d750704b859fcb447dd8403135b4c87f68ecfb78fd38e33e18c1efe743fd302",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "- [Joel Marcey](https://github.com/JoelMarcey) 创建 Docusaurus 并长期支持项目\n- 核心团队 - [Alexey Pyltsyn](https://github.com/lex111)、[Sébastien Lorber](https://sebastienlorber.com)、[Yangshun Tay](https://x.com/yangshunz)\n- Major League Hacking 与 Facebook 实习生们的卓越贡献\n- Algolia 团队对 DocSearch 3 的支持\n- [Bartosz Kaszubowski](https://github.com/Simek) 对 React Native 迁移的全力投入\n- 全体社区成员的贡献与互助支持"
+      }
+    },
+    {
+      "segment_id": "5c7d994c",
+      "source_content": "Cheers to a great 2021! 🎉",
+      "source_content_hash": "e23391bc0e4d7e77cf21726c1a9f547ca8452609487dd12378dfd8ebc90c542c",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "为精彩的 2021 年干杯！🎉"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-blog/authors.yml/2021/01-19-docusaurus-2020-recap.mdx",
+  "last_updated_timestamp": "2025-05-24T15:26:17.520560+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "zh-CN": "3d3ddfaf3a87a788b936ec141b74658606902d5be422a3ecef07f775cdcf209e"
+  }
+}

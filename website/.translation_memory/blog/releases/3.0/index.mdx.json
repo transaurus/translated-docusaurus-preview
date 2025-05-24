@@ -1,0 +1,862 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "blog/releases/3.0/index.mdx",
+  "source_file_content_hash": "bc2fdf4aa404cf13964be99eebe239f3cadeec3f5c74cca94cc682aed7a58ce7",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\ntitle: Announcing Docusaurus 3.0\nauthors:\n  - slorber\ntags: [release]\nimage: ./img/social-card.png\ndate: 2023-10-31\n---",
+      "source_content_hash": "df6bd062aa23ca2df2dfd66c54772fad11c07d6536cf131de8f540c4015368e8",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "7e5c5a39",
+      "source_content": "Today, we are happy to **announce Docusaurus 3.0**! 🥳",
+      "source_content_hash": "d3e47868b2f68e2d62e13d43f2ed43789e3df22455c510377f5e26721ae1fa51",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "今天，我们很高兴地**宣布 Docusaurus 3.0 正式发布**！🎉"
+      }
+    },
+    {
+      "segment_id": "8d66f911",
+      "source_content": "At [**Meta Open Source**](https://opensource.fb.com/), we believe Docusaurus will help you build the **best documentation websites** with **minimal effort**, letting you **focus on what really matters**: writing the content.",
+      "source_content_hash": "24c292b78a9d6cdccb8b44fa3342945792261b473377ef22bdf0a36739b9d13d",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "在[**Meta 开源团队**](https://opensource.fb.com/)看来，Docusaurus 能以**最小成本**助您打造**最佳文档网站**，让您专注于真正重要的事：内容创作。"
+      }
+    },
+    {
+      "segment_id": "ad8fd492",
+      "source_content": "This is a new **major version** of Docusaurus, coming with **new exciting features** and upgraded dependencies.",
+      "source_content_hash": "f4b4e4525fee7e736c698bc575d4b3f4d59d4661824880e8b10fa139c1af4cca",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "这是 Docusaurus 的**全新主版本**，带来**激动人心的新特性**和升级的依赖项。"
+      }
+    },
+    {
+      "segment_id": "86b54d44",
+      "source_content": "In line with the [**Semantic Versioning**](https://semver.org/) principles, this release includes **breaking changes** we documented thoroughly in the [**v3 upgrade guide**](/docs/migration/v3/). Breaking changes can be bothersome, but they are necessary to set the ground for a **new wave of Docusaurus features** we plan to implement.",
+      "source_content_hash": "bd64e284156d3d5e365ef1dfc90d7e3e9c14852f5a3efbc33131151b06eca4be",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "遵循[**语义化版本控制**](https://semver.org/)原则，本次发布包含我们详尽记录的**破坏性变更**（参见[**v3 迁移指南**](/docs/migration/v3/)）。虽然破坏性变更可能带来不便，但它们为 Docusaurus 计划实现的**新功能浪潮**奠定了基础。"
+      }
+    },
+    {
+      "segment_id": "39b3772c",
+      "source_content": "![v3.0 social-card image](./img/social-card.png)",
+      "source_content_hash": "3748fadfa6cd7a6234785a20bb7e7dc709079795af5e1852955a779af68424db",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "![v3.0 社交媒体卡片图片](./img/social-card.png)"
+      }
+    },
+    {
+      "segment_id": "2df4f75f",
+      "source_content": "We initially planned to release more frequent major versions, but Docusaurus v3 has taken longer than expected. Among the breaking changes that we accrued, **upgrading to MDX v3** is probably the main challenge to the adoption of this new version. We went the extra mile to make this upgrade as easy as possible, notably by adding [compatibility options for MDX v1](/docs/api/docusaurus-config#markdown).",
+      "source_content_hash": "bccc0801cbc421e5f9b7a1290749ee36824a3a419d86c52ce8b86857af576894",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "我们原计划更频繁地发布主版本，但 Docusaurus v3 的开发周期超出预期。在积累的破坏性变更中，**升级至 MDX v3** 可能是采用新版本的主要挑战。我们付出了额外努力来简化升级流程，特别是通过添加[针对 MDX v1 的兼容性选项](/docs/api/docusaurus-config#markdown)。"
+      }
+    },
+    {
+      "segment_id": "98cfbd53",
+      "source_content": "The simplest sites will only need to upgrade a few npm dependencies. For more complex sites, we came up with a few strategies that can help you upgrade more confidently:",
+      "source_content_hash": "aa9a529f8638fcf5306a6a4538ec11de9b4f3c682e2ab11abcd6a208b601a007",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "最简单的站点只需升级少量 npm 依赖项。对于更复杂的站点，我们提供了几种策略来帮助您更自信地完成升级："
+      }
+    },
+    {
+      "segment_id": "0cc488ed",
+      "source_content": "- [Prepare your site](/blog/preparing-your-site-for-docusaurus-v3) ahead of time, incrementally, while staying on Docusaurus v2\n- [Set up visual regression tests](/blog/upgrading-frontend-dependencies-with-confidence-using-visual-regression-testing) to catch unexpected visual changes happening during the upgrade",
+      "source_content_hash": "5dd11bfd74c57f9f99168bdad8739e3d86d8232515458f6f7d539dc245f44ecf",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "- 在保持 Docusaurus v2 的同时，[提前逐步准备您的站点](/blog/preparing-your-site-for-docusaurus-v3)\n- [设置视觉回归测试](/blog/upgrading-frontend-dependencies-with-confidence-using-visual-regression-testing)以捕获升级过程中的意外视觉变化"
+      }
+    },
+    {
+      "segment_id": "57971bfb",
+      "source_content": ":::info[About Docusaurus v2]\n\nAccording to our [release process](/community/release-process), Docusaurus v2 has now entered **maintenance mode**. It will only receive support for major security issues for 3 months, until 31 January 2024. It is recommended to upgrade within that time frame to v3.\n\n:::",
+      "source_content_hash": "2ae9260403cf60875fbf849243aa4623b8712c248fa92f4c8e38dcd2aab83fb0",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::info[关于 Docusaurus v2]\n\n根据我们的[发布流程](/community/release-process)，Docusaurus v2 现已进入**维护模式**。在 2024 年 1 月 31 日前的 3 个月内，仅会针对重大安全问题提供支持。建议在此期间升级至 v3 版本。\n\n:::"
+      }
+    },
+    {
+      "segment_id": "7486a86f",
+      "source_content": "import IframeWindow from '@site/src/components/BrowserWindow/IframeWindow';",
+      "source_content_hash": "8200d58b171910cdf61867e4ef374f41dadafa6a6884583448cbb0a6ae389b8d",
+      "node_type": "mdxjsEsm",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_7486a86f"
+      }
+    },
+    {
+      "segment_id": "3b7478ea",
+      "source_content": "## Breaking changes",
+      "source_content_hash": "d1c69ba9bc90db546d2a6a7611ea8e640505ca79693bd7ae7fdfd3a792d9dcc5",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 破坏性变更"
+      }
+    },
+    {
+      "segment_id": "c3a738de",
+      "source_content": "This section only gives you a quick glance. All the breaking changes are thoroughly documented in the [**v3 upgrade guide**](/docs/migration/v3).",
+      "source_content_hash": "23b7b30e34919570378b78d41b8d9440e50455f2d822152800b53c32168617f8",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "本节仅提供快速概览。所有破坏性变更均已在[**v3 迁移指南**](/docs/migration/v3)中详细记录。"
+      }
+    },
+    {
+      "segment_id": "3cfe6286",
+      "source_content": "Docusaurus v3 upgraded a few dependencies to new major versions, each coming with its own breaking changes:",
+      "source_content_hash": "9233a355cfbc6d59a9ed52ba7651a4d22fe32ed9198cb948a7d0dc0d25622077",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "Docusaurus v3 将部分依赖项升级至新的主版本，每个版本都伴随其自身的破坏性变更："
+      }
+    },
+    {
+      "segment_id": "bdfae007",
+      "source_content": "- Node.js v16 ➡️ v18\n- React v17 ➡️ v18\n- MDX v1 ➡️ v3\n- TypeScript v4 ➡️ v5\n- prism-react-renderer v1 ➡️ v2\n- react-live v2 ➡️ v4\n- Mermaid v9 ➡️ v10\n- import-fresh v3 ➡️ jiti v1\n- remark-emoji v2 ➡️ v4",
+      "source_content_hash": "c14cb6de74fc914e9e9172bd104de99209c124f996556084006bbf3676b2f822",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "- Node.js v16 ➡️ v18\n- React v17 ➡️ v18\n- MDX v1 ➡️ v3\n- TypeScript v4 ➡️ v5\n- prism-react-renderer v1 ➡️ v2\n- react-live v2 ➡️ v4\n- Mermaid v9 ➡️ v10\n- import-fresh v3 ➡️ jiti v1\n- remark-emoji v2 ➡️ v4"
+      }
+    },
+    {
+      "segment_id": "98d26038",
+      "source_content": "A typical `package.json` dependency upgrade looks like:",
+      "source_content_hash": "f36ef09539a974b93f95df7edde6e6d695ccedd2792a701d8d32fc028dca1ff1",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "典型的 `package.json` 依赖项升级示例如下："
+      }
+    },
+    {
+      "segment_id": "f275f5fd",
+      "source_content": "```diff title=\"package.json\"\n {\n   \"dependencies\": {\n     // upgrade to Docusaurus v3\n-    \"@docusaurus/core\": \"2.4.3\",\n-    \"@docusaurus/preset-classic\": \"2.4.3\",\n+    \"@docusaurus/core\": \"3.0.0\",\n+    \"@docusaurus/preset-classic\": \"3.0.0\",\n     // upgrade to MDX v3\n-    \"@mdx-js/react\": \"^1.6.22\",\n+    \"@mdx-js/react\": \"^3.0.0\",\n     // upgrade to prism-react-renderer v2.0+\n-    \"prism-react-renderer\": \"^1.3.5\",\n+    \"prism-react-renderer\": \"^2.1.0\",\n     // upgrade to React v18.0+\n-    \"react\": \"^17.0.2\",\n-    \"react-dom\": \"^17.0.2\"\n+    \"react\": \"^18.2.0\",\n+    \"react-dom\": \"^18.2.0\"\n   },\n   \"devDependencies\": {\n     // upgrade Docusaurus dev dependencies to v3\n-    \"@docusaurus/module-type-aliases\": \"2.4.3\",\n-    \"@docusaurus/types\": \"2.4.3\"\n+    \"@docusaurus/module-type-aliases\": \"3.0.0\",\n+    \"@docusaurus/types\": \"3.0.0\"\n   }\n   \"engines\": {\n     // require Node.js 18.0+\n-    \"node\": \">=16.14\"\n+    \"node\": \">=18.0\"\n   }\n }\n```",
+      "source_content_hash": "0a843ef1cfa90417dc44682fbb30eb6b928212a1879aac0ee75288aaf643bb4b",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_f275f5fd"
+      }
+    },
+    {
+      "segment_id": "0750bfa1",
+      "source_content": "Apart from MDX v3, most breaking changes coming with those upgraded dependencies have been handled internally for you: most of the time, you shouldn't have to do anything. Outside of dependencies, the only functional breaking changes coming explicitly from the Docusaurus codebase are:",
+      "source_content_hash": "28f4ddbcc3418a805441553f3e299375bc29283da47536234fb12eca5f73e5da",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "除 MDX v3 外，大多数由这些升级依赖项带来的破坏性变更已由我们内部处理：大多数情况下您无需任何操作。在依赖项之外，明确来自 Docusaurus 代码库的功能性破坏性变更仅包括："
+      }
+    },
+    {
+      "segment_id": "2fc7ec55",
+      "source_content": "- [#9189](https://github.com/facebook/docusaurus/pull/9189): new default blog RSS feed limit of 20 entries\n- [#9308](https://github.com/facebook/docusaurus/pull/9308): fix and re-introduce the `:::warning` admonition, deprecate `:::caution`\n- [#9310](https://github.com/facebook/docusaurus/pull/9310): remove the legacy versioned sidebar id prefix, used for sites versioned before `v2.0.0-beta.10` (December 2021)\n- [#7966](https://github.com/facebook/docusaurus/pull/7966): refactor docs theme components, eventually requiring to you re-swizzle them",
+      "source_content_hash": "01fa404fab214c61d085dc8f8c94cb717c93e0434327beb3e694d08a3c03b0fa",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "- [#9189](https://github.com/facebook/docusaurus/pull/9189)：博客 RSS 源默认条目限制改为 20 条\n- [#9308](https://github.com/facebook/docusaurus/pull/9308)：修复并重新引入 `:::warning` 警告提示，弃用 `:::caution`\n- [#9310](https://github.com/facebook/docusaurus/pull/9310)：移除旧版版本化侧边栏 ID 前缀（适用于 2021 年 12 月 `v2.0.0-beta.10` 之前版本化的站点）\n- [#7966](https://github.com/facebook/docusaurus/pull/7966)：重构文档主题组件，最终需要您重新 swizzle 这些组件"
+      }
+    },
+    {
+      "segment_id": "b10963d7",
+      "source_content": "## Highlights",
+      "source_content_hash": "f5aedb14b6b9da4899c54cdf031961cfbda60d336dc60afdb5e12f0b83945e84",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 重点功能"
+      }
+    },
+    {
+      "segment_id": "2822251a",
+      "source_content": "Below is a non-exhaustive list of new useful features coming with this new version. All the features are listed in the [**Docusaurus v3.0.0 release notes**](https://github.com/facebook/docusaurus/releases/tag/v3.0.0).",
+      "source_content_hash": "9938eda86a26d1346048bb954ad88785c9e9738c1f394e76c61643673f0e5d0a",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "以下是此新版本中部分实用功能的非详尽列表。所有功能均列于[**Docusaurus v3.0.0 版本说明**](https://github.com/facebook/docusaurus/releases/tag/v3.0.0)中。"
+      }
+    },
+    {
+      "segment_id": "99d0dd9b",
+      "source_content": "### Markdown",
+      "source_content_hash": "443af0749df1db2ad1565d5e98fc7318f5eab44b81e1ff49f3f8b8c355dfcbbf",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### Markdown"
+      }
+    },
+    {
+      "segment_id": "d79a4831",
+      "source_content": "Docusaurus v3 upgraded from MDX v1 to MDX v3:",
+      "source_content_hash": "51bee0bc37166a70f02fb7f1cec3259dc619c6cfa63b311d2e3720ab2d213c71",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "Docusaurus v3 从 MDX v1 升级至 MDX v3："
+      }
+    },
+    {
+      "segment_id": "dea0598f",
+      "source_content": "- in [#8288](https://github.com/facebook/docusaurus/pull/8288), we upgraded to [**MDX v2**](https://mdxjs.com/blog/v2/) ([migration guide](https://mdxjs.com/migrating/v2/))\n- in [#9451](https://github.com/facebook/docusaurus/pull/9451), we upgraded to [**MDX v3**](https://mdxjs.com/blog/v3/) ([migration guide](https://mdxjs.com/migrating/v3/))",
+      "source_content_hash": "45151e7bda377808d4e1a4bc0edaad4e704442787ea3613e30192bdec71e0393",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "- 在 [#8288](https://github.com/facebook/docusaurus/pull/8288) 中，我们升级至 [**MDX v2**](https://mdxjs.com/blog/v2/)（[迁移指南](https://mdxjs.com/migrating/v2/)）\n- 在 [#9451](https://github.com/facebook/docusaurus/pull/9451) 中，我们升级至 [**MDX v3**](https://mdxjs.com/blog/v3/)（[迁移指南](https://mdxjs.com/migrating/v3/)）"
+      }
+    },
+    {
+      "segment_id": "f0984c2a",
+      "source_content": "This new MDX version is **much better for content writers and plugin authors**, and lays the ground for implementing new exciting Markdown features.",
+      "source_content_hash": "f2921bc05f82e828bf50fe0cc564e084c817f97e565cb23383f7ddfa81baec93",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "新版 MDX 对**内容编写者和插件开发者更加友好**，并为实现新的 Markdown 功能奠定了基础。"
+      }
+    },
+    {
+      "segment_id": "3faebbae",
+      "source_content": ":::warning[MDX v3 - the main challenge]\n\nThe transition from MDX v1 to MDX v3 is the **main challenge** to the adoption of Docusaurus v3.\n\nSome documents that compiled successfully under Docusaurus v2 might now **fail to compile** under Docusaurus v3, while others might **render differently**.\n\nMost breaking changes come from [MDX v2](https://mdxjs.com/blog/v2/), and [MDX v3](https://mdxjs.com/blog/v3/) is a relatively small release. The [MDX v2 migration guide](https://mdxjs.com/migrating/v2/) has a section on how to [update MDX files](https://mdxjs.com/migrating/v2/#update-mdx-files) that will be particularly relevant to us. Also make sure to read the [Troubleshooting MDX](https://mdxjs.com/docs/troubleshooting-mdx/) page that can help you interpret common MDX error messages.\n\n**Don't be intimidated**. Most problems are **easy to fix** and often related to `{` and `<` characters that you now need to escape. However, depending on the size of your site, you might need to edit many files and feel overwhelmed. For this reason, we provide a command [`npx docusaurus-mdx-checker`](https://github.com/slorber/docusaurus-mdx-checker) to help you get an estimate of the work to be done, and we recommend to [prepare your site in advance](/blog/preparing-your-site-for-docusaurus-v3).\n\nIf you created custom [MDX plugins](/docs/markdown-features/plugins) (Remark/Rehype), the AST is slightly different, and you might need to refactor them.\n\n:::",
+      "source_content_hash": "9c04361d305f00e0136dfb1716bf85b7bdc6338fd35f33fd3c551a7b60de3ace",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::warning[MDX v3 - 主要挑战]\n\n从 MDX v1 迁移到 MDX v3 是采用 Docusaurus v3 的**主要挑战**。\n\n部分在 Docusaurus v2 下能成功编译的文档，现在可能在 Docusaurus v3 下**编译失败**，或**呈现效果不同**。\n\n大多数破坏性变更来自 [MDX v2](https://mdxjs.com/blog/v2/)，而 [MDX v3](https://mdxjs.com/blog/v3/) 是一个相对较小的版本。[MDX v2 迁移指南](https://mdxjs.com/migrating/v2/)中关于[更新 MDX 文件](https://mdxjs.com/migrating/v2/#update-mdx-files)的部分对我们尤为重要。同时请务必阅读[MDX 问题排查](https://mdxjs.com/docs/troubleshooting-mdx/)页面，该页面可帮助您理解常见的 MDX 错误信息。\n\n**无需畏惧**。大多数问题**易于修复**，通常与需要转义的 `{` 和 `<` 字符有关。但根据站点规模，您可能需要编辑大量文件而感到压力。为此，我们提供了 [`npx docusaurus-mdx-checker`](https://github.com/slorber/docusaurus-mdx-checker) 命令来帮助评估工作量，并建议[提前准备站点](/blog/preparing-your-site-for-docusaurus-v3)。\n\n如果您创建了自定义 [MDX 插件](/docs/markdown-features/plugins)（Remark/Rehype），由于 AST 略有不同，可能需要重构它们。\n\n:::"
+      }
+    },
+    {
+      "segment_id": "f38d1cb0",
+      "source_content": "This notably enables us to add a [CommonMark mode](/docs/markdown-features#mdx-vs-commonmark) that should make it easier for existing documentations to adopt Docusaurus. It is currently opt-in and **experimental** and limited ([some Docusaurus features will not work](https://github.com/facebook/docusaurus/issues/9092)). In Docusaurus v3, all files are still interpreted as MDX, but we plan to interpret `.md` files as CommonMark in an upcoming major version, and recommend to use the `.mdx` extension for any file using JSX or ES modules.",
+      "source_content_hash": "fc68f056863b2056141d9822f108753d6596b9d7bb56ec5f6acb437f1316ec63",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "这使我们能够添加[CommonMark 模式](/docs/markdown-features#mdx-vs-commonmark)，便于现有文档迁移至 Docusaurus。该功能目前为**实验性**且需手动启用（[部分 Docusaurus 功能将不可用](https://github.com/facebook/docusaurus/issues/9092)）。在 Docusaurus v3 中，所有文件仍被解析为 MDX，但我们计划在未来的主版本中将 `.md` 文件解析为 CommonMark，并建议对使用 JSX 或 ES 模块的文件使用 `.mdx` 扩展名。"
+      }
+    },
+    {
+      "segment_id": "5f82a1e9",
+      "source_content": "We also introduced a new way to [configure Markdown globally for your site](/docs/api/docusaurus-config#markdown), and plan to add more flexible options later.",
+      "source_content_hash": "72ba5b50ee2627265bd8697f8b96a72f5544c3e2edec073b10119666ca9b315d",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "我们还引入了[全局配置站点 Markdown](/docs/api/docusaurus-config#markdown) 的新方式，后续将增加更多灵活选项。"
+      }
+    },
+    {
+      "segment_id": "1ae0b80d",
+      "source_content": "```js title=\"docusaurus.config.js\"\nexport default {\n  markdown: {\n    format: 'mdx',\n    mermaid: true,\n    preprocessor: ({filePath, fileContent}) => {\n      return fileContent.replaceAll('{{MY_VAR}}', 'MY_VALUE');\n    },\n    mdx1Compat: {\n      comments: true,\n      admonitions: true,\n      headingIds: true,\n    },\n  },\n};\n```",
+      "source_content_hash": "2d1f0f6f0b23a00b93f15f818bd59481cd8fd696b2662d5d13d1be37fb3ca862",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_1ae0b80d"
+      }
+    },
+    {
+      "segment_id": "9e90a9b3",
+      "source_content": "Docusaurus now uses the [remark-directive](https://github.com/remarkjs/remark-directive) plugin to support admonitions. This also offers you the ability to create your own Remark plugins to extend Markdown with your own [custom directives](https://talk.commonmark.org/t/generic-directives-plugins-syntax/444) such as `:textDirective`, `::leafDirective` or `:::containerDirective`.",
+      "source_content_hash": "961bdfa4bd471e200e836db3f3deb5f7cca3cef01a9c041aee82fa0b03a61143",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "Docusaurus 现使用 [remark-directive](https://github.com/remarkjs/remark-directive) 插件支持告示框。您还可通过创建自定义 Remark 插件，使用[:textDirective](https://talk.commonmark.org/t/generic-directives-plugins-syntax/444)、::leafDirective 或 :::containerDirective 等[自定义指令](https://talk.commonmark.org/t/generic-directives-plugins-syntax/444)扩展 Markdown 功能。"
+      }
+    },
+    {
+      "segment_id": "a0d0e29e",
+      "source_content": "### ESM and TypeScript configs {#esm-ts-configs}",
+      "source_content_hash": "b66975bf3479cbef83648bd6e3133ef72c94a081c7b14b1acca5d1bd67d2f6d5",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### ESM 和 TypeScript 配置 {#esm-ts-configs}"
+      }
+    },
+    {
+      "segment_id": "be17ccc3",
+      "source_content": "In [#9317](https://github.com/facebook/docusaurus/pull/9317), we added support for ES Modules and TypeScript config files, including site config, docs sidebars, plugins and presets.",
+      "source_content_hash": "699b38b7b2f05e6e39f263c9109c7bd43685732c50df94977de2c34868a7e83c",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "在 [#9317](https://github.com/facebook/docusaurus/pull/9317) 中，我们新增了对 ES 模块和 TypeScript 配置文件的支持，包括站点配置、文档侧边栏、插件和预设。"
+      }
+    },
+    {
+      "segment_id": "ad3e22c6",
+      "source_content": "Here are 2 TypeScript examples, giving you a modern experience with IDE autocompletion:",
+      "source_content_hash": "00739723f2755c0b14869fd1ac5cda37d778c0b4e103c44ee22a27619bf37163",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "以下是两个 TypeScript 示例，为您提供带有 IDE 自动补全的现代化体验："
+      }
+    },
+    {
+      "segment_id": "cf5bbc3b",
+      "source_content": "```ts title=\"docusaurus.config.ts\"\nimport type {Config} from '@docusaurus/types';\nimport type * as Preset from '@docusaurus/preset-classic';\n\nconst config: Config = {\n  title: 'My Site',\n  favicon: 'img/favicon.ico',\n  // your site config ...\n  presets: [\n    [\n      'classic',\n      {\n        // your preset config ...\n      } satisfies Preset.Options,\n    ],\n  ],\n  themeConfig: {\n    // your theme config ...\n  } satisfies Preset.ThemeConfig,\n};\n\nexport default config;\n```",
+      "source_content_hash": "9d9a08d7184a97137132463882a851050c76ac485bf611099c52934eed56ea91",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_cf5bbc3b"
+      }
+    },
+    {
+      "segment_id": "31b98214",
+      "source_content": "```ts title=\"sidebars.ts\"\nimport type {SidebarsConfig} from '@docusaurus/plugin-content-docs';\n\nconst sidebars: SidebarsConfig = {\n  docs: ['introduction'],\n};\n\nexport default sidebars;\n```",
+      "source_content_hash": "c9af6e19338d28572914e03e674af8ac2344e066ed6968b6955ea979ea7e7387",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_31b98214"
+      }
+    },
+    {
+      "segment_id": "c4ac6a6f",
+      "source_content": "### Unlisted content",
+      "source_content_hash": "217a38c04ab2ed954349efeaf00c068ff4a34dda232e938f2db781430ddc63e4",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### 未列出内容"
+      }
+    },
+    {
+      "segment_id": "b49a7009",
+      "source_content": "Docusaurus already supported a `draft: true` front matter option in our 3 content plugins (docs, blog, pages), which allows you to remove some pages from your production builds.",
+      "source_content_hash": "3cd5ccb83453348668d5e336e66ac6d08b264b67efce3e434914575560c8494d",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "Docusaurus 已在三个内容插件（文档、博客、页面）中支持 `draft: true` 前置元数据选项，该选项允许您从生产构建中移除某些页面。"
+      }
+    },
+    {
+      "segment_id": "9ebd9d9b",
+      "source_content": "In [#8004](https://github.com/facebook/docusaurus/pull/8004), we introduced a new `unlisted: true` front matter option, which will keep your pages available in production builds, while \"hiding\" them and making them impossible to discover unless you have the url. This enables convenient workflows where you can easily ask for feedback on a piece of content before the final publication.",
+      "source_content_hash": "957033fd8ea58b8c2c12005a3c28a9bda3b270346e5cfa8efca445fe4bf2e23c",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "在 [#8004](https://github.com/facebook/docusaurus/pull/8004) 中，我们引入了新的 `unlisted: true` 前置元数据选项，该选项会保留页面在生产构建中的可访问性，同时\"隐藏\"这些页面，使其无法被主动发现（除非您拥有具体 URL）。这为内容发布前的协作审阅提供了便捷的工作流支持。"
+      }
+    },
+    {
+      "segment_id": "295367fa",
+      "source_content": "Unlisted content will:",
+      "source_content_hash": "27200fa9ed49b58c4ae0f4d2ee2fbcc297ac11f9e214902199bee95c8a67a3f2",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "未列出内容将具有以下特性："
+      }
+    },
+    {
+      "segment_id": "bc3926aa",
+      "source_content": "- be excluded from `sitemap.xml`\n- be excluded from SEO results thanks to `<meta name=\"robots\" content=\"noindex, nofollow\" />`\n- be excluded from blog RSS feeds\n- be excluded from Algolia DocSearch results\n- be filtered from site navbar items, docs sidebars, blog sidebar, blog archives, tags pages...",
+      "source_content_hash": "1a09b05154a1a2a724d1f121f83e40009b7ee4f2a33f7a6f0c47c2849e4f4650",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "- 从 `sitemap.xml` 中排除\n- 通过 `<meta name=\"robots\" content=\"noindex, nofollow\" />` 从 SEO 结果中排除\n- 从博客 RSS 订阅源中排除\n- 从 Algolia 文档搜索结果中排除\n- 在站点导航项、文档侧边栏、博客侧边栏、博客归档、标签页等场景中被过滤"
+      }
+    },
+    {
+      "segment_id": "3208eb29",
+      "source_content": "Unlisted content will also display a banner so that you don't forget to turn it off once your content is ready for prime time. Here's an example of an [unlisted blog post](/tests/blog/unlisted-post):",
+      "source_content_hash": "bcb20f26ae997158cfd1f794364424d33eb683f6830b6933b7c1009ae5b56c82",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "未列出内容还会显示提示横幅，防止您忘记在内容准备就绪后取消该状态。这里有一个[未列出的博客文章示例](/tests/blog/unlisted-post)："
+      }
+    },
+    {
+      "segment_id": "29436d5c",
+      "source_content": "<IframeWindow url=\"/tests/blog/unlisted-post\" />",
+      "source_content_hash": "b781e29ae38bae974ea1d41d14fb6c431519721cd46ed84b4a52cb4676f67bfb",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_29436d5c"
+      }
+    },
+    {
+      "segment_id": "a9de5d69",
+      "source_content": "### React 18",
+      "source_content_hash": "989779e6f9cac90504634084d947f61f686aac1be65d7985ea67ee07afcf19d5",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### React 18"
+      }
+    },
+    {
+      "segment_id": "e6ac016e",
+      "source_content": "In [#8961](https://github.com/facebook/docusaurus/pull/8961), we upgraded to React 18. This is important, notably for the [gradual adoption of Concurrent React features](https://react.dev/blog/2022/03/29/react-v18#gradually-adopting-concurrent-features), as well as upcoming exciting features such as [build-time React Server Components](https://github.com/facebook/docusaurus/issues/9089).",
+      "source_content_hash": "039ed544da68e2779595b76da29469c6d52bc6a0b9a72b5d98143c3659e54fe8",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "在 [#8961](https://github.com/facebook/docusaurus/pull/8961) 中，我们升级至 React 18。这一升级对于[渐进式采用并发特性](https://react.dev/blog/2022/03/29/react-v18#gradually-adopting-concurrent-features)以及即将推出的[构建时 React 服务端组件](https://github.com/facebook/docusaurus/issues/9089)等创新功能具有重要意义。"
+      }
+    },
+    {
+      "segment_id": "dad05c50",
+      "source_content": "This new version of React should be a drop-in replacement for most Docusaurus sites. It comes with breaking changes that we handled internally in the Docusaurus codebase. If your site is using a lot of custom React code, we recommend you to take a look at the official article on [How to Upgrade to React 18](https://react.dev/blog/2022/03/08/react-18-upgrade-guide), notably the new [automatic batching](https://react.dev/blog/2022/03/08/react-18-upgrade-guide#automatic-batching) behavior.",
+      "source_content_hash": "36bd62584b9169dd52dc777cba317a479cac9cc49f061f95c816f44582519124",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "对大多数 Docusaurus 站点而言，该版本 React 可直接替换使用。我们已在 Docusaurus 代码库内部处理了其带来的破坏性变更。若您的站点包含大量自定义 React 代码，建议查阅官方文章[如何升级至 React 18](https://react.dev/blog/2022/03/08/react-18-upgrade-guide)，特别注意新的[自动批处理](https://react.dev/blog/2022/03/08/react-18-upgrade-guide#automatic-batching)机制。"
+      }
+    },
+    {
+      "segment_id": "fe459619",
+      "source_content": ":::danger[Experimental support for React 18 features]\n\nReact 18 comes with new features:\n\n- `<Suspense>`\n- `React.lazy()`\n- `startTransition()`\n\nTheir Docusaurus support is considered as **experimental**. We might have to adjust the integration in the future, leading to a different runtime behavior.\n\n:::",
+      "source_content_hash": "e6f1fa8b4e129455349725a97ed6f6ea43567273618d8c99afa3eb722aba6795",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::danger[React 18 特性的实验性支持]\n\nReact 18 包含以下新特性：\n\n- `<Suspense>`\n- `React.lazy()`\n- `startTransition()`\n\nDocusaurus 对这些特性的支持目前处于**实验阶段**。未来我们可能调整集成方案，导致运行时行为发生变化。\n\n:::"
+      }
+    },
+    {
+      "segment_id": "c7ab93a8",
+      "source_content": "### Automatic JSX runtime",
+      "source_content_hash": "3cc67c4488b5884743d508c2b6775c1269ea8bd962c6b1d2242fb11006396d9e",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### 自动 JSX 运行时"
+      }
+    },
+    {
+      "segment_id": "9ede513a",
+      "source_content": "Docusaurus now uses the [\"automatic\" JSX runtime](https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html).",
+      "source_content_hash": "b3da80dae5af0dfdf9e82dc19c2e8f7a65cdbd20a0a526a85ef37b730ac81ec5",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "Docusaurus 现在使用[\"自动\" JSX 运行时](https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html)。"
+      }
+    },
+    {
+      "segment_id": "49be422b",
+      "source_content": "It is not needed anymore to import React in JSX files that do not use any React API.",
+      "source_content_hash": "67a4f645bb5bb42f370b393705b5578aa89966e1dd58f49b20e1738125382d55",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "对于未使用任何 React API 的 JSX 文件，不再需要显式导入 React。"
+      }
+    },
+    {
+      "segment_id": "5ad8d2b2",
+      "source_content": "```diff title=\"src/components/MyComponent.js\"\n- import React from 'react';\n\n  export default function MyComponent() {\n    return <div>Hello</div>;\n  }\n```",
+      "source_content_hash": "9571de33300d4e41ef04014cbab83db10d290d3130025cee1f1f5d8cb1901d85",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_5ad8d2b2"
+      }
+    },
+    {
+      "segment_id": "263073b1",
+      "source_content": "### Debug builds",
+      "source_content_hash": "29b6f17089063fe12be4d40aef34cce7e0d7605623564080f2f9486d9a49aa0f",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### 调试构建"
+      }
+    },
+    {
+      "segment_id": "d119b75c",
+      "source_content": "It is now possible to build your static site in dev mode.",
+      "source_content_hash": "ce69715f555e0e4474d50cdb91b66df00bbe8a4e19cfb4efd4422651aa346d3a",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "现在可以构建开发模式下的静态站点。"
+      }
+    },
+    {
+      "segment_id": "bce471ae",
+      "source_content": "```bash\ndocusaurus build --dev\n```",
+      "source_content_hash": "2f90ea325c71461c0527cbf880f264e7fb6f93fc473bab018a2e3420c5fd73de",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_bce471ae"
+      }
+    },
+    {
+      "segment_id": "6be537d9",
+      "source_content": ":::tip[Debug React-related problems]\n\nDocusaurus will log more errors to the console, notably React 18 hydration errors through the new [`onRecoverableError` callback](https://react.dev/reference/react-dom/client/hydrateRoot#parameters).\n\nThis new build mode is particularly helpful for **troubleshooting React problems**. Docusaurus will use the development build of React, thus producing detailed and readable error messages instead of minified ones linking to the [React Error Decoder page](https://reactjs.org/docs/error-decoder.html/).\n\n:::",
+      "source_content_hash": "cc76a19e20cab98935059ae7b66a94e518de3a33040ab16f4bf61927ffd83677",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::tip[调试 React 相关问题]\n\nDocusaurus 将在控制台输出更多错误信息，特别是通过新的 [`onRecoverableError` 回调](https://react.dev/reference/react-dom/client/hydrateRoot#parameters)报告的 React 18 水合错误。\n\n此构建模式特别有助于**排查 React 问题**。Docusaurus 将使用 React 的开发版本，从而生成详细可读的错误信息（而非指向 [React 错误解码页面](https://reactjs.org/docs/error-decoder.html/)的压缩错误代码）。\n\n:::"
+      }
+    },
+    {
+      "segment_id": "89d451de",
+      "source_content": "### TypeScript",
+      "source_content_hash": "2f04cffb5e3896d508c06fe5ee5c2e8c4bc439e2dc6bc987972b8d4fa76ff78b",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### TypeScript"
+      }
+    },
+    {
+      "segment_id": "32fb7230",
+      "source_content": "Docusaurus v3 now requires a minimum version of TypeScript 5.0.",
+      "source_content_hash": "5cb2d60ec1492b11193c38b888cf5a0f0159301ee4a16abc6c7ff2e8b4bd536a",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "Docusaurus v3 现在要求最低 TypeScript 版本为 5.0。"
+      }
+    },
+    {
+      "segment_id": "41e7f712",
+      "source_content": "We re-internalized the base recommended TypeScript config to a new official package:",
+      "source_content_hash": "80e462ff64a40a1efe0ae889ec791bdb16bb5dc0a6d1c4c0ce0d72b44e410329",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "我们将基础推荐的 TypeScript 配置重新内置于一个新的官方包中："
+      }
+    },
+    {
+      "segment_id": "2ef49e00",
+      "source_content": "```diff title=\"tsconfig.json\"\n {\n-  \"extends\": \"@tsconfig/docusaurus/tsconfig.json\",\n+  \"extends\": \"@docusaurus/tsconfig\",\n   \"compilerOptions\": {\n     \"baseUrl\": \".\"\n   }\n }\n```",
+      "source_content_hash": "be38f5c223615616d10815a54f39cfe647a8578e07443d17c0784cd4b2c6954c",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_2ef49e00"
+      }
+    },
+    {
+      "segment_id": "bb5297fc",
+      "source_content": "We also have cleaner, normalized exports for Docusaurus core type, plugin, and preset options, which you can use within the brand-new [TypeScript config files](#esm-ts-configs):",
+      "source_content_hash": "658177edf25c89f059a8b493a70e21b64c5ae83418f19e7718ba82a398cdb9fe",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "我们还为 Docusaurus 核心类型、插件和预设选项提供了更清晰、标准化的导出，您可以在全新的 [TypeScript 配置文件](#esm-ts-configs) 中使用："
+      }
+    },
+    {
+      "segment_id": "8aee8de6",
+      "source_content": "```ts title=\"docusaurus.config.ts\"\nimport type {Config} from '@docusaurus/types';\nimport type {Options, ThemeConfig} from '@docusaurus/preset-classic';\nimport type {SidebarsConfig} from '@docusaurus/plugin-content-docs';\n```",
+      "source_content_hash": "a926b6048e4f3711cde663f2d7d3a249dfb678257ee8f8a8f0dd28620a52fddd",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_8aee8de6"
+      }
+    },
+    {
+      "segment_id": "846134ef",
+      "source_content": "### Code blocks",
+      "source_content_hash": "d268d593a75526af4d9edec2c52897129f305e0411f46d6e0210c35789d9334f",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### 代码块"
+      }
+    },
+    {
+      "segment_id": "53e725dc",
+      "source_content": "In [#9316](https://github.com/facebook/docusaurus/pull/9316), we improved on syntax highlighting thanks to the [prism-react-renderer](https://github.com/FormidableLabs/prism-react-renderer) v2 upgrade. For example, a bash param `--save` is now colored:",
+      "source_content_hash": "674fad2a918fbf31354c4dcffcc2096476d1ba4d5b0a3ad9e501472d68abfc6d",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "在 [#9316](https://github.com/facebook/docusaurus/pull/9316) 中，我们通过升级 [prism-react-renderer](https://github.com/FormidableLabs/prism-react-renderer) v2 改进了语法高亮。例如，bash 参数 `--save` 现在会显示颜色："
+      }
+    },
+    {
+      "segment_id": "79d8cec2",
+      "source_content": "```bash\nnpm install --save some-package\n```",
+      "source_content_hash": "8aed360eb18c84d908214eec2845f8e04079b7c717173bb105e09a933e1bf507",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_79d8cec2"
+      }
+    },
+    {
+      "segment_id": "740d2e67",
+      "source_content": "The [interactive code editor](/docs/markdown-features/code-blocks#interactive-code-editor) also upgrades to [react-live](https://github.com/FormidableLabs/react-live) v4, coming with a new [sucrase](https://github.com/alangpierce/sucrase) compiler. It is faster, lighter, and supports modern features, notably TypeScript type annotations.",
+      "source_content_hash": "f409f0d7962c477a3fab50a687740db7e356c1e3571fbe23942a05ec42bf0884",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "[交互式代码编辑器](/docs/markdown-features/code-blocks#interactive-code-editor) 也升级至 [react-live](https://github.com/FormidableLabs/react-live) v4，采用了新的 [sucrase](https://github.com/alangpierce/sucrase) 编译器。它更快、更轻量，并支持现代特性，特别是 TypeScript 类型注解。"
+      }
+    },
+    {
+      "segment_id": "b73b8545",
+      "source_content": "```js live\nfunction Hello() {\n  const name: string = 'World';\n  return <div>Hello {name}</div>;\n}\n```",
+      "source_content_hash": "fd686e0a8070d7fa604f7e9379499e1da0c36aaf023662606b20c96bcb139653",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_b73b8545"
+      }
+    },
+    {
+      "segment_id": "4e994fc3",
+      "source_content": "In [#8982](https://github.com/facebook/docusaurus/pull/8982) and [#8870](https://github.com/facebook/docusaurus/pull/8870), we also added [magic comments](/docs/markdown-features/code-blocks#custom-magic-comments) support for TeX-like, Haskell-like, and WebAssembly comment syntax.",
+      "source_content_hash": "7cc3081dbcef24f0cf7783308f19b318d8ed8dd580e6e869884824dbf4914bc4",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "在 [#8982](https://github.com/facebook/docusaurus/pull/8982) 和 [#8870](https://github.com/facebook/docusaurus/pull/8870) 中，我们还为类 TeX、类 Haskell 和 WebAssembly 注释语法添加了 [魔法注释](/docs/markdown-features/code-blocks#custom-magic-comments) 支持。"
+      }
+    },
+    {
+      "segment_id": "45bc4861",
+      "source_content": "```haskell title=\"haskell.hs\"\nstringLength :: String -> Int\n-- highlight-next-line\nstringLength [] = 0\nstringLength (x:xs) = 1 + stringLength xs\n```",
+      "source_content_hash": "cb02ba0b264846c3cae3f7aee7c8f69138d1bb63fc1ccde5d2007ceac4c6dc71",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_45bc4861"
+      }
+    },
+    {
+      "segment_id": "16758561",
+      "source_content": "```matlab title=\"matlab.m\"\n% highlight-start\nfunction result = times2(n)\n  result = n * 2;\nend\n% highlight-end\nx = 10;\n% highlight-next-line\ny = times2(x);\n```",
+      "source_content_hash": "36fe7bbaed3fd02f5411fc202625b0e7fbf059159e377b39ee82f2856ec05e45",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_16758561"
+      }
+    },
+    {
+      "segment_id": "92d715c2",
+      "source_content": "### Mermaid diagrams",
+      "source_content_hash": "cf6f456c67a3e1685d1a7ef7347b60c8fa50248b8228a970ca006addb442939b",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### Mermaid 图表"
+      }
+    },
+    {
+      "segment_id": "83d7d3bc",
+      "source_content": "In [#9305](https://github.com/facebook/docusaurus/pull/9305), we upgraded to Mermaid v10.4 and added support for async diagram rendering. Docusaurus is now able to render new types of diagrams.",
+      "source_content_hash": "e997f75934159d7cbcab504b39b77ecd4b53fb0bee7edc93fe2a6fb74ead7307",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "在 [#9305](https://github.com/facebook/docusaurus/pull/9305) 中，我们升级至 Mermaid v10.4 并增加了对异步图表渲染的支持。Docusaurus 现在能够渲染新类型的图表。"
+      }
+    },
+    {
+      "segment_id": "b27c4113",
+      "source_content": "<details>\n  <summary>Mindmap</summary>\n\n```mermaid\nmindmap\n  root((mindmap))\n    Research\n      Creative techniques\n      Strategic planning\n      Argument mapping\n    Tools\n      Pen and paper\n      Mermaid\n```\n\n</details>",
+      "source_content_hash": "7c47440288a5efd9f76ec2b8844fda70109d3f71180035c6be0ba1c29a369b63",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_b27c4113"
+      }
+    },
+    {
+      "segment_id": "adab623b",
+      "source_content": "<details>\n  <summary>Quadrant chart</summary>\n\n```mermaid\nquadrantChart\n  title Reach and engagement of campaigns\n  x-axis Low Reach --> High Reach\n  y-axis Low Engagement --> High Engagement\n  quadrant-1 We should expand\n  quadrant-2 Need to promote\n  quadrant-3 Re-evaluate\n  quadrant-4 May be improved\n  Campaign A: [0.3, 0.6]\n  Campaign B: [0.45, 0.23]\n  Campaign C: [0.57, 0.69]\n  Campaign D: [0.78, 0.34]\n  Campaign E: [0.40, 0.34]\n  Campaign F: [0.35, 0.78]\n```\n\n</details>",
+      "source_content_hash": "f2d71bfca73a8602c21bfe6e435bbebd6948072fa1a09afde93abec9ccd4bc33",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_adab623b"
+      }
+    },
+    {
+      "segment_id": "74f95bc3",
+      "source_content": "### Query-string data attributes",
+      "source_content_hash": "5fd4af3e1d4208bcf0e9a6ba5ec787560bc80a34d31c65a236ceb62cef7a5dd2",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### 查询字符串数据属性"
+      }
+    },
+    {
+      "segment_id": "0274aeec",
+      "source_content": "In [#9028](https://github.com/facebook/docusaurus/pull/9028), we made it possible to set custom HTML [data attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/data-*) though `docusaurus-data-x` query-string parameters. This makes it easier to embed a Docusaurus iframe on another site, and lets you customize the appearance of the embedded version with CSS.",
+      "source_content_hash": "6b400e1d5924a131299296326a1569cd7831450e9c1a12b0f570494a1c97f49c",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "在 [#9028](https://github.com/facebook/docusaurus/pull/9028) 中，我们实现了通过 `docusaurus-data-x` 查询字符串参数设置自定义 HTML [数据属性](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/data-*)。这使得在其他网站上嵌入 Docusaurus iframe 更加容易，并允许您通过 CSS 自定义嵌入版本的外观。"
+      }
+    },
+    {
+      "segment_id": "99afeceb",
+      "source_content": "```css title=\"/src/css/custom.css\"\nhtml[data-navbar='false'] .navbar {\n  display: none;\n}\n\nhtml[data-red-border] div#__docusaurus {\n  border: red solid thick;\n}\n```",
+      "source_content_hash": "d53fcdaf5351a6779c84f7f9a43d3def65dcd37c7dca2b46996fcdb6cd991c24",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_99afeceb"
+      }
+    },
+    {
+      "segment_id": "d5eb3d6f",
+      "source_content": "<IframeWindow url=\"/docs/?docusaurus-data-navbar=false&docusaurus-data-red-border\" />",
+      "source_content_hash": "50aee44a3bac5a04ecbc9d6d8ffb521270ccc80d664be3ee262fe18557079ed4",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_d5eb3d6f"
+      }
+    },
+    {
+      "segment_id": "06d2929c",
+      "source_content": "### Other features",
+      "source_content_hash": "158255e9d261063b3ed5b12a7b8625b274ec95e988da61cd3ab36f0f8d07efd2",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### 其他特性"
+      }
+    },
+    {
+      "segment_id": "323eea94",
+      "source_content": "Other new features worth mentioning:",
+      "source_content_hash": "29542d9622831590a4ac403044e1bde94dc3e8890b9ae0346715af80d0e83825",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "其他值得一提的新特性："
+      }
+    },
+    {
+      "segment_id": "aaddedb4",
+      "source_content": "- [#9189](https://github.com/facebook/docusaurus/pull/9189): new blog `feedOptions.limit` option\n- [#9071](https://github.com/facebook/docusaurus/pull/9071): add normalized SEO front matter support for the pages plugin\n- [#9171](https://github.com/facebook/docusaurus/pull/9028): the client-redirects plugin now supports fully qualified urls and query-string/hash in destination url\n- [#9171](https://github.com/facebook/docusaurus/pull/9171): new ESLint rule [`no-html-links`](/docs/api/misc/@docusaurus/eslint-plugin/no-html-links)\n- [#8384](https://github.com/facebook/docusaurus/pull/8384): new ESLint rule [`prefer-docusaurus-heading`](/docs/api/misc/@docusaurus/eslint-plugin/prefer-docusaurus-heading)",
+      "source_content_hash": "5c9830075936e61dcae95438d11e09b9478bcfcff7e3ed7545f2571e298cfca1",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "- [#9189](https://github.com/facebook/docusaurus/pull/9189): 新增博客 `feedOptions.limit` 选项\n- [#9071](https://github.com/facebook/docusaurus/pull/9071): 为页面插件添加标准化的 SEO 前置元数据支持\n- [#9171](https://github.com/facebook/docusaurus/pull/9028): 客户端重定向插件现在支持完全限定的 URL 以及目标 URL 中的查询字符串/哈希\n- [#9171](https://github.com/facebook/docusaurus/pull/9171): 新增 ESLint 规则 [`no-html-links`](/docs/api/misc/@docusaurus/eslint-plugin/no-html-links)\n- [#8384](https://github.com/facebook/docusaurus/pull/8384): 新增 ESLint 规则 [`prefer-docusaurus-heading`](/docs/api/misc/@docusaurus/eslint-plugin/prefer-docusaurus-heading)"
+      }
+    },
+    {
+      "segment_id": "475959f2",
+      "source_content": "Read [**Docusaurus v3.0.0 release notes**](https://github.com/facebook/docusaurus/releases/tag/v3.0.0) for an exhaustive list of changes.",
+      "source_content_hash": "3f82945bc119ebf996f6ef6000e1d13d7de76a6976272308b3d44a79d9d0eefa",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "查看 [**Docusaurus v3.0.0 发布说明**](https://github.com/facebook/docusaurus/releases/tag/v3.0.0) 获取完整的变更列表。"
+      }
+    },
+    {
+      "segment_id": "63b4ae1d",
+      "source_content": "## Conclusion",
+      "source_content_hash": "be031d37bb75d96ef08ca9ec5b0e83bb6f91172f60d3c31a78feae8d7dc4a0b0",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 总结"
+      }
+    },
+    {
+      "segment_id": "1697776c",
+      "source_content": "This release comes with a few features, but more importantly **upgrades many pieces of the Docusaurus infrastructure**.",
+      "source_content_hash": "37d79c47aefa315e091d0b4f160a053d584ff187e7be67a369cb8d9b1624d872",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "此版本带来了一些新特性，但更重要的是 **升级了 Docusaurus 基础设施的多个部分**。"
+      }
+    },
+    {
+      "segment_id": "fd40deab",
+      "source_content": "The **MDX upgrade** consumed a lot of our time this year, and we worked hard to make this important upgrade less difficult for all of you.",
+      "source_content_hash": "f7c6d4742ee959b4ebfc31a08ba29f5db85f9037d2e33f25f80efa52d4b6bde6",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "**MDX 升级** 今年消耗了我们大量时间，我们努力使这一重要升级对大家来说不那么困难。"
+      }
+    },
+    {
+      "segment_id": "3e2af19c",
+      "source_content": "Now that we've caught up with our infrastructure, we'll be back **delivering useful documentation features** very soon, in upcoming minor versions.",
+      "source_content_hash": "24d2e2da0a0c175b1d0b5642a4277da891951d7cf1f46ba4385bc28f8ccc55b6",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "在完成基础设施升级后，我们将很快在后续的小版本中恢复**提供实用的文档功能**开发。"
+      }
+    },
+    {
+      "segment_id": "991164fd",
+      "source_content": "We would like to thank you for using Docusaurus over the years. The documentation framework space is becoming more competitive lately, and we will do our best to ensure that Docusaurus remains a **competitive solution** that stands out for its great **flexibility**.",
+      "source_content_hash": "fbf53a27665a6252fc4b744209cc0bd2172970fd5c05bd9268a84a884d6c014c",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "衷心感谢您多年来对Docusaurus的使用。当前文档框架领域的竞争日趋激烈，我们将竭尽全力确保Docusaurus继续保持其卓越的**灵活性**，使之成为具有竞争力的解决方案。"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-blog/authors.yml/releases/3.0/index.mdx",
+  "last_updated_timestamp": "2025-05-24T15:26:17.489616+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "zh-CN": "bc2fdf4aa404cf13964be99eebe239f3cadeec3f5c74cca94cc682aed7a58ce7"
+  }
+}

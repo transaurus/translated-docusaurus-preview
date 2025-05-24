@@ -1,0 +1,342 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "blog/releases/2.3/index.mdx",
+  "source_file_content_hash": "2e78f4cd70926a60f17e1d65074d2b6de45e6816c6541583ed486c4ded4a65d6",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\ntitle: Docusaurus 2.3\nauthors: [slorber]\ntags: [release]\nimage: ./img/social-card.png\ndate: 2023-01-27\n---",
+      "source_content_hash": "b504d3acb22f633fa32a9b460d8f4fd08487127a5d86ef1ca9bb5f641f011728",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "53eaf0e1",
+      "source_content": "We are happy to announce **Docusaurus 2.3**.",
+      "source_content_hash": "fe0585deae210dc98662f6df5db0c80cdd6dcc9cc1afdcb4cdf706f5c929e8ca",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "我们很高兴地宣布 **Docusaurus 2.3** 正式发布。"
+      }
+    },
+    {
+      "segment_id": "8ac585fb",
+      "source_content": "The upgrade should be easy: as explained in our [release process documentation](/community/release-process), minor versions respect [Semantic Versioning](https://semver.org/).",
+      "source_content_hash": "c798b6e35eb0c79c81cf7d49c78ac7cde6fc60897b64f9cfc3abb86bb45cd729",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "升级过程应该很简单：正如我们的[发布流程文档](/community/release-process)所述，次要版本遵循[语义化版本控制](https://semver.org/)规范。"
+      }
+    },
+    {
+      "segment_id": "180bddb1",
+      "source_content": "![Docusaurus 2.2 social card](./img/social-card.png)",
+      "source_content_hash": "5a61e714933fc8ba9b10f702c28c07f2a2d813faf6bb48124143bbe304895fc7",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "![Docusaurus 2.2 社交媒体卡片](./img/social-card.png)"
+      }
+    },
+    {
+      "segment_id": "28a64196",
+      "source_content": "<!--truncate-->",
+      "source_content_hash": "f5cded2aa7e288e395fe4f67f9dabda2281904b2f5358d07302b3aa8be0acdfa",
+      "node_type": "comment",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_28a64196"
+      }
+    },
+    {
+      "segment_id": "3daf1b88",
+      "source_content": "## Highlights",
+      "source_content_hash": "f5aedb14b6b9da4899c54cdf031961cfbda60d336dc60afdb5e12f0b83945e84",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 重点更新"
+      }
+    },
+    {
+      "segment_id": "aee0e40d",
+      "source_content": "### Google Tag Manager plugin",
+      "source_content_hash": "4ba8e5b59f5efdcaa396b4f24b3a48952d855607047993840598c9aed9f328a9",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### Google Tag Manager 插件"
+      }
+    },
+    {
+      "segment_id": "f5f6d2ce",
+      "source_content": "Google Tag Manager is a tag management system that allows great flexibility. It enables analytics and marketing teams to easily load other third-party trackers and fire analytics tags.",
+      "source_content_hash": "07a761becab791fadbe65718198f9dc2a82d3e2a7ac05d9fb8e19e992e5d5b84",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "Google Tag Manager 是一个提供高度灵活性的标签管理系统，可让分析和营销团队轻松加载其他第三方追踪器并触发分析标签。"
+      }
+    },
+    {
+      "segment_id": "2fdadb08",
+      "source_content": "We now have a [`@docusaurus/plugin-google-tag-manager`](/docs/api/plugins/@docusaurus/plugin-google-tag-manager/) package that you can use alongside or as an alternative to the existing [gtag.js plugin](/docs/api/plugins/@docusaurus/plugin-google-gtag/) (refer to [this doc](https://support.google.com/tagmanager/answer/7582054) to understand when to use which solution).",
+      "source_content_hash": "06cd88d5f6c29eaf9c59fdd524ba712edf4a07c5713377a07c98b895d4eb58f4",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "我们现在提供了 [`@docusaurus/plugin-google-tag-manager`](/docs/api/plugins/@docusaurus/plugin-google-tag-manager/) 包，您可将其与现有的 [gtag.js 插件](/docs/api/plugins/@docusaurus/plugin-google-gtag/)搭配使用或替代之（请参阅[此文档](https://support.google.com/tagmanager/answer/7582054)了解何时选用哪种方案）。"
+      }
+    },
+    {
+      "segment_id": "64f5e8db",
+      "source_content": ":::warning[Google is sunsetting Universal Analytics]\n\n[Google will sunset its Universal Analytics](https://blog.google/products/marketingplatform/analytics/prepare-for-future-with-google-analytics-4/) on **July 1, 2023**, and ask users to migrate to **Google Analytics 4**.\n\nTherefore, we are also **deprecating our existing [`@docusaurus/plugin-google-analytics`](/docs/api/plugins/@docusaurus/plugin-google-analytics)** package. Docusaurus users should create a new Google Analytics 4 property, and migrate to the [gtag.js plugin](/docs/api/plugins/@docusaurus/plugin-google-gtag/), or the [Google Tag Manager plugin](/docs/api/plugins/@docusaurus/plugin-google-tag-manager/). Refer to the [dedicated Docusaurus issue](https://github.com/facebook/docusaurus/issues/7221) for details and questions.\n\n:::",
+      "source_content_hash": "adcb3653cd0500a1a19760488c00d8234328d26a1e9531ddc5854af3c1c89217",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::warning[Google 即将停止 Universal Analytics 服务]\n\n[Google 将于 **2023 年 7 月 1 日**停止 Universal Analytics](https://blog.google/products/marketingplatform/analytics/prepare-for-future-with-google-analytics-4/)，并要求用户迁移至 **Google Analytics 4**。\n\n因此，我们也将**弃用现有的 [`@docusaurus/plugin-google-analytics`](/docs/api/plugins/@docusaurus/plugin-google-analytics)** 包。Docusaurus 用户应创建新的 Google Analytics 4 属性，并迁移至 [gtag.js 插件](/docs/api/plugins/@docusaurus/plugin-google-gtag/)或 [Google Tag Manager 插件](/docs/api/plugins/@docusaurus/plugin-google-tag-manager/)。详情及问题请参阅[专属 Docusaurus 议题](https://github.com/facebook/docusaurus/issues/7221)。\n\n:::"
+      }
+    },
+    {
+      "segment_id": "0037ff70",
+      "source_content": "### Tabs Query String Support",
+      "source_content_hash": "d80fa8f99ca4eb53929052238f6588b7c84d0f02f283e723c82036df1f440b19",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### 标签页查询字符串支持"
+      }
+    },
+    {
+      "segment_id": "bdc231b1",
+      "source_content": "It is now possible to link a selected tab to a query string parameter. When a tab is selected, it will be stored in your browser URL as a `?qs-param=tab-value` search parameter.",
+      "source_content_hash": "1147cb93f178ecc8f942e275be95ca79a49cab5e2bd0ff083c3709af05927e71",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "现在可以通过查询字符串参数链接到指定标签页。当选择某个标签页时，其值会以 `?qs-param=tab-value` 搜索参数的形式存储在浏览器 URL 中。"
+      }
+    },
+    {
+      "segment_id": "97ae4a01",
+      "source_content": "This feature allows deep-linking to a specific documentation tab that will pre-selected on page load.",
+      "source_content_hash": "da69b60ef5a3a274d6630b7acd5a0fdbcd354c1c8f09a100bd1ef1aa5190fb7e",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "此功能支持通过深层链接直接定位到页面加载时预选的特定文档标签页。"
+      }
+    },
+    {
+      "segment_id": "c3a738de",
+      "source_content": "When used alongside the `groupId` prop, the query string tab value takes precedence over the `localStorage` value.",
+      "source_content_hash": "b3cd27811d6ce930fc54afa535b4e70e57ef59bf88083ba8358dcab61e1da2f7",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "当与 `groupId` 属性配合使用时，查询字符串标签值将优先于 `localStorage` 存储的值。"
+      }
+    },
+    {
+      "segment_id": "3cfe6286",
+      "source_content": "Make sure to check the [documentation](/docs/markdown-features/tabs#query-string) and the demo below to understand how it works:",
+      "source_content_hash": "466e728ee95a7934537a67b6ecdfe9dd27351f38f38d02e713c221de3b21ea56",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "请务必查阅[文档](/docs/markdown-features/tabs#query-string)并查看下方演示以了解其工作原理："
+      }
+    },
+    {
+      "segment_id": "fbb28999",
+      "source_content": "import BrowserWindow from '@site/src/components/BrowserWindow';\nimport Tabs from '@theme/Tabs';\nimport TabItem from '@theme/TabItem';",
+      "source_content_hash": "0ef4a68bf87f46cb4d65c13f4623b8f35a4ea296950dbb88c0fce62ed668618f",
+      "node_type": "mdxjsEsm",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_fbb28999"
+      }
+    },
+    {
+      "segment_id": "b75ddc12",
+      "source_content": "```tsx\n<Tabs groupId=\"current-os\" queryString>\n  <TabItem value=\"android\" label=\"Android\">\n    Android\n  </TabItem>\n  <TabItem value=\"ios\" label=\"iOS\">\n    iOS\n  </TabItem>\n</Tabs>\n```",
+      "source_content_hash": "8290c3b5ef0490a517e0c0def277bf4eb020a5a7adac38321d320cd108ba54a2",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_b75ddc12"
+      }
+    },
+    {
+      "segment_id": "6214d3c2",
+      "source_content": "<BrowserWindow>\n  <Tabs groupId=\"current-os\" queryString>\n    <TabItem value=\"android\" label=\"Android\">\n      Android\n    </TabItem>\n    <TabItem value=\"ios\" label=\"iOS\">\n      iOS\n    </TabItem>\n  </Tabs>\n</BrowserWindow>",
+      "source_content_hash": "2806677c9e8705513aa52d69f0809b57fefe6066144f5dda88696b9eeca03bad",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_6214d3c2"
+      }
+    },
+    {
+      "segment_id": "3ef18741",
+      "source_content": "### Nested admonitions",
+      "source_content_hash": "61cc5dafa1fb1f83e2bdbe33980a745a86eeb6877022251ef869a6d57f95f27c",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### 嵌套警示框"
+      }
+    },
+    {
+      "segment_id": "e7772088",
+      "source_content": "It is now possible to nest one admonition within another by adding extra colons for the outer/enclosing admonition:",
+      "source_content_hash": "c69e7589f0d44681840032e35ddeeae09349840f961865fec5a5c725436d8563",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "现在可以通过为外层/包裹的警示框添加额外的冒号来实现警示框嵌套："
+      }
+    },
+    {
+      "segment_id": "bc137a19",
+      "source_content": "```md\n::::tip[nested admonitions]\n\nYou can now nest one admonition within another!\n\n:::danger\n\nUse this sparingly when it makes sense.\n\n:::\n\n::::\n```",
+      "source_content_hash": "8c2bbfe86d44c28d88e0f5e1edb18b6880d59a82346990e67d647b436cc4b8ca",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_bc137a19"
+      }
+    },
+    {
+      "segment_id": "17f43a45",
+      "source_content": "::::tip[nested admonitions]\n\nYou can now nest one admonition within another!\n\n:::danger\n\nUse this sparingly when it makes sense.\n\n:::\n\n::::",
+      "source_content_hash": "c1c048314996bcd97ece41e270092822bd3edf1fe5bae7f0ee1b9cd229555516",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "::::tip[嵌套警示框]\n\n您现在可以将一个警示框嵌套在另一个警示框中！\n\n:::danger\n\n请谨慎使用此功能，仅在确实有必要时使用。\n\n:::\n\n::::"
+      }
+    },
+    {
+      "segment_id": "e06c002e",
+      "source_content": "### Blog `createFeedItems`",
+      "source_content_hash": "d944b44e2c2a69bec2449900f4393749777930da8b66caf5e80b62221154f709",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### 博客 `createFeedItems` 功能"
+      }
+    },
+    {
+      "segment_id": "25212439",
+      "source_content": "A new blog plugin option [`feedOptions.createFeedItems`](/docs/api/plugins/@docusaurus/plugin-content-blog/#CreateFeedItemsFn) gives you more control over the RSS/Atom feed generation. It is now possible to transform/filter/limit feed items through a new callback.",
+      "source_content_hash": "f56064c74aaa27e10e915ad1a0daeef33e2c023a654396d402b9687c4fab635d",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "新增的博客插件选项 [`feedOptions.createFeedItems`](/docs/api/plugins/@docusaurus/plugin-content-blog/#CreateFeedItemsFn) 让您能更精细地控制 RSS/Atom 订阅源生成。现在可以通过新的回调函数来转换/过滤/限制订阅项。"
+      }
+    },
+    {
+      "segment_id": "cae897fb",
+      "source_content": "```tsx title=\"docusaurus.config.js\"\n[\n  '@docusaurus/preset-classic',\n  {\n    blog: {\n      feedOptions: {\n        // highlight-start\n        createFeedItems: async (params) => {\n          const {blogPosts, defaultCreateFeedItems, ...rest} = params;\n          return defaultCreateFeedItems({\n            // keep only the 10 most recent blog posts in the feed\n            blogPosts: blogPosts.filter((item, index) => index < 10),\n            ...rest,\n          });\n        },\n        // highlight-end\n      },\n    },\n  },\n];\n```",
+      "source_content_hash": "10c599cfd5fce26933b42ac86870d92c35eb9fed8c2cf602f7485ddc4d53c4b4",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_cae897fb"
+      }
+    },
+    {
+      "segment_id": "ed644f52",
+      "source_content": "### Translations",
+      "source_content_hash": "1ecceac87af04e40fa9d1fe5ad527d2293336e4e195c13b072d0c5d00958879d",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### 国际化翻译"
+      }
+    },
+    {
+      "segment_id": "b9331170",
+      "source_content": "We added or completed the default theme translation support for multiple languages:",
+      "source_content_hash": "870835b5bd99a361fa9c38fdceaaf9c23d08c92eeec7a7a7895eb63b4a77d833",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "我们为默认主题新增或完善了以下语言的翻译支持："
+      }
+    },
+    {
+      "segment_id": "4b530389",
+      "source_content": "- 🇸🇮 [#8541](https://github.com/facebook/docusaurus/pull/8541) Slovenian\n- 🇹🇷 [#8289](https://github.com/facebook/docusaurus/pull/8289) Turkish\n- 🇮🇷 [#8406](https://github.com/facebook/docusaurus/pull/8406) Farsi\n- 🇵🇱 [#8525](https://github.com/facebook/docusaurus/pull/8525) Polish\n- 🇨🇳 [#8423](https://github.com/facebook/docusaurus/pull/8423) Chinese\n- 🇸🇪 [#8312](https://github.com/facebook/docusaurus/pull/8312) Swedish\n- 🇻🇳 [#8450](https://github.com/facebook/docusaurus/pull/8450) Vietnamese",
+      "source_content_hash": "a240f9d4f1838ab42629eecfaab8fca01ab18ecb41232f4e69602f26a7fd08df",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "- 🇸🇮 [#8541](https://github.com/facebook/docusaurus/pull/8541) 斯洛文尼亚语\n- 🇹🇷 [#8289](https://github.com/facebook/docusaurus/pull/8289) 土耳其语\n- 🇮🇷 [#8406](https://github.com/facebook/docusaurus/pull/8406) 波斯语\n- 🇵🇱 [#8525](https://github.com/facebook/docusaurus/pull/8525) 波兰语\n- 🇨🇳 [#8423](https://github.com/facebook/docusaurus/pull/8423) 中文\n- 🇸🇪 [#8312](https://github.com/facebook/docusaurus/pull/8312) 瑞典语\n- 🇻🇳 [#8450](https://github.com/facebook/docusaurus/pull/8450) 越南语"
+      }
+    },
+    {
+      "segment_id": "a1600d1d",
+      "source_content": ":::tip\n\nCompleting theme translations is an [ongoing effort](https://github.com/facebook/docusaurus/issues/3526) and an easy way to contribute to Docusaurus. We add new theme features regularly, for which we often [need new translations](https://github.com/facebook/docusaurus/issues/3526).\n\n:::",
+      "source_content_hash": "46b181d681890bb5fcda323bc7e0fcefd9f297b3bb0d83d218cb5eb2a0aaf77c",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::tip\n\n主题翻译完善是一项[持续进行的工作](https://github.com/facebook/docusaurus/issues/3526)，也是为Docusaurus做贡献的简单方式。我们会定期新增主题功能，通常需要[新的翻译支持](https://github.com/facebook/docusaurus/issues/3526)。\n\n:::"
+      }
+    },
+    {
+      "segment_id": "734d40d8",
+      "source_content": "## Other changes",
+      "source_content_hash": "664d73286695bab6e722d97de9d3e8c2cfcb1f3862e89e29908a9dc19af1fe6d",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 其他变更"
+      }
+    },
+    {
+      "segment_id": "9e90a9b3",
+      "source_content": "Other notable changes include:",
+      "source_content_hash": "7a7f506f7135be9a4fa913b729c202a73a90a1e28932ea8fe72609585c615fe3",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "其他值得注意的变更包括："
+      }
+    },
+    {
+      "segment_id": "d3939446",
+      "source_content": "- [#8463](https://github.com/facebook/docusaurus/pull/8463) and [#8328](https://github.com/facebook/docusaurus/pull/8328): fix some annoying Docusaurus layout issues\n- [#8539](https://github.com/facebook/docusaurus/pull/8539): Algolia plugin `options.searchPagePath` should be correctly applied to search modal footer\n- [#8462](https://github.com/facebook/docusaurus/pull/8462): Algolia plugin now makes it easier to transform displayed search results with custom logic\n- [#8397](https://github.com/facebook/docusaurus/pull/8397): the `deploy` CLI now understands git url `insteadOf` config",
+      "source_content_hash": "c7ebea8b37e56c7297f481b8c473e76153d5f47b97fc7bbfda714d305022dfdb",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "- [#8463](https://github.com/facebook/docusaurus/pull/8463) 和 [#8328](https://github.com/facebook/docusaurus/pull/8328)：修复了一些烦人的Docusaurus布局问题\n- [#8539](https://github.com/facebook/docusaurus/pull/8539)：Algolia插件的`options.searchPagePath`现在能正确应用到搜索模态框页脚\n- [#8462](https://github.com/facebook/docusaurus/pull/8462)：Algolia插件现在支持通过自定义逻辑更轻松地转换显示的搜索结果\n- [#8397](https://github.com/facebook/docusaurus/pull/8397)：`deploy` CLI现在能识别git url的`insteadOf`配置"
+      }
+    },
+    {
+      "segment_id": "719d3997",
+      "source_content": "Check the **[2.3.0 changelog entry](/changelog/2.3.0)** for an exhaustive list of changes.",
+      "source_content_hash": "e960a1bfdb90cd2ce84820a55624d2b730e7f5d6a5a29b949ab020daddeb12c5",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "查看完整的变更列表请参阅**[2.3.0版本更新日志](/changelog/2.3.0)**。"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-blog/authors.yml/releases/2.3/index.mdx",
+  "last_updated_timestamp": "2025-05-24T15:26:17.510996+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "zh-CN": "2e78f4cd70926a60f17e1d65074d2b6de45e6816c6541583ed486c4ded4a65d6"
+  }
+}
