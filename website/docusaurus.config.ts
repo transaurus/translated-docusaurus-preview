@@ -193,29 +193,43 @@ export default async function createConfigAsync() {
       },
     ],
         i18n: {
-        defaultLocale: 'en',
-        locales: ['en', 'fr', 'pt-BR', 'ko', 'zh-CN', 'ja'],
-        localeConfigs: {
-          en: {
-            label: 'English',
-          },
-          fr: {
-            label: 'Français',
-          },
-          'pt-BR': {
-            label: 'Português (Brasil)',
-          },
-          ko: {
-            label: '한국어',
-          },
-          'zh-CN': {
-            label: '简体中文',
-          },
-          ja: {
-            label: '日本語',
+          defaultLocale, // The variable 'defaultLocale' is 'en'
+          locales:
+            isDeployPreview || isBranchDeploy
+              ? // Deploy preview and branch deploys: keep them fast!
+                [defaultLocale]
+              : isI18nStaging
+              ? // Staging locales: https://docusaurus-i18n-staging.netlify.app/
+                [defaultLocale, 'ja']
+              : // Production locales (zh-CN was already present)
+                [defaultLocale, 'fr', 'pt-BR', 'ko', 'zh-CN'],
+          localeConfigs: {
+            en: {
+              label: 'English',
+              htmlLang: 'en',
+            },
+            fr: {
+              label: 'Français',
+              htmlLang: 'fr',
+            },
+            ja: {
+              label: '日本語',
+              htmlLang: 'ja',
+            },
+            ko: {
+              label: '한국어',
+              htmlLang: 'ko',
+            },
+            'pt-BR': {
+              label: 'Português (Brasil)',
+              htmlLang: 'pt-BR',
+            },
+            'zh-CN': {
+              label: '简体中文',
+              htmlLang: 'zh-CN',
+            },
           },
         },
-      },
     markdown: {
       format: 'detect',
       mermaid: true,

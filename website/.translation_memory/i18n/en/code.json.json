@@ -1,6 +1,6 @@
 {
   "source_file_path_relative_to_docusaurus_root": "i18n/en/code.json",
-  "source_file_content_hash": "555e1e59d779f38573309dab898a25073063ff31da16b6ca2c7a96e2edd46b34",
+  "source_file_content_hash": "b357305073ad8904a303c3d5897a7c71ce254f8655aa604a209aabe84607b3e6",
   "segments": [
     {
       "segment_id": "Preset options",
@@ -49,7 +49,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "如果使用独立插件，请直接将选项提供给插件："
+        "zh-CN": "如果使用独立插件，请直接向插件提供配置选项："
       }
     },
     {
@@ -59,7 +59,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "当前：{canaryVersionName}"
+        "zh-CN": "当前版本：{canaryVersionName}"
       },
       "metadata": {
         "json_description": "The hint text for the current canary version tag."
@@ -85,7 +85,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "npm上可用的最新Canary版本发布于{time}。"
+        "zh-CN": "npm 上可用的最新金丝雀版本发布于 {time}。"
       }
     },
     {
@@ -95,7 +95,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "Docusaurus与Keytar"
+        "zh-CN": "Docusaurus 与 Keytar"
       }
     },
     {
@@ -105,7 +105,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "快速构建<b>优化</b>网站，专注您的<b>内容</b>"
+        "zh-CN": "快速构建<b>高性能</b>网站，专注<b>内容创作</b>"
       },
       "metadata": {
         "json_description": "Home page hero title, can contain simple html tags"
@@ -118,7 +118,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "开始使用"
+        "zh-CN": "快速开始"
       }
     },
     {
@@ -128,7 +128,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "试用演示"
+        "zh-CN": "体验演示"
       }
     },
     {
@@ -138,7 +138,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "深受众多工程师喜爱"
+        "zh-CN": "深受工程师喜爱"
       }
     },
     {
@@ -148,7 +148,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "查看介绍视频"
+        "zh-CN": "观看介绍视频"
       }
     },
     {
@@ -158,7 +158,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "Docusaurus {newVersion} 已发布！️"
+        "zh-CN": "Docusaurus {newVersion} 震撼发布！️"
       }
     },
     {
@@ -188,7 +188,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "Docusaurus文档版本"
+        "zh-CN": "Docusaurus 文档版本"
       }
     },
     {
@@ -208,7 +208,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "此处可查阅当前发布版本的文档。"
+        "zh-CN": "此处可查阅当前发布版本的文档"
       }
     },
     {
@@ -228,7 +228,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "此处可查阅尚未发布的开发中版本文档。"
+        "zh-CN": "此处可查阅开发中未发布版本的文档"
       }
     },
     {
@@ -248,7 +248,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "此处可查阅Docusaurus过往版本的文档。"
+        "zh-CN": "此处可查阅Docusaurus历史版本的文档"
       }
     },
     {
@@ -268,7 +268,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "此处可查阅Docusaurus旧版文档。"
+        "zh-CN": "此处可查阅Docusaurus旧版本文档"
       }
     },
     {
@@ -278,7 +278,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "基于MDX构建"
+        "zh-CN": "基于MDX驱动"
       }
     },
     {
@@ -288,7 +288,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "专注于文本文档的编写。使用MDX撰写文档和博客文章，Docusaurus会将其构建为可立即部署的静态HTML文件。借助MDX，您甚至可以在Markdown中嵌入React组件。"
+        "zh-CN": "节省时间专注文档创作。使用MDX编写文档和博客，Docusaurus会将其构建为可直接部署的静态HTML文件。借助MDX，您甚至可以在Markdown中嵌入React组件。"
       }
     },
     {
@@ -298,7 +298,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "基于React开发"
+        "zh-CN": "基于React构建"
       }
     },
     {
@@ -328,7 +328,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "原生支持多语言。使用git、Crowdin或其他翻译管理工具翻译文档，并单独部署各语言版本。"
+        "zh-CN": "原生支持多语言。使用git、Crowdin或任何翻译管理系统翻译文档，并支持独立部署。"
       }
     },
     {
@@ -348,7 +348,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "为项目所有版本的用户提供支持。文档版本控制功能可保持文档与项目发布的版本同步。"
+        "zh-CN": "为所有项目版本用户提供支持。文档版本控制功能可保持文档与项目版本同步更新。"
       }
     },
     {
@@ -378,7 +378,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "Prettier首席开发者"
+        "zh-CN": "Prettier项目负责人"
       },
       "metadata": {
         "json_description": "Title of quote of Christopher Chedeau on the home page"
@@ -391,7 +391,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "我曾协助Facebook开源多个项目，每个项目都需要网站。它们都有相似的约束：文档需用Markdown编写并通过GitHub Pages部署。Docusaurus的出现让我不必每次花一周时间从头搭建新网站。"
+        "zh-CN": "我在Facebook参与过许多开源项目，每个项目都需要网站建设。它们都有相似的约束：文档必须用Markdown编写并通过GitHub Pages部署。Docusaurus的出现让我如释重负，再也不必每次都花费一周时间搭建新网站。"
       },
       "metadata": {
         "json_description": "Quote of Christopher Chedeau on the home page"
@@ -516,7 +516,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "设计典范"
+        "zh-CN": "设计美学"
       }
     },
     {
@@ -526,7 +526,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "经过精心打磨、超越初始模板的Docusaurus精美站点！"
+        "zh-CN": "设计精美的Docusaurus站点，经过精心打磨且突破初始模板限制！"
       }
     },
     {
@@ -546,7 +546,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "使用国际化支持、拥有多语言版本的Docusaurus站点。"
+        "zh-CN": "使用国际化支持、拥有超过1种语言版本的Docusaurus站点。"
       }
     },
     {
@@ -586,7 +586,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "远超平均页面数量的超大型Docusaurus站点！"
+        "zh-CN": "超大型Docusaurus站点，包含远超平均数量的页面！"
       }
     },
     {
@@ -596,7 +596,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "Meta系"
+        "zh-CN": "Meta项目"
       }
     },
     {
@@ -606,7 +606,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "Meta（原Facebook）旗下项目的Docusaurus站点"
+        "zh-CN": "Meta（原Facebook）旗下项目使用的Docusaurus站点"
       }
     },
     {
@@ -616,7 +616,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "个人作品"
+        "zh-CN": "个人站点"
       }
     },
     {
@@ -646,7 +646,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "支持从右向左阅读方向的Docusaurus站点"
+        "zh-CN": "支持从右向左阅读方向的Docusaurus站点。"
       }
     },
     {
@@ -656,7 +656,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "主色建议至少达到{wcagLink}标准以保证可读性。您可以直接在Docusaurus官网上预览配色效果。由于单一颜色通常无法同时适配明暗模式，建议为暗模式准备替代调色板。"
+        "zh-CN": "主色建议至少达到{wcagLink}标准以确保可读性。可直接在Docusaurus官网上预览配色效果。由于单一颜色通常无法适配明暗双模式，建议为暗色模式配置替代调色板。"
       }
     },
     {
@@ -795,7 +795,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "CodeSandbox是一个在线代码编辑器和开发环境，允许开发者在浏览器中创建、共享和协作开发网页项目"
+        "zh-CN": "CodeSandbox是一个在线代码编辑器和开发环境，允许开发者在浏览器中创建、分享和协作开发网页项目"
       }
     },
     {
@@ -835,7 +835,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "2014年起成为React爱好者。自由职业者，协助Facebook发布Docusaurus v2。他定期在个人{website}和{devto}上撰写技术文章。"
+        "zh-CN": "2014年起成为React爱好者。自由职业者，协助Facebook发布Docusaurus v2。定期在个人{website}和{devto}上撰写技术文章。"
       }
     },
     {
@@ -855,7 +855,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "法国CPE Lyon学院学生。立志成为专业Web开发者的热情开发者。"
+        "zh-CN": "法国CPE Lyon学院学生。充满激情的Web开发者，致力于成为专家级开发者。"
       }
     },
     {
@@ -865,7 +865,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "Docusaurus创始人，现为该项目代码贡献者的忠实啦啦队员。"
+        "zh-CN": "Docusaurus创始人，如今是该项目最忠实的啦啦队员，对实际贡献代码的开发者们心怀感激。"
       }
     },
     {
@@ -875,7 +875,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "开源狂热分子 👋 万事通菜鸟 🤷‍♂️ 俄语版PHP/React/Kubernetes等文档维护者 🧐"
+        "zh-CN": "痴迷的开源爱好者 👋 万事通但万事不精 🤷‍♂️ 维护PHP、React、Kubernetes等俄语文档 🧐"
       }
     },
     {
@@ -905,7 +905,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "👨‍🌾 成长中的React开发者，维护Docusaurus项目，撰写文档并在互联网世界创建大量网站。"
+        "zh-CN": "👨‍🌾 成长中的React开发者，维护Docusaurus项目，撰写文档并在互联网上创建大量网站。"
       }
     },
     {
@@ -915,7 +915,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "全栈开发者，热爱编程与尝试新技术。闲暇时参与开源贡献，在个人{websiteLink}撰写技术博客，还是个动漫爱好者。"
+        "zh-CN": "全栈开发者，热爱编程和尝试新技术。业余时间贡献开源项目，在{websiteLink}撰写博客文章，还是个动漫迷。"
       }
     },
     {
@@ -925,7 +925,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "网站"
+        "zh-CN": "个人网站"
       }
     },
     {
@@ -935,7 +935,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "开发者兼创意人士，致力于掌握实现各种奇思妙想的技能。"
+        "zh-CN": "开发者兼创意人，努力掌握技能以实现各种奇思妙想。"
       }
     },
     {
@@ -945,7 +945,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "Fanny高中时通过为学校厨房开发项目开启编程之路。她热衷开源贡献，偶尔在{blogLink}分享经验，也喜欢烹饪和制作{spotifyLink}。"
+        "zh-CN": "Fanny高中时开始接触网页开发，为学校厨房创建项目。闲暇时热爱贡献开源，偶尔在{blogLink}记录经历，也喜欢烹饪和制作{spotifyLink}。"
       }
     },
     {
@@ -955,7 +955,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "博客"
+        "zh-CN": "她的博客"
       }
     },
     {
@@ -975,7 +975,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "Sam自2011年开始编程，2015年搭建了个人{websiteLink}。对编程语言、开发基础设施和Web开发充满兴趣，曾开发自己的{samLangLink}和{miniReactLink}。"
+        "zh-CN": "Sam自2011年开始编程，2015年建立了{websiteLink}。对编程语言、开发基础设施和网页开发感兴趣，曾开发自己的{samLangLink}和{miniReactLink}。"
       }
     },
     {
@@ -1015,57 +1015,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "全栈Web开发者，热爱学习新技术并付诸实践！热衷开源贡献与技术文章撰写。"
-      }
-    },
-    {
-      "segment_id": "upgradeGuide.archivedVersion.notice",
-      "source_content": "You are browsing an archived version and the snippet below is outdated. Please go to the {mainSiteLink} and follow the instructions there to upgrade to the latest version.",
-      "source_content_hash": "46d8812678487abe7f63f9f140e85467c97293ce09bbec6f56b87a582550f230",
-      "node_type": "json_message",
-      "translatable": true,
-      "translations": {
-        "zh-CN": "您正在浏览归档版本，以下代码片段已过期。请访问{mainSiteLink}并按照指引升级至最新版本。"
-      }
-    },
-    {
-      "segment_id": "upgradeGuide.archivedVersion.notice.mainSiteLink.label",
-      "source_content": "main site",
-      "source_content_hash": "b0910bcfb7ee7c64d344e3ce2a3713e92af393713d1755056b70f2e453a5d1b0",
-      "node_type": "json_message",
-      "translatable": true,
-      "translations": {
-        "zh-CN": "主站"
-      }
-    },
-    {
-      "segment_id": "upgradeGuide.unreleasedVersion.notice",
-      "source_content": "You are browsing the documentation of an unreleased version. If you want to use any unreleased feature, you can use the {canaryDocLink}.",
-      "source_content_hash": "b9288036201be0eb8750e8cbc9ccb710116df0f555203ff741547d53aeadc8d6",
-      "node_type": "json_message",
-      "translatable": true,
-      "translations": {
-        "zh-CN": "您正在浏览未发布版本的文档。如需使用任何未发布功能，可参考{canaryDocLink}。"
-      }
-    },
-    {
-      "segment_id": "upgradeGuide.unreleasedVersion.notice.canaryDocLink.label",
-      "source_content": "{canaryTag} release",
-      "source_content_hash": "f8dcbfce91ddcea4d7a3d1aedd6d6dcc25efdfd52a62d5d093f2d3c28612265c",
-      "node_type": "json_message",
-      "translatable": true,
-      "translations": {
-        "zh-CN": "{canaryTag}版本"
-      }
-    },
-    {
-      "segment_id": "upgradeGuide.outdatedVersion.notice",
-      "source_content": "You are browsing the documentation of an outdated version. The snippet below shows how to upgrade to the latest version.",
-      "source_content_hash": "6f8a608f2c2c7d4b4c8af0ee9f0443667d41c6fa12b26ff5713c8978466d5a1f",
-      "node_type": "json_message",
-      "translatable": true,
-      "translations": {
-        "zh-CN": "您正在浏览过时版本的文档。以下代码片段展示如何升级至最新版本。"
+        "zh-CN": "全栈网页开发者，热爱学习新技术并付诸实践！热衷开源贡献与技术文章写作。"
       }
     },
     {
@@ -1112,13 +1062,63 @@
       }
     },
     {
+      "segment_id": "upgradeGuide.archivedVersion.notice",
+      "source_content": "You are browsing an archived version and the snippet below is outdated. Please go to the {mainSiteLink} and follow the instructions there to upgrade to the latest version.",
+      "source_content_hash": "46d8812678487abe7f63f9f140e85467c97293ce09bbec6f56b87a582550f230",
+      "node_type": "json_message",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "您正在浏览归档版本，以下代码片段已过期。请访问{mainSiteLink}并按照指引升级至最新版本。"
+      }
+    },
+    {
+      "segment_id": "upgradeGuide.archivedVersion.notice.mainSiteLink.label",
+      "source_content": "main site",
+      "source_content_hash": "b0910bcfb7ee7c64d344e3ce2a3713e92af393713d1755056b70f2e453a5d1b0",
+      "node_type": "json_message",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "主站点"
+      }
+    },
+    {
+      "segment_id": "upgradeGuide.unreleasedVersion.notice",
+      "source_content": "You are browsing the documentation of an unreleased version. If you want to use any unreleased feature, you can use the {canaryDocLink}.",
+      "source_content_hash": "b9288036201be0eb8750e8cbc9ccb710116df0f555203ff741547d53aeadc8d6",
+      "node_type": "json_message",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "您正在浏览未发布版本的文档。如需使用任何未发布功能，可参考{canaryDocLink}。"
+      }
+    },
+    {
+      "segment_id": "upgradeGuide.unreleasedVersion.notice.canaryDocLink.label",
+      "source_content": "{canaryTag} release",
+      "source_content_hash": "f8dcbfce91ddcea4d7a3d1aedd6d6dcc25efdfd52a62d5d093f2d3c28612265c",
+      "node_type": "json_message",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "{canaryTag}版本"
+      }
+    },
+    {
+      "segment_id": "upgradeGuide.outdatedVersion.notice",
+      "source_content": "You are browsing the documentation of an outdated version. The snippet below shows how to upgrade to the latest version.",
+      "source_content_hash": "6f8a608f2c2c7d4b4c8af0ee9f0443667d41c6fa12b26ff5713c8978466d5a1f",
+      "node_type": "json_message",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "您正在浏览过时版本的文档。以下代码片段展示如何升级至最新版本。"
+      }
+    },
+    {
       "segment_id": "Want to implement the same page? Read {guideLink} to find out!",
       "source_content": "Want to implement the same page? Read {guideLink} to find out!",
       "source_content_hash": "f285c9f7802d4dd5a9ad26e4855ba9648d0311d6451dda1c1cd2aba3ad5d52a7",
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "想要实现相同页面？阅读{guideLink}了解方法！"
+        "zh-CN": "想实现相同页面？阅读{guideLink}了解方法！"
       }
     },
     {
@@ -1148,7 +1148,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "编辑精选"
+        "zh-CN": "我们的精选"
       }
     },
     {
@@ -1257,7 +1257,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "通过{rssLink}订阅或关注我们的{xLink}账号，随时获取新版本发布动态！"
+        "zh-CN": "通过{rssLink}订阅或关注我们的{xLink}账号，随时获取新版本发布信息！"
       }
     },
     {
@@ -1319,7 +1319,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "博客列表页导航"
+        "zh-CN": "博客列表分页导航"
       },
       "metadata": {
         "json_description": "The ARIA label for the blog pagination"
@@ -1358,7 +1358,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "博客文章页导航"
+        "zh-CN": "博客文章分页导航"
       },
       "metadata": {
         "json_description": "The ARIA label for the blog posts pagination"
@@ -1488,7 +1488,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "文档页导航"
+        "zh-CN": "文档分页"
       },
       "metadata": {
         "json_description": "The ARIA label for the docs pagination"
@@ -1563,7 +1563,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "这是{siteTitle} {versionLabel}版本的未发布文档"
+        "zh-CN": "这是{siteTitle} {versionLabel}版本的未发布文档。"
       },
       "metadata": {
         "json_description": "The label used to tell the user that he's browsing an unreleased doc version"
@@ -1576,7 +1576,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "这是{siteTitle} {versionLabel}版本的文档，已不再积极维护"
+        "zh-CN": "这是{siteTitle} {versionLabel}的文档，已不再积极维护。"
       },
       "metadata": {
         "json_description": "The label used to tell the user that he's browsing an unmaintained doc version"
@@ -1589,7 +1589,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "查看{latestVersionLink}（{versionLabel}）获取最新文档"
+        "zh-CN": "查看最新文档，请访问{latestVersionLink}（{versionLabel}）。"
       },
       "metadata": {
         "json_description": "The label used to tell the user to check the latest version"
@@ -1628,7 +1628,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "直达{heading}的链接"
+        "zh-CN": "直接链接至{heading}"
       },
       "metadata": {
         "json_description": "Title for link to heading"
@@ -1784,7 +1784,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "小技巧"
+        "zh-CN": "提示"
       },
       "metadata": {
         "json_description": "The default label used for the Tip admonition (:::tip)"
@@ -1823,7 +1823,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "展开侧边栏分类 '{label}'"
+        "zh-CN": "展开侧边栏分类'{label}'"
       },
       "metadata": {
         "json_description": "The ARIA label to expand the sidebar category"
@@ -1836,7 +1836,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "折叠侧边栏分类 '{label}'"
+        "zh-CN": "折叠侧边栏分类'{label}'"
       },
       "metadata": {
         "json_description": "The ARIA label to collapse the sidebar category"
@@ -1853,19 +1853,6 @@
       },
       "metadata": {
         "json_description": "The ARIA label for the main navigation"
-      }
-    },
-    {
-      "segment_id": "theme.navbar.mobileLanguageDropdown.label",
-      "source_content": "Languages",
-      "source_content_hash": "318655cea4bd2096fbfad433d7c019bac40750d1a456fc34d366df41fcc77197",
-      "node_type": "json_message",
-      "translatable": true,
-      "translations": {
-        "zh-CN": "语言"
-      },
-      "metadata": {
-        "json_description": "The label for the mobile language switcher dropdown"
       }
     },
     {
@@ -1888,10 +1875,23 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "请联系该链接的所有者，告知他们链接已失效。"
+        "zh-CN": "请联系原始链接的所有者并告知他们该链接已失效。"
       },
       "metadata": {
         "json_description": "The 2nd paragraph of the 404 page"
+      }
+    },
+    {
+      "segment_id": "theme.navbar.mobileLanguageDropdown.label",
+      "source_content": "Languages",
+      "source_content_hash": "318655cea4bd2096fbfad433d7c019bac40750d1a456fc34d366df41fcc77197",
+      "node_type": "json_message",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "语言"
+      },
+      "metadata": {
+        "json_description": "The label for the mobile language switcher dropdown"
       }
     },
     {
@@ -1927,7 +1927,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "阅读更多关于 {title}"
+        "zh-CN": "阅读更多关于{title}"
       },
       "metadata": {
         "json_description": "The ARIA label for the link to full blog posts from excerpts"
@@ -1940,10 +1940,36 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "1 分钟阅读|{readingTime} 分钟阅读"
+        "zh-CN": "1分钟阅读|{readingTime}分钟阅读"
       },
       "metadata": {
         "json_description": "Pluralized label for \"{readingTime} min read\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+      }
+    },
+    {
+      "segment_id": "theme.CodeBlock.wordWrapToggle",
+      "source_content": "Toggle word wrap",
+      "source_content_hash": "ecd0f38a04446721e9a09b1994bae262fe43d2d47b050870a2d3b1d9e9a11a6b",
+      "node_type": "json_message",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "切换自动换行"
+      },
+      "metadata": {
+        "json_description": "The title attribute for toggle word wrapping button of code block lines"
+      }
+    },
+    {
+      "segment_id": "theme.docs.breadcrumbs.home",
+      "source_content": "Home page",
+      "source_content_hash": "11d58b08de98e05930a7f73b5f5d75367e4a58ac27335a420d55583cb16ad1ff",
+      "node_type": "json_message",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "首页"
+      },
+      "metadata": {
+        "json_description": "The ARIA label for the home page in the breadcrumbs"
       }
     },
     {
@@ -1983,32 +2009,6 @@
       },
       "metadata": {
         "json_description": "The ARIA label for copy code blocks button"
-      }
-    },
-    {
-      "segment_id": "theme.CodeBlock.wordWrapToggle",
-      "source_content": "Toggle word wrap",
-      "source_content_hash": "ecd0f38a04446721e9a09b1994bae262fe43d2d47b050870a2d3b1d9e9a11a6b",
-      "node_type": "json_message",
-      "translatable": true,
-      "translations": {
-        "zh-CN": "切换自动换行"
-      },
-      "metadata": {
-        "json_description": "The title attribute for toggle word wrapping button of code block lines"
-      }
-    },
-    {
-      "segment_id": "theme.docs.breadcrumbs.home",
-      "source_content": "Home page",
-      "source_content_hash": "11d58b08de98e05930a7f73b5f5d75367e4a58ac27335a420d55583cb16ad1ff",
-      "node_type": "json_message",
-      "translatable": true,
-      "translations": {
-        "zh-CN": "首页"
-      },
-      "metadata": {
-        "json_description": "The ARIA label for the home page in the breadcrumbs"
       }
     },
     {
@@ -2064,19 +2064,6 @@
       }
     },
     {
-      "segment_id": "theme.docs.sidebar.toggleSidebarButtonAriaLabel",
-      "source_content": "Toggle navigation bar",
-      "source_content_hash": "64cbd960a7108dbb48fad79b5dd4ce88e9fc0101bad61398b2043af6c6e19b55",
-      "node_type": "json_message",
-      "translatable": true,
-      "translations": {
-        "zh-CN": "切换导航栏"
-      },
-      "metadata": {
-        "json_description": "The ARIA label for hamburger menu button of mobile navigation"
-      }
-    },
-    {
       "segment_id": "theme.navbar.mobileSidebarSecondaryMenu.backButtonLabel",
       "source_content": "← Back to main menu",
       "source_content_hash": "e35c6e48aa36ab346557173fd941f671e096ebe9d4b56b93d7a20e7ed20c821a",
@@ -2087,6 +2074,19 @@
       },
       "metadata": {
         "json_description": "The label of the back button to return to main menu, inside the mobile navbar sidebar secondary menu (notably used to display the docs sidebar)"
+      }
+    },
+    {
+      "segment_id": "theme.docs.sidebar.toggleSidebarButtonAriaLabel",
+      "source_content": "Toggle navigation bar",
+      "source_content_hash": "64cbd960a7108dbb48fad79b5dd4ce88e9fc0101bad61398b2043af6c6e19b55",
+      "node_type": "json_message",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "切换导航栏"
+      },
+      "metadata": {
+        "json_description": "The ARIA label for hamburger menu button of mobile navigation"
       }
     },
     {
@@ -2392,7 +2392,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "请检查您的网络连接。"
+        "zh-CN": "您可能需要检查网络连接。"
       },
       "metadata": {
         "json_description": "The help text for error screen of search modal"
@@ -2405,7 +2405,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "选择"
+        "zh-CN": "进行选择"
       },
       "metadata": {
         "json_description": "The explanatory text of the action for the enter key"
@@ -2418,7 +2418,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "回车键"
+        "zh-CN": "Enter键"
       },
       "metadata": {
         "json_description": "The ARIA label for the Enter key button that makes the selection"
@@ -2431,7 +2431,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "导航"
+        "zh-CN": "进行导航"
       },
       "metadata": {
         "json_description": "The explanatory text of the action for the Arrow up and Arrow down key"
@@ -2444,7 +2444,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "向上箭头"
+        "zh-CN": "上箭头"
       },
       "metadata": {
         "json_description": "The ARIA label for the Arrow up key button that makes the navigation"
@@ -2457,7 +2457,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "向下箭头"
+        "zh-CN": "下箭头"
       },
       "metadata": {
         "json_description": "The ARIA label for the Arrow down key button that makes the navigation"
@@ -2483,7 +2483,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "ESC键"
+        "zh-CN": "Escape键"
       },
       "metadata": {
         "json_description": "The ARIA label for the Escape key button that close the modal"
@@ -2535,7 +2535,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "认为此查询应返回结果？"
+        "zh-CN": "认为此查询应该返回结果？"
       },
       "metadata": {
         "json_description": "The text for the question where the user thinks there are missing results"
@@ -2600,7 +2600,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "浏览器处于离线状态。图片未加载"
+        "zh-CN": "您的浏览器处于离线状态。图片未加载"
       },
       "metadata": {
         "json_description": "When the user is viewing an offline document"
@@ -2626,7 +2626,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "加载错误。点击重新加载"
+        "zh-CN": "错误。点击重新加载"
       },
       "metadata": {
         "json_description": "When the image fails to load for unknown error"
@@ -2756,7 +2756,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "此页面未列入列表。搜索引擎不会索引该页面，只有持有直接链接的用户可以访问。"
+        "zh-CN": "此页面未列出。搜索引擎不会索引它，只有拥有直接链接的用户才能访问。"
       },
       "metadata": {
         "json_description": "The unlisted content banner message"
@@ -2782,7 +2782,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "此页面为草稿。仅在开发环境中可见，且不会包含在生产版本中。"
+        "zh-CN": "此页面是草稿。仅在开发环境中可见，且不会包含在生产构建中。"
       },
       "metadata": {
         "json_description": "The draft content banner message"
@@ -2808,7 +2808,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "跳转到主内容区"
+        "zh-CN": "跳转到主内容"
       },
       "metadata": {
         "json_description": "The skip to content label used for accessibility, allowing to rapidly navigate to main content with keyboard tab/enter navigation"
@@ -2821,7 +2821,7 @@
       "node_type": "json_message",
       "translatable": true,
       "translations": {
-        "zh-CN": "标签列表"
+        "zh-CN": "标签"
       },
       "metadata": {
         "json_description": "The title of the tag list page"
@@ -3135,6 +3135,19 @@
     "team.profile.Nisarag Bhatt.body": {
       "message": "Fullstack web developer who loves learning new technologies and applying them! Loves contributing to open source as well as writing content articles and tutorials."
     },
+    "showcase.filters.resultCount": {
+      "message": "1 site|{sitesCount} sites",
+      "description": "Pluralized label for the number of sites found on the showcase. Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+    },
+    "Docusaurus Site Showcase": {
+      "message": "Docusaurus Site Showcase"
+    },
+    "List of websites people are building with Docusaurus": {
+      "message": "List of websites people are building with Docusaurus"
+    },
+    "showcase.header.button": {
+      "message": "🙏 Please add your site"
+    },
     "upgradeGuide.archivedVersion.notice": {
       "message": "You are browsing an archived version and the snippet below is outdated. Please go to the {mainSiteLink} and follow the instructions there to upgrade to the latest version."
     },
@@ -3149,19 +3162,6 @@
     },
     "upgradeGuide.outdatedVersion.notice": {
       "message": "You are browsing the documentation of an outdated version. The snippet below shows how to upgrade to the latest version."
-    },
-    "showcase.filters.resultCount": {
-      "message": "1 site|{sitesCount} sites",
-      "description": "Pluralized label for the number of sites found on the showcase. Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
-    },
-    "Docusaurus Site Showcase": {
-      "message": "Docusaurus Site Showcase"
-    },
-    "List of websites people are building with Docusaurus": {
-      "message": "List of websites people are building with Docusaurus"
-    },
-    "showcase.header.button": {
-      "message": "🙏 Please add your site"
     },
     "Want to implement the same page? Read {guideLink} to find out!": {
       "message": "Want to implement the same page? Read {guideLink} to find out!"
@@ -3391,10 +3391,6 @@
       "message": "Main",
       "description": "The ARIA label for the main navigation"
     },
-    "theme.navbar.mobileLanguageDropdown.label": {
-      "message": "Languages",
-      "description": "The label for the mobile language switcher dropdown"
-    },
     "theme.NotFound.p1": {
       "message": "We could not find what you were looking for.",
       "description": "The first paragraph of the 404 page"
@@ -3402,6 +3398,10 @@
     "theme.NotFound.p2": {
       "message": "Please contact the owner of the site that linked you to the original URL and let them know their link is broken.",
       "description": "The 2nd paragraph of the 404 page"
+    },
+    "theme.navbar.mobileLanguageDropdown.label": {
+      "message": "Languages",
+      "description": "The label for the mobile language switcher dropdown"
     },
     "theme.TOCCollapsible.toggleButtonLabel": {
       "message": "On this page",
@@ -3419,6 +3419,14 @@
       "message": "One min read|{readingTime} min read",
       "description": "Pluralized label for \"{readingTime} min read\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
     },
+    "theme.CodeBlock.wordWrapToggle": {
+      "message": "Toggle word wrap",
+      "description": "The title attribute for toggle word wrapping button of code block lines"
+    },
+    "theme.docs.breadcrumbs.home": {
+      "message": "Home page",
+      "description": "The ARIA label for the home page in the breadcrumbs"
+    },
     "theme.CodeBlock.copy": {
       "message": "Copy",
       "description": "The copy button label on code blocks"
@@ -3430,14 +3438,6 @@
     "theme.CodeBlock.copyButtonAriaLabel": {
       "message": "Copy code to clipboard",
       "description": "The ARIA label for copy code blocks button"
-    },
-    "theme.CodeBlock.wordWrapToggle": {
-      "message": "Toggle word wrap",
-      "description": "The title attribute for toggle word wrapping button of code block lines"
-    },
-    "theme.docs.breadcrumbs.home": {
-      "message": "Home page",
-      "description": "The ARIA label for the home page in the breadcrumbs"
     },
     "theme.docs.sidebar.collapseButtonTitle": {
       "message": "Collapse sidebar",
@@ -3455,13 +3455,13 @@
       "message": "Close navigation bar",
       "description": "The ARIA label for close button of mobile sidebar"
     },
-    "theme.docs.sidebar.toggleSidebarButtonAriaLabel": {
-      "message": "Toggle navigation bar",
-      "description": "The ARIA label for hamburger menu button of mobile navigation"
-    },
     "theme.navbar.mobileSidebarSecondaryMenu.backButtonLabel": {
       "message": "← Back to main menu",
       "description": "The label of the back button to return to main menu, inside the mobile navbar sidebar secondary menu (notably used to display the docs sidebar)"
+    },
+    "theme.docs.sidebar.toggleSidebarButtonAriaLabel": {
+      "message": "Toggle navigation bar",
+      "description": "The ARIA label for hamburger menu button of mobile navigation"
     },
     "theme.navbar.mobileDropdown.collapseButton.expandAriaLabel": {
       "message": "Expand the dropdown",
@@ -3692,9 +3692,9 @@
     }
   },
   "target_i18n_subpath": "code.json",
-  "last_updated_timestamp": "2025-05-24T15:26:17.520919+00:00",
+  "last_updated_timestamp": "2025-05-24T16:02:25.332772+00:00",
   "schema_version": "1.0",
   "translated_versions": {
-    "zh-CN": "555e1e59d779f38573309dab898a25073063ff31da16b6ca2c7a96e2edd46b34"
+    "zh-CN": "b357305073ad8904a303c3d5897a7c71ce254f8655aa604a209aabe84607b3e6"
   }
 }
