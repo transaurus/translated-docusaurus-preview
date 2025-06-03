@@ -1,7 +1,5 @@
 {
-  "locales": [
-    "zh-CN"
-  ],
+  "locales": ["zh-CN"],
   "folder_patterns": [
     {
       "source_dir_relative_to_docusaurus_root": "docs",
@@ -180,15 +178,11 @@
         "translation_pattern": "i18n/%locale%/docusaurus-plugin-content-pages/**/%original_file_name%",
         "type": "pages",
         "description": "Markdown and MDX pages",
-        "ignore_patterns": [
-          "**/*.{js,jsx,ts,tsx}"
-        ]
+        "ignore_patterns": ["**/*.{js,jsx,ts,tsx}"]
       },
       "type": "pages",
       "description": "Markdown and MDX pages",
-      "ignore_patterns": [
-        "**/*.{js,jsx,ts,tsx}"
-      ]
+      "ignore_patterns": ["**/*.{js,jsx,ts,tsx}"]
     },
     {
       "source_dir_relative_to_docusaurus_root": "i18n/en",

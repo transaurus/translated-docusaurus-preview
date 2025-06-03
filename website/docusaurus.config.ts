@@ -201,43 +201,36 @@ export default async function createConfigAsync() {
         type: 'text/css',
       },
     ],
-        i18n: {
-          defaultLocale, // This 'defaultLocale' variable is 'en' as defined in the config
-          locales: [
-            defaultLocale,
-            'fr',
-            'pt-BR',
-            'ko',
-            'zh-CN',
-            'ja',
-          ],
-          localeConfigs: {
-            en: {
-              label: 'English',
-              htmlLang: 'en-US',
-            },
-            fr: {
-              label: 'Français',
-              htmlLang: 'fr-FR',
-            },
-            'pt-BR': {
-              label: 'Português (Brasil)',
-              htmlLang: 'pt-BR',
-            },
-            ko: {
-              label: '한국어',
-              htmlLang: 'ko-KR',
-            },
-            'zh-CN': {
-              label: '简体中文',
-              htmlLang: 'zh-CN',
-            },
-            ja: {
-              label: '日本語',
-              htmlLang: 'ja-JP',
-            },
-          },
+    i18n: {
+      defaultLocale, // This 'defaultLocale' variable is 'en' as defined in the config
+      locales: [defaultLocale, 'fr', 'pt-BR', 'ko', 'zh-CN', 'ja'],
+      localeConfigs: {
+        en: {
+          label: 'English',
+          htmlLang: 'en-US',
         },
+        fr: {
+          label: 'Français',
+          htmlLang: 'fr-FR',
+        },
+        'pt-BR': {
+          label: 'Português (Brasil)',
+          htmlLang: 'pt-BR',
+        },
+        ko: {
+          label: '한국어',
+          htmlLang: 'ko-KR',
+        },
+        'zh-CN': {
+          label: '简体中文',
+          htmlLang: 'zh-CN',
+        },
+        ja: {
+          label: '日本語',
+          htmlLang: 'ja-JP',
+        },
+      },
+    },
     markdown: {
       format: 'detect',
       mermaid: true,

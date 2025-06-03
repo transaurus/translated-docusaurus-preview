@@ -221,6 +221,7 @@ playbtn
 Plushie
 plushie
 plushies
+Português
 posthog
 precached
 precaching
