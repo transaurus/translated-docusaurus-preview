@@ -1,0 +1,42 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "community/4-canary.mdx",
+  "source_file_content_hash": "b15afd26b2d4038f0afe22c9a68a47940f11529fcfa10875a98d1bff923fadaa",
+  "segments": [
+    {
+      "segment_id": "76e4a56a",
+      "source_content": "# Canary releases",
+      "source_content_hash": "09adcfd33499d8765000b7e7e191eeb67e19f6772a4027e8bf38d678e5591443",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "# 金丝雀版本发布"
+      }
+    },
+    {
+      "segment_id": "a37198cd",
+      "source_content": "import {\n  VersionsProvider,\n  CanaryVersion,\n  StableVersion,\n  InsertIfCanaryVersionUnknown,\n  InsertIfCanaryVersionKnown,\n  PackageJSONDiff,\n  PublishTime,\n} from \"@site/src/components/Versions\";",
+      "source_content_hash": "86bfc5c5a878f38fe67cface2741c32abdc94a864f317f98d6a5f0a7c16dd900",
+      "node_type": "mdxjsEsm",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_a37198cd"
+      }
+    },
+    {
+      "segment_id": "5da3670c",
+      "source_content": "<VersionsProvider>\n\nDocusaurus has a canary releases system.\n\nIt permits you to **test new unreleased features** as soon as the pull requests are merged.\n\nIt is a good way to **give feedback to maintainers**, ensuring the newly implemented feature works as intended.\n\n:::note\n\nUsing a canary release in production might seem risky, but in practice, it's not.\n\nA canary release passes all automated tests and is used in production by the Docusaurus site itself.\n\n:::\n\n<InsertIfCanaryVersionUnknown>\n\n:::warning\n\nThe canary version shown below **may not be up-to-date**. Please go to the [npm page](https://www.npmjs.com/package/@docusaurus/core?activeTab=versions) to find the actual version name.\n\n:::\n\n</InsertIfCanaryVersionUnknown>\n<InsertIfCanaryVersionKnown>\n\n:::tip\n\nThe canary version shown below is directly fetched from npm and **is up-to-date**. You can directly use these numbers in your package.json.\n\n:::\n\n</InsertIfCanaryVersionKnown>\n\n## Canary npm dist tag\n\nFor any code-related commit on `main`, the continuous integration will publish a canary release under the `@canary` npm dist tag. It generally takes up to 10 minutes.\n\nYou can see on [npm](https://www.npmjs.com/package/@docusaurus/core?activeTab=versions) the current dist tags:\n\n- `latest`: stable releases (Current: <StableVersion />)\n- `canary`: canary releases (<CanaryVersion />)\n\n:::tip\n\nMake sure to use the latest canary release and check the publication date (sometimes the publish process fails). <PublishTime />\n\n:::\n\n:::note\n\nCanary versions follow the naming convention `0.0.0-commitNumber`.\n\n:::\n\n## Using a canary release\n\nTake the latest version published under the [canary npm dist tag](https://www.npmjs.com/package/@docusaurus/core?activeTab=versions) (<CanaryVersion />).\n\nUse it for all the `@docusaurus/*` dependencies in your `package.json`:\n\n<PackageJSONDiff />\n\nThen, install the dependencies again and start your site:\n\n```bash npm2yarn\nnpm install\nnpm start\n```\n\nYou can also upgrade the `@docusaurus/*` packages with command line:\n\n```bash npm2yarn\nnpm install --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary\n```\n\n:::warning\n\nMake sure to include all the `@docusaurus/*` packages.\n\nFor canary releases, prefer using an exact version instead of a semver range (avoid the `^` prefix).\n\n:::\n\n</VersionsProvider>",
+      "source_content_hash": "da2f43c4f8ea64e7915c7c17100e3a35f8a7aefccdb612315379d496eb54fbc9",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_5da3670c"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs-community/current/4-canary.mdx",
+  "last_updated_timestamp": "2025-06-03T17:28:35.622166+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "zh-CN": "b15afd26b2d4038f0afe22c9a68a47940f11529fcfa10875a98d1bff923fadaa"
+  }
+}

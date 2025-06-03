@@ -1,0 +1,42 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "community/3-contributing.mdx",
+  "source_file_content_hash": "626b2588e7b3d6ea22972c8471b4e6db53f18d3adb777e04ea084f8084d71424",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\ntitle: Contributing\nhide_title: true\nsidebar_label: Contributing\n---",
+      "source_content_hash": "635b14fb2d2b15d6222deb28a81149066dd0e0e08105ab184ae0f183a6b9ce53",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "10c4cb47",
+      "source_content": "import Contributing from \"@site/../CONTRIBUTING.md\"",
+      "source_content_hash": "ba8a93723d54ec8dce82674db136083f6f90bee35429868a43edf30687c02f81",
+      "node_type": "mdxjsEsm",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_10c4cb47"
+      }
+    },
+    {
+      "segment_id": "efb379d7",
+      "source_content": "<Contributing />",
+      "source_content_hash": "cc5e9a29d2c9569a2716247b7931a5b998fcb44f2cfea988cd7648ef814584c4",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_efb379d7"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs-community/current/3-contributing.mdx",
+  "last_updated_timestamp": "2025-06-03T17:28:35.621627+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "zh-CN": "626b2588e7b3d6ea22972c8471b4e6db53f18d3adb777e04ea084f8084d71424"
+  }
+}

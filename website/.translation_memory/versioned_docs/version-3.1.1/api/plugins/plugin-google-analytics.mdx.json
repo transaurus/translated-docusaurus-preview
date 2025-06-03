@@ -1,0 +1,172 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "versioned_docs/version-3.1.1/api/plugins/plugin-google-analytics.mdx",
+  "source_file_content_hash": "3e01d63e7d594615976f4c1c8c9d137ea1e839178d3c97710dd8f0fa96428a93",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\nsidebar_position: 6\nslug: /api/plugins/@docusaurus/plugin-google-analytics\n---",
+      "source_content_hash": "501ba68ca67e5697c2fa1e8383514ea0d05126f020858b153bafb9eb9b89a5b5",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "b3de8742",
+      "source_content": "# 📦 plugin-google-analytics",
+      "source_content_hash": "3bf54da80581505d2f224e702083c3d206552a5cdede7a1a49c03c26028238e5",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "# 📦 plugin-google-analytics"
+      }
+    },
+    {
+      "segment_id": "50387553",
+      "source_content": "import APITable from '@site/src/components/APITable';",
+      "source_content_hash": "617594357be14491b59c35a0417f7d0d89d9eda936d09d760f6b994379006923",
+      "node_type": "mdxjsEsm",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_50387553"
+      }
+    },
+    {
+      "segment_id": "7e5c5a39",
+      "source_content": "The default [Google Analytics](https://developers.google.com/analytics/devguides/collection/analyticsjs/) plugin. It is a JavaScript library for measuring how users interact with your website **in the production build**. If you are using Google Analytics 4 you might need to consider using [plugin-google-gtag](./plugin-google-gtag.mdx) instead.",
+      "source_content_hash": "7c7f5eb4f5033fbf72d4196f127896c36329681a5b485e24335c13e760436d1f",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "默认的 [Google Analytics](https://developers.google.com/analytics/devguides/collection/analyticsjs/) 插件。这是一个用于测量用户如何与您的网站交互的 JavaScript 库，**仅在生产环境构建中生效**。如果您正在使用 Google Analytics 4，可能需要考虑改用 [plugin-google-gtag](./plugin-google-gtag.mdx)。"
+      }
+    },
+    {
+      "segment_id": "0e7eb58c",
+      "source_content": ":::danger[Deprecated]\n\nThis plugin is **deprecated**, and will become useless on July 1, 2023.\n\nGoogle is [moving away from Universal Analytics](https://blog.google/products/marketingplatform/analytics/prepare-for-future-with-google-analytics-4/).\n\nIf you are still using this plugin with a `UA-*` tracking id, you should create a Google Analytics 4 account as soon as possible, and use [`@docusaurus/plugin-google-gtag`](./plugin-google-gtag.mdx) instead of this plugin. More details [here](https://github.com/facebook/docusaurus/issues/7221).\n\n:::",
+      "source_content_hash": "c3ab603373ad864fbd9299fad589cf380563335387d21aad94c4e98ca964290a",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::danger[已弃用]\n\n此插件**已弃用**，并将于 2023 年 7 月 1 日起失效。\n\nGoogle 正在[逐步淘汰 Universal Analytics](https://blog.google/products/marketingplatform/analytics/prepare-for-future-with-google-analytics-4/)。\n\n如果您仍在使用带有 `UA-*` 跟踪 ID 的此插件，应尽快创建 Google Analytics 4 账户，并使用 [`@docusaurus/plugin-google-gtag`](./plugin-google-gtag.mdx) 替代此插件。更多详情请参阅[此处](https://github.com/facebook/docusaurus/issues/7221)。\n\n:::"
+      }
+    },
+    {
+      "segment_id": "8a545039",
+      "source_content": ":::warning[production only]\n\nThis plugin is always inactive in development and **only active in production** to avoid polluting the analytics statistics.\n\n:::",
+      "source_content_hash": "9c829c8e606080d5c41eeaefe0f2bfa43f9ec2cac92b02338332e497ca819110",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::warning[仅限生产环境]\n\n此插件在开发环境中始终处于非活动状态，**仅在生产环境中激活**，以避免污染分析统计数据。\n\n:::"
+      }
+    },
+    {
+      "segment_id": "3c36424c",
+      "source_content": "## Installation {#installation}",
+      "source_content_hash": "01f99c1a4a9fd44bafc075a19f10269cf4e31a46b9c20b1a4b4cb278a46d10d5",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 安装 {#installation}"
+      }
+    },
+    {
+      "segment_id": "b7c3dbd1",
+      "source_content": "```bash npm2yarn\nnpm install --save @docusaurus/plugin-google-analytics\n```",
+      "source_content_hash": "1fe4e5140bc37128d5ef54218f0c06f480078c2be4b685f0925b558a99b79faf",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_b7c3dbd1"
+      }
+    },
+    {
+      "segment_id": "b56ef571",
+      "source_content": ":::tip\n\nIf you use the preset `@docusaurus/preset-classic`, you don't need to install this plugin as a dependency.\n\nYou can configure this plugin through the [preset options](../../using-plugins.mdx#docusauruspreset-classic).\n\n:::",
+      "source_content_hash": "737b2a008954011fd073f76b42dc5ff859f8bcaced754eff0b2741c9f733f873",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::tip\n\n如果您使用预设 `@docusaurus/preset-classic`，则无需将此插件作为依赖项单独安装。\n\n您可以通过[预设选项](../../using-plugins.mdx#docusauruspreset-classic)配置此插件。\n\n:::"
+      }
+    },
+    {
+      "segment_id": "8d04259b",
+      "source_content": "## Configuration {#configuration}",
+      "source_content_hash": "8d40fda5898137d101c15929fa40cb58d8c71e60e8b40b33ce74200512d9f011",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 配置 {#configuration}"
+      }
+    },
+    {
+      "segment_id": "95e9ba12",
+      "source_content": "Accepted fields:",
+      "source_content_hash": "2934eef61bc234f6f002b94be60279fd14197499b541a7659cff140c4058a0d7",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "可接受的字段："
+      }
+    },
+    {
+      "segment_id": "f5276727",
+      "source_content": "<APITable>\n\n| Name | Type | Default | Description |\n| --- | --- | --- | --- |\n| `trackingID` | `string` | **Required** | The tracking ID of your analytics service. |\n| `anonymizeIP` | `boolean` | `false` | Whether the IP should be anonymized when sending requests. |\n\n</APITable>",
+      "source_content_hash": "33237a0bb8680364c9c4ee6781a47a36b1b58fbd3b8e9855025217d828d4f61a",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_f5276727"
+      }
+    },
+    {
+      "segment_id": "af52d59d",
+      "source_content": "### Example configuration {#ex-config}",
+      "source_content_hash": "20d25d28dcea8d9ae040da96412bd154d51e0bbdd4d165a57ff0556d46b26849",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### 示例配置 {#ex-config}"
+      }
+    },
+    {
+      "segment_id": "4d52a261",
+      "source_content": "You can configure this plugin through preset options or plugin options.",
+      "source_content_hash": "118dd7722fc15d0951831695d6b79451361a000dc8a9de8138e737e9fe881ee5",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "您可以通过预设选项或插件选项配置此插件。"
+      }
+    },
+    {
+      "segment_id": "97388c5b",
+      "source_content": ":::tip\n\nMost Docusaurus users configure this plugin through the preset options.\n\n:::",
+      "source_content_hash": "0a660704749473b8e0f2d5316b808fdf177b0264e404d29b9d4653e71924c332",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::tip\n\n大多数 Docusaurus 用户通过预设选项配置此插件。\n\n:::"
+      }
+    },
+    {
+      "segment_id": "7a577a50",
+      "source_content": "```js config-tabs\n// Preset Options: googleAnalytics\n// Plugin Options: @docusaurus/plugin-google-analytics\n\nconst config = {\n  trackingID: 'UA-141789564-1',\n  anonymizeIP: true,\n};\n```",
+      "source_content_hash": "264c2383a006735fa7c4c16d0bd3efa4e857ecb9974e57c5c2c14a7d49ece449",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_7a577a50"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs/version-3.1.1/api/plugins/plugin-google-analytics.mdx",
+  "last_updated_timestamp": "2025-06-03T17:28:35.782937+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "zh-CN": "3e01d63e7d594615976f4c1c8c9d137ea1e839178d3c97710dd8f0fa96428a93"
+  }
+}

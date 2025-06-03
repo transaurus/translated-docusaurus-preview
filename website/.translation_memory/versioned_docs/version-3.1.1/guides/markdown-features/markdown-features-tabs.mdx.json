@@ -1,0 +1,440 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "versioned_docs/version-3.1.1/guides/markdown-features/markdown-features-tabs.mdx",
+  "source_file_content_hash": "93e871ca516172edcd41da37478ae2b95edaabe6304d665b0a5a21f79e73a696",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\nid: tabs\ndescription: Using tabs inside Docusaurus Markdown\nslug: /markdown-features/tabs\n---",
+      "source_content_hash": "c7319b9fc528711158029a112db853a66e5bb17e222a700ffe17b0f7d608bff8",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "a703643c",
+      "source_content": "# Tabs",
+      "source_content_hash": "a61b3c2f60b77b15679d9d12b53579c62bebef5ee69a86a2215fecbfab4fcbc9",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "# 标签页组件"
+      }
+    },
+    {
+      "segment_id": "623f74e7",
+      "source_content": "import BrowserWindow from '@site/src/components/BrowserWindow';\nimport Tabs from '@theme/Tabs';\nimport TabItem from '@theme/TabItem';\nimport styles from './markdown-features-tabs-styles.module.css';",
+      "source_content_hash": "6eb9335077d2977388a903fce8e1509ada5b717c82c63f74517217ef0a9c9f13",
+      "node_type": "mdxjsEsm",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_623f74e7"
+      }
+    },
+    {
+      "segment_id": "ad8fd492",
+      "source_content": "Docusaurus provides the `<Tabs>` component that you can use in Markdown thanks to [MDX](./markdown-features-react.mdx):",
+      "source_content_hash": "822ea855f4be412f782f61e1c244cbc5a24ad9ee5aff8a1ffce2b96935c55c05",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "Docusaurus 提供 `<Tabs>` 组件，通过 [MDX](./markdown-features-react.mdx) 可在 Markdown 中使用："
+      }
+    },
+    {
+      "segment_id": "93be3c14",
+      "source_content": "```jsx\nimport Tabs from '@theme/Tabs';\nimport TabItem from '@theme/TabItem';\n\n<Tabs>\n  <TabItem value=\"apple\" label=\"Apple\" default>\n    This is an apple 🍎\n  </TabItem>\n  <TabItem value=\"orange\" label=\"Orange\">\n    This is an orange 🍊\n  </TabItem>\n  <TabItem value=\"banana\" label=\"Banana\">\n    This is a banana 🍌\n  </TabItem>\n</Tabs>\n```",
+      "source_content_hash": "214ccac3c28baa597198cd2143c30dd39dac8fb225322bc92675558e081b82d6",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_93be3c14"
+      }
+    },
+    {
+      "segment_id": "d0d484a6",
+      "source_content": "<BrowserWindow>\n  <Tabs>\n    <TabItem value=\"apple\" label=\"Apple\">This is an apple 🍎</TabItem>\n    <TabItem value=\"orange\" label=\"Orange\">This is an orange 🍊</TabItem>\n    <TabItem value=\"banana\" label=\"Banana\">This is a banana 🍌</TabItem>\n  </Tabs>\n</BrowserWindow>",
+      "source_content_hash": "1e8d85971691f7d1569e2d1b3cc72f4bd5582ca92a153b43c5fb8c1400e74388",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_d0d484a6"
+      }
+    },
+    {
+      "segment_id": "602e59c7",
+      "source_content": "---",
+      "source_content_hash": "cb3f91d54eee30e53e35b2b99905f70f169ed549fd78909d3dac2defc9ed8d3b",
+      "node_type": "thematicBreak",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "---"
+      }
+    },
+    {
+      "segment_id": "95e9ba12",
+      "source_content": "It is also possible to provide `values` and `defaultValue` props to `Tabs`:",
+      "source_content_hash": "033c8b5d9891ae518b697e4f33833bac40c2396d8c1cd3e6679b9581e6eb1ee6",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "也可通过 `values` 和 `defaultValue` 属性配置标签页："
+      }
+    },
+    {
+      "segment_id": "4ec2920d",
+      "source_content": "```jsx\n<Tabs\n  defaultValue=\"apple\"\n  values={[\n    {label: 'Apple', value: 'apple'},\n    {label: 'Orange', value: 'orange'},\n    {label: 'Banana', value: 'banana'},\n  ]}>\n  <TabItem value=\"apple\">This is an apple 🍎</TabItem>\n  <TabItem value=\"orange\">This is an orange 🍊</TabItem>\n  <TabItem value=\"banana\">This is a banana 🍌</TabItem>\n</Tabs>\n```",
+      "source_content_hash": "cc5ac3d69312354ef4ae02ab17b942058bd151fe701a61e8af0f7b46dd51e62e",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_4ec2920d"
+      }
+    },
+    {
+      "segment_id": "60e88cae",
+      "source_content": "<BrowserWindow>\n  <Tabs\n    defaultValue=\"apple\"\n    values={[\n      {label: 'Apple', value: 'apple'},\n      {label: 'Orange', value: 'orange'},\n      {label: 'Banana', value: 'banana'},\n    ]}>\n    <TabItem value=\"apple\">This is an apple 🍎</TabItem>\n    <TabItem value=\"orange\">This is an orange 🍊</TabItem>\n    <TabItem value=\"banana\">This is a banana 🍌</TabItem>\n  </Tabs>\n</BrowserWindow>",
+      "source_content_hash": "0d256debf54a756036a2b913c64d970743d4081408653ce2fe992540bbdf1e45",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_60e88cae"
+      }
+    },
+    {
+      "segment_id": "68209f5c",
+      "source_content": "<details>\n  <summary><code>Tabs</code> props take precedence over the <code>TabItem</code> props:</summary>\n\n```jsx\n<Tabs\n  defaultValue=\"apple\"\n  values={[\n    {label: 'Apple 1', value: 'apple'},\n    {label: 'Orange 1', value: 'orange'},\n    {label: 'Banana 1', value: 'banana'},\n  ]}>\n  <TabItem value=\"apple\" label=\"Apple 2\">\n    This is an apple 🍎\n  </TabItem>\n  <TabItem value=\"orange\" label=\"Orange 2\">\n    This is an orange 🍊\n  </TabItem>\n  <TabItem value=\"banana\" label=\"Banana 2\" default>\n    This is a banana 🍌\n  </TabItem>\n</Tabs>\n```\n\n<BrowserWindow>\n  <Tabs\n    defaultValue=\"apple\"\n    values={[\n      {label: 'Apple 1', value: 'apple'},\n      {label: 'Orange 1', value: 'orange'},\n      {label: 'Banana 1', value: 'banana'},\n    ]}>\n    <TabItem value=\"apple\" label=\"Apple 2\">This is an apple 🍎</TabItem>\n    <TabItem value=\"orange\" label=\"Orange 2\">This is an orange 🍊</TabItem>\n    <TabItem value=\"banana\" label=\"Banana 2\" default>This is a banana 🍌</TabItem>\n  </Tabs>\n</BrowserWindow>\n\n</details>",
+      "source_content_hash": "a4d4a08781a3dc5bfd7dbb99c8b1391ae9a776755c22331c69f7e4e9d0127958",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_68209f5c"
+      }
+    },
+    {
+      "segment_id": "95f2feab",
+      "source_content": ":::tip\n\nBy default, all tabs are rendered eagerly during the build process, and search engines can index hidden tabs.\n\nIt is possible to only render the default tab with `<Tabs lazy />`.\n\n:::",
+      "source_content_hash": "46104413c4dab559f9216ed2554d6df24b23464ad739e0b53988cb451724cad8",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::tip\n\n默认情况下所有标签页会在构建时预渲染，搜索引擎可索引隐藏标签页。\n\n使用 `<Tabs lazy />` 可仅渲染默认标签页。\n\n:::"
+      }
+    },
+    {
+      "segment_id": "c7fa1e8d",
+      "source_content": "## Displaying a default tab {#displaying-a-default-tab}",
+      "source_content_hash": "0f449882e3cd79c3c1f2e538e6850328816439d795ec9cdbd1828ec8018ee948",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 设置默认标签页 {#displaying-a-default-tab}"
+      }
+    },
+    {
+      "segment_id": "a6c928a1",
+      "source_content": "The first tab is displayed by default, and to override this behavior, you can specify a default tab by adding `default` to one of the tab items. You can also set the `defaultValue` prop of the `Tabs` component to the label value of your choice. For example, in the example above, either setting `default` for the `value=\"apple\"` tab or setting `defaultValue=\"apple\"` for the tabs forces the \"Apple\" tab to be open by default.",
+      "source_content_hash": "c4f4ae17466508cd57712291dafb8f163604c5cb91c0fb0355c65f08a25af308",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "默认显示首个标签页，可通过在某个 `<TabItem>` 添加 `default` 属性，或为 `<Tabs>` 设置 `defaultValue=\"标签值\"` 来覆盖此行为。例如上方案例中，为 `value=\"apple\"` 的标签页设置 `default` 属性，或为 `<Tabs>` 设置 `defaultValue=\"apple\"` 均可强制默认展开\"Apple\"标签页。\n\n若指定的 `defaultValue` 对应不存在的标签值，Docusaurus 将抛出错误。如需默认不展示任何标签页，请使用 `defaultValue={null}`。"
+      }
+    },
+    {
+      "segment_id": "b6152880",
+      "source_content": "Docusaurus will throw an error if a `defaultValue` is provided for the `Tabs` but it refers to a non-existing value. If you want none of the tabs to be shown by default, use `defaultValue={null}`.",
+      "source_content_hash": "724261ad99bcaf066dfd32d351a3038913a76a0245d6f5fd8248bbfae501e92f",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {}
+    },
+    {
+      "segment_id": "23b96cc0",
+      "source_content": "## Syncing tab choices {#syncing-tab-choices}",
+      "source_content_hash": "db527b2a933e14713c56021b424e5d8a70db3de4a3a1b1239c20561a3efaab90",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 同步标签页选择状态 {#syncing-tab-choices}"
+      }
+    },
+    {
+      "segment_id": "8fcdd6d4",
+      "source_content": "You may want choices of the same kind of tabs to sync with each other. For example, you might want to provide different instructions for users on Windows vs users on macOS, and you want to change all OS-specific instructions tabs in one click. To achieve that, you can give all related tabs the same `groupId` prop. Note that doing this will persist the choice in `localStorage` and all `<Tab>` instances with the same `groupId` will update automatically when the value of one of them is changed. Note that group IDs are globally namespaced.",
+      "source_content_hash": "e89a86780f2c5d102d9c8561a51e8cf65173dc51832b8ac251e0e6c5a9bed608",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "当需要同步多组同类标签页的选择状态时（例如为Windows和macOS用户分别展示操作指南，且希望一键切换所有操作系统相关的标签页），可为相关 `<Tabs>` 设置相同的 `groupId` 属性。此操作会将选择状态持久化至 `localStorage`，同组的所有 `<Tabs>` 实例会自动同步状态变化。注意：组ID为全局命名空间。\n\n同组标签页的可用值无需完全一致。当某组标签页选择的值在其他同组标签页中不存在时，缺失该值的标签组将保持当前状态。如下例所示，选择Linux时上方标签组不会变化。"
+      }
+    },
+    {
+      "segment_id": "5be4f25e",
+      "source_content": "```jsx\n// highlight-next-line\n<Tabs groupId=\"operating-systems\">\n  <TabItem value=\"win\" label=\"Windows\">Use Ctrl + C to copy.</TabItem>\n  <TabItem value=\"mac\" label=\"macOS\">Use Command + C to copy.</TabItem>\n</Tabs>\n\n// highlight-next-line\n<Tabs groupId=\"operating-systems\">\n  <TabItem value=\"win\" label=\"Windows\">Use Ctrl + V to paste.</TabItem>\n  <TabItem value=\"mac\" label=\"macOS\">Use Command + V to paste.</TabItem>\n</Tabs>\n```",
+      "source_content_hash": "42e7343dc332d141ed0c9a5eca00836b94227f4fea6cb0c858b125deece41331",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_5be4f25e"
+      }
+    },
+    {
+      "segment_id": "46b4eabc",
+      "source_content": "<BrowserWindow>\n  <Tabs groupId=\"operating-systems\">\n    <TabItem value=\"win\" label=\"Windows\">Use Ctrl + C to copy.</TabItem>\n    <TabItem value=\"mac\" label=\"macOS\">Use Command + C to copy.</TabItem>\n  </Tabs>\n\n  <Tabs groupId=\"operating-systems\">\n    <TabItem value=\"win\" label=\"Windows\">Use Ctrl + V to paste.</TabItem>\n    <TabItem value=\"mac\" label=\"macOS\">Use Command + V to paste.</TabItem>\n  </Tabs>\n</BrowserWindow>",
+      "source_content_hash": "56644890911d3cbc443764eacd1c963eb9a8e592ad62bc5b45c19c2dd289aa24",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_46b4eabc"
+      }
+    },
+    {
+      "segment_id": "63565425",
+      "source_content": "For all tab groups that have the same `groupId`, the possible values do not need to be the same. If one tab group is chosen a value that does not exist in another tab group with the same `groupId`, the tab group with the missing value won't change its tab. You can see that from the following example. Try to select Linux, and the above tab groups don't change.",
+      "source_content_hash": "10d53c0f7e90a65c0a794bceb0776c69207c418824f31779bee0427eab582e95",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ""
+      }
+    },
+    {
+      "segment_id": "e9921a93",
+      "source_content": "```jsx\n<Tabs groupId=\"operating-systems\">\n  <TabItem value=\"win\" label=\"Windows\">\n    I am Windows.\n  </TabItem>\n  <TabItem value=\"mac\" label=\"macOS\">\n    I am macOS.\n  </TabItem>\n  <TabItem value=\"linux\" label=\"Linux\">\n    I am Linux.\n  </TabItem>\n</Tabs>\n```",
+      "source_content_hash": "0794ad33fb7f15598be742b683c37e192f4963e062bb54bc11c5f3c98e3689a0",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_e9921a93"
+      }
+    },
+    {
+      "segment_id": "d3771df8",
+      "source_content": "<BrowserWindow>\n  <Tabs groupId=\"operating-systems\">\n    <TabItem value=\"win\" label=\"Windows\">I am Windows.</TabItem>\n    <TabItem value=\"mac\" label=\"macOS\">I am macOS.</TabItem>\n    <TabItem value=\"linux\" label=\"Linux\">I am Linux.</TabItem>\n  </Tabs>\n</BrowserWindow>",
+      "source_content_hash": "ef1a7c64613cfcbcc4f2a843693528adce5ea3a5e9e6c456f7eeea594b00e07c",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_d3771df8"
+      }
+    },
+    {
+      "segment_id": "cdeffb11",
+      "source_content": "---",
+      "source_content_hash": "cb3f91d54eee30e53e35b2b99905f70f169ed549fd78909d3dac2defc9ed8d3b",
+      "node_type": "thematicBreak",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "---"
+      }
+    },
+    {
+      "segment_id": "e29bd639",
+      "source_content": "Tab choices with different group IDs will not interfere with each other:",
+      "source_content_hash": "3b4e09b976ebf0c1a1776ef91f38c88f6ad60d5c5a06a55e2b4f64bb7f634ef7",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "不同组ID的标签页选择互不干扰："
+      }
+    },
+    {
+      "segment_id": "44ecd2e3",
+      "source_content": "```jsx\n// highlight-next-line\n<Tabs groupId=\"operating-systems\">\n  <TabItem value=\"win\" label=\"Windows\">Windows in windows.</TabItem>\n  <TabItem value=\"mac\" label=\"macOS\">macOS is macOS.</TabItem>\n</Tabs>\n\n// highlight-next-line\n<Tabs groupId=\"non-mac-operating-systems\">\n  <TabItem value=\"win\" label=\"Windows\">Windows is windows.</TabItem>\n  <TabItem value=\"unix\" label=\"Unix\">Unix is unix.</TabItem>\n</Tabs>\n```",
+      "source_content_hash": "b259acaff1c6b43530e1b983c5583c3f747ae0c21985005be0dc47ab997b536f",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_44ecd2e3"
+      }
+    },
+    {
+      "segment_id": "cb029919",
+      "source_content": "<BrowserWindow>\n  <Tabs groupId=\"operating-systems\">\n    <TabItem value=\"win\" label=\"Windows\">Windows in windows.</TabItem>\n    <TabItem value=\"mac\" label=\"macOS\">macOS is macOS.</TabItem>\n  </Tabs>\n\n  <Tabs groupId=\"non-mac-operating-systems\">\n    <TabItem value=\"win\" label=\"Windows\">Windows is windows.</TabItem>\n    <TabItem value=\"unix\" label=\"Unix\">Unix is unix.</TabItem>\n  </Tabs>\n</BrowserWindow>",
+      "source_content_hash": "24825474f3cf7960e47547975d7a560f1ede7c769f35051c22d32b7aae4ede87",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_cb029919"
+      }
+    },
+    {
+      "segment_id": "4e8f71c1",
+      "source_content": "## Customizing tabs {#customizing-tabs}",
+      "source_content_hash": "946a00caba59d3926df334a894ce5cbf025febd1c1c881efa8d4aa9570d8ecc3",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 自定义标签页样式 {#customizing-tabs}"
+      }
+    },
+    {
+      "segment_id": "e4d8cd8a",
+      "source_content": "You might want to customize the appearance of a certain set of tabs. You can pass the string in `className` prop, and the specified CSS class will be added to the `Tabs` component:",
+      "source_content_hash": "5db855f05f6c4673774fcae362814463f84f2beedbb45fb7d425d2508910afb8",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "可通过 `className` 属性为 `<Tabs>` 添加CSS类名实现样式定制："
+      }
+    },
+    {
+      "segment_id": "ff27b4c2",
+      "source_content": "```jsx\n// highlight-next-line\n<Tabs className=\"unique-tabs\">\n  <TabItem value=\"Apple\">This is an apple 🍎</TabItem>\n  <TabItem value=\"Orange\">This is an orange 🍊</TabItem>\n  <TabItem value=\"Banana\">This is a banana 🍌</TabItem>\n</Tabs>\n```",
+      "source_content_hash": "f64ccb0d44fb5e71a35253d7f293e3d42a5f3834fbabc1b08955938f47bdd795",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_ff27b4c2"
+      }
+    },
+    {
+      "segment_id": "70c65cb9",
+      "source_content": "<BrowserWindow>\n  <Tabs className=\"unique-tabs\">\n    <TabItem value=\"Apple\">This is an apple 🍎</TabItem>\n    <TabItem value=\"Orange\">This is an orange 🍊</TabItem>\n    <TabItem value=\"Banana\">This is a banana 🍌</TabItem>\n  </Tabs>\n</BrowserWindow>",
+      "source_content_hash": "5461e152689987c84cb5da0da3ee86b14c4ea5f8d603bc354d039709ea5dce3c",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_70c65cb9"
+      }
+    },
+    {
+      "segment_id": "79f90fe4",
+      "source_content": "### Customizing tab headings {#customizing-tab-headings}",
+      "source_content_hash": "ea7a396dfb63988eaf9db6193f93921aef260457b3765ff59e81c035abfd1e01",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### 自定义标签标题 {#customizing-tab-headings}"
+      }
+    },
+    {
+      "segment_id": "85b17c36",
+      "source_content": "You can also customize each tab heading independently by using the `attributes` field. The extra props can be passed to the headings either through the `values` prop in `Tabs`, or props of each `TabItem`—in the same way as you declare `label`.",
+      "source_content_hash": "cfcbb1cb55a12b0efec0268c6a6b9cfcdd795fd3ffcdf224ffe3903699297d6a",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "通过 `attributes` 字段可独立定制每个标签标题。额外属性可通过 `<Tabs>` 的 `values` 属性传递，或像声明 `label` 那样直接作为 `<TabItem>` 的属性传递。"
+      }
+    },
+    {
+      "segment_id": "d01e871e",
+      "source_content": "```jsx title=\"some-doc.mdx\"\nimport styles from './styles.module.css';\n\n<Tabs>\n  <TabItem value=\"apple\" label=\"Apple\" attributes={{className: styles.red}}>\n    This is an apple 🍎\n  </TabItem>\n  <TabItem value=\"orange\" label=\"Orange\" attributes={{className: styles.orange}}>\n    This is an orange 🍊\n  </TabItem>\n  <TabItem value=\"banana\" label=\"Banana\" attributes={{className: styles.yellow}}>\n    This is a banana 🍌\n  </TabItem>\n</Tabs>\n```",
+      "source_content_hash": "955efc957628c56014371a84c26ffc5ea64729dfb536f5df19a0e65c3fbb3bdb",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_d01e871e"
+      }
+    },
+    {
+      "segment_id": "0cb8c4d3",
+      "source_content": "```css title=\"styles.module.css\"\n.red {\n  color: red;\n}\n.red[aria-selected='true'] {\n  border-bottom-color: red;\n}\n\n.orange {\n  color: orange;\n}\n.orange[aria-selected='true'] {\n  border-bottom-color: orange;\n}\n\n.yellow {\n  color: yellow;\n}\n.yellow[aria-selected='true'] {\n  border-bottom-color: yellow;\n}\n```",
+      "source_content_hash": "268fa3a7d3a95751745f3f488e9ad13290da5ac2d7b24cc873bc5a48e1e52619",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_0cb8c4d3"
+      }
+    },
+    {
+      "segment_id": "7178860a",
+      "source_content": "<BrowserWindow>\n  <Tabs>\n    <TabItem value=\"apple\" label=\"Apple\" attributes={{className: styles.red}}>\n      This is an apple 🍎\n    </TabItem>\n    <TabItem value=\"orange\" label=\"Orange\" attributes={{className: styles.orange}}>\n      This is an orange 🍊\n    </TabItem>\n    <TabItem value=\"banana\" label=\"Banana\" attributes={{className: styles.yellow}}>\n      This is a banana 🍌\n    </TabItem>\n  </Tabs>\n</BrowserWindow>",
+      "source_content_hash": "4c0e05f6464946c4f71d44d24d92a0837ef450bdc646d970df086ed60c72170c",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_7178860a"
+      }
+    },
+    {
+      "segment_id": "d320dfae",
+      "source_content": ":::tip\n\n`className` would be merged with other default class names. You may also use a custom `data-value` field (`{'data-value': 'apple'}`) paired with CSS attribute selectors:\n\n```css title=\"styles.module.css\"\nli[role='tab'][data-value='apple'] {\n  color: red;\n}\n```\n\n:::",
+      "source_content_hash": "22edbe485a7df2f707c60552df592dfdb4c88e208bc3e0bd371b5754dda366cf",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::tip\n\n`className` 会与其他默认类名合并。你也可以使用自定义的 `data-value` 字段（如 `{'data-value': 'apple'}`）配合 CSS 属性选择器：\n\n```css title=\"styles.module.css\"\nli[role='tab'][data-value='apple'] {\n  color: red;\n}\n```\n\n:::"
+      }
+    },
+    {
+      "segment_id": "0b7ed806",
+      "source_content": "## Query string {#query-string}",
+      "source_content_hash": "250788b2f08ead8893969d8ff95dd6024848ce37776cdc2fc3c854f548580758",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 查询字符串 {#query-string}"
+      }
+    },
+    {
+      "segment_id": "8517ac25",
+      "source_content": "It is possible to persist the selected tab into the url search parameters. This enables you to share a link to a page which pre-selects the tab - linking from your Android app to documentation with the Android tabs pre-selected. This feature does not provide an anchor link - the browser will not scroll to the tab.",
+      "source_content_hash": "e234c6dfa934f37a53f85cce3d37fcb830cbf086c22e5830d75ee8f782606751",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "可以将选中的标签页状态持久化到 URL 的搜索参数中。这样您就能分享一个预选特定标签页的页面链接——例如从您的 Android 应用链接到已预选 Android 标签页的文档。此功能不提供锚点链接——浏览器不会自动滚动到标签页位置。"
+      }
+    },
+    {
+      "segment_id": "5e0ab881",
+      "source_content": "Use the `queryString` prop to enable this feature and define the search param name to use.",
+      "source_content_hash": "d0fa0c3eaf6a8289d200dc59bde15485df09ee796863f3fb80aa04f37ada50fc",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "使用 `queryString` 属性来启用此功能，并定义要使用的搜索参数名称。"
+      }
+    },
+    {
+      "segment_id": "7a5ad31f",
+      "source_content": "```tsx\n// highlight-next-line\n<Tabs queryString=\"current-os\">\n  <TabItem value=\"android\" label=\"Android\">\n    Android\n  </TabItem>\n  <TabItem value=\"ios\" label=\"iOS\">\n    iOS\n  </TabItem>\n</Tabs>\n```",
+      "source_content_hash": "10ed3e2fa1c64d2e2ed9fe9f5137a4fbaf3fbdca66913f862797e79575dad29e",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_7a5ad31f"
+      }
+    },
+    {
+      "segment_id": "9318b2c6",
+      "source_content": "<BrowserWindow>\n  <Tabs queryString='current-os'>\n    <TabItem value=\"android\" label=\"Android\">Android</TabItem>\n    <TabItem value=\"ios\" label=\"iOS\">iOS</TabItem>\n  </Tabs>\n</BrowserWindow>",
+      "source_content_hash": "8848c598e3481dd21f33fa4cdde8fec737ad55b75148ce5d216dbbfec4601bad",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_9318b2c6"
+      }
+    },
+    {
+      "segment_id": "e8bf4d18",
+      "source_content": "As soon as a tab is clicked, a search parameter is added at the end of the url: `?current-os=android` or `?current-os=ios`.",
+      "source_content_hash": "3f566faf7a74553f485e087b8deb7ba9268df4942f06126dfaad2142d62f8f43",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "当点击标签页时，URL 末尾会添加搜索参数：`?current-os=android` 或 `?current-os=ios`。"
+      }
+    },
+    {
+      "segment_id": "8899b697",
+      "source_content": ":::tip\n\n`queryString` can be used together with `groupId`.\n\nFor convenience, when the `queryString` prop is `true`, the `groupId` value will be used as a fallback.\n\n```tsx\n// highlight-next-line\n<Tabs groupId=\"current-os\" queryString>\n  <TabItem value=\"android\" label=\"Android\">\n    Android\n  </TabItem>\n  <TabItem value=\"ios\" label=\"iOS\">\n    iOS\n  </TabItem>\n</Tabs>\n```\n\n<BrowserWindow>\n  <Tabs queryString groupId=\"current-os\">\n    <TabItem value=\"android\" label=\"Android\">Android</TabItem>\n    <TabItem value=\"ios\" label=\"iOS\">iOS</TabItem>\n  </Tabs>\n</BrowserWindow>\n\nWhen the page loads, the tab query string choice will be restored in priority over the `groupId` choice (using `localStorage`).\n\n:::",
+      "source_content_hash": "d754feb26e4371c44bbaf390be3036fe19d66208b7129af3592e22342bf0312e",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::tip\n\n`queryString` 可与 `groupId` 配合使用。\n\n为方便起见，当 `queryString` 属性设为 `true` 时，将自动回退使用 `groupId` 的值作为参数名。\n\n```tsx\n// highlight-next-line\n<Tabs groupId=\"current-os\" queryString>\n  <TabItem value=\"android\" label=\"Android\">\n    Android\n  </TabItem>\n  <TabItem value=\"ios\" label=\"iOS\">\n    iOS\n  </TabItem>\n</Tabs>\n```\n\n<BrowserWindow>\n  <Tabs queryString groupId=\"current-os\">\n    <TabItem value=\"android\" label=\"Android\">Android</TabItem>\n    <TabItem value=\"ios\" label=\"iOS\">iOS</TabItem>\n  </Tabs>\n</BrowserWindow>\n\n页面加载时，会优先从查询字符串恢复标签页选择（而非使用 `localStorage` 存储的 `groupId` 选择状态）。\n\n:::"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs/version-3.1.1/guides/markdown-features/markdown-features-tabs.mdx",
+  "last_updated_timestamp": "2025-06-03T17:28:35.798957+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "zh-CN": "93e871ca516172edcd41da37478ae2b95edaabe6304d665b0a5a21f79e73a696"
+  }
+}

@@ -1,0 +1,702 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "versioned_docs/version-3.5.2/introduction.mdx",
+  "source_file_content_hash": "29dad4819898ebb3247f0523b5386a5d8ce74f084476c0a3c8d609b0d3ecbe70",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\ndescription: Docusaurus was designed from the ground up to be easily installed and used to get your website up and running quickly.\nslug: /\n---",
+      "source_content_hash": "acc7704a2ddbf465fb53e6d503a997a7a09f589753859ef4ae1d7788b5ef0cae",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "b3de8742",
+      "source_content": "# Introduction",
+      "source_content_hash": "1cfabb9fbf64272210f460dda2e83849fc87153cd78f2a983507fc8c332e19fd",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "# 简介"
+      }
+    },
+    {
+      "segment_id": "3fbbcc07",
+      "source_content": "⚡️ Docusaurus will help you ship a **beautiful documentation site in no time**.",
+      "source_content_hash": "adaae415846b143ac85bfaf9fe77e8c1db89ae725b528396c7520df337449e42",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "⚡️ Docusaurus 助您快速搭建**美观的文档站点**。"
+      }
+    },
+    {
+      "segment_id": "7e5c5a39",
+      "source_content": "💸 Building a custom tech stack is expensive. Instead, **focus on your content** and just write Markdown files.",
+      "source_content_hash": "ae6559dcada52a21fc23d42e32a46d88c676c4e3b176933660a43824b11a51a3",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "💸 自建技术栈成本高昂。请**专注于内容创作**，只需编写 Markdown 文件即可。"
+      }
+    },
+    {
+      "segment_id": "8d66f911",
+      "source_content": "💥 Ready for more? Use **advanced features** like versioning, i18n, search and theme customizations.",
+      "source_content_hash": "ad4b2ce76e6a5cfcc82bb669920c8eeda9db8c37a5a794c64084492dac72dfbf",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "💥 想要更多功能？可使用**高级特性**如版本控制、国际化、搜索和主题定制。"
+      }
+    },
+    {
+      "segment_id": "ad8fd492",
+      "source_content": "💅 Check the **[best Docusaurus sites](/showcase?tags=favorite)** for inspiration and read some **[testimonials](https://x.com/sebastienlorber/timelines/1392048416872706049)**.",
+      "source_content_hash": "86d63d9c41c0c179c6bcc344d6d58bfeea4d3efdbfa8f8ecb23e182a648b1d89",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "💅 查看**[精选 Docusaurus 站点](/showcase?tags=favorite)**获取灵感，阅读**[用户评价](https://x.com/sebastienlorber/timelines/1392048416872706049)**。"
+      }
+    },
+    {
+      "segment_id": "86b54d44",
+      "source_content": "🧐 Docusaurus is a **static-site generator**. It builds a **single-page application** with fast client-side navigation, leveraging the full power of **React** to make your site interactive. It provides out-of-the-box **documentation features** but can be used to create **any kind of site** (personal website, product, blog, marketing landing pages, etc).",
+      "source_content_hash": "63899655df3971950ccfd3b0bb69ff4d9737640ae7eb98fd50106c2e23284b94",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "🧐 Docusaurus 是**静态站点生成器**。它构建**单页应用**，通过快速的客户端导航和**React**的完整能力实现交互性。除提供开箱即用的**文档功能**外，也可用于创建**任意类型站点**（个人网站、产品页、博客、营销落地页等）。"
+      }
+    },
+    {
+      "segment_id": "39b3772c",
+      "source_content": "![](/img/slash-introducing.svg)",
+      "source_content_hash": "1488a72a4d0a77f0b5b33f79457cc24b118186d9b7d4c176755ea24c196663a2",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "![](/img/slash-introducing.svg)"
+      }
+    },
+    {
+      "segment_id": "bc633244",
+      "source_content": "## Fast Track ⏱️ {#fast-track}",
+      "source_content_hash": "860572d68ccc327f4c97169a726dc8578c58d571100bc7cd032ee4a2fcd52e0c",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 快速上手 ⏱️ {#fast-track}"
+      }
+    },
+    {
+      "segment_id": "2df4f75f",
+      "source_content": "Understand Docusaurus in **5 minutes** by playing!",
+      "source_content_hash": "a746b97e490f62f98976fc6050d2e13f8429d286eb26c6ca37f3ad4dce4614ed",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "通过实操**5分钟**了解 Docusaurus！"
+      }
+    },
+    {
+      "segment_id": "98cfbd53",
+      "source_content": "Create a new Docusaurus site and follow the **very short** embedded tutorial.",
+      "source_content_hash": "0e0513e123817d49ba4519749961430c42ca82fa02502d162b2ed18155a0b27b",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "新建 Docusaurus 站点并跟随**极简**内置教程。"
+      }
+    },
+    {
+      "segment_id": "ccc88b4c",
+      "source_content": "Install [Node.js](https://nodejs.org/en/download/) and create a new Docusaurus site:",
+      "source_content_hash": "91cee0b630583b297f1a954523ac0fd6c848f6ff4add9c0545019db88541a6bd",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "安装 [Node.js](https://nodejs.org/en/download/) 后创建新站点："
+      }
+    },
+    {
+      "segment_id": "15a1fd96",
+      "source_content": "```bash\nnpx create-docusaurus@latest my-website classic\n```",
+      "source_content_hash": "85367d51ad039a34162fe20061205b2833462ee69803b8ca21bdbd0e3177aed3",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_15a1fd96"
+      }
+    },
+    {
+      "segment_id": "73ab96a3",
+      "source_content": "Start the site:",
+      "source_content_hash": "a63e8bc43dc2db17bdd58046595e671f042cd046f342d22db4359a6d2eeee586",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "启动站点："
+      }
+    },
+    {
+      "segment_id": "6543a19e",
+      "source_content": "```bash\ncd my-website\nnpx docusaurus start\n```",
+      "source_content_hash": "112bb8e92dda11429026ac63f127b86c1402f6380dadf6ed5e73fec1f44e827d",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_6543a19e"
+      }
+    },
+    {
+      "segment_id": "c3a738de",
+      "source_content": "Open [`http://localhost:3000`](http://localhost:3000) and follow the tutorial.",
+      "source_content_hash": "b8c6a0e717285d662339d9f9c9ecd51c0342592cc3b5f6735fe2667f275fff92",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "访问 [`http://localhost:3000`](http://localhost:3000) 跟随教程。"
+      }
+    },
+    {
+      "segment_id": "688f7369",
+      "source_content": ":::tip\n\nUse **[docusaurus.new](https://docusaurus.new)** to test Docusaurus immediately in your browser!\n\nOr read the **[5-minute tutorial](https://tutorial.docusaurus.io)** online.\n\n:::",
+      "source_content_hash": "391a2c3760566c25241acdf7199c601c22ceb72e3b24bda4f92b88a9b3dc7a8a",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::tip\n\n使用 **[docusaurus.new](https://docusaurus.new)** 立即在浏览器中体验 Docusaurus！\n\n或在线阅读 **[5分钟教程](https://tutorial.docusaurus.io)**。\n\n:::"
+      }
+    },
+    {
+      "segment_id": "6f930b2f",
+      "source_content": "## Docusaurus: Documentation Made Easy",
+      "source_content_hash": "f2ea8a0281ec536148d6287b5e872c5bae667bbb794dc75ad84f06a0640392c5",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## Docusaurus：让文档变得简单"
+      }
+    },
+    {
+      "segment_id": "c504c207",
+      "source_content": "In this presentation at [Algolia Community Event](https://www.algolia.com/), [Meta Open Source team](https://opensource.facebook.com/) shared a brief walk-through of Docusaurus. They covered how to get started with the project, enable plugins, and set up functionalities like documentation and blogging.",
+      "source_content_hash": "e8f6ace8a01e8828341c192ead778dc4a003da4c9d12e02dfb60967d6c6a5645",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "在 [Algolia 社区活动](https://www.algolia.com/)中，[Meta 开源团队](https://opensource.facebook.com/)通过演示介绍了 Docusaurus。内容涵盖项目入门、插件启用以及文档与博客功能的配置。"
+      }
+    },
+    {
+      "segment_id": "ba5a0d6e",
+      "source_content": "import LiteYouTubeEmbed from 'react-lite-youtube-embed';",
+      "source_content_hash": "a75e13ddf2ea87a632fbeac67787d55d113ea34a827c3383fa724c384cea554c",
+      "node_type": "mdxjsEsm",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_ba5a0d6e"
+      }
+    },
+    {
+      "segment_id": "17300566",
+      "source_content": "<div className=\"video-container\">\n  <LiteYouTubeEmbed\n    id=\"Yhyx7otSksg\"\n    params=\"autoplay=1&autohide=1&showinfo=0&rel=0\"\n    title=\"Docusaurus: Documentation Made Easy\"\n    poster=\"maxresdefault\"\n    webp\n  />\n</div>",
+      "source_content_hash": "9069c82699ed4af8ce43826c77d1807ab01115ffacfb4140ca8240d22acfca80",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_17300566"
+      }
+    },
+    {
+      "segment_id": "a5a4323e",
+      "source_content": "## Migrating from v1 {#migrating-from-v1}",
+      "source_content_hash": "c5c5f52e04d99fc6cf56f1243186a2091861318fde3b501c50da96f87b9627fc",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 从 v1 迁移 {#migrating-from-v1}"
+      }
+    },
+    {
+      "segment_id": "657c2b20",
+      "source_content": "Docusaurus v2+ has been a total rewrite from Docusaurus v1, taking advantage of a completely modernized toolchain. After [v2's official release](https://docusaurus.io/blog/2022/08/01/announcing-docusaurus-2.0), we highly encourage you to **use Docusaurus v2+ over Docusaurus v1**, as Docusaurus v1 has been deprecated.",
+      "source_content_hash": "2d972b21a426090578267db08effc8914bfe894a98502cdec6f604336ee51a66",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "Docusaurus v2+ 是对 v1 的彻底重构，采用完全现代化的工具链。[v2 正式发布](https://docusaurus.io/blog/2022/08/01/announcing-docusaurus-2.0)后，我们强烈建议**使用 v2+ 而非已弃用的 v1 版本**。"
+      }
+    },
+    {
+      "segment_id": "e7772088",
+      "source_content": "A [lot of users](/showcase) are already using Docusaurus v2+ ([trends](https://www.npmtrends.com/docusaurus-vs-@docusaurus/core)).",
+      "source_content_hash": "68b80012f9af6d500cf067cb0b6765e6229986f332b6fd58f6994b61aa8fb369",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "[众多用户](/showcase)已在使用 Docusaurus v2+（[趋势数据](https://www.npmtrends.com/docusaurus-vs-@docusaurus/core)）。"
+      }
+    },
+    {
+      "segment_id": "eab056be",
+      "source_content": "**Use Docusaurus v2+ if:**",
+      "source_content_hash": "7a89b87bcf24d6f3cd60208e5696ec387217384e4c0cd051c669698598b79bf5",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "**以下情况推荐使用 v2+：**"
+      }
+    },
+    {
+      "segment_id": "aa0bd54f",
+      "source_content": "- :white_check_mark: You want a modern Jamstack documentation site\n- :white_check_mark: You want a single-page application (SPA) with client-side routing\n- :white_check_mark: You want the full power of React and MDX\n- :white_check_mark: You do not need support for IE11",
+      "source_content_hash": "809f26d637c105413f31dd403119a85162000309c227b4084d1a71b7797d1cbe",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "- :white_check_mark: 需要现代化的 Jamstack 文档站点\n- :white_check_mark: 需要支持客户端路由的单页应用(SPA)\n- :white_check_mark: 需要完整的 React 和 MDX 能力\n- :white_check_mark: 无需支持 IE11 浏览器"
+      }
+    },
+    {
+      "segment_id": "7736989b",
+      "source_content": "**Use [Docusaurus v1](https://v1.docusaurus.io/) if:**",
+      "source_content_hash": "257a3ba25be6f44be5cff91993606005552d19517066e1cf0f5d56b91efd7b76",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "**以下情况使用 [v1 版本](https://v1.docusaurus.io/)：**"
+      }
+    },
+    {
+      "segment_id": "c0ea80dd",
+      "source_content": "- :x: You don't want a single-page application (SPA)\n- :x: You need support for IE11 (...do you? IE [has already reached end-of-life](https://docs.microsoft.com/en-us/lifecycle/products/internet-explorer-11) and is no longer officially supported)",
+      "source_content_hash": "addc46109e058b59d1d22f759a1867ed1da3ca463bcf265a4d7aa2471b1ea28b",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "- :x: 不需要单页应用(SPA)\n- :x: 需要支持 IE11（该浏览器[已终止支持](https://docs.microsoft.com/en-us/lifecycle/products/internet-explorer-11)）"
+      }
+    },
+    {
+      "segment_id": "fbc2db85",
+      "source_content": "For existing v1 users that are seeking to upgrade to v2+, you can follow our [migration guides](./migration/index.mdx).",
+      "source_content_hash": "ee2fbe747a1463efc8badfe376b58c885b6fa5939eeda666633379e105f55ec0",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "对于现有v1用户希望升级至v2+版本，可遵循我们的[迁移指南](./migration/index.mdx)。"
+      }
+    },
+    {
+      "segment_id": "759d12dd",
+      "source_content": "## Features {#features}",
+      "source_content_hash": "e082cec2d84b7eca2f5e8467dbd15a44f50f1315f1c6596c288394885c4cb55c",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 功能特性 {#features}"
+      }
+    },
+    {
+      "segment_id": "74dd7937",
+      "source_content": "Docusaurus is built with high attention to the developer and contributor experience.",
+      "source_content_hash": "81fb4d2ff5e92f57ad311c1ffd47e9ec9edf43214d79d58d737647c976eb2fc3",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "Docusaurus在开发者和贡献者体验方面倾注了大量心血。"
+      }
+    },
+    {
+      "segment_id": "49f9f337",
+      "source_content": "- ⚛️ **Built with 💚 and React**:\n  - Extend and customize with React\n  - Gain full control of your site's browsing experience by providing your own React components\n- 🔌 **Pluggable**:\n  - Bootstrap your site with a basic template, then use advanced features and plugins\n  - Open source your plugins to share with the community\n- ✂️ **Developer experience**:\n  - Start writing your docs right now\n  - Universal configuration entry point to make it more maintainable by contributors\n  - Hot reloading with lightning-fast incremental build on changes\n  - Route-based code and data splitting\n  - Publish to GitHub Pages, Netlify, Vercel, and other deployment services with ease",
+      "source_content_hash": "f0614853615200c05072c7311be8585c3833f3187b915af633bbca811ed7cd85",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "- ⚛️ **基于💚与React构建**：\n  - 使用React进行扩展和定制\n  - 通过提供自定义React组件，全面掌控站点浏览体验\n- 🔌 **插件化架构**：\n  - 通过基础模板快速建站，再逐步使用高级功能和插件\n  - 将插件开源以与社区共享\n- ✂️ **开发者体验**：\n  - 立即开始编写文档\n  - 统一的配置入口点，便于贡献者维护\n  - 支持热重载，变更时增量构建速度极快\n  - 基于路由的代码与数据分割\n  - 轻松部署至GitHub Pages、Netlify、Vercel等服务"
+      }
+    },
+    {
+      "segment_id": "a2c0166e",
+      "source_content": "Our shared goal—to help your users quickly find what they need and understand your products better. We share our best practices to help you build your docs site right and well.",
+      "source_content_hash": "9946d985fadc88b6314da4e36901b06879b33bedf8c58ea88ce2ac7bd51ba0cc",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "我们共同的目标——帮助用户快速找到所需内容并更好地理解您的产品。我们分享最佳实践，助您构建出色的文档站点。"
+      }
+    },
+    {
+      "segment_id": "cd1d0fe2",
+      "source_content": "- 🎯 **SEO friendly**:\n  - HTML files are statically generated for every possible path.\n  - Page-specific SEO to help your users land on your official docs directly relating their problems at hand.\n- 📝 **Powered by MDX**:\n  - Write interactive components via JSX and React embedded in Markdown.\n  - Share your code in live editors to get your users to love your products on the spot.\n- 🔍 **Search**: Your full site is searchable.\n- 💾 **Document Versioning**: Helps you keep documentation in sync with project releases.\n- 🌍 **Internationalization (i18n)**: Translate your site in multiple locales.",
+      "source_content_hash": "36b8c9307d979d381bc2489801a3f13e2fa4fe8ac3994e867a52e2782dea6f64",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "- 🎯 **SEO友好**：\n  - 为所有可能路径静态生成HTML文件\n  - 页面专属SEO优化，让用户直接访问与其问题相关的官方文档\n- 📝 **基于MDX**：\n  - 通过嵌入Markdown中的JSX和React编写交互式组件\n  - 在实时编辑器中共享代码，让用户即刻爱上您的产品\n- 🔍 **全文搜索**：全站内容可检索\n- 💾 **文档版本控制**：保持文档与项目版本同步\n- 🌍 **国际化(i18n)**：支持多语言站点翻译"
+      }
+    },
+    {
+      "segment_id": "d21af28f",
+      "source_content": "Docusaurus v2+ is born to be compassionately accessible to all your users, and lightning-fast.",
+      "source_content_hash": "d375ed47f4b682826e3754956147de85840c4927a12efe4712b9c5d8ee6b0331",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "Docusaurus v2+生来就致力于为所有用户提供极致访问体验，速度如闪电般迅捷。"
+      }
+    },
+    {
+      "segment_id": "2979d081",
+      "source_content": "- ⚡️ **Lightning-fast**. Docusaurus v2+ follows the [PRPL Pattern](https://developers.google.com/web/fundamentals/performance/prpl-pattern/) that makes sure your content loads blazing fast.\n- 🦖 **Accessible**. Attention to accessibility, making your site equally accessible to all users.",
+      "source_content_hash": "2e352b058cec575b506201741ca0473a944c63129cd7203ad3b9dbd00656bc84",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "- ⚡️ **极速性能**。遵循[PRPL模式](https://developers.google.com/web/fundamentals/performance/prpl-pattern/)，确保内容加载快如闪电\n- 🦖 **无障碍访问**。注重可访问性设计，让所有用户平等获取信息"
+      }
+    },
+    {
+      "segment_id": "c7fa1e8d",
+      "source_content": "## Design principles {#design-principles}",
+      "source_content_hash": "cb83e63b1f0c6bd926a7a95a8ecdefb015254277416ad1a436086810844a0f14",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 设计原则 {#design-principles}"
+      }
+    },
+    {
+      "segment_id": "9673e622",
+      "source_content": "- **Little to learn**. Docusaurus should be easy to learn and use as the API is quite small. Most things will still be achievable by users, even if it takes them more code and more time to write. Not having abstractions is better than having the wrong abstractions, and we don't want users to have to hack around the wrong abstractions. Mandatory talk—[Minimal API Surface Area](https://www.youtube.com/watch?v=4anAwXYqLG8).\n- **Intuitive**. Users will not feel overwhelmed when looking at the project directory of a Docusaurus project or adding new features. It should look intuitive and easy to build on top of, using approaches they are familiar with.\n- **Layered architecture**. The separations of concerns between each layer of our stack (content/theming/styling) should be clear—well-abstracted and modular.\n- **Sensible defaults**. Common and popular performance optimizations and configurations will be done for users but they are given the option to override them.\n- **No vendor lock-in**. Users are not required to use the default plugins or CSS, although they are highly encouraged to. Certain core infrastructures like React Loadable and React Router cannot be swapped because we do default performance optimization on them, but not higher-level ones. Choice of Markdown engines, CSS frameworks, CSS methodology, and other architectures will be entirely up to users.",
+      "source_content_hash": "bbfca318facba5dfc4b4b12de517999e6486744109ae3555ae4948623aa795eb",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "- **低学习成本**。Docusaurus应易于学习和使用，因其API非常精简。即使需要编写更多代码和时间，用户仍能实现大多数功能。没有抽象比错误的抽象更好，我们不希望用户被迫绕过错误抽象。必看演讲——《[最小化API表面积](https://www.youtube.com/watch?v=4anAwXYqLG8)》\n- **符合直觉**。用户在查看Docusaurus项目目录或添加新功能时不会感到无所适从。它应该直观易用，基于熟悉的开发方式构建\n- **分层架构**。各层级（内容/主题/样式）关注点分离明确——抽象良好且模块化\n- **合理默认值**。为常见场景自动实施性能优化和配置，同时允许覆盖\n- **无供应商锁定**。不强制使用默认插件或CSS（但强烈推荐）。像React Loadable和React Router等核心基础设施不可替换，因为我们基于它们做了默认性能优化。但Markdown引擎、CSS框架、CSS方法论等架构选择完全由用户决定"
+      }
+    },
+    {
+      "segment_id": "8fcdd6d4",
+      "source_content": "We believe that, as developers, knowing how a library works helps us become better at using it. Hence we're dedicating effort to explaining the architecture and various components of Docusaurus with the hope that users reading it will gain a deeper understanding of the tool and be even more proficient in using it.",
+      "source_content_hash": "f0327944230de5bf60d501f598a420cddb7d57a7c440d22bc75e4088f177f945",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "我们相信，作为开发者，了解库的工作原理能帮助我们更好地使用它。因此我们投入精力解释Docusaurus的架构和各个组件，希望用户通过阅读能获得更深入的理解，从而更熟练地使用这个工具。"
+      }
+    },
+    {
+      "segment_id": "c35e5786",
+      "source_content": "## Comparison with other tools {#comparison-with-other-tools}",
+      "source_content_hash": "242253cea69242d96fddc774eef00a6c263a1555688666c061b05b24c3bc2a53",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 与其他工具对比 {#comparison-with-other-tools}"
+      }
+    },
+    {
+      "segment_id": "9c9e2b64",
+      "source_content": "Across all static site generators, Docusaurus has a unique focus on documentation sites and has many out-of-the-box features.",
+      "source_content_hash": "088ae3b00d8df6d3fd5517b77a4479d540e86b4fc86acdcc2448aa1646d745b6",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "在所有静态站点生成器中，Docusaurus独特地专注于文档站点，并提供大量开箱即用的功能。"
+      }
+    },
+    {
+      "segment_id": "5c7d994c",
+      "source_content": "We've also studied other main static site generators and would like to share our insights on the comparison, hopefully helping you navigate through the prismatic choices out there.",
+      "source_content_hash": "8bae55743dc32b060a6c3f3ad9942bffe640eed6260f3f7c47b097f8d2799cd4",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "我们还深入研究了其他主流静态站点生成器，并在此分享对比分析，希望能帮助您在众多选择中做出明智决策。"
+      }
+    },
+    {
+      "segment_id": "a461a67b",
+      "source_content": "### Gatsby {#gatsby}",
+      "source_content_hash": "2db778be7100a7891ef6498ff1207945a6ef5657b8c4a48b32a44e4e3f5685ab",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### Gatsby {#gatsby}"
+      }
+    },
+    {
+      "segment_id": "e77cf7c6",
+      "source_content": "[Gatsby](https://www.gatsbyjs.com/) is packed with a lot of features, has a rich ecosystem of plugins, and is capable of doing everything that Docusaurus does. Naturally, that comes at a cost of a higher learning curve. Gatsby does many things well and is suitable for building many types of websites. On the other hand, Docusaurus tries to do one thing super well - be the best tool for writing and publishing content.",
+      "source_content_hash": "7247ec4562d44e88670664e940360a4d60e1f67db8124440dd62cfe7df23cc77",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "[Gatsby](https://www.gatsbyjs.com/)功能丰富，拥有庞大的插件生态，完全能实现Docusaurus的所有能力。但相应地，其学习曲线更为陡峭。Gatsby作为通用型框架适合构建各类网站，而Docusaurus则专注将一件事做到极致——成为内容创作与发布的最佳工具。"
+      }
+    },
+    {
+      "segment_id": "bb1346b6",
+      "source_content": "GraphQL is also pretty core to Gatsby, although you don't necessarily need GraphQL to build a Gatsby site. In most cases when building static websites, you won't need the flexibility that GraphQL provides.",
+      "source_content_hash": "4bc2df92cee7868026724b84284d85bcd143611e339da985d3b756063726a63f",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "虽然GraphQL并非Gatsby的必要选项，但它仍是其核心设计理念。对于大多数静态网站场景，您可能并不需要GraphQL提供的灵活性。"
+      }
+    },
+    {
+      "segment_id": "8664ed0b",
+      "source_content": "Many aspects of Docusaurus v2+ were inspired by the best things about Gatsby and it's a great alternative.",
+      "source_content_hash": "3b564c115f872bbc65812e14d4d511ed1bc4b265fdfe7797c48190180ac8ce63",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "Docusaurus v2+的诸多设计灵感源自Gatsby的精华特性，后者仍是优秀的替代方案。"
+      }
+    },
+    {
+      "segment_id": "9e90a9b3",
+      "source_content": "[Docz](https://github.com/pedronauck/docz) is a Gatsby theme to build documentation websites. It is currently less featured than Docusaurus.",
+      "source_content_hash": "c3e2709db7e0f1d152241ad4569259de64b3329385851c22100f8a9442fb6861",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "[Docz](https://github.com/pedronauck/docz)是基于Gatsby的文档主题，目前功能完善度不及Docusaurus。"
+      }
+    },
+    {
+      "segment_id": "a0d0e29e",
+      "source_content": "### Next.js {#nextjs}",
+      "source_content_hash": "aa0e17b3550faa407b4bfaa45f19f0b8c0e5f64fdf5c328b042dcf8ae709e884",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### Next.js {#nextjs}"
+      }
+    },
+    {
+      "segment_id": "be17ccc3",
+      "source_content": "[Next.js](https://nextjs.org/) is another very popular hybrid React framework. It can help you build a good documentation website, but it is not opinionated toward the documentation use-case, and it will require a lot more work to implement what Docusaurus provides out-of-the-box.",
+      "source_content_hash": "3cbf1284ad7ba44f98fcdf093b3301e998a52dad06687d1e9a4952204c984dcd",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "[Next.js](https://nextjs.org/)是另一款流行的混合式React框架。虽然能用于构建文档网站，但其设计并非专为文档场景优化，要实现Docusaurus开箱即用的功能需要大量额外工作。"
+      }
+    },
+    {
+      "segment_id": "ad3e22c6",
+      "source_content": "[Nextra](https://github.com/shuding/nextra) is an opinionated static site generator built on top of Next.js. It is currently less featured than Docusaurus.",
+      "source_content_hash": "c0b7d673b5107a6103f1b3163304e2d1809c4506c9b4f213297c7b41f32fc153",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "[Nextra](https://github.com/shuding/nextra)是基于Next.js的静态站点生成方案，目前功能完备性低于Docusaurus。"
+      }
+    },
+    {
+      "segment_id": "671cbf7c",
+      "source_content": "### VitePress {#vitepress}",
+      "source_content_hash": "8a4bd5ecbfa7ec3cb8892b790d3def9cc657c98d39e391d81097b97118f31fbf",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### VitePress {#vitepress}"
+      }
+    },
+    {
+      "segment_id": "4c787c52",
+      "source_content": "[VitePress](https://vitepress.dev/) has many similarities with Docusaurus - both focus heavily on content-centric websites and provides tailored documentation features out of the box. However, VitePress is powered by Vue, while Docusaurus is powered by React. If you want a Vue-based solution, VitePress would be a decent choice.",
+      "source_content_hash": "782fc5bfe39e8c1562bb9b45886e504e305217ce65494c0e09b4af20db7f51dc",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "[VitePress](https://vitepress.dev/)与Docusaurus高度相似——都专注于内容型网站并提供开箱即用的文档功能。区别在于技术栈：VitePress基于Vue，而Docusaurus基于React。如需Vue技术栈方案，VitePress是不错的选择。"
+      }
+    },
+    {
+      "segment_id": "b50cf7ff",
+      "source_content": "### MkDocs {#mkdocs}",
+      "source_content_hash": "3e1ecad7ae7ec411fa311bdf43ffaeebfee21805e22dbbda511eced823a96fe7",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### MkDocs {#mkdocs}"
+      }
+    },
+    {
+      "segment_id": "1496ef51",
+      "source_content": "[MkDocs](https://www.mkdocs.org/) is a popular Python static site generator with value propositions similar to Docusaurus.",
+      "source_content_hash": "1fed3b870905e6eda458c4a0b5ac92100b69d7f64a2ed89dbd6b8f30b2e87c00",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "[MkDocs](https://www.mkdocs.org/)是Python生态中与Docusaurus定位相似的静态站点生成器。"
+      }
+    },
+    {
+      "segment_id": "dce16ab4",
+      "source_content": "It is a good option if you don't need a single-page application and don't plan to leverage React.",
+      "source_content_hash": "bd2788271e451c5f8f271dc28cc08c34613c2250e657d6b47b0088b39225f7c0",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "如果您不需要单页应用特性且不计划使用React技术栈，这是理想选择。"
+      }
+    },
+    {
+      "segment_id": "6f08f877",
+      "source_content": "[Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) is a beautiful theme.",
+      "source_content_hash": "a27680ad85817594d3650894ac9384237e2ea4d0951bafd6b92607f70c531914",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "[Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)提供了精美的主题方案。"
+      }
+    },
+    {
+      "segment_id": "f6a06609",
+      "source_content": "### Docsify {#docsify}",
+      "source_content_hash": "9de70b5d9f2e4ec5a3e3cc24e91c9f00ed68cf55836081af9e55c6ea604dd032",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### Docsify {#docsify}"
+      }
+    },
+    {
+      "segment_id": "6b40e7a2",
+      "source_content": "[Docsify](https://docsify.js.org/) makes it easy to create a documentation website, but is not a static-site generator and is not SEO friendly.",
+      "source_content_hash": "ec4e8245fe5b91fc670b05d16fe7809b5b3cdcb8fd962afdf7362d91df2d2b76",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "[Docsify](https://docsify.js.org/)虽能快速创建文档网站，但并非静态生成方案且对SEO不友好。"
+      }
+    },
+    {
+      "segment_id": "657bde08",
+      "source_content": "### GitBook {#gitbook}",
+      "source_content_hash": "bdbd8117e8d66c9916d3a37b22b7e0b09dbf75bf465bd5ec9284fa13b79f49e8",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### GitBook {#gitbook}"
+      }
+    },
+    {
+      "segment_id": "827eb9a3",
+      "source_content": "[GitBook](https://www.gitbook.com/) has a very clean design and has been used by many open source projects. With its focus shifting towards a commercial product rather than an open-source tool, many of its requirements no longer fit the needs of open source projects' documentation sites. As a result, many have turned to other products. You may read about Redux's switch to Docusaurus [here](https://github.com/reduxjs/redux/issues/3161).",
+      "source_content_hash": "54fbf636daf0900877dda4138ff7389f913a6375e247d21ba2cfce33ed7ea1b9",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "[GitBook](https://www.gitbook.com/)以简洁设计著称，曾被众多开源项目采用。但随着其转向商业化产品定位，许多功能已不再符合开源文档需求。如Redux项目[迁移案例](https://github.com/reduxjs/redux/issues/3161)所示，许多用户已转向其他方案。"
+      }
+    },
+    {
+      "segment_id": "62d066b0",
+      "source_content": "Currently, GitBook is only free for open-source and non-profit teams. Docusaurus is free for everyone.",
+      "source_content_hash": "f608c242eb7dd5ebf1d086020de53bea890390f7de6b2926023cc49037cb6bfd",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "当前GitBook仅对开源和非盈利团队免费，而Docusaurus始终完全免费。"
+      }
+    },
+    {
+      "segment_id": "a49ac2ed",
+      "source_content": "### Jekyll {#jekyll}",
+      "source_content_hash": "8e63c65bb41b7592f779699ebda898816c72af4c0e1526d04768d811341af01a",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### Jekyll {#jekyll}"
+      }
+    },
+    {
+      "segment_id": "808b0414",
+      "source_content": "[Jekyll](https://github.com/jekyll/jekyll) is one of the most mature static site generators around and has been a great tool to use — in fact, before Docusaurus, most of Facebook's Open Source websites are/were built on Jekyll! It is extremely simple to get started. We want to bring a similar developer experience as building a static site with Jekyll.",
+      "source_content_hash": "921a8a55700dfb2bd0d62b87441c799cf54311d5803cfcad58c5f3c9a9163842",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "[Jekyll](https://github.com/jekyll/jekyll)是最成熟的静态站点生成器之一——事实上在Docusaurus之前，Facebook多数开源项目网站都基于Jekyll构建！其入门极其简单，我们致力于让Docusaurus提供媲美Jekyll的开发体验。"
+      }
+    },
+    {
+      "segment_id": "61a78cbe",
+      "source_content": "In comparison with statically generated HTML and interactivity added using `<script />` tags, Docusaurus sites are React apps. Using modern JavaScript ecosystem tooling, we hope to set new standards on doc sites' performance, asset building pipeline and optimizations, and ease to set up.",
+      "source_content_hash": "c5a438298cf20ecc1f0716f1fe95f191ce34e5473d41dd9a239874138ecdbf55",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "与使用静态生成HTML并通过`<script />`标签添加交互性的方式相比，Docusaurus站点是React应用。借助现代JavaScript生态工具链，我们期望为文档站点在性能表现、资源构建流程与优化、以及易用性方面树立新标杆。"
+      }
+    },
+    {
+      "segment_id": "2b5df263",
+      "source_content": "## Staying informed {#staying-informed}",
+      "source_content_hash": "d1ff11b05f6916be1588617f6783f55c7a11c72a062b492047b5f9c63f266bc7",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 保持关注 {#staying-informed}"
+      }
+    },
+    {
+      "segment_id": "67a49da9",
+      "source_content": "- [GitHub](https://github.com/facebook/docusaurus)\n- [X](https://x.com/docusaurus)\n- [Blog](/blog)\n- [Discord](https://discord.gg/docusaurus)",
+      "source_content_hash": "ce5452371ee073b7077530533b18849c560f3bb9916f3db3be622b2297635d91",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "- [GitHub](https://github.com/facebook/docusaurus)\n- [X](https://x.com/docusaurus)\n- [博客](/blog)\n- [Discord](https://discord.gg/docusaurus)"
+      }
+    },
+    {
+      "segment_id": "e63d69ef",
+      "source_content": "## Something missing? {#something-missing}",
+      "source_content_hash": "7e4c33375cef1ad6da01a9e3828ea2bc25658320bef5a41f1e3760e647792bdb",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 发现遗漏？ {#something-missing}"
+      }
+    },
+    {
+      "segment_id": "0427bb2b",
+      "source_content": "If you find issues with the documentation or have suggestions on how to improve the documentation or the project in general, please [file an issue](https://github.com/facebook/docusaurus) for us, or send a tweet mentioning the [@docusaurus](https://x.com/docusaurus) X account.",
+      "source_content_hash": "4b9dd9a2531e635a39bb067406065b791125818b1ad3ebd52d5f0b0d5bb0077c",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "如果您发现文档存在问题或有改进建议（无论是针对文档还是项目整体），请通过[提交issue](https://github.com/facebook/docusaurus)告知我们，或在X平台发推文时提及[@docusaurus](https://x.com/docusaurus)账号。"
+      }
+    },
+    {
+      "segment_id": "4899bc54",
+      "source_content": "For new feature requests, you can create a post on our [feature requests board (Canny)](/feature-requests), which is a handy tool for road-mapping and allows for sorting by upvotes, which gives the core team a better indicator of what features are in high demand, as compared to GitHub issues which are harder to triage. Refrain from making a Pull Request for new features (especially large ones) as someone might already be working on it or will be part of our roadmap. Talk to us first!",
+      "source_content_hash": "513dd4aa98118c53b98dc94c7aaeaca4dea529221d86acd2d5e29ee6382e3141",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "对于新功能请求，可在我们的[功能需求看板(Canny)](/feature-requests)上发帖。该看板能有效辅助路线规划，并支持按投票数排序，相比GitHub issues更便于核心团队识别高需求功能。请注意避免直接提交新功能Pull Request（尤其是大型改动），相关功能可能已有人开发或列入路线图，请先与我们沟通！"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs/version-3.5.2/introduction.mdx",
+  "last_updated_timestamp": "2025-06-03T17:28:35.959425+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "zh-CN": "29dad4819898ebb3247f0523b5386a5d8ce74f084476c0a3c8d609b0d3ecbe70"
+  }
+}

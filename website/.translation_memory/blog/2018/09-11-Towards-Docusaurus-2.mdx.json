@@ -1,0 +1,582 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "blog/2018/09-11-Towards-Docusaurus-2.mdx",
+  "source_file_content_hash": "49300255b0123e749f458aaa664b00cec5a3edd40593be76b024264ecbe38ed2",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\ntitle: Towards Docusaurus 2\nauthors: endiliey\ntags: [new, adoption]\n---",
+      "source_content_hash": "25881dc2cda7dd11b1c7f035819d147f36948181dfaf755621be9666a0c1d077",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "6ef78e84",
+      "source_content": "Docusaurus was [officially announced](https://v1.docusaurus.io/blog/2017/12/14/introducing-docusaurus) over nine months ago as a way to easily build open source documentation websites. Since then, it has amassed over 8,600 GitHub Stars, and is used by many popular open source projects such as [React Native](https://facebook.github.io/react-native/), [Babel](https://babeljs.io/), [Jest](https://jestjs.io/), [Reason](https://reasonml.github.io/) and [Prettier](https://prettier.io/).",
+      "source_content_hash": "f02c1b69041ada8926ae4708582d9b1002f557753dfade1ed78eeaaa38c4dcbc",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "Docusaurus在[官方公告](https://v1.docusaurus.io/blog/2017/12/14/introducing-docusaurus)发布九个月以来，已成为构建开源文档网站的便捷工具。截至目前，该项目已获得超过8,600个GitHub星标，并被[React Native](https://facebook.github.io/react-native/)、[Babel](https://babeljs.io/)、[Jest](https://jestjs.io/)、[Reason](https://reasonml.github.io/)和[Prettier](https://prettier.io/)等众多知名开源项目采用。"
+      }
+    },
+    {
+      "segment_id": "53eaf0e1",
+      "source_content": "There is a saying that the very best software is constantly evolving, and the very worst is not. In case you are not aware, we have been planning and working on the next version of Docusaurus 🎉.",
+      "source_content_hash": "dc386ad231378a7f1c705547d79a54c740af22d659fb2771f94494f179ffb6a1",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "有句话说，最好的软件永远在进化，而最糟糕的则停滞不前。或许您已有所耳闻，我们正在筹划并开发Docusaurus的下一代版本🎉。"
+      }
+    },
+    {
+      "segment_id": "8a427a70",
+      "source_content": "<!--truncate-->",
+      "source_content_hash": "f5cded2aa7e288e395fe4f67f9dabda2281904b2f5358d07302b3aa8be0acdfa",
+      "node_type": "comment",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_8a427a70"
+      }
+    },
+    {
+      "segment_id": "ba4f48ff",
+      "source_content": "## Introduction",
+      "source_content_hash": "d753efbab681fa4da82470d9a83b1c202de58f92fd498e77a269c1163bc4714b",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 引言"
+      }
+    },
+    {
+      "segment_id": "cf898102",
+      "source_content": "It all started with this [RFC issue](https://github.com/facebook/docusaurus/issues/789) opened by [Yangshun](https://github.com/yangshun) towards the end of June 2018.",
+      "source_content_hash": "93bf72aacb3e1c76872d97539b8832414e1e71b77377bbe8c6671ca8d7a3852d",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "这一切始于2018年6月底[Yangshun](https://github.com/yangshun)提交的[RFC议题](https://github.com/facebook/docusaurus/issues/789)。"
+      }
+    },
+    {
+      "segment_id": "514644bf",
+      "source_content": "<blockquote>\n  <h4>\n    <a href=\"https://github.com/facebook/docusaurus/issues/789\">\n      {'[RFC] Docusaurus v2 · Issue #789 · facebook/docusaurus'}\n    </a>\n  </h4>\n  These are some of the problems I'm seeing in Docusaurus now and also how we can\n  address them in v2. A number of the ideas here were inspired by VuePress and other\n  static site generators. In the current static site generators ecosystem, t...\n</blockquote>",
+      "source_content_hash": "03a49e6fee0b4d36eba0c3153e0cb4f93e24a1ba71b030e42e65c39083126b0c",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_514644bf"
+      }
+    },
+    {
+      "segment_id": "d9172fa4",
+      "source_content": "Most of the suggested improvements are mentioned in the issue; I will provide details on some of issues in Docusaurus 1 and how we are going to address them in Docusaurus 2.",
+      "source_content_hash": "fc538c25113c87ff8d87623951669eac31c3f5b1af4c9cceb9a82878b0d1a632",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "议题中已提及大部分改进建议，我将重点阐述Docusaurus 1存在的若干问题及我们在Docusaurus 2中的解决方案。"
+      }
+    },
+    {
+      "segment_id": "d06306f7",
+      "source_content": "## Infrastructure",
+      "source_content_hash": "6120dfff4d711b98b29ca9237e129be338a1ee5de68bdcceffa6543c60b1b6a9",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 基础设施"
+      }
+    },
+    {
+      "segment_id": "b25f21be",
+      "source_content": "### Content",
+      "source_content_hash": "3a037e422de1ef3802d0cc35cab39bed395748e526b1717fe1e0f0dd064ba08a",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### 内容处理"
+      }
+    },
+    {
+      "segment_id": "7499a4e7",
+      "source_content": "A Docusaurus 1 website is, in fact, built into a bunch of static HTML pages. Despite using React, we were not fully utilizing the features React offered, such as component state, which allows for dynamic and interactive pages. React was only used as a templating engine for static content and interactivity has to be added through script tags and `dangerouslySetInnerHTML` 😱.",
+      "source_content_hash": "a30c7f6cbc1bd16fbd0df241d976fa60648b103f6d67d3750d21899f16001c17",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "Docusaurus 1生成的网站实际上是一组静态HTML页面。尽管使用了React框架，但并未充分发挥其组件状态等特性来实现动态交互页面。React仅被用作静态内容的模板引擎，交互功能需通过脚本标签和`dangerouslySetInnerHTML`强行注入😱。"
+      }
+    },
+    {
+      "segment_id": "517051a7",
+      "source_content": "In addition, there is not an easy way to change how Docusaurus loads content. For example, adding CSS preprocessors such as Sass and Less was not supported natively and involved many user hacks of adding custom scripts.",
+      "source_content_hash": "c9f1bfbb5a83144108dc1553855019ff0a4de04d9b03cebc648f798d2ac787eb",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "此外，用户难以自定义内容加载方式。例如原生不支持Sass/Less等CSS预处理器，需要用户通过添加自定义脚本等非常规手段实现。"
+      }
+    },
+    {
+      "segment_id": "135468ee",
+      "source_content": "For Docusaurus 2, we will be using [webpack](https://webpack.js.org/) as a module bundler and we are changing the way we serve content. Adding CSS preprocessors will be as easy as adding a webpack loader. Instead of a pure static HTML, **during build time we will create a server-rendered version of the app** and render the corresponding HTML. A Docusaurus site will be essentially an isomorphic/universal application. This approach is heavily inspired by [Gatsby](https://github.com/gatsbyjs/gatsby).",
+      "source_content_hash": "e0ce8e421ca2bfd0283111111bbf79b6c510676ac06e51a4afc2b5a73ab97f33",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "在Docusaurus 2中，我们将采用[webpack](https://webpack.js.org/)作为模块打包器，并彻底重构内容服务机制。添加CSS预处理器只需配置webpack加载器即可。**构建时将生成服务端渲染的应用程序版本**并输出对应HTML，使Docusaurus站点本质上成为同构/通用应用。该方案深受[Gatsby](https://github.com/gatsbyjs/gatsby)启发。"
+      }
+    },
+    {
+      "segment_id": "782c902a",
+      "source_content": "### Versioning",
+      "source_content_hash": "fd003cf8aa2608051ddf9b7af51e92ad1f71c4dde1baf35a2dca7c1c72f1de26",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### 版本控制"
+      }
+    },
+    {
+      "segment_id": "50746522",
+      "source_content": "If you have been using Docusaurus for a while, you might notice that Docusaurus creates versioned docs **if and only if** the docs content are **different**.",
+      "source_content_hash": "6f181c30bc543dc69b884618db482df922684006a8082bea34ba0168baba3a9b",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "长期使用Docusaurus的用户可能注意到：**仅当文档内容发生变更时**，系统才会创建版本化文档。"
+      }
+    },
+    {
+      "segment_id": "95e9ba12",
+      "source_content": "For example, if we have `docs/hello.md`:",
+      "source_content_hash": "f4c36cf7639687be3e39bcc2c425a23dc3aabb4e64363a4f2483716ae9555832",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "例如现有`docs/hello.md`文件："
+      }
+    },
+    {
+      "segment_id": "4ec2920d",
+      "source_content": "```text\n---\nid: hello\ntitle: hello\n---\nHello world !\n```",
+      "source_content_hash": "fcb7eb95e4817ee91ec6857ec305c459444145236d6926c4eb86696a26201b55",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_4ec2920d"
+      }
+    },
+    {
+      "segment_id": "b36c6338",
+      "source_content": "And **we cut version 1.0.0,** Docusaurus will create `versioned_docs/version-1.0.0/hello.md`:",
+      "source_content_hash": "e71422837dcde3b677784b903d106fc18be74df6a33fb25eac45eaa3fec8ee01",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "当**发布1.0.0版本**时，Docusaurus会生成`versioned_docs/version-1.0.0/hello.md`："
+      }
+    },
+    {
+      "segment_id": "eb80afe1",
+      "source_content": "```text\n---\nid: version-1.0.0-hello\ntitle: hello\noriginal_id: hello\n---\nHello world !\n```",
+      "source_content_hash": "4f33fa1e9c93ee698db6d0c9ede96ab51be8d424e4379686614c56c317424bc3",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_eb80afe1"
+      }
+    },
+    {
+      "segment_id": "5dae11e3",
+      "source_content": "However, if there are no changes to `hello.md` when cutting v2.0.0, Docusaurus will not create any versioned docs for that document. In other words, `versioned_docs/version-2.0.0/hello.md` will not exist.",
+      "source_content_hash": "048172e9972c087b3f0dd4ba053ede4102825ba81694e7b69c73ab945c434c59",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "但若发布v2.0.0时`hello.md`未作修改，系统不会为该文档创建版本化副本。也就是说`versioned_docs/version-2.0.0/hello.md`将不存在。"
+      }
+    },
+    {
+      "segment_id": "0bb95128",
+      "source_content": "This can be very confusing for users; if they want to edit the v2.0.0 docs, they have to edit `versioned_docs/version-1.0.0/hello.md` or manually add `versioned_docs/version-2.0.0/hello.md`. This could potentially lead to unwanted bugs. Here is a [real scenario in Jest](https://github.com/facebook/jest/pull/6758#issuecomment-408274413).",
+      "source_content_hash": "6c35e9403fba775e4ca997645515a93b219f0dbe0ef4abab42d4431519114623",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "这极易导致用户困惑：如需编辑v2.0.0文档，必须修改`versioned_docs/version-1.0.0/hello.md`或手动创建`versioned_docs/version-2.0.0/hello.md`。这种机制可能引发意外错误，[Jest项目就曾遭遇此问题](https://github.com/facebook/jest/pull/6758#issuecomment-408274413)。"
+      }
+    },
+    {
+      "segment_id": "657c2b20",
+      "source_content": "In addition, this adds complexity within the codebase as we require a mechanism for version fallbacks. And during build time, Docusaurus has to replace the linking to the correct version. This is also the cause of a bug where [renaming docs breaks links in old versions](https://github.com/facebook/docusaurus/issues/845).",
+      "source_content_hash": "57a161a986543bbc1c1dc5800c3e67843cd5a673fe6c9b5a8f1b4447665ce526",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "此外，这增加了代码库的复杂性，因为我们需要实现版本回退机制。在构建时，Docusaurus 必须替换为正确版本的链接。这也是导致[重命名文档会破坏旧版本链接](https://github.com/facebook/docusaurus/issues/845)这一缺陷的根本原因。"
+      }
+    },
+    {
+      "segment_id": "e7772088",
+      "source_content": "For Docusaurus 2, **every time we cut a new version, we will instead take a snapshot of all the docs**. We will not require the content of a document to have changed. This is a space complexity trade-off for a better developer and user experience. We will use more space for better separation of concerns and guaranteed correctness.",
+      "source_content_hash": "d220aa9486f69e4ba50769e2153ecbd5c304b9dec3a7c63573f6f40a33a8276e",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "在 Docusaurus 2 中，**每次创建新版本时，我们将改为对所有文档进行快照**。不再要求文档内容必须发生变更。这是用空间复杂度换取更好的开发者和用户体验。我们将使用更多存储空间来实现更清晰的关注点分离和确定性正确。"
+      }
+    },
+    {
+      "segment_id": "d422fb13",
+      "source_content": "### Translation",
+      "source_content_hash": "70aff102f9007841f953bbbfd5758fb573a8b6101f3fdc434fa6f60be1a44fb9",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### 国际化翻译"
+      }
+    },
+    {
+      "segment_id": "f01228d3",
+      "source_content": "Docusaurus allows for easy translation functionality by using [Crowdin](https://crowdin.com/). Documentation files written in English are uploaded to Crowdin for translation by users within a community. We always assumed that **English** is the default language, but this might not be the case for all users. We have seen plenty of non-English open source projects using Docusaurus.",
+      "source_content_hash": "584e7ce1d2c5749843d41ac6977555a2212c0180a61deb3ddb93f1258f5885dc",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "Docusaurus 通过 [Crowdin](https://crowdin.com/) 提供便捷的翻译功能。英文撰写的文档文件会上传至 Crowdin 供社区用户翻译。我们始终假设**英语**是默认语言，但这并非所有用户的情况。我们已经看到许多非英语开源项目使用 Docusaurus。"
+      }
+    },
+    {
+      "segment_id": "afa378f7",
+      "source_content": "For Docusaurus 2, **we will not assume English is the default language**. When a user enables internationalization, they have to set a default language in `siteConfig.js`. We will then assume that all the files in `docs` are written in that language.",
+      "source_content_hash": "e3d4be5cefee9027a4efc1ecc1a0f77008769adee3cd526e493402cd766f9d34",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "在 Docusaurus 2 中，**我们将不再假定英语是默认语言**。当用户启用国际化功能时，必须在 `siteConfig.js` 中设置默认语言。之后我们会假定 `docs` 目录下所有文件都使用该语言编写。"
+      }
+    },
+    {
+      "segment_id": "e8e162a9",
+      "source_content": "In addition, after working on the MVP of Docusaurus 2, I realized that it is possible not to use Crowdin for translations. Thus, we might need to add an additional workflow to enable that scenario. However, we will still strongly recommend people use Crowdin for easier integration.",
+      "source_content_hash": "bedbfb5cfd1e93b31b2df4cf67b1b00c565000ceeaf0430158f8bdf37d96f239",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "此外，在完成 Docusaurus 2 的最小可行产品后，我意识到可以不依赖 Crowdin 进行翻译。因此我们可能需要添加额外的工作流来支持这种场景。不过我们仍会强烈推荐使用 Crowdin 以获得更便捷的集成体验。"
+      }
+    },
+    {
+      "segment_id": "b936dd6a",
+      "source_content": "## Customizability",
+      "source_content_hash": "6a1b42a4d7a11635e2b7898889ee674b0696456a68ad0b656909200e65e29d59",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 可定制性"
+      }
+    },
+    {
+      "segment_id": "66819c78",
+      "source_content": "### Layout",
+      "source_content_hash": "8014b28885df537be3925409dfde0b4b51a343117b12d7f57d8487f451b21dfa",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### 布局"
+      }
+    },
+    {
+      "segment_id": "fbc2db85",
+      "source_content": "The current state of Docusaurus is that it is in charge of the entire layout and styling, unintentionally making it very hard for users to customize their site's appearance to their wishes.",
+      "source_content_hash": "8cfa53433fb1dade13ac181cef8d0b58b59d6bc68073eb92cab588c403b54025",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "当前 Docusaurus 完全控制布局和样式设计，这无意中导致用户难以按需自定义网站外观。"
+      }
+    },
+    {
+      "segment_id": "8126f763",
+      "source_content": "For Docusaurus 2, **layout and styling should be controlled by the user**. Docusaurus will handle the content generation, routing, translation, and versioning. Inspired by [create-react-app](https://github.com/facebook/create-react-app) and [VuePress](https://vuepress.vuejs.org/), Docusaurus will still provide a default theme, which the user can eject from, for further layout and styling customization. This means that it is very possible for the user to even change the HTML meta by using [React Helmet](https://github.com/nfl/react-helmet). Community-based themes are also very possible. This approach of allowing users to be in charge of layout and styling is taken by most static site generators.",
+      "source_content_hash": "d7f6a173e44bed2b334e352fa739ea12017c6b117d3c09fb0d9760906eab3fe7",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "在 Docusaurus 2 中，**布局和样式将交由用户控制**。Docusaurus 仅负责内容生成、路由、翻译和版本管理。受 [create-react-app](https://github.com/facebook/create-react-app) 和 [VuePress](https://vuepress.vuejs.org/) 启发，Docusaurus 仍会提供可退出的默认主题，支持通过 [React Helmet](https://github.com/nfl/react-helmet) 修改 HTML 元数据。社区主题也将成为可能。这种由用户掌控布局和样式的方式已被多数静态站点生成器采用。"
+      }
+    },
+    {
+      "segment_id": "3a8d2b95",
+      "source_content": "### Markdown",
+      "source_content_hash": "443af0749df1db2ad1565d5e98fc7318f5eab44b81e1ff49f3f8b8c355dfcbbf",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### Markdown"
+      }
+    },
+    {
+      "segment_id": "5803caac",
+      "source_content": "Our Markdown parsing is currently powered by [Remarkable](https://github.com/jonschlinkert/remarkable). What if the user wants to use [Markdown-it](https://github.com/Markdown-it/Markdown-it) or even [MDX](https://github.com/mdx-js/mdx)? And then there is an issue of which syntax highlighter to use, (e.g: [Prism](https://prismjs.com/) vs [Highlight.js](https://highlightjs.org/)). We should leave these choices open to the user.",
+      "source_content_hash": "98f435e33490162282602e68b2c8d4197adec297595ab1d239581ec5bc18c900",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "当前我们的 Markdown 解析由 [Remarkable](https://github.com/jonschlinkert/remarkable) 驱动。如果用户想使用 [Markdown-it](https://github.com/Markdown-it/Markdown-it) 或 [MDX](https://github.com/mdx-js/mdx) 怎么办？还有语法高亮方案的选择问题（如 [Prism](https://prismjs.com/) 与 [Highlight.js](https://highlightjs.org/)）。这些选择权应该交给用户。"
+      }
+    },
+    {
+      "segment_id": "51867d16",
+      "source_content": "For Docusaurus 2, **users can eject and choose their own Markdown parser**. It does not matter if they want to use another Markdown parser such as [Remark](https://github.com/remarkjs/remark), or even their own in-house Markdown parser. As a rule of thumb, the user has to provide a React component, in which we will provide a children props containing the _RAW string of Markdown_. By default, we will use Remarkable for the Markdown parser and Highlight.js for the syntax highlighting. The default parser could still change in the future as we're still experimenting with different Markdown parsers.",
+      "source_content_hash": "6764ea97df02d49ce54135c39efd6fe67fce91cfdb2d7d778e18c82b17c5b23b",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "在 Docusaurus 2 中，**用户可以退出默认方案并选择自己的 Markdown 解析器**。无论是选用 [Remark](https://github.com/remarkjs/remark) 还是自研解析器都可以。基本原则是：用户需提供一个接收 _Markdown 原始字符串_作为子属性的 React 组件。默认情况下我们将继续使用 Remarkable 作为 Markdown 解析器，Highlight.js 作为语法高亮方案。最终默认解析器可能变更，因为我们仍在试验不同解析方案。"
+      }
+    },
+    {
+      "segment_id": "e33a2404",
+      "source_content": "### Search",
+      "source_content_hash": "bad68b743adab0c2b5b245351f033c8dd1c80249ed7f4b1c1bc60093f597bed5",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### 搜索"
+      }
+    },
+    {
+      "segment_id": "82e90254",
+      "source_content": "Our core search functionality is based on [Algolia](https://www.algolia.com/). There are requests by users to be able to use different search offerings, such as `lunrjs` for offline search.",
+      "source_content_hash": "86ee9c15d49b275f5cb1bc907d1d52966cfca452da8a8615c80957ea201460a5",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "我们的核心搜索功能基于 [Algolia](https://www.algolia.com/) 实现。有用户提出希望使用其他搜索方案，例如支持离线搜索的 `lunrjs`。"
+      }
+    },
+    {
+      "segment_id": "2822251a",
+      "source_content": "I personally like Algolia and we have a great experience working with them. They are very responsive; we can easily submit a pull request to Algolia since their `DocSearch` is open source. For example, I recently submitted [this PR that enables DocSearch to scrape alternate languages in sitemap](https://github.com/algolia/docsearch-scraper/pull/387).",
+      "source_content_hash": "58b7b6ce90fa349855198bc760f24e275c7d6efb3046fe3843fa2681c7fd2e1d",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "我个人非常喜欢Algolia，我们与之合作体验极佳。他们的响应速度很快，而且由于他们的`DocSearch`是开源的，我们可以轻松提交Pull Request。例如，我最近提交了[这个PR，使DocSearch能够抓取站点地图中的多语言版本](https://github.com/algolia/docsearch-scraper/pull/387)。"
+      }
+    },
+    {
+      "segment_id": "25212439",
+      "source_content": "For Docusaurus 2, **we will allow users to customize the search box**. Users simply need to eject from the default theme and modify the Search UI (a React component). However, we will still use Algolia in the default theme.",
+      "source_content_hash": "d6d60fab876cef7694dc6d371f2d2ffad8624d025efb4677715039271ea70a58",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "在Docusaurus 2中，**我们将允许用户自定义搜索框**。用户只需从默认主题中弹出(eject)并修改搜索UI（一个React组件）即可。不过默认主题仍会使用Algolia。"
+      }
+    },
+    {
+      "segment_id": "94145a94",
+      "source_content": "## Stability",
+      "source_content_hash": "7be233c0c9d52b14aaec62563ec50aadf246c0f1b94caef2b4dbc0f7d528930a",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 稳定性"
+      }
+    },
+    {
+      "segment_id": "2838eb68",
+      "source_content": "Software is never going to be perfect, but we want Docusaurus to not break as we add new features. When Docusaurus was first released, it did not have any strong automated test suites. As a result, there were a lot of regressions not caught early. Although we have recently added a lot of tests, the test coverage is still relatively low.",
+      "source_content_hash": "06d63a9bf3fb90e711fa1976a3019e2abfa22c4de735125176055bd6cad2cf2c",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "软件永远不可能完美，但我们希望Docusaurus在添加新功能时保持稳定。Docusaurus最初发布时没有完善的自动化测试套件，导致许多回归问题未能及早发现。虽然我们近期补充了大量测试，但测试覆盖率仍然偏低。"
+      }
+    },
+    {
+      "segment_id": "4be28ed1",
+      "source_content": "For Docusaurus 2, **we are adding tests as we develop** since we are going for a fresh rewrite. Hence, I believe that it should be more stable than ever and it should be harder to break things compared to Docusaurus 1.",
+      "source_content_hash": "a6c14b274e5091b95c602e30825daf720d1820110cfde3e6669437e5ad4e7b65",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "对于Docusaurus 2，**我们将在开发过程中同步编写测试**，因为这是全新的重写项目。因此我相信它会比以往更加稳定，相比Docusaurus 1更不容易出现破坏性变更。"
+      }
+    },
+    {
+      "segment_id": "f947c8e4",
+      "source_content": "## Frequently Asked Questions",
+      "source_content_hash": "8ac79955795784ca48016ad46dca860ea42f34c6a8ebe91234df048fec4462dd",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 常见问题"
+      }
+    },
+    {
+      "segment_id": "d1f76d04",
+      "source_content": "### Will there be any breaking changes?",
+      "source_content_hash": "10db99b535fe327b3cac2de200a23894aa90bb2f97961c66b8b998f0dd6789e6",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### 会有破坏性变更吗？"
+      }
+    },
+    {
+      "segment_id": "6693c38c",
+      "source_content": "If you've read the post up until to this point, you should be able to notice that there will be breaking changes. While we will try to **minimize the number of breaking changes** and make it backward compatible as much as possible, we believe that some breaking changes are required. This is mostly due to Docusaurus 2 being a **major rewrite and re-architecting** of the codebase.",
+      "source_content_hash": "56155155347a939c313e1271823909896564cf1e9b0e45ab97bb65045ca64c88",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "如果您通读了本文至此，应该能注意到将会存在破坏性变更。虽然我们会尽量**减少破坏性变更的数量**并保持向后兼容，但有些变更是必要的，这主要因为Docusaurus 2是对代码库进行的**重大重写和架构重构**。"
+      }
+    },
+    {
+      "segment_id": "e9313fef",
+      "source_content": "The exact list of breaking changes is not totally known yet as development is not 100% finalized. However, one thing that I will highlight is that we will deprecate a lot of options in `siteConfig.js` and we plan to keep it as lean as possible. For example, the `cleanUrl` siteConfig will be deprecated as all the URL for Docusaurus 2 sites will be without the `.html` suffix.",
+      "source_content_hash": "5a8c5208da9862b2c1786091d4b3875dfb20f0138da37d902ef3fd5e1f520c81",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "具体的破坏性变更清单尚未完全确定，因为开发工作还未100%完成。但需要强调的是，我们将弃用`siteConfig.js`中的大量配置选项，力求保持其精简。例如`cleanUrl`配置将被弃用，因为Docusaurus 2的所有站点URL都将默认不带`.html`后缀。"
+      }
+    },
+    {
+      "segment_id": "1b4de6df",
+      "source_content": "Our goal is that most sites should be able to upgrade to Docusaurus 2 without a lot of pain. We will also include a migration guide when we release Docusaurus 2. When the times come, feel free to ping us on [Discord](https://discord.gg/docusaurus) or [X](https://x.com/docusaurus) for questions and help.",
+      "source_content_hash": "2cea16410fbbc6e442862864804cc856e548dfd51b0232a0c7c5f621d1182a37",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "我们的目标是让大多数站点能够无痛升级到Docusaurus 2。正式发布时我们会提供迁移指南。届时欢迎通过[Discord](https://discord.gg/docusaurus)或[X平台](https://x.com/docusaurus)联系我们获取帮助。"
+      }
+    },
+    {
+      "segment_id": "37fca32e",
+      "source_content": "### When is the release of Docusaurus 2?",
+      "source_content_hash": "4058b8745aa70570444a640bd068e0889dac3f06c04d559e3f2cc9fe25763c3b",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### Docusaurus 2何时发布？"
+      }
+    },
+    {
+      "segment_id": "a8610918",
+      "source_content": "As of now, we do not have an exact date planned for the release. I personally estimate that we might be able to release an alpha version in the next one to two months, but this is, of course, just an estimate.",
+      "source_content_hash": "19caa54ae95f0562bc5d59ebaca3118bd7e1b9c2360fef595cdb8fc8adee0924",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "目前我们还没有确切的发布日期。我个人预估可能在未来1-2个月内发布alpha版本，但这只是个粗略估计。"
+      }
+    },
+    {
+      "segment_id": "a6c928a1",
+      "source_content": "One thing that I would like to share is that while Docusaurus is part of [Facebook Open Source](https://opensource.fb.com/) and most of the team are Facebook employees, the maintenance and development work is mostly done outside of normal working hours. I am currently a final year undergraduate student at [NTU Singapore](https://x.com/NTUsg), so I had to juggle between doing my coursework, my final year project and maintaining/developing Docusaurus. However, that does not mean that we do not want to make Docusaurus better. In fact, **we want to make it as awesome as possible**.",
+      "source_content_hash": "e7f5362ff6471acf1c2bac3359f9cf085cfd90261ae4965caffa832924159887",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "需要说明的是，虽然Docusaurus属于[Facebook开源项目](https://opensource.fb.com/)且核心团队多为Facebook员工，但维护开发工作主要在业余时间进行。我目前是[新加坡南洋理工大学](https://x.com/NTUsg)的应届毕业生，需要兼顾课程作业、毕业设计和Docusaurus的维护开发。但这不代表我们会降低对Docusaurus的要求，相反**我们致力于将其打造得尽善尽美**。"
+      }
+    },
+    {
+      "segment_id": "b6152880",
+      "source_content": "For now, the actual Docusaurus 2 work is still hosted in a private repository. In the near future, we will move them into the [public repository](https://github.com/facebook/docusaurus). When that time arrives, I encourage everyone to look into it and hopefully contribute in some way. Before then, please stay tuned 😉!",
+      "source_content_hash": "a945fc3779fd7e83ab1cf73ba01b2d881a4692049cebfbba23537336eb41d040",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "目前Docusaurus 2的实际开发工作仍在私有仓库进行。近期我们会将其迁移至[公开仓库](https://github.com/facebook/docusaurus)。届时欢迎大家参与贡献。在此之前，请保持关注😉！"
+      }
+    },
+    {
+      "segment_id": "23b96cc0",
+      "source_content": "## Final Thoughts",
+      "source_content_hash": "a50ee9c263352561e67780e777da208a782389c4f6302e6c36102a508f1bae05",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 最后总结"
+      }
+    },
+    {
+      "segment_id": "8fcdd6d4",
+      "source_content": "Docusaurus has had a large impact on the open source community as seen from the [many popular projects](https://v1.docusaurus.io/en/users) which use Docusaurus for documentation. In order to move faster in the future, we are taking the opportunity to fix some core problems with Docusaurus 1 and striving to make Docusaurus better for everyone. In fact, it is safe to say that Docusaurus 2 is not just a plan any longer; the work on it has started and, hopefully, we will be able to see it materialize in the near future.",
+      "source_content_hash": "7066b973df88cfaf0e748bbadbdf0f2071278a6bd3159cfbe2497cacaa1a8c99",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "从[众多知名项目](https://v1.docusaurus.io/en/users)采用Docusaurus编写文档可以看出，它对开源社区产生了深远影响。为了加速未来发展，我们正着手解决Docusaurus 1的核心问题，致力于为所有人打造更优秀的版本。事实上，Docusaurus 2已不再是蓝图——开发工作已经启动，相信在不久的将来就能看到成果落地。"
+      }
+    },
+    {
+      "segment_id": "53aa2b95",
+      "source_content": "Docusaurus' mission has always been to make it really easy for you to get a website with documentation up and running out of the box. That mission does not change with Docusaurus 2.",
+      "source_content_hash": "8b129e7a7f220b788cfb0718d94851d065e00c173a5b4af388522fc53610f138",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "Docusaurus的使命始终是让您能轻松快速地搭建开箱即用的文档网站，这一使命在Docusaurus 2中不会改变。"
+      }
+    },
+    {
+      "segment_id": "9c9e2b64",
+      "source_content": "We also want to let people know that **due to work on Docusaurus 2, we will be less likely to accept new features/major changes on Docusaurus 1.**",
+      "source_content_hash": "3d4a0db82cb052eba573bf28c8dd78547d3bf7efc1e05c105de16da181d39018",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "我们也要说明：**由于Docusaurus 2的开发工作，我们将减少对Docusaurus 1新功能/重大改动的接纳。**"
+      }
+    },
+    {
+      "segment_id": "5c7d994c",
+      "source_content": "If you are using Docusaurus, you are part of our community; keep letting us know how we can make Docusaurus better for you. If you appreciate the work we're doing, you can support [Docusaurus on Open Collective](https://opencollective.com/Docusaurus).",
+      "source_content_hash": "049022a60664fcd4648719d64d43eaf92568e85169a08618d555c44414e5d5f7",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "每位Docusaurus使用者都是社区成员，请持续反馈改进建议。若您认可我们的工作，可通过[Open Collective支持Docusaurus](https://opencollective.com/Docusaurus)。"
+      }
+    },
+    {
+      "segment_id": "bfcbf7c6",
+      "source_content": "> If you are sponsoring our work on [Open Collective](https://opencollective.com/Docusaurus), we'll personally offer you a helping hand for maintenance and upgrading of Docusaurus website.",
+      "source_content_hash": "bc0efb22ec0c9eeb8a9a5c9c879a58b865a8c66c8c48d62b532188b4453499f4",
+      "node_type": "blockquote",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "> 若您通过[Open Collective](https://opencollective.com/Docusaurus)赞助我们，我们将为您提供Docusaurus网站维护与升级的专属技术支持。"
+      }
+    },
+    {
+      "segment_id": "e77cf7c6",
+      "source_content": "Lastly, if you haven't done so already, click the **star** and **watch** button on [GitHub](https://github.com/facebook/docusaurus), and follow us on [X](https://x.com/docusaurus).",
+      "source_content_hash": "c90cb4601b4dd5c41832977f6ed8d3354eacfd8141e38c8aeeb1cf12c9d3add7",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "最后提醒：若尚未操作，请为[GitHub仓库](https://github.com/facebook/docusaurus)点击**星标**与**关注**按钮，并在[X平台](https://x.com/docusaurus)关注我们。"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-blog/2018/09-11-Towards-Docusaurus-2.mdx",
+  "last_updated_timestamp": "2025-06-03T17:28:35.645254+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "zh-CN": "49300255b0123e749f458aaa664b00cec5a3edd40593be76b024264ecbe38ed2"
+  }
+}

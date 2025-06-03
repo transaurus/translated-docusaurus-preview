@@ -1,0 +1,442 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "versioned_docs/version-3.8.0/advanced/client.mdx",
+  "source_file_content_hash": "ca21661cc33349fe812d22a987167245050fdf1cc835e544eaa754675c5ad01d",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\ndescription: How the Docusaurus client is structured\n---",
+      "source_content_hash": "a40d8074b727c31400f96ddf015e96eccc9efb5f0265ee987b426e2028b68a31",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "f85bbfb4",
+      "source_content": "# Client architecture",
+      "source_content_hash": "2722e48cb83c57c24d301865ff7a0d07dc4d0103879cdb43ecace88d6bbef1db",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "# 客户端架构"
+      }
+    },
+    {
+      "segment_id": "a703643c",
+      "source_content": "## Theme aliases {#theme-aliases}",
+      "source_content_hash": "e637f9be6a7722d528876ddb087a901c69de8202d4a55a8d648d851658a0e153",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 主题别名 {#theme-aliases}"
+      }
+    },
+    {
+      "segment_id": "53eaf0e1",
+      "source_content": "A theme works by exporting a set of components, e.g. `Navbar`, `Layout`, `Footer`, to render the data passed down from plugins. Docusaurus and users use these components by importing them using the `@theme` webpack alias:",
+      "source_content_hash": "e515beca00b7bed68189b954d1dcdf244363c0dcc4cce828025d293a7d03fc7a",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "主题通过导出一系列组件（如 `Navbar`、`Layout`、`Footer`）来渲染插件传递的数据。Docusaurus 和用户通过 `@theme` 这个 webpack 别名来导入这些组件："
+      }
+    },
+    {
+      "segment_id": "43a8bc7e",
+      "source_content": "```js\nimport Navbar from '@theme/Navbar';\n```",
+      "source_content_hash": "851654cb6bcd20814779089db75578a5abb684b0e0b3f7a7eb91bc664eb61972",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_43a8bc7e"
+      }
+    },
+    {
+      "segment_id": "cf898102",
+      "source_content": "The alias `@theme` can refer to a few directories, in the following priority:",
+      "source_content_hash": "d895eeac53c00cc23a30a8d4fc2bb100815895e4efd29fcb86a8f847b3cbcc62",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "`@theme` 别名可能指向以下几个目录，优先级如下："
+      }
+    },
+    {
+      "segment_id": "84758135",
+      "source_content": "1. A user's `website/src/theme` directory, which is a special directory that has the higher precedence.\n2. A Docusaurus theme package's `theme` directory.\n3. Fallback components provided by Docusaurus core (usually not needed).",
+      "source_content_hash": "d9029fb39b7f8af8c1e4cd9005cc7b2be2f422181cff8167f9fecbd054d54194",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "1. 用户的 `website/src/theme` 目录，这是一个具有最高优先级的特殊目录。\n2. Docusaurus 主题包的 `theme` 目录。\n3. Docusaurus 核心提供的回退组件（通常不需要）。"
+      }
+    },
+    {
+      "segment_id": "f5f6d2ce",
+      "source_content": "This is called a _layered architecture_: a higher-priority layer providing the component would shadow a lower-priority layer, making swizzling possible. Given the following structure:",
+      "source_content_hash": "313892b0618d05747444a8c29339c870a7e35285c3f70cbbd350be3c8699d274",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "这被称为_分层架构_：高优先级层提供的组件会覆盖低优先级层，从而实现组件替换（swizzling）。假设有以下结构："
+      }
+    },
+    {
+      "segment_id": "41a8ae85",
+      "source_content": "```\nwebsite\n├── node_modules\n│   └── @docusaurus/theme-classic\n│       └── theme\n│           └── Navbar.js\n└── src\n    └── theme\n        └── Navbar.js\n```",
+      "source_content_hash": "fd1e383681580ac8cefaf254d97c631fe99f6b2a86e033a764a2a98e6e06f314",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_41a8ae85"
+      }
+    },
+    {
+      "segment_id": "7499a4e7",
+      "source_content": "`website/src/theme/Navbar.js` takes precedence whenever `@theme/Navbar` is imported. This behavior is called component swizzling. If you are familiar with Objective C where a function's implementation can be swapped during runtime, it's the exact same concept here with changing the target `@theme/Navbar` is pointing to!",
+      "source_content_hash": "34e386f5ac240c38c662b9f44f4100c4b8d6c577c2f26dd46e7ef474549bce05",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "当导入 `@theme/Navbar` 时，`website/src/theme/Navbar.js` 会优先被使用。这种行为称为组件替换。如果你熟悉 Objective C 中可以在运行时交换函数实现的概念，这与改变 `@theme/Navbar` 指向的目标是完全相同的机制！"
+      }
+    },
+    {
+      "segment_id": "517051a7",
+      "source_content": "We already talked about how the \"userland theme\" in `src/theme` can re-use a theme component through the [`@theme-original`](../swizzling.mdx#wrapping) alias. One theme package can also wrap a component from another theme, by importing the component from the initial theme, using the `@theme-init` import.",
+      "source_content_hash": "93866a99be8573edd05ee7317ef36f5aaa8bec132d19a394a097900529656a78",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "我们之前提到过，`src/theme` 中的 \"用户主题\" 可以通过 [`@theme-original`](../swizzling.mdx#wrapping) 别名复用主题组件。一个主题包也可以通过 `@theme-init` 导入来包装另一个主题的组件。"
+      }
+    },
+    {
+      "segment_id": "135468ee",
+      "source_content": "Here's an example of using this feature to enhance the default theme `CodeBlock` component with a `react-live` playground feature.",
+      "source_content_hash": "405075a368c3ac74070bbcce65e359e09d808b4710f5d86fe31893f64c4d7e23",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "以下是一个使用此功能增强默认主题 `CodeBlock` 组件，添加 `react-live` 交互式代码示例特性的示例。"
+      }
+    },
+    {
+      "segment_id": "a11df754",
+      "source_content": "```js\nimport InitialCodeBlock from '@theme-init/CodeBlock';\nimport React from 'react';\n\nexport default function CodeBlock(props) {\n  return props.live ? (\n    <ReactLivePlayground {...props} />\n  ) : (\n    <InitialCodeBlock {...props} />\n  );\n}\n```",
+      "source_content_hash": "a2ed78cc326c8463831fe2146fe0047a13697c96cf3c630bbf0103e5bb9ef283",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_a11df754"
+      }
+    },
+    {
+      "segment_id": "98d26038",
+      "source_content": "Check the code of `@docusaurus/theme-live-codeblock` for details.",
+      "source_content_hash": "6f025c9bf2ab9934d7d8d743f4c7936034c3e3be15f5dd38b579e2054ecdff06",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "详情请参考 `@docusaurus/theme-live-codeblock` 的代码。"
+      }
+    },
+    {
+      "segment_id": "7fc18c94",
+      "source_content": ":::warning\n\nUnless you want to publish a re-usable \"theme enhancer\" (like `@docusaurus/theme-live-codeblock`), you likely don't need `@theme-init`.\n\n:::",
+      "source_content_hash": "24f04336d06cac012b7518f946d8d8464d2efdb7dca155b3af33084d207bcd4a",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::warning\n\n除非你要发布一个可复用的 \"主题增强器\"（如 `@docusaurus/theme-live-codeblock`），否则通常不需要使用 `@theme-init`。\n\n:::"
+      }
+    },
+    {
+      "segment_id": "1131ef75",
+      "source_content": "It can be quite hard to wrap your mind around these aliases. Let's imagine the following case with a super convoluted setup with three themes/plugins and the site itself all trying to define the same component. Internally, Docusaurus loads these themes as a \"stack\".",
+      "source_content_hash": "bc83e6c73643abe5afeecd4f9dca4a0621a024930889a96404a8b18edca326ee",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "这些别名可能比较难理解。让我们想象一个极端情况：有三个主题/插件和网站本身都尝试定义同一个组件。Docusaurus 内部将这些主题加载为一个 \"堆栈\"。"
+      }
+    },
+    {
+      "segment_id": "750e2f7e",
+      "source_content": "```text\n+-------------------------------------------------+\n|        `website/src/theme/CodeBlock.js`         | <-- `@theme/CodeBlock` always points to the top\n+-------------------------------------------------+\n| `theme-live-codeblock/theme/CodeBlock/index.js` | <-- `@theme-original/CodeBlock` points to the topmost non-swizzled component\n+-------------------------------------------------+\n|  `plugin-awesome-codeblock/theme/CodeBlock.js`  |\n+-------------------------------------------------+\n|     `theme-classic/theme/CodeBlock/index.js`    | <-- `@theme-init/CodeBlock` always points to the bottom\n+-------------------------------------------------+\n```",
+      "source_content_hash": "d3614e97548941d3556a4c7ed79b2f50f8ce38173fddfb67f3ee353c65f8e787",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_750e2f7e"
+      }
+    },
+    {
+      "segment_id": "f01228d3",
+      "source_content": "The components in this \"stack\" are pushed in the order of `preset plugins > preset themes > plugins > themes > site`, so the swizzled component in `website/src/theme` always comes out on top because it's loaded last.",
+      "source_content_hash": "71c46caee859f34770cc37aa6cea220c36cd1a86a7e6bb5f0932d620f46adf36",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "这个 \"堆栈\" 中的组件按 `预设插件 > 预设主题 > 插件 > 主题 > 站点` 的顺序压入，因此 `website/src/theme` 中替换的组件总是位于最顶层，因为它是最后加载的。"
+      }
+    },
+    {
+      "segment_id": "afa378f7",
+      "source_content": "`@theme/*` always points to the topmost component—when `CodeBlock` is swizzled, all other components requesting `@theme/CodeBlock` receive the swizzled version.",
+      "source_content_hash": "ab19f2f5b0657fe8c77ca9cbf20063526dc28671baae6128f8922f7dd4b33b4b",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "`@theme/*` 始终指向最顶层的组件——当 `CodeBlock` 被替换时，所有请求 `@theme/CodeBlock` 的组件都会获得替换后的版本。"
+      }
+    },
+    {
+      "segment_id": "e8e162a9",
+      "source_content": "`@theme-original/*` always points to the topmost non-swizzled component. That's why you can import `@theme-original/CodeBlock` in the swizzled component—it points to the next one in the \"component stack\", a theme-provided one. Plugin authors should not try to use this because your component could be the topmost component and cause a self-import.",
+      "source_content_hash": "fd29a92226df872d542492dc4aba9babad041d870a4d35fe96ded8453d16d0f2",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "`@theme-original/*` 始终指向最顶层未被替换的组件。这就是为什么你可以在替换组件中导入 `@theme-original/CodeBlock`——它指向 \"组件堆栈\" 中的下一个，即主题提供的版本。插件作者不应尝试使用此功能，因为你的组件可能位于最顶层，导致自我引用。"
+      }
+    },
+    {
+      "segment_id": "463ed165",
+      "source_content": "`@theme-init/*` always points to the bottommost component—usually, this comes from the theme or plugin that first provides this component. Individual plugins / themes trying to enhance code block can safely use `@theme-init/CodeBlock` to get its basic version. Site creators should generally not use this because you likely want to enhance the _topmost_ instead of the _bottommost_ component. It's also possible that the `@theme-init/CodeBlock` alias does not exist at all—Docusaurus only creates it when it points to a different one from `@theme-original/CodeBlock`, i.e. when it's provided by more than one theme. We don't waste aliases!",
+      "source_content_hash": "8efc9145cf1be87d90b305535f193c404653ed00d0c4a43facfef9471d7a5c77",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "`@theme-init/*` 始终指向最底层的组件——通常来自首次提供该组件的主题或插件。单个插件/主题可以安全地使用 `@theme-init/CodeBlock` 来获取其基础版本进行增强。网站创建者通常不应使用此功能，因为你可能希望增强的是_最顶层_而非_最底层_的组件。也可能 `@theme-init/CodeBlock` 别名根本不存在——Docusaurus 只在它指向与 `@theme-original/CodeBlock` 不同的组件时创建此别名，即当该组件由多个主题提供时。我们不会浪费别名！"
+      }
+    },
+    {
+      "segment_id": "66819c78",
+      "source_content": "## Client modules {#client-modules}",
+      "source_content_hash": "da33d1b8beb3a7a95ea2b040b997c8269d65db90a5a16db2302f22d8a383a187",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 客户端模块 {#client-modules}"
+      }
+    },
+    {
+      "segment_id": "fbc2db85",
+      "source_content": "Client modules are part of your site's bundle, just like theme components. However, they are usually side-effect-ful. Client modules are anything that can be `import`ed by Webpack—CSS, JS, etc. JS scripts usually work on the global context, like registering event listeners, creating global variables...",
+      "source_content_hash": "08287c3ef767c37b65c97c467e6def7417e24b21feaf92bdd9095d5699b7c79e",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "客户端模块是站点打包文件的一部分，与主题组件类似。但它们通常会产生副作用。客户端模块可以是任何能被 Webpack 导入的内容——CSS、JS 等。JS 脚本通常在全局上下文中运行，例如注册事件监听器、创建全局变量..."
+      }
+    },
+    {
+      "segment_id": "8126f763",
+      "source_content": "These modules are imported globally before React even renders the initial UI.",
+      "source_content_hash": "661bce5efc1b400c461b83f82e6dbb8e81d444fdff210eea18ca47493a5d4b1e",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "这些模块会在 React 渲染初始 UI 之前就被全局导入。"
+      }
+    },
+    {
+      "segment_id": "f6563256",
+      "source_content": "```js title=\"@docusaurus/core/App.tsx\"\n// How it works under the hood\nimport '@generated/client-modules';\n```",
+      "source_content_hash": "09eb13a3b2c1f059643014495ce95f43febe16208b8ed3f93d25477758f6f177",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_f6563256"
+      }
+    },
+    {
+      "segment_id": "6b77b644",
+      "source_content": "Plugins and sites can both declare client modules, through [`getClientModules`](../api/plugin-methods/lifecycle-apis.mdx#getClientModules) and [`siteConfig.clientModules`](../api/docusaurus.config.js.mdx#clientModules), respectively.",
+      "source_content_hash": "ac9bed399500efd49bc732acebd1cb2c2ccc9c0923f737b66c56b6777ec73ab4",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "插件和站点都可以通过 [`getClientModules`](../api/plugin-methods/lifecycle-apis.mdx#getClientModules) 和 [`siteConfig.clientModules`](../api/docusaurus.config.js.mdx#clientModules) 分别声明客户端模块。"
+      }
+    },
+    {
+      "segment_id": "a311e967",
+      "source_content": "Client modules are called during server-side rendering as well, so remember to check the [execution environment](./ssg.mdx#escape-hatches) before accessing client-side globals.",
+      "source_content_hash": "48a7df928c340c9264f46d3a5317dcf6950a637d6ddb7bc56dd0e2669400c072",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "客户端模块在服务端渲染期间也会被调用，因此访问客户端全局变量前请务必检查[执行环境](./ssg.mdx#escape-hatches)。"
+      }
+    },
+    {
+      "segment_id": "7fa46732",
+      "source_content": "```js title=\"mySiteGlobalJs.js\"\nimport ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';\n\nif (ExecutionEnvironment.canUseDOM) {\n  // As soon as the site loads in the browser, register a global event listener\n  window.addEventListener('keydown', (e) => {\n    if (e.code === 'Period') {\n      location.assign(location.href.replace('.com', '.dev'));\n    }\n  });\n}\n```",
+      "source_content_hash": "da1ceccc4c7a2839910e41221041a9c5a56d78a95d594f5345d150cdf852b48a",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_7fa46732"
+      }
+    },
+    {
+      "segment_id": "7bc8bb24",
+      "source_content": "CSS stylesheets imported as client modules are [global](../styling-layout.mdx#global-styles).",
+      "source_content_hash": "a3b0cc8b1d16576c55393006aca88bef6f7e9ee84ee56a854d3767b3d7d39696",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "作为客户端模块导入的 CSS 样式表是[全局生效](../styling-layout.mdx#global-styles)的。"
+      }
+    },
+    {
+      "segment_id": "f39e109c",
+      "source_content": "```css title=\"mySiteGlobalCss.css\"\n/* This stylesheet is global. */\n.globalSelector {\n  color: red;\n}\n```",
+      "source_content_hash": "cbd6fcbfae28ceb4ece6b6e5eaaa1ac5f30c40b7c5bcc485a42ff37095a539b4",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_f39e109c"
+      }
+    },
+    {
+      "segment_id": "638efb88",
+      "source_content": "### Client module lifecycles {#client-module-lifecycles}",
+      "source_content_hash": "cd358b27f2e75683cb71407b105f459e857145ef2e84e0f057c3f964c9aaa249",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### 客户端模块生命周期 {#client-module-lifecycles}"
+      }
+    },
+    {
+      "segment_id": "558df877",
+      "source_content": "Besides introducing side-effects, client modules can optionally export two lifecycle functions: `onRouteUpdate` and `onRouteDidUpdate`.",
+      "source_content_hash": "4940415a98feae3276c796e01053b24591a0f82cf9ffae4ae394c43b93f85af5",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "除了引入副作用外，客户端模块还可以选择性地导出两个生命周期函数：`onRouteUpdate` 和 `onRouteDidUpdate`。"
+      }
+    },
+    {
+      "segment_id": "f38d1cb0",
+      "source_content": "Because Docusaurus builds a single-page application, `script` tags will only be executed the first time the page loads, but will not re-execute on page transitions. These lifecycles are useful if you have some imperative JS logic that should execute every time a new page has loaded, e.g., to manipulate DOM elements, to send analytics data, etc.",
+      "source_content_hash": "35b3b42c2849d1f0f976bd0d44847a43bed8e15764de1db5a164a5ef095aa1c9",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "由于 Docusaurus 构建的是单页应用，`script` 标签仅在页面首次加载时执行，页面跳转时不会重新执行。这些生命周期对于需要在每次新页面加载时执行命令式 JS 逻辑的场景非常有用，例如操作 DOM 元素、发送分析数据等。"
+      }
+    },
+    {
+      "segment_id": "5f82a1e9",
+      "source_content": "For every route transition, there will be several important timings:",
+      "source_content_hash": "d66c2486351e3d70d770578fa8137963b5f2efbb90a24c1b0817d6d9cc45632d",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "每次路由切换时，会经历以下几个关键时间点："
+      }
+    },
+    {
+      "segment_id": "683a33d9",
+      "source_content": "1. The user clicks a link, which causes the router to change its current location.\n2. Docusaurus preloads the next route's assets, while keeping displaying the current page's content.\n3. The next route's assets have loaded.\n4. The new location's route component gets rendered to DOM.",
+      "source_content_hash": "25c2638559965b4860ffbf01ef35100bb1e29c0be0ad1460bf19ba1352b9d0fa",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "1. 用户点击链接，导致路由器变更当前地址\n2. Docusaurus 预加载下个路由的资源，同时继续展示当前页面内容\n3. 下个路由的资源加载完成\n4. 新地址对应的路由组件被渲染到 DOM"
+      }
+    },
+    {
+      "segment_id": "9c9e2b64",
+      "source_content": "`onRouteUpdate` will be called at event (2), and `onRouteDidUpdate` will be called at (4). They both receive the current location and the previous location (which can be `null`, if this is the first screen).",
+      "source_content_hash": "dd1e763fe867f55ea11bc6fcddcba298a1e73a6a13fc78fe62841cabeab39cc3",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "`onRouteUpdate` 会在事件 (2) 时调用，`onRouteDidUpdate` 则在事件 (4) 时调用。它们都会接收当前地址和上一个地址（首次加载时可能为 `null`）。"
+      }
+    },
+    {
+      "segment_id": "5c7d994c",
+      "source_content": "`onRouteUpdate` can optionally return a \"cleanup\" callback, which will be called at (3). For example, if you want to display a progress bar, you can start a timeout in `onRouteUpdate`, and clear the timeout in the callback. (The classic theme already provides an `nprogress` integration this way.)",
+      "source_content_hash": "890522a6257f9064f25d66177d70ebe7ebda9ce78b508d8b3054e4676129da91",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "`onRouteUpdate` 可选择返回一个\"清理\"回调函数，该函数会在事件 (3) 时被调用。例如，若需要显示进度条，可以在 `onRouteUpdate` 中启动定时器，然后在回调中清除定时器。（经典主题正是通过这种方式集成了 `nprogress`）"
+      }
+    },
+    {
+      "segment_id": "1ecf0882",
+      "source_content": "Note that the new page's DOM is only available during event (4). If you need to manipulate the new page's DOM, you'll likely want to use `onRouteDidUpdate`, which will be fired as soon as the DOM on the new page has mounted.",
+      "source_content_hash": "d4535cacfebeda1f857583b78c7f4d42550b02739ec11bee53a5b822fdaca348",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "请注意，新页面的 DOM 仅在事件 (4) 后才可用。如需操作新页面的 DOM，通常应使用 `onRouteDidUpdate`，该函数会在新页面 DOM 挂载后立即触发。"
+      }
+    },
+    {
+      "segment_id": "4c6754b2",
+      "source_content": "```js title=\"myClientModule.js\"\nexport function onRouteDidUpdate({location, previousLocation}) {\n  // Don't execute if we are still on the same page; the lifecycle may be fired\n  // because the hash changes (e.g. when navigating between headings)\n  if (location.pathname !== previousLocation?.pathname) {\n    const title = document.getElementsByTagName('h1')[0];\n    if (title) {\n      title.innerText += '❤️';\n    }\n  }\n}\n\nexport function onRouteUpdate({location, previousLocation}) {\n  if (location.pathname !== previousLocation?.pathname) {\n    const progressBarTimeout = window.setTimeout(() => {\n      nprogress.start();\n    }, delay);\n    return () => window.clearTimeout(progressBarTimeout);\n  }\n  return undefined;\n}\n```",
+      "source_content_hash": "81d7d613bf61c6e9844949c37e0edfe1ef9f865defe52467dca994ea7c82b363",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_4c6754b2"
+      }
+    },
+    {
+      "segment_id": "d2a3d4c7",
+      "source_content": "Or, if you are using TypeScript and you want to leverage contextual typing:",
+      "source_content_hash": "03de7dfb451bf53d48ead13c52b2050d6bc1c325085a92b3326059c32b3a528e",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "若使用 TypeScript 并希望利用上下文类型："
+      }
+    },
+    {
+      "segment_id": "75daf40d",
+      "source_content": "```ts title=\"myClientModule.ts\"\nimport type {ClientModule} from '@docusaurus/types';\n\nconst module: ClientModule = {\n  onRouteUpdate({location, previousLocation}) {\n    // ...\n  },\n  onRouteDidUpdate({location, previousLocation}) {\n    // ...\n  },\n};\nexport default module;\n```",
+      "source_content_hash": "000cec22c1e489ed8fc58407a33cf779b4e7630f6529ec0114c694bcb091673f",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_75daf40d"
+      }
+    },
+    {
+      "segment_id": "dc72fd20",
+      "source_content": "Both lifecycles will fire on first render, but they will not fire on server-side, so you can safely access browser globals in them.",
+      "source_content_hash": "4e86657e0999d410b7dc615b21d23dfa856a8a10fef8db9452d38a55beda97f3",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "两个生命周期都会在首次渲染时触发，但不会在服务端触发，因此可以安全地访问浏览器全局对象。"
+      }
+    },
+    {
+      "segment_id": "5055654e",
+      "source_content": ":::tip[Prefer using React]\n\nClient module lifecycles are purely imperative, and you can't use React hooks or access React contexts within them. If your operations are state-driven or involve complicated DOM manipulations, you should consider [swizzling components](../swizzling.mdx) instead.\n\n:::",
+      "source_content_hash": "5414ccca6f17169d8efcd9c874c3a3e4e16933993c6a07f606c7ece574feea9a",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::tip[优先使用 React]\n\n客户端生命周期是纯命令式的，无法在其中使用 React Hooks 或访问 React 上下文。如果操作涉及状态驱动或复杂 DOM 操作，应考虑改用[组件置换](../swizzling.mdx)。\n\n:::"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs/version-3.8.0/advanced/client.mdx",
+  "last_updated_timestamp": "2025-06-03T17:28:36.116037+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "zh-CN": "ca21661cc33349fe812d22a987167245050fdf1cc835e544eaa754675c5ad01d"
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "versioned_docs/version-3.8.0/api/plugins/plugin-svgr.mdx",
+  "source_file_content_hash": "80f68ea0eec1346b6819654a7145bf4cbc0ab269ef96cdb3d6be8cabf9c4402a",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\nsidebar_position: 7\nslug: /api/plugins/@docusaurus/plugin-svgr\n---",
+      "source_content_hash": "1631db79987f7277cf3fd5c2d01d0008b8630dea96e1356457517f27fede1017",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "b3de8742",
+      "source_content": "# 📦 plugin-svgr",
+      "source_content_hash": "59ee8214b4f9f89e50a963f70adc6797b493e2e4b4161c38bca4e1ff55eeb26f",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "# 📦 plugin-svgr"
+      }
+    },
+    {
+      "segment_id": "50387553",
+      "source_content": "import APITable from '@site/src/components/APITable';",
+      "source_content_hash": "617594357be14491b59c35a0417f7d0d89d9eda936d09d760f6b994379006923",
+      "node_type": "mdxjsEsm",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_50387553"
+      }
+    },
+    {
+      "segment_id": "7e5c5a39",
+      "source_content": "An [SVGR](https://react-svgr.com/) plugin to transform SVG files into React components automatically at build time.",
+      "source_content_hash": "804829508a3cb8661cfe89b964f2da599db0914cf507ac4ce0e463d45bd196bb",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "一个基于 [SVGR](https://react-svgr.com/) 的插件，可在构建时自动将 SVG 文件转换为 React 组件。"
+      }
+    },
+    {
+      "segment_id": "9fcbdce9",
+      "source_content": "## Installation {#installation}",
+      "source_content_hash": "01f99c1a4a9fd44bafc075a19f10269cf4e31a46b9c20b1a4b4cb278a46d10d5",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 安装 {#installation}"
+      }
+    },
+    {
+      "segment_id": "5564d81d",
+      "source_content": "```bash npm2yarn\nnpm install --save @docusaurus/plugin-svgr\n```",
+      "source_content_hash": "714f64406a0617aedf783ebedf4f8ede31246ba2753bddfbf99f86cacffccbd2",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_5564d81d"
+      }
+    },
+    {
+      "segment_id": "440191a5",
+      "source_content": ":::tip\n\nIf you use the preset `@docusaurus/preset-classic`, you don't need to install this plugin as a dependency.\n\nYou can configure this plugin through the [preset options](../../using-plugins.mdx#docusauruspreset-classic).\n\n:::",
+      "source_content_hash": "737b2a008954011fd073f76b42dc5ff859f8bcaced754eff0b2741c9f733f873",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::tip\n\n若您使用 `@docusaurus/preset-classic` 预设，则无需单独安装此插件依赖。\n\n您可以通过[预设配置](../../using-plugins.mdx#docusauruspreset-classic)来配置此插件。\n\n:::"
+      }
+    },
+    {
+      "segment_id": "79b2d0b9",
+      "source_content": "## Configuration {#configuration}",
+      "source_content_hash": "8d40fda5898137d101c15929fa40cb58d8c71e60e8b40b33ce74200512d9f011",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 配置 {#configuration}"
+      }
+    },
+    {
+      "segment_id": "d9172fa4",
+      "source_content": "Accepted fields:",
+      "source_content_hash": "2934eef61bc234f6f002b94be60279fd14197499b541a7659cff140c4058a0d7",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "可接受字段："
+      }
+    },
+    {
+      "segment_id": "599822a5",
+      "source_content": "<APITable>\n\n| Name | Type | Default | Description |\n| --- | --- | --- | --- |\n| `svgrConfig` | `object` | `{}` | The [SVGR config options](https://react-svgr.com/docs/options/), forwarded as is |\n\n</APITable>",
+      "source_content_hash": "b366dbd3ad5bc8ffb2adf58820152119cdfb9a84987fac9081d5e2473a6ae359",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_599822a5"
+      }
+    },
+    {
+      "segment_id": "80d9e13c",
+      "source_content": "### Example configuration {#ex-config}",
+      "source_content_hash": "20d25d28dcea8d9ae040da96412bd154d51e0bbdd4d165a57ff0556d46b26849",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### 配置示例 {#ex-config}"
+      }
+    },
+    {
+      "segment_id": "33331f27",
+      "source_content": "You can configure this plugin through plugin options.",
+      "source_content_hash": "41dec5de4a915ed94b3a6764ed0b2530b6c71a123c57bb0157766a8adcfa07fc",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "您可通过插件选项配置此插件。"
+      }
+    },
+    {
+      "segment_id": "026f2f3e",
+      "source_content": "```js config-tabs\n// Preset Options: svgr\n// Plugin Options: @docusaurus/plugin-svgr\n\nconst config = {\n  svgrConfig: {\n    /* SVGR config */\n  },\n};\n```",
+      "source_content_hash": "4cfb61d94e4061119fbdc4ed2f01fad88ffdb094a28eb48fcfd8d989dba192f1",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_026f2f3e"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs/version-3.8.0/api/plugins/plugin-svgr.mdx",
+  "last_updated_timestamp": "2025-06-03T17:28:36.051043+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "zh-CN": "80f68ea0eec1346b6819654a7145bf4cbc0ab269ef96cdb3d6be8cabf9c4402a"
+  }
+}

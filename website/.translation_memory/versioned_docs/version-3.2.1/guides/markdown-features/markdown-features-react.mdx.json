@@ -1,0 +1,672 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "versioned_docs/version-3.2.1/guides/markdown-features/markdown-features-react.mdx",
+  "source_file_content_hash": "88fff63e083a327445f4bf6829b31e49623bc0fbab79000ddf622e450e50c20c",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\nid: react\ndescription: Using the power of React in Docusaurus Markdown documents, thanks to MDX\nslug: /markdown-features/react\n---",
+      "source_content_hash": "b1cc7f57751ebf4370d2ec697c7513f4afcc908565e48a73d2a32b56b0723af4",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "a703643c",
+      "source_content": "# MDX and React",
+      "source_content_hash": "b410271908ead2c4b9f0b2a329ab56864cbc206eb19d795742d0e3dbfb94de8c",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "# MDX 与 React"
+      }
+    },
+    {
+      "segment_id": "623f74e7",
+      "source_content": "import BrowserWindow from '@site/src/components/BrowserWindow';\nimport Tabs from '@theme/Tabs';\nimport TabItem from '@theme/TabItem';\nimport styles from './markdown-features-react.module.css';",
+      "source_content_hash": "c2ae562eb20dd85a05fa547c254518ff1bbdde316f7be0caec70e42d4a06b25f",
+      "node_type": "mdxjsEsm",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_623f74e7"
+      }
+    },
+    {
+      "segment_id": "ad8fd492",
+      "source_content": "Docusaurus has built-in support for [MDX](https://mdxjs.com/), which allows you to write JSX within your Markdown files and render them as React components.",
+      "source_content_hash": "901acff869f10be04c9de33d95cd633219a1f72f246c2dd6f38198bfbe8e1758",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "Docusaurus 内置支持 [MDX](https://mdxjs.com/)，允许您在 Markdown 文件中编写 JSX 并将其渲染为 React 组件。"
+      }
+    },
+    {
+      "segment_id": "86b54d44",
+      "source_content": "Check out the [MDX docs](https://mdxjs.com/) to see what fancy stuff you can do with MDX.",
+      "source_content_hash": "9f22a99735b592812cc25e8122d32908e3b7a844b357694e83dcac5ceb3f434e",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "查看 [MDX 文档](https://mdxjs.com/) 了解您能用 MDX 实现哪些高级功能。"
+      }
+    },
+    {
+      "segment_id": "440191a5",
+      "source_content": ":::tip[Debugging MDX]\n\nThe MDX format is quite strict, and you may get compilation errors.\n\nUse the **[MDX playground](https://mdxjs.com/playground/)** to debug them and make sure your syntax is valid.\n\n:::",
+      "source_content_hash": "10c59da315cc59b7455667b49a68fa50d3778a451f7316aaf71efe8c855802ef",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::tip[调试 MDX]\n\nMDX 格式非常严格，您可能会遇到编译错误。\n\n使用 **[MDX 在线调试工具](https://mdxjs.com/playground/)** 来排查问题并确保语法正确。\n\n:::"
+      }
+    },
+    {
+      "segment_id": "a2f1eaea",
+      "source_content": ":::info\n\nPrettier, the most popular formatter, [supports only the legacy MDX v1](https://github.com/prettier/prettier/issues/12209). If you get an unintentional formatting result, you may want to add `{/* prettier-ignore */}` before the problematic area, or add `*.mdx` to your `.prettierignore`, until Prettier has proper support for MDX v3. [One of the main authors of MDX recommends `remark-cli` with `remark-mdx`](https://github.com/orgs/mdx-js/discussions/2067).\n\n:::",
+      "source_content_hash": "0c91667118ae9024c8c106b5ccc9e0d0c3d3a84b8873fce815d9325594ec17ed",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::info\n\n最流行的格式化工具 Prettier [仅支持旧版 MDX v1](https://github.com/prettier/prettier/issues/12209)。如果遇到意外的格式化结果，可以在问题区域前添加 `{/* prettier-ignore */}`，或将 `*.mdx` 添加到 `.prettierignore` 文件中，直到 Prettier 完全支持 MDX v3。[MDX 核心作者之一推荐使用 `remark-cli` 配合 `remark-mdx`](https://github.com/orgs/mdx-js/discussions/2067)。\n\n:::"
+      }
+    },
+    {
+      "segment_id": "b25f21be",
+      "source_content": "### Exporting components {#exporting-components}",
+      "source_content_hash": "7d33dd9bfe1deb7124619ea9dd405757a0ce08248635b3f2c022f240d2da89e1",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### 导出组件 {#exporting-components}"
+      }
+    },
+    {
+      "segment_id": "7499a4e7",
+      "source_content": "To define any custom component within an MDX file, you have to export it: only paragraphs that start with `export` will be parsed as components instead of prose.",
+      "source_content_hash": "0f698510a82252911502143f8a1726162bb05baf0435c41aef89fabaa45267da",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "要在 MDX 文件中定义自定义组件，必须使用 `export` 导出：只有以 `export` 开头的段落才会被解析为组件而非普通文本。"
+      }
+    },
+    {
+      "segment_id": "076d64d1",
+      "source_content": "```jsx\nexport const Highlight = ({children, color}) => (\n  <span\n    style={{\n      backgroundColor: color,\n      borderRadius: '2px',\n      color: '#fff',\n      padding: '0.2rem',\n    }}>\n    {children}\n  </span>\n);\n\n<Highlight color=\"#25c2a0\">Docusaurus green</Highlight> and <Highlight color=\"#1877F2\">Facebook blue</Highlight> are my favorite colors.\n\nI can write **Markdown** alongside my _JSX_!\n```",
+      "source_content_hash": "c2933edc993e0df2a3798440fda265c271086aa2a745f951752f7179a0d277d4",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_076d64d1"
+      }
+    },
+    {
+      "segment_id": "b36c6338",
+      "source_content": "Notice how it renders both the markup from your React component and the Markdown syntax:",
+      "source_content_hash": "75e2e85bb4c1245854a148ee0e635f32317af19d42f1d68b163a487d06d8a370",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "注意它如何同时渲染 React 组件的标记和 Markdown 语法："
+      }
+    },
+    {
+      "segment_id": "8850304f",
+      "source_content": "export const Highlight = ({children, color}) => (\n  <span\n    style={{\n      backgroundColor: color,\n      borderRadius: '2px',\n      color: '#fff',\n      padding: '0.2rem',\n    }}>\n    {children}\n  </span>\n);",
+      "source_content_hash": "3ae6d1582008d8ad8847a067af269b2514dd915ab759aa6514ebe8fc8085b624",
+      "node_type": "mdxjsEsm",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_8850304f"
+      }
+    },
+    {
+      "segment_id": "c537a3d3",
+      "source_content": "<BrowserWindow minHeight={240}>\n\n<><Highlight color=\"#25c2a0\">Docusaurus green</Highlight>\n{` `}and <Highlight color=\"#1877F2\">Facebook blue</Highlight> are my favorite colors.</>\n\nI can write **Markdown** alongside my _JSX_!\n\n</BrowserWindow>",
+      "source_content_hash": "942f0c620380ad8a6408fc5c60715a08deb6a95df751afe3d30dc1ec5a023e78",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_c537a3d3"
+      }
+    },
+    {
+      "segment_id": "60a3c146",
+      "source_content": ":::warning[MDX is JSX]\n\nSince all doc files are parsed using MDX, anything that looks like HTML is actually JSX. Therefore, if you need to inline-style a component, follow JSX flavor and provide style objects.\n\n{/* prettier-ignore */}\n```jsx\n/* Instead of this: */\n<span style=\"background-color: red\">Foo</span>\n/* Use this: */\n<span style={{backgroundColor: 'red'}}>Foo</span>\n```\n\n:::",
+      "source_content_hash": "73facb61daa5bdacc23d7ea5455aadf39993bdd393cc525dc5d0cb13179841e3",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::warning[MDX 即 JSX]\n\n由于所有文档文件都使用 MDX 解析，任何看似 HTML 的内容实际上都是 JSX。因此，如果需要内联样式组件，请遵循 JSX 规范使用样式对象。\n\n{/* prettier-ignore */}\n```jsx\n/* 不要这样写： */\n<span style=\"background-color: red\">Foo</span>\n/* 应该这样写： */\n<span style={{backgroundColor: 'red'}}>Foo</span>\n```\n\n:::"
+      }
+    },
+    {
+      "segment_id": "ec8ed2a1",
+      "source_content": "### Importing components {#importing-components}",
+      "source_content_hash": "bc824d9a4f56eee7f45fc3dbd6702aa4f4ccdc79c655e3c24fa8675e813eb2dd",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### 导入组件 {#importing-components}"
+      }
+    },
+    {
+      "segment_id": "51867d16",
+      "source_content": "You can also import your own components defined in other files or third-party components installed via npm.",
+      "source_content_hash": "ef63ebfa9aab8c339ea47dbb33bda302d9671ce0d127be22a7c0901eead14ff9",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "您也可以导入其他文件中定义的自定义组件，或通过 npm 安装的第三方组件。"
+      }
+    },
+    {
+      "segment_id": "19913a56",
+      "source_content": "```md\n<!-- Docusaurus theme component -->\nimport TOCInline from '@theme/TOCInline';\n<!-- External component -->\nimport Button from '@mui/material/Button';\n<!-- Custom component -->\nimport BrowserWindow from '@site/src/components/BrowserWindow';\n```",
+      "source_content_hash": "8f90ee8934116a7aef9d67437b8b5cb1ab0803c52222274729eef31d64a244e6",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_19913a56"
+      }
+    },
+    {
+      "segment_id": "0a395b7e",
+      "source_content": ":::tip\n\nThe `@site` alias points to your website's directory, usually where the `docusaurus.config.js` file is. Using an alias instead of relative paths (`'../../src/components/BrowserWindow'`) saves you from updating import paths when moving files around, or when [versioning docs](../docs/versioning.mdx) and [translating](../../i18n/i18n-tutorial.mdx).\n\n:::",
+      "source_content_hash": "34572f63b34602760244ab20e30f43e8c49b05099d3a9ac78d3ea206ad233c33",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::tip\n\n`@site` 别名指向您网站的根目录（通常是存放 `docusaurus.config.js` 文件的位置）。使用别名而非相对路径（如 `'../../src/components/BrowserWindow'`）可以避免在移动文件或进行[文档版本控制](../docs/versioning.mdx)与[国际化](../../i18n/i18n-tutorial.mdx)时修改导入路径。\n\n:::"
+      }
+    },
+    {
+      "segment_id": "7bc8bb24",
+      "source_content": "While declaring components within Markdown is very convenient for simple cases, it becomes hard to maintain because of limited editor support, risks of parsing errors, and low reusability. Use a separate `.js` file when your component involves complex JS logic:",
+      "source_content_hash": "76070d14b1ca7d3d2e71d6e1039f0c916803f65daaa1a17f9411d9c28010fb7c",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "虽然在 Markdown 中声明组件对于简单场景非常方便，但由于编辑器支持有限、解析错误风险高且可复用性低，难以维护复杂逻辑。当组件涉及复杂 JS 逻辑时，请使用单独的 `.js` 文件："
+      }
+    },
+    {
+      "segment_id": "f39e109c",
+      "source_content": "```jsx title=\"src/components/Highlight.js\"\nimport React from 'react';\n\nexport default function Highlight({children, color}) {\n  return (\n    <span\n      style={{\n        backgroundColor: color,\n        borderRadius: '2px',\n        color: '#fff',\n        padding: '0.2rem',\n      }}>\n      {children}\n    </span>\n  );\n}\n```",
+      "source_content_hash": "9cd71282eb66d26e382e351edd7e3121567497a1e0f9682d346363d5d8d4785a",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_f39e109c"
+      }
+    },
+    {
+      "segment_id": "5be4f25e",
+      "source_content": "```md title=\"markdown-file.mdx\"\nimport Highlight from '@site/src/components/Highlight';\n\n<Highlight color=\"#25c2a0\">Docusaurus green</Highlight>\n```",
+      "source_content_hash": "f1835a5f5cd34c8a34ef4058195da73ea5643cbbcdcb98c026baafe959c7cec2",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_5be4f25e"
+      }
+    },
+    {
+      "segment_id": "a1600d1d",
+      "source_content": ":::tip\n\nIf you use the same component across a lot of files, you don't need to import it everywhere—consider adding it to the global scope. [See below](#mdx-component-scope)\n\n:::",
+      "source_content_hash": "83e3417c800624d79543f1266aaa422117201bc8b818b3047074dc6d416ef495",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::tip\n\n如果在多个文件中使用相同组件，无需每次都导入——考虑将其添加到全局作用域。[详见下文](#mdx-component-scope)\n\n:::"
+      }
+    },
+    {
+      "segment_id": "734d40d8",
+      "source_content": "### MDX component scope {#mdx-component-scope}",
+      "source_content_hash": "d65d067ec299b9d28ced49e7a200df9b921086f95e1d538b66dc7a10fb8adc1c",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### MDX 组件作用域 {#mdx-component-scope}"
+      }
+    },
+    {
+      "segment_id": "9e90a9b3",
+      "source_content": "Apart from [importing a component](#importing-components) and [exporting a component](#exporting-components), a third way to use a component in MDX is to **register it to the global scope**, which will make it automatically available in every MDX file, without any import statements.",
+      "source_content_hash": "6ac576a81d6e5c26a56749bbc9d07490ec1db01cdf1ea51c7be26d71b43d8653",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "除了[导入组件](#importing-components)和[导出组件](#exporting-components)外，第三种在 MDX 中使用组件的方法是**将其注册到全局作用域**，这样无需任何导入语句即可在所有 MDX 文件中自动可用。"
+      }
+    },
+    {
+      "segment_id": "681ef526",
+      "source_content": "For example, given this MDX file:",
+      "source_content_hash": "c23f682f7d31919f15ee7b2b0fbfecd63e6757aa35f8899d58324a70976c07f5",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "例如，给定以下 MDX 文件："
+      }
+    },
+    {
+      "segment_id": "eb25bb8c",
+      "source_content": "```md\n- a\n- list!\n\nAnd some <Highlight>custom markup</Highlight>...\n```",
+      "source_content_hash": "defed103d21743e341bfdf136473fa75ef11b7ba6fddcafd9566933e32f374a9",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_eb25bb8c"
+      }
+    },
+    {
+      "segment_id": "619c3209",
+      "source_content": "It will be compiled to a React component containing `ul`, `li`, `p`, and `Highlight` elements. `Highlight` is not a native html element: you need to provide your own React component implementation for it.",
+      "source_content_hash": "4c2eb6024e2f87f66d90ff8f9b60a38743d2195ba7ab14a0a658f3c97e303913",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "它将被编译成一个包含 `ul`、`li`、`p` 和 `Highlight` 元素的 React 组件。`Highlight` 并非原生 HTML 元素：您需要自行提供其 React 组件实现。"
+      }
+    },
+    {
+      "segment_id": "44285072",
+      "source_content": "In Docusaurus, the MDX component scope is provided by the `@theme/MDXComponents` file. It's not a React component, _per se_, unlike most other exports under the `@theme/` alias: it is a record from tag names like `Highlight` to their React component implementations.",
+      "source_content_hash": "d6f9f281431e213e04a27be493e2bf98a6217aa7ae3f15412cc79620d66f3470",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "在 Docusaurus 中，MDX 组件作用域由 `@theme/MDXComponents` 文件提供。与大多数 `@theme/` 别名导出的内容不同，它本身并非 React 组件，而是一个从标签名（如 `Highlight`）到对应 React 组件实现的映射表。"
+      }
+    },
+    {
+      "segment_id": "a8f09c71",
+      "source_content": "If you [swizzle](../../swizzling.mdx) this component, you will find all tags that have been implemented, and you can further customize our implementation by swizzling the respective sub-component, like `@theme/MDXComponents/Code` (which is used to render [Markdown code blocks](./markdown-features-code-blocks.mdx)).",
+      "source_content_hash": "f3b5b8be2482d6f135ea12ec67f7aacf28b7732802c59f0f686939bd1614b3ea",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "如果您[反编译](../../swizzling.mdx)该组件，会发现所有已实现的标签，并可通过反编译相应子组件（如用于渲染[Markdown代码块](./markdown-features-code-blocks.mdx)的 `@theme/MDXComponents/Code`）进一步定制我们的实现。"
+      }
+    },
+    {
+      "segment_id": "d2a3d4c7",
+      "source_content": "If you want to register extra tag names (like the `<Highlight>` tag above), you should consider [wrapping `@theme/MDXComponents`](../../swizzling.mdx#wrapping), so you don't have to maintain all the existing mappings. Since the swizzle CLI doesn't allow wrapping non-component files yet, you should manually create the wrapper:",
+      "source_content_hash": "1adf742c87b5f5714046135fe8f39938d832e098482859fe57e757b2882a0879",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "如需注册额外标签名（如上述 `<Highlight>` 标签），建议[包装 `@theme/MDXComponents`](../../swizzling.mdx#wrapping)，这样就不必维护所有现有映射。由于反编译 CLI 暂不支持包装非组件文件，您需要手动创建包装器："
+      }
+    },
+    {
+      "segment_id": "75daf40d",
+      "source_content": "```js title=\"src/theme/MDXComponents.js\"\nimport React from 'react';\n// Import the original mapper\nimport MDXComponents from '@theme-original/MDXComponents';\n// highlight-next-line\nimport Highlight from '@site/src/components/Highlight';\n\nexport default {\n  // Re-use the default mapping\n  ...MDXComponents,\n  // Map the \"<Highlight>\" tag to our Highlight component\n  // `Highlight` will receive all props that were passed to `<Highlight>` in MDX\n  // highlight-next-line\n  Highlight,\n};\n```",
+      "source_content_hash": "419ae06b1c02c957cccdc64137aefd855ddad9681fc4f43cd56f99c613419677",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_75daf40d"
+      }
+    },
+    {
+      "segment_id": "39c48ff7",
+      "source_content": "And now, you can freely use `<Highlight>` in every page, without writing the import statement:",
+      "source_content_hash": "cd681037a386f4310a640359bf24debba0db95999736c9464f98841bb5ea6c98",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "现在您可以在所有页面直接使用 `<Highlight>`，无需编写导入语句："
+      }
+    },
+    {
+      "segment_id": "b26685f5",
+      "source_content": "```md\nI can conveniently use <Highlight color=\"#25c2a0\">Docusaurus green</Highlight> everywhere!\n```",
+      "source_content_hash": "c9b05e685637b0829bcfe7e961ba5074489ba12f47b9d806477d087685552b8b",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_b26685f5"
+      }
+    },
+    {
+      "segment_id": "eac93253",
+      "source_content": "<BrowserWindow>\n\nI can conveniently use <Highlight color=\"#25c2a0\">Docusaurus green</Highlight> everywhere!\n\n</BrowserWindow>",
+      "source_content_hash": "fee3481d206faf6cb4f9fd55d4811c6b681e6de71bfca2f4f90af6cc870c9b04",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_eac93253"
+      }
+    },
+    {
+      "segment_id": "260ce6ea",
+      "source_content": ":::warning\n\nWe use **upper-case** tag names like `Highlight` on purpose.\n\nFrom MDX v3+ onward (Docusaurus v3+), lower-case tag names are always rendered as native html elements, and will not use any component mapping you provide.\n\n:::",
+      "source_content_hash": "8940347a8710ac2e5885081874a4efc741d1a2abe6981675cfd496b53c323384",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::warning\n\n我们特意使用**大写**标签名如 `Highlight`。\n\n从 MDX v3+（Docusaurus v3+）开始，小写标签名始终会被渲染为原生 HTML 元素，不会使用您提供的任何组件映射。\n\n:::"
+      }
+    },
+    {
+      "segment_id": "e53b773f",
+      "source_content": ":::warning\n\nThis feature is powered by [an `MDXProvider`](https://mdxjs.com/docs/using-mdx/#mdx-provider). If you are importing Markdown in a React page, you have to supply this provider yourself through the `MDXContent` theme component.\n\n```jsx title=\"src/pages/index.js\"\nimport React from 'react';\nimport FeatureDisplay from './_featureDisplay.mdx';\n// highlight-next-line\nimport MDXContent from '@theme/MDXContent';\n\nexport default function LandingPage() {\n  return (\n    <div>\n      {/* highlight-start */}\n      <MDXContent>\n        <FeatureDisplay />\n      </MDXContent>\n      {/* highlight-end */}\n    </div>\n  );\n}\n```\n\nIf you don't wrap your imported MDX with `MDXContent`, the global scope will not be available.\n\n:::",
+      "source_content_hash": "1b4759e6815f77bb5f11f234869f54fd9295461223d674834997e06fb5a1c1f7",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::warning\n\n该功能由[`MDXProvider`](https://mdxjs.com/docs/using-mdx/#mdx-provider)驱动。如果在 React 页面中导入 Markdown，您需要通过 `MDXContent` 主题组件自行提供该 Provider。\n\n```jsx title=\"src/pages/index.js\"\nimport React from 'react';\nimport FeatureDisplay from './_featureDisplay.mdx';\n// highlight-next-line\nimport MDXContent from '@theme/MDXContent';\n\nexport default function LandingPage() {\n  return (\n    <div>\n      {/* highlight-start */}\n      <MDXContent>\n        <FeatureDisplay />\n      </MDXContent>\n      {/* highlight-end */}\n    </div>\n  );\n}\n```\n\n若未用 `MDXContent` 包裹导入的 MDX，全局作用域将不可用。\n\n:::"
+      }
+    },
+    {
+      "segment_id": "43662a16",
+      "source_content": "### Markdown and JSX interoperability {#markdown-and-jsx-interoperability}",
+      "source_content_hash": "973e307689270357362852baaec5a6573596de232e9f9b49032f1770886dcf1e",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### Markdown 与 JSX 的互操作性 {#markdown-and-jsx-interoperability}"
+      }
+    },
+    {
+      "segment_id": "85821ad3",
+      "source_content": "Docusaurus v3 is using [MDX v3](https://mdxjs.com/blog/v3/).",
+      "source_content_hash": "006074561ffab4663176fe10521423375b675b186439008c6a647e24a8be545e",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "Docusaurus v3 使用[MDX v3](https://mdxjs.com/blog/v3/)。"
+      }
+    },
+    {
+      "segment_id": "228d01d5",
+      "source_content": "The [MDX syntax](https://mdxjs.com/docs/what-is-mdx/#mdx-syntax) is mostly compatible with [CommonMark](https://commonmark.org/), but is much stricter because your `.mdx` files can use JSX and are compiled into real React components (check the [playground](https://mdxjs.com/playground/)).",
+      "source_content_hash": "5b0efec94b1bcb6d2cefaee55becdb1080be6070f0cb28918d5b26b910beb86d",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "[MDX 语法](https://mdxjs.com/docs/what-is-mdx/#mdx-syntax)基本兼容[CommonMark](https://commonmark.org/)，但更为严格，因为 `.mdx` 文件可使用 JSX 并会被编译成真正的 React 组件（参见[在线演练场](https://mdxjs.com/playground/)）。"
+      }
+    },
+    {
+      "segment_id": "85b17c36",
+      "source_content": "Some valid CommonMark features won't work with MDX ([more info](https://mdxjs.com/docs/what-is-mdx/#markdown)), notably:",
+      "source_content_hash": "9353298707312228f9e86274c49dda79442e0d154fdb6e07996248ca730ed364",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "部分有效的 CommonMark 特性在 MDX 中不可用（[更多信息](https://mdxjs.com/docs/what-is-mdx/#markdown)），特别是："
+      }
+    },
+    {
+      "segment_id": "c97d46ef",
+      "source_content": "- Indented code blocks: use triple backticks instead\n- Autolinks (`<http://localhost:3000>`): use regular link syntax instead (`[http://localhost:3000](http://localhost:3000)`)\n- HTML syntax (`<p style=\"color: red;\">`): use JSX instead (`<p style={{color: 'red'}}>`)\n- Unescaped `{` and `<`: escape them with `\\` instead (`\\{` and `\\<`)",
+      "source_content_hash": "b2fcb91369d4277487ef461d3c5de496049fbdb5e531168473a62585b0688999",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "- 缩进式代码块：改用三反引号语法\n- 自动链接（`<http://localhost:3000>`）：改用标准链接语法（`[http://localhost:3000](http://localhost:3000)`）\n- HTML 语法（`<p style=\"color: red;\">`）：改用 JSX 语法（`<p style={{color: 'red'}}>`）\n- 未转义的 `{` 和 `<`：使用 `\\` 进行转义（`\\{` 和 `\\<`）"
+      }
+    },
+    {
+      "segment_id": "0b194c02",
+      "source_content": ":::danger[Experimental CommonMark support]\n\nDocusaurus v3 makes it possible to opt-in for a less strict, standard [CommonMark](https://commonmark.org/) support with the following options:\n\n- The `mdx.format: md` front matter\n- The `.md` file extension combined with the `siteConfig.markdown.format: \"detect\"` configuration\n\nThis feature is **experimental** and currently has a few [limitations](https://github.com/facebook/docusaurus/issues/9092).\n\n:::",
+      "source_content_hash": "d5b32f2cbf3100e6f244ea77df36eb3b2e53668e4e9ad20bcf83e7488745f243",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::danger[实验性 CommonMark 支持]\n\nDocusaurus v3 通过以下选项支持选择启用更宽松的标准 [CommonMark](https://commonmark.org/) 语法：\n\n- 在 front matter 中使用 `mdx.format: md`\n- 使用 `.md` 文件扩展名并结合 `siteConfig.markdown.format: \"detect\"` 配置\n\n此功能目前处于**实验阶段**，存在一些[已知限制](https://github.com/facebook/docusaurus/issues/9092)。\n\n:::"
+      }
+    },
+    {
+      "segment_id": "34bbfe56",
+      "source_content": "## Importing code snippets {#importing-code-snippets}",
+      "source_content_hash": "7b797fdfa41e87f460824c01d095c6d56faa8419d553b96bccb8280104f56904",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 导入代码片段 {#importing-code-snippets}"
+      }
+    },
+    {
+      "segment_id": "318fb07e",
+      "source_content": "You can not only import a file containing a component definition, but also import any code file as raw text, and then insert it in a code block, thanks to [Webpack raw-loader](https://webpack.js.org/loaders/raw-loader/). In order to use `raw-loader`, you first need to install it in your project:",
+      "source_content_hash": "1f6c9d84cfe8be4593765950e2fd51720d2d3d072ed848c8d03ce5dffe638da5",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "您不仅可以导入包含组件定义的文件，还可以通过 [Webpack raw-loader](https://webpack.js.org/loaders/raw-loader/) 将任何代码文件作为原始文本导入，然后插入到代码块中。要使用 `raw-loader`，首先需要在项目中安装它："
+      }
+    },
+    {
+      "segment_id": "3e53354a",
+      "source_content": "```bash npm2yarn\nnpm install --save raw-loader\n```",
+      "source_content_hash": "dc19dceede52bf30a3df0ef3275c8c9bfd1f7b04458ba9d9a12987c910a6c7d3",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_3e53354a"
+      }
+    },
+    {
+      "segment_id": "f6e7e6a7",
+      "source_content": "Now you can import code snippets from another file as it is:",
+      "source_content_hash": "0f334d39ceefd631da35943c12fa3099bc32f37af903e206275dd2c4008868dc",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "现在您可以原样导入其他文件中的代码片段："
+      }
+    },
+    {
+      "segment_id": "5b5a3953",
+      "source_content": "```jsx title=\"myMarkdownFile.mdx\"\nimport CodeBlock from '@theme/CodeBlock';\nimport MyComponentSource from '!!raw-loader!./myComponent';\n\n<CodeBlock language=\"jsx\">{MyComponentSource}</CodeBlock>\n```",
+      "source_content_hash": "e011979ac4feea54f1ecbabacd71acc40b5db2e049ae96b0a95a6d725f1b41fd",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_5b5a3953"
+      }
+    },
+    {
+      "segment_id": "18ddbb9e",
+      "source_content": "import CodeBlock from '@theme/CodeBlock';\nimport MyComponentSource from '!!raw-loader!@site/src/pages/examples/_myComponent';",
+      "source_content_hash": "8ee0ab876de36d83cac341233545411c99910f015b7f72b2e40f7bcbc1c51962",
+      "node_type": "mdxjsEsm",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_18ddbb9e"
+      }
+    },
+    {
+      "segment_id": "07b8511d",
+      "source_content": "<BrowserWindow>\n\n<CodeBlock language=\"jsx\">{MyComponentSource}</CodeBlock>\n\n</BrowserWindow>",
+      "source_content_hash": "94af37bb92e021bad9f1d5dc36c0d8594b08f8a153e124a120434555aa742025",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_07b8511d"
+      }
+    },
+    {
+      "segment_id": "53e725dc",
+      "source_content": "See [using code blocks in JSX](./markdown-features-code-blocks.mdx#usage-in-jsx) for more details of the `<CodeBlock>` component.",
+      "source_content_hash": "3f1d7c38f579a03b7e337295f486a2f5d3c79ebf1f59483cc08758bf32834487",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "有关 `<CodeBlock>` 组件的更多细节，请参阅 [JSX 中的代码块用法](./markdown-features-code-blocks.mdx#usage-in-jsx)。"
+      }
+    },
+    {
+      "segment_id": "1bf64e32",
+      "source_content": ":::note\n\nYou have to use `<CodeBlock>` rather than the Markdown triple-backtick ` ``` `, because the latter will ship out any of its content as-is, but you want to interpolate the imported text here.\n\n:::",
+      "source_content_hash": "6531805d1f88acb45e491cf92e6decb3754ee544a1e23f3d1237a37fa45b2bf3",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::note\n\n此处必须使用 `<CodeBlock>` 而非 Markdown 的三重反引号 ` ``` `，因为后者会原样输出所有内容，而您需要在此处插入导入的文本。\n\n:::"
+      }
+    },
+    {
+      "segment_id": "1df5df70",
+      "source_content": ":::warning\n\nThis feature is experimental and might be subject to breaking API changes in the future.\n\n:::",
+      "source_content_hash": "52a0e784b92203a36d13bda304c15cc49d116da38331f40dd1e23d3d17dfb433",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::warning\n\n此功能为实验性质，未来可能会发生破坏性 API 变更。\n\n:::"
+      }
+    },
+    {
+      "segment_id": "f4c0cbe5",
+      "source_content": "## Importing Markdown {#importing-markdown}",
+      "source_content_hash": "4781b7c38eb3fb9eb12de03737649bc9cf269963a08ddb969a69e9f67a611270",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 导入 Markdown {#importing-markdown}"
+      }
+    },
+    {
+      "segment_id": "858b0a05",
+      "source_content": "You can use Markdown files as components and import them elsewhere, either in Markdown files or in React pages.",
+      "source_content_hash": "37b24dec7a240d6eec660b07add0c1f6bc9871b37573f188e3edc459212e4c07",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "您可以将 Markdown 文件作为组件使用，并导入到其他 Markdown 文件或 React 页面中。"
+      }
+    },
+    {
+      "segment_id": "c95293b9",
+      "source_content": "By convention, using the **`_` filename prefix** will not create any doc page and means the Markdown file is a **\"partial\"**, to be imported by other files.",
+      "source_content_hash": "17bee925b7970abfb3068895a1f40f778c03914bd9d9e5928c00dbe6d870d1e0",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "按照约定，使用**`_` 文件名前缀**不会创建文档页面，表示该 Markdown 文件是**\"局部\"**内容，需被其他文件导入。"
+      }
+    },
+    {
+      "segment_id": "63d9cf48",
+      "source_content": "```md title=\"_markdown-partial-example.mdx\"\n<span>Hello {props.name}</span>\n\nThis is text some content from `_markdown-partial-example.mdx`.\n```",
+      "source_content_hash": "10defea7e751d57ed77aefea4837ace8544e5b3ebc4f2417d3d2a8f1560c9f46",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_63d9cf48"
+      }
+    },
+    {
+      "segment_id": "9b048e5d",
+      "source_content": "```jsx title=\"someOtherDoc.mdx\"\nimport PartialExample from './_markdown-partial-example.mdx';\n\n<PartialExample name=\"Sebastien\" />\n```",
+      "source_content_hash": "e7cab576127f77ad5bbaccad5bc5aa89aa3bd9d993dc6624ee41ada22e306fd9",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_9b048e5d"
+      }
+    },
+    {
+      "segment_id": "974758f7",
+      "source_content": "import PartialExample from './_markdown-partial-example.mdx';",
+      "source_content_hash": "7ba505a9939b5dd583e8428ea5f46d7642aafdeb487aaed8de071c4558fcc1de",
+      "node_type": "mdxjsEsm",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_974758f7"
+      }
+    },
+    {
+      "segment_id": "4d2f5bf5",
+      "source_content": "<BrowserWindow>\n  <PartialExample name=\"Sebastien\" />\n</BrowserWindow>",
+      "source_content_hash": "2b7b4a51480682b3992fb857d122a5a0ec596601c19248dd154d02d2c60a97bc",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_4d2f5bf5"
+      }
+    },
+    {
+      "segment_id": "2e76bd58",
+      "source_content": "This way, you can reuse content among multiple pages and avoid duplicating materials.",
+      "source_content_hash": "9b24b3f829e7077ae6eda6cce5e3b9bd925c7f6296f7b9ca3179e25310692958",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "通过这种方式，您可以在多个页面间复用内容，避免材料重复。"
+      }
+    },
+    {
+      "segment_id": "c06a14cd",
+      "source_content": "## Available exports {#available-exports}",
+      "source_content_hash": "601f397853aa1759fcc0f7d8688f9027a8c87abd0c301a558e1b86e980bc01b5",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 可用导出项 {#available-exports}"
+      }
+    },
+    {
+      "segment_id": "b8954ec9",
+      "source_content": "Within the MDX page, the following variables are available as globals:",
+      "source_content_hash": "e61b023b9ccba6806a5eb6cbd574e77bb27fb988aaa5f25b86008132d42f20ed",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "在 MDX 页面中，以下变量可作为全局变量使用："
+      }
+    },
+    {
+      "segment_id": "80d662b3",
+      "source_content": "- `frontMatter`: the front matter as a record of string keys and values;\n- `toc`: the table of contents, as a tree of headings. See also [Inline TOC](./markdown-features-toc.mdx#inline-table-of-contents) for a more concrete use-case.\n- `contentTitle`: the Markdown title, which is the first `h1` heading in the Markdown text. It's `undefined` if there isn't one (e.g. title specified in the front matter).",
+      "source_content_hash": "a536bda9214d0cd3202716fa03241892921f64a095c90331b705b6533b10e1fb",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "- `frontMatter`：front matter 数据，以字符串键值对形式存储；\n- `toc`：目录树结构。具体用例可参阅 [内联目录](./markdown-features-toc.mdx#inline-table-of-contents)。\n- `contentTitle`：Markdown 标题（文档中第一个 `h1` 标题）。如果不存在（例如 front matter 中已指定标题），则为 `undefined`。"
+      }
+    },
+    {
+      "segment_id": "31df1954",
+      "source_content": "```jsx\nimport TOCInline from '@theme/TOCInline';\nimport CodeBlock from '@theme/CodeBlock';\n\nThe table of contents for this page, serialized:\n\n<CodeBlock className=\"language-json\">{JSON.stringify(toc, null, 2)}</CodeBlock>\n\nThe front matter of this page:\n\n<ul>\n  {Object.entries(frontMatter).map(([key, value]) => <li key={key}><b>{key}</b>: {value}</li>)}\n</ul>\n\n<p>The title of this page is: <b>{contentTitle}</b></p>\n```",
+      "source_content_hash": "10c3df3b2f9e80a4692908071fd55c2d7019ec2bb0adb3f5ed5bbd113531d69c",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_31df1954"
+      }
+    },
+    {
+      "segment_id": "95daf745",
+      "source_content": "import TOCInline from '@theme/TOCInline';",
+      "source_content_hash": "ecff7723b46248a52769f838f3a77ee791a6d3aec15d8cdb3775b3879ab251c6",
+      "node_type": "mdxjsEsm",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_95daf745"
+      }
+    },
+    {
+      "segment_id": "1196e1d1",
+      "source_content": "<BrowserWindow>\n\nThe table of contents for this page, serialized:\n\n<CodeBlock className=\"language-json\">{JSON.stringify(toc, null, 2)}</CodeBlock>\n\nThe front matter of this page:\n\n<ul>\n  {Object.entries(frontMatter).map(([key, value]) => <li key={key}><b>{key}</b>: {value}</li>)}\n</ul>\n\n<p>The title of this page is: <b>{contentTitle}</b></p>\n\n</BrowserWindow>",
+      "source_content_hash": "9660819d980d4028701a24c4ca79d14200d3175b97d2198fe0fd02756ed87650",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_1196e1d1"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs/version-3.2.1/guides/markdown-features/markdown-features-react.mdx",
+  "last_updated_timestamp": "2025-06-03T17:28:35.862800+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "zh-CN": "88fff63e083a327445f4bf6829b31e49623bc0fbab79000ddf622e450e50c20c"
+  }
+}

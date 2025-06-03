@@ -1,0 +1,362 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "versioned_docs/version-2.x/guides/markdown-features/markdown-features-admonitions.mdx",
+  "source_file_content_hash": "a5341a806cc861df1f36b6d4f210d25a1776b999f4470ac279b445a2470316eb",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\nid: admonitions\ndescription: Handling admonitions/callouts in Docusaurus Markdown\nslug: /markdown-features/admonitions\n---",
+      "source_content_hash": "e3e10a679221e40b502f26665a65963c7eca3d6953244e6324ad3a0f48c279e4",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "a703643c",
+      "source_content": "# Admonitions",
+      "source_content_hash": "776568c0341245e2baae559785af689eedb73f94d760e67ede806c3114d43256",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "# 告示框"
+      }
+    },
+    {
+      "segment_id": "623f74e7",
+      "source_content": "import BrowserWindow from '@site/src/components/BrowserWindow';\nimport Tabs from '@theme/Tabs';\nimport TabItem from '@theme/TabItem';\nimport Admonition from '@theme/Admonition';",
+      "source_content_hash": "2f78cfe7ff3765d86bc6218239c27f4b327f19320be9e13a373cbadd8b375184",
+      "node_type": "mdxjsEsm",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_623f74e7"
+      }
+    },
+    {
+      "segment_id": "ad8fd492",
+      "source_content": "In addition to the basic Markdown syntax, we have a special admonitions syntax by wrapping text with a set of 3 colons, followed by a label denoting its type.",
+      "source_content_hash": "fe26531ca601d79ba76c5552cf351c942b4dc61b02e4430741e5afad5042c529",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "除了基础Markdown语法外，我们提供了一种特殊的告示框语法：用三组冒号包裹文本，后跟表示类型的标签。"
+      }
+    },
+    {
+      "segment_id": "86b54d44",
+      "source_content": "Example:",
+      "source_content_hash": "872887e563e75957ffc20b021332504f2ddd0a8f3964cb93070863bfaf13cdad",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "示例："
+      }
+    },
+    {
+      "segment_id": "6e5ba8fb",
+      "source_content": "```md\n:::note\n\nSome **content** with _Markdown_ `syntax`. Check [this `api`](#).\n\n:::\n\n:::tip\n\nSome **content** with _Markdown_ `syntax`. Check [this `api`](#).\n\n:::\n\n:::info\n\nSome **content** with _Markdown_ `syntax`. Check [this `api`](#).\n\n:::\n\n:::caution\n\nSome **content** with _Markdown_ `syntax`. Check [this `api`](#).\n\n:::\n\n:::danger\n\nSome **content** with _Markdown_ `syntax`. Check [this `api`](#).\n\n:::\n```",
+      "source_content_hash": "fb2d29e95406d073006031ccea405c068268ade9068bd488b60169fe77ab67f0",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_6e5ba8fb"
+      }
+    },
+    {
+      "segment_id": "ece60464",
+      "source_content": "<BrowserWindow>\n\n:::note\n\nSome **content** with _Markdown_ `syntax`. Check [this `api`](#).\n\n:::\n\n:::tip\n\nSome **content** with _Markdown_ `syntax`. Check [this `api`](#).\n\n:::\n\n:::info\n\nSome **content** with _Markdown_ `syntax`. Check [this `api`](#).\n\n:::\n\n:::caution\n\nSome **content** with _Markdown_ `syntax`. Check [this `api`](#).\n\n:::\n\n:::danger\n\nSome **content** with _Markdown_ `syntax`. Check [this `api`](#).\n\n:::\n\n</BrowserWindow>",
+      "source_content_hash": "fad3acbbab680c9bf8456bb0d604aff07b3067afdb90e59f66ae8cfa7611c8ca",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_ece60464"
+      }
+    },
+    {
+      "segment_id": "a4bf4268",
+      "source_content": "## Usage with Prettier {#usage-with-prettier}",
+      "source_content_hash": "3526b8391fa730b11e817b023f300ed544ce2aa414739ef6cb807918e89aba28",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 与Prettier配合使用 {#usage-with-prettier}"
+      }
+    },
+    {
+      "segment_id": "ec619944",
+      "source_content": "If you use [Prettier](https://prettier.io) to format your Markdown files, Prettier might auto-format your code to invalid admonition syntax. To avoid this problem, add empty lines around the starting and ending directives. This is also why the examples we show here all have empty lines around the content.",
+      "source_content_hash": "34eb36a1291b112b1365366c71e2419908bcbf315711e9adb169da64ca2fcd05",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "若使用[Prettier](https://prettier.io)格式化Markdown文件，其可能会将代码自动格式化为无效的告示框语法。为避免此问题，请在起始和结束指令周围添加空行。这也是为什么此处展示的示例都在内容周围留有空白行。"
+      }
+    },
+    {
+      "segment_id": "f6563256",
+      "source_content": "```md\n<!-- Prettier doesn't change this -->\n:::note\n\nHello world\n\n:::\n\n<!-- Prettier changes this -->\n:::note\nHello world\n:::\n\n<!-- to this -->\n::: note Hello world:::\n```",
+      "source_content_hash": "c188d0531eea2d42a66a1c195406cf657ad4a5acf21313e0884d87a639625793",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_f6563256"
+      }
+    },
+    {
+      "segment_id": "c7c92a79",
+      "source_content": "## Specifying title {#specifying-title}",
+      "source_content_hash": "486225fd54a22791b43fba1092132e10e761dac216c66663185b0670a6cab12c",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 指定标题 {#specifying-title}"
+      }
+    },
+    {
+      "segment_id": "f0984c2a",
+      "source_content": "You may also specify an optional title.",
+      "source_content_hash": "e694620f81f0ae17501caf6cfe2f9b27b59d8a3a0fab97c10c34428d19e2ec08",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "您还可以指定可选标题。"
+      }
+    },
+    {
+      "segment_id": "7ded566f",
+      "source_content": "```md\n:::note Your Title\n\nSome **content** with _Markdown_ `syntax`.\n\n:::\n```",
+      "source_content_hash": "513e900de02ac4a9d3f2155ed25276ba4d436dc8e17717711f980c8073ac1928",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_7ded566f"
+      }
+    },
+    {
+      "segment_id": "275cb688",
+      "source_content": "<BrowserWindow>\n\n:::note[Your Title]\n\nSome **content** with _Markdown_ `syntax`.\n\n:::\n\n</BrowserWindow>",
+      "source_content_hash": "7e4eb7a440b9e567b971aaea574afb0d349b8b381cdab825db7f924c8a67c9b4",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_275cb688"
+      }
+    },
+    {
+      "segment_id": "36d6c3de",
+      "source_content": "## Admonitions with MDX {#admonitions-with-mdx}",
+      "source_content_hash": "4b0f8af36529c3e38174f00aaf311bf0f84e14aa160fbcc587cc553abac64d8c",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 在MDX中使用告示框 {#admonitions-with-mdx}"
+      }
+    },
+    {
+      "segment_id": "c364340c",
+      "source_content": "You can use MDX inside admonitions too!",
+      "source_content_hash": "3e054c0f62b5d98ea88bfce5215a02aad0d84d485e4e9876c4cc8ec31d529a6e",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "您也可以在告示框内使用MDX！"
+      }
+    },
+    {
+      "segment_id": "b474abd5",
+      "source_content": "```jsx\nimport Tabs from '@theme/Tabs';\n\nimport TabItem from '@theme/TabItem';\n\n:::tip\n\nUse tabs in admonitions\n\n<Tabs>\n  <TabItem value=\"apple\" label=\"Apple\">This is an apple 🍎</TabItem>\n  <TabItem value=\"orange\" label=\"Orange\">This is an orange 🍊</TabItem>\n  <TabItem value=\"banana\" label=\"Banana\">This is a banana 🍌</TabItem>\n</Tabs>\n\n:::\n```",
+      "source_content_hash": "de4682bcec12aa090d28f26f97f3317ad130df79931499b23d8debf7f03d05b1",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_b474abd5"
+      }
+    },
+    {
+      "segment_id": "b0cf7ea6",
+      "source_content": "<BrowserWindow>\n\n:::tip\n\nUse tabs in admonitions\n\n<Tabs>\n  <TabItem value=\"apple\" label=\"Apple\">This is an apple 🍎</TabItem>\n  <TabItem value=\"orange\" label=\"Orange\">This is an orange 🍊</TabItem>\n  <TabItem value=\"banana\" label=\"Banana\">This is a banana 🍌</TabItem>\n</Tabs>\n\n:::\n\n</BrowserWindow>",
+      "source_content_hash": "937998f148c3530545da46a6f829122e862673b4fd194e53c44bfff030e18582",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_b0cf7ea6"
+      }
+    },
+    {
+      "segment_id": "a5905b07",
+      "source_content": "## Usage in JSX {#usage-in-jsx}",
+      "source_content_hash": "356d216a51952d4207c921c3a4b4726992382e086b1be3e36022995eefa24657",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 在JSX中使用 {#usage-in-jsx}"
+      }
+    },
+    {
+      "segment_id": "fd7ed056",
+      "source_content": "Outside of Markdown, you can use the `@theme/Admonition` component to get the same output.",
+      "source_content_hash": "ad154d430298d0d1b93fa1fc57660bb43e170337e18876c2459fdc9b8922fbc6",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "在Markdown之外，您可以使用`@theme/Admonition`组件获得相同输出效果。"
+      }
+    },
+    {
+      "segment_id": "dddc2d3c",
+      "source_content": "```jsx title=\"MyReactPage.jsx\"\nimport Admonition from '@theme/Admonition';\n\nexport default function MyReactPage() {\n  return (\n    <div>\n      <Admonition type=\"info\">\n        <p>Some information</p>\n      </Admonition>\n    </div>\n  );\n}\n```",
+      "source_content_hash": "3dc40e4bebcca15d95169db73e9bbb440722e85f506e450599463f08d8db6f9b",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_dddc2d3c"
+      }
+    },
+    {
+      "segment_id": "fe25bd72",
+      "source_content": "The types that are accepted are the same as above: `note`, `tip`, `danger`, `info`, `caution`. Optionally, you can specify an icon by passing a JSX element or a string, or a title:",
+      "source_content_hash": "cc72ec49c0d7047c650c7b4ffe25eae7dc6fc13d3bf2ac45038ac8acf6777c2c",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "接受的类型与上述相同：`note`、`tip`、`danger`、`info`、`caution`。可选地，您可以通过传递JSX元素或字符串来指定图标，或指定标题："
+      }
+    },
+    {
+      "segment_id": "65ba7468",
+      "source_content": "```jsx title=\"MyReactPage.jsx\"\n<Admonition type=\"tip\" icon=\"💡\" title=\"Did you know...\">\n  <p>\n    Use plugins to introduce shorter syntax for the most commonly used JSX\n    elements in your project.\n  </p>\n</Admonition>\n```",
+      "source_content_hash": "f7d3e07921e01e1bd8ef88511304e4e9ab9e4e65487f4b66b1577b51bad40437",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_65ba7468"
+      }
+    },
+    {
+      "segment_id": "e3b46a91",
+      "source_content": "<BrowserWindow>\n  <Admonition type=\"tip\" icon=\"💡\" title=\"Did you know...\">\n    Use plugins to introduce shorter syntax for the most commonly used JSX\n    elements in your project.\n  </Admonition>\n</BrowserWindow>",
+      "source_content_hash": "14fd9736bf1ccd29e2b5ff0d2958dbeaf01881d227a1928342ef9eaf09f9a1fc",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_e3b46a91"
+      }
+    },
+    {
+      "segment_id": "b7d7a8d8",
+      "source_content": "## Customizing admonitions {#customizing-admonitions}",
+      "source_content_hash": "18c352506bd83fc14793fc5d17813a1e8ff114a8afb3ccc51e17e64fc3a4ac25",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 自定义告示框 {#customizing-admonitions}"
+      }
+    },
+    {
+      "segment_id": "48249e3c",
+      "source_content": "There are two kinds of customizations possible with admonitions: **parsing** and **rendering**.",
+      "source_content_hash": "9d4684515ed35a0274b7f3af90745e98f761db942ead0ddbe93a53954a93dd65",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "告示框支持两种自定义方式：**解析**和**渲染**。"
+      }
+    },
+    {
+      "segment_id": "a7628008",
+      "source_content": "### Customizing rendering behavior {#customizing-rendering-behavior}",
+      "source_content_hash": "1dab407f67dc1021b60831d77c98ba0ca9d6c5336f507958297b29415faad586",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### 自定义渲染行为 {#customizing-rendering-behavior}"
+      }
+    },
+    {
+      "segment_id": "7e563909",
+      "source_content": "You can customize how each individual admonition type is rendered through [swizzling](../../swizzling.mdx). You can often achieve your goal through a simple wrapper. For example, in the follow example, we swap out the icon for `info` admonitions only.",
+      "source_content_hash": "9968dfac6152ccbcc652e0ef270824c89a1b0966dd64dc8b9c1c5fa1d5886dee",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "您可以通过[swizzling](../../swizzling.mdx)自定义每种告示框类型的渲染方式。通常只需简单封装即可实现目标。例如在下述示例中，我们仅替换了`info`类型告示框的图标。"
+      }
+    },
+    {
+      "segment_id": "7079d2d5",
+      "source_content": "```jsx title=\"src/theme/Admonition.js\"\nimport React from 'react';\nimport Admonition from '@theme-original/Admonition';\nimport MyIcon from '@site/static/img/info.svg';\n\nexport default function AdmonitionWrapper(props) {\n  if (props.type !== 'info') {\n    return <Admonition {...props} />;\n  }\n  return <Admonition icon={<MyIcon />} {...props} />;\n}\n```",
+      "source_content_hash": "e23d4dd9c7daa5f213fff456c24aa84a67db0badfc9a69cf7a2778b3e6262ba0",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_7079d2d5"
+      }
+    },
+    {
+      "segment_id": "c7ab93a8",
+      "source_content": "### Customizing parsing behavior {#customizing-parsing-behavior}",
+      "source_content_hash": "939f1d9718cdafd8bd60b1b0ad2a71daea6b9cfbd1d47764983c526ba464ad2a",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### 自定义解析行为 {#customizing-parsing-behavior}"
+      }
+    },
+    {
+      "segment_id": "9ede513a",
+      "source_content": "Admonitions are implemented with a [Remark plugin](./markdown-features-plugins.mdx). The plugin is designed to be configurable. To customize the Remark plugin for a specific content plugin (docs, blog, pages), pass the options through the `admonitions` key.",
+      "source_content_hash": "b9c6075cb89d7166dd5169644b9a8b71354696fe8fbfe056da5cd376592695b9",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "告示框功能通过[Remark插件](./markdown-features-plugins.mdx)实现。该插件设计为可配置模式。要为特定内容插件（文档、博客、页面）自定义Remark插件，可通过`admonitions`键传递配置项。"
+      }
+    },
+    {
+      "segment_id": "60efc494",
+      "source_content": "```js title=\"docusaurus.config.js\"\nmodule.exports = {\n  presets: [\n    [\n      '@docusaurus/preset-classic',\n      {\n        docs: {\n          admonitions: {\n            tag: ':::',\n            keywords: ['note', 'tip', 'info', 'caution', 'danger'],\n          },\n        },\n      },\n    ],\n  ],\n};\n```",
+      "source_content_hash": "522fe083d1bc9f3a483d233a7d5511b1216d75fd07b0239070a1f4151dc22630",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_60efc494"
+      }
+    },
+    {
+      "segment_id": "face5559",
+      "source_content": "The plugin accepts two options:",
+      "source_content_hash": "75b60673dda01a1aa4054663c9bf4126bb778407f789de8ee0483355bf39a09b",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "插件接受两个配置项："
+      }
+    },
+    {
+      "segment_id": "3f49aaf9",
+      "source_content": "- `tag`: The tag that encloses the admonition. Defaults to `:::`.\n- `keywords`: An array of keywords that can be used as the type for the admonition. Note that if you override this, the default values will not be applied.",
+      "source_content_hash": "419c6a534c15145b4aee06c4d6797b194a4dea5441e52d2beab9261d8e4648df",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "- `tag`: 包裹告示框的标签。默认为`:::`。\n- `keywords`: 可用作告示框类型的关键字数组。注意若覆盖此配置，默认值将不会生效。"
+      }
+    },
+    {
+      "segment_id": "e636ba62",
+      "source_content": "The `keyword` will be passed as the `type` prop of the `Admonition` component. If you register more types than the default, you are also responsible for providing their implementation—including the container's style, icon, default title text, etc. You would usually need to [eject](../../swizzling.mdx#ejecting) the `@theme/Admonition` component, so you could re-use the same infrastructure as the other types.",
+      "source_content_hash": "2470dfc9939d7ce834e5677c8db98669769f4554b4096a5066941672204c2e57",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "`keyword`将作为`type`属性传递给`Admonition`组件。若注册的类型超出默认范围，您还需自行提供其实现——包括容器样式、图标、默认标题文本等。通常需要[弹出](../../swizzling.mdx#ejecting)`@theme/Admonition`组件，以便复用其他类型的实现基础。"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs/version-2.x/guides/markdown-features/markdown-features-admonitions.mdx",
+  "last_updated_timestamp": "2025-06-03T17:28:35.766329+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "zh-CN": "a5341a806cc861df1f36b6d4f210d25a1776b999f4470ac279b445a2470316eb"
+  }
+}

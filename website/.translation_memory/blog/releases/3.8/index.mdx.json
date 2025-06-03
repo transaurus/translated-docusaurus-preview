@@ -1,0 +1,692 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "blog/releases/3.8/index.mdx",
+  "source_file_content_hash": "ef7b69d8df08ea57adec77c4886dc87c137c6c4373402ee649def99f63d174e4",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\ntitle: Docusaurus 3.8\nauthors: [slorber]\ntags: [release]\nimage: ./img/social-card.png\ndate: 2025-05-26\n---",
+      "source_content_hash": "a7b2c38e21dfba5cdd68225bcf953bc508ccc9f240aaa98c262ed908fa6deeea",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "53eaf0e1",
+      "source_content": "We are happy to announce **Docusaurus 3.8**.",
+      "source_content_hash": "1dd1e4a9fd4127d69b4c905a3cc2f1cb225e213dacb9af51f150c6636d66946b",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "我们很高兴地宣布 **Docusaurus 3.8** 正式发布。"
+      }
+    },
+    {
+      "segment_id": "8ac585fb",
+      "source_content": "This release improves build performance, includes new features and introduces \"Future Flags\" to prepare your site for Docusaurus 4.",
+      "source_content_hash": "687ee68a7997512bbf714d232f9145877d323ec5d2aa2ca20c9e4584b67ee81b",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "此版本显著提升了构建性能，新增多项功能，并引入\"未来标志\"（Future Flags）机制，帮助您为 Docusaurus 4 做好准备。"
+      }
+    },
+    {
+      "segment_id": "180bddb1",
+      "source_content": "Upgrading is easy. We follow [Semantic Versioning](https://semver.org/), and minor version updates have **no breaking changes**, accordingly to our [release process](/community/release-process).",
+      "source_content_hash": "d68c6d09fb248e1469c9202278593cfed8220e86adfd6c64a52d83bbb0945f70",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "升级过程非常简单。我们遵循[语义化版本控制](https://semver.org/)，根据[发布流程](/community/release-process)，次要版本更新不会包含破坏性变更。"
+      }
+    },
+    {
+      "segment_id": "cf898102",
+      "source_content": "![Docusaurus blog post social card](./img/social-card.png)",
+      "source_content_hash": "0d6cc67b96187c80e96effdbccdb8ebd594812778ff93d7f85e45f47c4131a88",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "![Docusaurus 博客文章社交媒体卡片](./img/social-card.png)"
+      }
+    },
+    {
+      "segment_id": "2790c0f8",
+      "source_content": "import BrowserWindow from '@site/src/components/BrowserWindow';\nimport IframeWindow from '@site/src/components/BrowserWindow/IframeWindow';\nimport NavbarColorModeToggle from '@theme/Navbar/ColorModeToggle';",
+      "source_content_hash": "a222d5d4e5fe681b256e83d431cee7573bb4a38bd953c09801af2d140c04e772",
+      "node_type": "mdxjsEsm",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_2790c0f8"
+      }
+    },
+    {
+      "segment_id": "40f9552a",
+      "source_content": "## Performance",
+      "source_content_hash": "b61a2b644e50e77bcf62c9857199cd063dccceb2c056007c9370ea1a93289c2b",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 性能优化"
+      }
+    },
+    {
+      "segment_id": "f2c2bdd0",
+      "source_content": "This release keeps improving our build infrastructure performance with various optimizations, and 2 new Docusaurus Faster options.",
+      "source_content_hash": "718118daff16be07bbf337427e1b039b63d192e3e8e7fa348852be60261bdc32",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "本次发布通过多项优化措施和2个新的Docusaurus Faster选项，持续提升构建基础设施性能。"
+      }
+    },
+    {
+      "segment_id": "fa430ad4",
+      "source_content": "### Docusaurus Faster",
+      "source_content_hash": "00c4580feb2bc459f03122e13e5f7cdc65e8d24fbc880ea116b96d43e556d1f3",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### Docusaurus Faster"
+      }
+    },
+    {
+      "segment_id": "4b1d2d7d",
+      "source_content": "[Docusaurus Faster](https://github.com/facebook/docusaurus/issues/10556) has been introduced in [Docusaurus v3.6](/blog/releases/3.6#docusaurus-faster), and permits you to opt-in for our upgraded build infrastructure and helps you build your site much faster. The experimental flags can be turned on individually, but we recommend to turn them all at once with this convenient shortcut:",
+      "source_content_hash": "9efe323714300a581e59c8e2632b10f92245f0672e8170984a25afd88ea047f9",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "[Docusaurus Faster](https://github.com/facebook/docusaurus/issues/10556)功能在[Docusaurus v3.6](/blog/releases/3.6#docusaurus-faster)中首次引入，允许您选择启用升级后的构建基础设施，大幅提升站点构建速度。这些实验性标志可以单独启用，但我们建议通过以下快捷方式一次性全部启用："
+      }
+    },
+    {
+      "segment_id": "cb57d798",
+      "source_content": "```js\nconst config = {\n  future: {\n    // highlight-next-line\n    experimental_faster: true,\n  },\n};\n```",
+      "source_content_hash": "2349fcd008f1f62461716e41d67bc83c3761847755285ea7c94d180669968e07",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_cb57d798"
+      }
+    },
+    {
+      "segment_id": "33a4805e",
+      "source_content": ":::tip\n\nDon't forget to install the `@docusaurus/faster` dependency first!\n\n:::",
+      "source_content_hash": "7eb9c8e652b0ba61b410aa51390cf58a21edc80ba87cdacf66b0d6af64be83b1",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::tip\n\n请务必先安装`@docusaurus/faster`依赖项！\n\n:::"
+      }
+    },
+    {
+      "segment_id": "8bddee80",
+      "source_content": "#### Persistent Cache",
+      "source_content_hash": "98e303e5458439e56ca8aed20b39f8c870f47fe68d9ac6a56540437d3c2c72f2",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "#### 持久化缓存"
+      }
+    },
+    {
+      "segment_id": "a9d49f92",
+      "source_content": "In [#10931](https://github.com/facebook/docusaurus/pull/10931), we have enabled the **[Rspack persistent cache](https://rspack.dev/blog/announcing-1-2#persistent-cache)**. Similarly to the [Webpack persistent cache](https://webpack.js.org/blog/2020-10-10-webpack-5-release/#persistent-caching) (already supported), it permits to greatly speed up the bundling of the Docusaurus app on subsequent builds.",
+      "source_content_hash": "d7ebc2dd9fa208a1ec0e806627a56d8c08e8560c2fe8332d257b3fc0af32682c",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "在[#10931](https://github.com/facebook/docusaurus/pull/10931)中，我们启用了**[Rspack持久化缓存](https://rspack.dev/blog/announcing-1-2#persistent-cache)**功能。与已支持的[Webpack持久化缓存](https://webpack.js.org/blog/2020-10-10-webpack-5-release/#persistent-caching)类似，该功能可显著提升后续构建中Docusaurus应用的打包速度。"
+      }
+    },
+    {
+      "segment_id": "a44047a5",
+      "source_content": "In practice, your site should build much faster if you run `docusaurus build` a second time.",
+      "source_content_hash": "c24bf9c292b35c4d92948387b98523c3ada2b11836051656b09bacd901a58733",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "实际应用中，当您第二次运行`docusaurus build`时，站点构建速度将大幅提升。"
+      }
+    },
+    {
+      "segment_id": "f7ef78f9",
+      "source_content": "This feature depends on using the [Rspack bundler](https://rspack.dev/), and can be turned on with the `rspackPersistentCache` flag:",
+      "source_content_hash": "f1766eb95116fe50a01bb9220de447dbd06cd47a1498686b980b697e6ef61257",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "此功能需配合[Rspack打包工具](https://rspack.dev/)使用，可通过`rspackPersistentCache`标志启用："
+      }
+    },
+    {
+      "segment_id": "3ce8f045",
+      "source_content": "```js\nconst config = {\n  future: {\n    experimental_faster: {\n      // highlight-start\n      rspackBundler: true, // required flag\n      rspackPersistentCache: true, // new flag\n      // highlight-end\n    },\n  },\n};\n```",
+      "source_content_hash": "955d856e138c7948eefa2367267b6e987b5b854536cb340b72f1b5d46e6b75b8",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_3ce8f045"
+      }
+    },
+    {
+      "segment_id": "cc486557",
+      "source_content": ":::caution[Preserving the cache]\n\nThe persistent cache requires preserving the `./node_modules/.cache` folder across builds.\n\nPopular CDNs such as Netlify and Vercel do that for you automatically. Depending on your CI and deployment pipeline, additional configuration can be needed to preserve the cache.\n\n:::",
+      "source_content_hash": "5066017f6ebac0b9473175cf32987a036a722dea15dd7cde897c2465bba21ed3",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::caution[缓存保留]\n\n持久化缓存功能需要保留`./node_modules/.cache`文件夹在多次构建之间不被清除。\n\nNetlify和Vercel等主流CDN已自动实现此功能。根据您的CI和部署流程，可能需要额外配置来保留缓存。\n\n:::"
+      }
+    },
+    {
+      "segment_id": "f01228d3",
+      "source_content": "**Result**: On average, you can expect your site's bundling time to be ~2-5× faster on rebuilds 🔥. The impact can be even more significant if you [disable the optional `concatenateModule` optimization](https://github.com/facebook/docusaurus/discussions/11199).",
+      "source_content_hash": "b783802a286307880a10c26d0004e8eb9f964d10b80fec8e26f3a6d712c257a0",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "**效果**：平均而言，重建时的打包速度可提升约2-5倍🔥。如果[禁用可选的`concatenateModule`优化](https://github.com/facebook/docusaurus/discussions/11199)，效果将更为显著。"
+      }
+    },
+    {
+      "segment_id": "93028a4e",
+      "source_content": "#### Worker Threads",
+      "source_content_hash": "1892f10a644d7434efa1ada63488e51015ab0e050b2ee49781499d95f18ab92c",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "#### 工作线程"
+      }
+    },
+    {
+      "segment_id": "e8e162a9",
+      "source_content": "In [#10826](https://github.com/facebook/docusaurus/pull/10826), we introduced a [Node.js Worker Thread pool](https://github.com/tinylibs/tinypool) to run the static side generation code. With this new strategy, we can better leverage all the available CPUs, reduce static site generation time, and contain potential memory leaks.",
+      "source_content_hash": "72cc235c0bb7636d5c65d9f1ad71a2ed47dbec5c96a77ede9ef52a1ba3c956c4",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "在[#10826](https://github.com/facebook/docusaurus/pull/10826)中，我们引入了[Node.js工作线程池](https://github.com/tinylibs/tinypool)来执行静态站点生成代码。通过这一新策略，可以更充分地利用所有可用CPU资源，缩短静态站点生成时间，并遏制潜在的内存泄漏。"
+      }
+    },
+    {
+      "segment_id": "463ed165",
+      "source_content": "This feature can be turned on with the `ssgWorkerThreads` flag, and requires the [`v4.removeLegacyPostBuildHeadAttribute`](#postbuild-change) Future Flag to be turned on:",
+      "source_content_hash": "b883503547c6d0ce2b2afbe13d36375ce91c00bcc044b57352096687618e8c0b",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "此功能可通过`ssgWorkerThreads`标志启用，但需要同时启用[`v4.removeLegacyPostBuildHeadAttribute`](#postbuild-change)未来标志："
+      }
+    },
+    {
+      "segment_id": "092b29bb",
+      "source_content": "```js\nconst config = {\n  future: {\n    v4: {\n      // highlight-next-line\n      removeLegacyPostBuildHeadAttribute: true, // required\n    },\n    experimental_faster: {\n      // highlight-next-line\n      ssgWorkerThreads: true,\n    },\n  },\n};\n```",
+      "source_content_hash": "1ebb0a1c225b0f7a7e9515d198750580b8f63def505ab14ba3a03b3f9f5e1ad9",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_092b29bb"
+      }
+    },
+    {
+      "segment_id": "eb51d107",
+      "source_content": "**Result**: On average, you can expect your site's static site generation time to be ~2× times faster 🔥. This was measured on a MacBook Pro M3 and result may vary depending on your CI.",
+      "source_content_hash": "581320f51a290aaf66256a884ca7ed10034dc3e509464ef71a7830a0fffeac2a",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "**效果**：平均而言，静态站点生成时间可缩短约2倍🔥。该数据基于MacBook Pro M3测得，实际效果可能因CI环境而异。"
+      }
+    },
+    {
+      "segment_id": "c19de48a",
+      "source_content": "### Other Optimizations",
+      "source_content_hash": "624543cd2b3fdbb319666ecb2365ad4179702ade17a021a6c36b849f43be5927",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### 其他优化"
+      }
+    },
+    {
+      "segment_id": "6ca4479f",
+      "source_content": "We identified and resolved several major bottlenecks, including:",
+      "source_content_hash": "0fee31d5d73161235cae24827cfa114c29830a81468a6d37053565cc7d5be0c0",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "我们还发现并解决了若干主要性能瓶颈，包括："
+      }
+    },
+    {
+      "segment_id": "936011bd",
+      "source_content": "- In [#11007](https://github.com/facebook/docusaurus/pull/11007), we optimized the dev server startup time for macOS users. We figured out that the code to open your browser used expensive synchronous/blocking calls that prevented the bundler from doing its work. From now on, the bundler and the macOS browser opening will run in parallel, leading to a faster `docusaurus start` experience for all macOS users.\n- In [#11163](https://github.com/facebook/docusaurus/pull/11163), we noticed that the docs `showLastUpdateAuthor` and `showLastUpdateTime` are quite expensive, and require to run a `git log` command for each document. On large sites, running these commands in parallel can exhaust the system and lead to Node.js `EBADF` errors. We implemented a Git command queue to avoid exhausting the system, which also slightly increased performance of our plugin's `loadContent()` lifecycle.\n- In [#10885](https://github.com/facebook/docusaurus/pull/10885), we implemented an SVG sprite for the external link icon. Due to its repeated appearance in various places of your site (navbar, footer, sidebars...), using a React SVG component lead to duplicated SVG markup in the final HTML. Using a sprite permits to only embed the icon SVG once, reducing the generated HTML size and the static generation time. We [plan to use more SVG sprites](https://github.com/facebook/docusaurus/issues/5865) in the future.\n- In [#11176](https://github.com/facebook/docusaurus/pull/11176), we fine-tuned the webpack/Rspack configuration to remove useless optimizations.",
+      "source_content_hash": "4bcc98a7cb554636272acd242bade7ac7a3073ba3bb6ce2e6f3369ff1245be28",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "- 在 [#11007](https://github.com/facebook/docusaurus/pull/11007) 中，我们优化了 macOS 用户的开发服务器启动时间。我们发现打开浏览器的代码使用了昂贵的同步/阻塞调用，阻碍了打包器的工作。现在，打包器和 macOS 浏览器打开操作将并行运行，从而为所有 macOS 用户带来更快的 `docusaurus start` 体验。\n- 在 [#11163](https://github.com/facebook/docusaurus/pull/11163) 中，我们注意到文档的 `showLastUpdateAuthor` 和 `showLastUpdateTime` 功能开销较大，需要为每个文档运行 `git log` 命令。在大型站点上，并行运行这些命令可能导致系统资源耗尽并引发 Node.js `EBADF` 错误。我们实现了 Git 命令队列来避免系统过载，同时也略微提升了插件 `loadContent()` 生命周期的性能。\n- 在 [#10885](https://github.com/facebook/docusaurus/pull/10885) 中，我们为外部链接图标实现了 SVG 精灵图。由于该图标在站点的多个位置（导航栏、页脚、侧边栏等）重复出现，使用 React SVG 组件会导致最终 HTML 中出现重复的 SVG 标记。使用精灵图可以只嵌入一次图标 SVG，减少生成的 HTML 体积和静态生成时间。我们[计划未来使用更多 SVG 精灵图](https://github.com/facebook/docusaurus/issues/5865)。\n- 在 [#11176](https://github.com/facebook/docusaurus/pull/11176) 中，我们微调了 webpack/Rspack 配置以移除无用的优化项。"
+      }
+    },
+    {
+      "segment_id": "549cdcf9",
+      "source_content": ":::tip\n\nIf bundling time is a concern, consider disabling the optional `concatenateModule` bundler optimization. We explain the tradeoffs and how to do it [here](https://github.com/facebook/docusaurus/discussions/11199). It only saves 3% JS, and for a very large site, this change was incredibly impactful: 4x faster on cold builds, x16 faster rebuilds 🔥.\n\n:::",
+      "source_content_hash": "df3f753460b03bd5383803c77b22ad83e83f8265244bae267d81a0cc95a93e87",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::tip\n\n如果打包时间是关注重点，可以考虑禁用可选的 `concatenateModule` 打包器优化。我们在[这里](https://github.com/facebook/docusaurus/discussions/11199)解释了权衡取舍和操作方法。该优化仅节省 3% 的 JS 体积，但对于超大型站点，这一改动效果惊人：冷构建速度提升 4 倍，重建速度提升 16 倍 🔥。\n\n:::"
+      }
+    },
+    {
+      "segment_id": "8172a0a5",
+      "source_content": "### Impact",
+      "source_content_hash": "eddd9b6d701f7ce22a13a7b09f95d6a7ab9cf46a433f91ab33e46dd0695a2b39",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### 效果评估"
+      }
+    },
+    {
+      "segment_id": "1b4de6df",
+      "source_content": "We have upgraded the [React Native website to Docusaurus v3.8](https://github.com/facebook/react-native-website/pull/4607) already. Here's an updated benchmark showing the global Docusaurus Faster impact on total build time for a site with ~2000 pages:",
+      "source_content_hash": "cb2879a457d849cd4f33a841919bc2893a929875175e98f334633c406afa178e",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "我们已将 [React Native 网站升级至 Docusaurus v3.8](https://github.com/facebook/react-native-website/pull/4607)。以下是针对约 2000 页面的站点，展示 Docusaurus Faster 对总构建时间影响的更新基准测试："
+      }
+    },
+    {
+      "segment_id": "29b12c10",
+      "source_content": "| ReactNative.dev       | Cold Build         | Warm Rebuild       |\n| --------------------- | ------------------ | ------------------ |\n| 🐢 Docusaurus Slower  | 120s (baseline)    | 33s (3.6 × faster) |\n| ⚡️ Docusaurus Faster | 31s (3.8 × faster) | 17s (7 × faster)   |",
+      "source_content_hash": "be3e9f293c18cc75d0bfa777991033e8a8103aff8e57f907cec214b3beb20c5e",
+      "node_type": "table",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_29b12c10"
+      }
+    },
+    {
+      "segment_id": "f38d1cb0",
+      "source_content": "We measured similar results on our website:",
+      "source_content_hash": "d4adea5c5023b9d4203effc0efde36be2f02b5273ccce98fe6a6472dc09017f3",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "在我们的官网上也测量到了类似结果："
+      }
+    },
+    {
+      "segment_id": "260aa786",
+      "source_content": "| Docusaurus.io         | Cold Build         | Warm Rebuild       |\n| --------------------- | ------------------ | ------------------ |\n| 🐢️ Docusaurus Slower | 146s (baseline)    | 45s (3.2 × faster) |\n| ⚡️ Docusaurus Faster | 42s (3.5 × faster) | 24s (6.1 × faster) |",
+      "source_content_hash": "b10d56a795b0d069ac877733119a39502d23ce294655b45a66c6a3e2b3b70005",
+      "node_type": "table",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_260aa786"
+      }
+    },
+    {
+      "segment_id": "53aa2b95",
+      "source_content": "You can also expect memory usage improvements, and a faster `docusaurus start` experience.",
+      "source_content_hash": "9decdaceb21a7e25ec502a3be3ba34d365cfc52eb897a2ff017252a7bc6cce97",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "您还可以预期内存使用率的改善，以及更快的 `docusaurus start` 体验。"
+      }
+    },
+    {
+      "segment_id": "c766290e",
+      "source_content": "## Future Flags",
+      "source_content_hash": "83093d2232e64a90ffdb7a5dbd3f8f26c33b30fa059db9d8d5913b82d7bb23ca",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 未来标志"
+      }
+    },
+    {
+      "segment_id": "5c7d994c",
+      "source_content": "The Docusaurus v4 Future Flags let you **opt-in for upcoming Docusaurus v4 breaking changes**, and help you manage them incrementally, one at a time. Enabling all the future flags will make your site easier to upgrade to Docusaurus v4 when it's released.",
+      "source_content_hash": "51b1dbc545c485691ba1fd351ee502840a118309cb80247d5d6e7c9089efaf43",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "Docusaurus v4 未来标志允许您**选择性启用即将到来的 Docusaurus v4 破坏性变更**，帮助您逐步管理这些变更。启用所有未来标志将使您的站点更容易升级到 Docusaurus v4 正式版。"
+      }
+    },
+    {
+      "segment_id": "a1600d1d",
+      "source_content": ":::info[not invented here]\n\nThe concept of Future Flags is not our invention. It has been popularized in the Remix community. You can read more about this gradual feature adoption strategy here:\n\n- [Gradual Feature Adoption with Future Flags](https://remix.run/docs/en/main/guides/api-development-strategy)\n- [Future Proofing Your Remix App](https://remix.run/blog/future-flags)\n\n:::",
+      "source_content_hash": "c11ec0e3ff2b15d34075b124e55d86bc427fe1f3389426af2fc9340822908113",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::info[并非首创]\n\n未来标志的概念并非我们首创。它由 Remix 社区推广普及。您可以在此阅读更多关于这种渐进式功能采用策略的内容：\n\n- [通过未来标志实现渐进式功能采用](https://remix.run/docs/en/main/guides/api-development-strategy)\n- [为您的 Remix 应用未来护航](https://remix.run/blog/future-flags)\n\n:::"
+      }
+    },
+    {
+      "segment_id": "8f285cf5",
+      "source_content": ":::tip[Turn all the v4 future flags on]\n\nYou can turn all the v4 Future Flags on at once with the following shortcut:\n\n```js\nconst config = {\n  future: {\n    // highlight-next-line\n    v4: true,\n  },\n};\n```\n\nThis way, you are sure to always keep your site prepared for Docusaurus v4. Be aware that we'll introduce more Future Flags in the next minor versions. When upgrading, always read our release blog posts to understand the new breaking changes you opt into.\n\n:::",
+      "source_content_hash": "762050344fc0bb3db67136966db10ea1e0187df0c3c3da9ad60edc1c56e93d28",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::tip[一次性启用所有 v4 未来标志]\n\n您可以通过以下快捷方式一次性启用所有 v4 未来标志：\n\n```js\nconst config = {\n  future: {\n    // highlight-next-line\n    v4: true,\n  },\n};\n```\n\n这种方式能确保您的站点始终为 Docusaurus v4 做好准备。请注意我们会在后续小版本中引入更多未来标志。升级时，请务必阅读我们的发布博客文章以了解您选择启用的新破坏性变更。\n\n:::"
+      }
+    },
+    {
+      "segment_id": "7312e69e",
+      "source_content": "### CSS Cascade Layers",
+      "source_content_hash": "13b1eab9b96046980061e52ad0770b8aa85d4990643f91d08110e0491ccdf691",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### CSS 级联层"
+      }
+    },
+    {
+      "segment_id": "2dbfc5f7",
+      "source_content": "In Docusaurus v4, we plan to leverage [CSS Cascade Layers](https://css-tricks.com/css-cascade-layers/). This modern CSS feature is widely supported and permits to group CSS rules in layers of specificity. It is particularly useful to give you more control over the CSS cascade. It makes the CSS rules less dependent on their insertion order. Your un-layered rules will now always override the layered CSS we provide.",
+      "source_content_hash": "f236f227c752dfe879a881dfe99d92e008f12fd5c0be623d9f508fbea64a6c8a",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "在 Docusaurus v4 中，我们计划采用 [CSS 级联层](https://css-tricks.com/css-cascade-layers/)技术。这项现代 CSS 特性已获得广泛支持，允许将 CSS 规则按特异性分组到不同层级。它能显著提升您对 CSS 级联的控制力，使 CSS 规则减少对插入顺序的依赖。现在，您未分层的规则将始终覆盖我们提供的分层 CSS。"
+      }
+    },
+    {
+      "segment_id": "6b40e7a2",
+      "source_content": "In [#11142](https://github.com/facebook/docusaurus/pull/11142), we implemented a new experimental [`@docusaurus/plugin-css-cascade-layers`](/docs/api/plugins/@docusaurus/plugin-css-cascade-layers) that you can turn on through the `v4.useCssCascadeLayers` flag if you use the classic preset:",
+      "source_content_hash": "8c597eb310323dda43108fda388f37dc08f83585e2f504e02de2274725a0ddfc",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "通过 [#11142](https://github.com/facebook/docusaurus/pull/11142) 提交，我们实现了一个实验性的 [`@docusaurus/plugin-css-cascade-layers`](/docs/api/plugins/@docusaurus/plugin-css-cascade-layers) 插件。若您使用经典预设，可通过 `v4.useCssCascadeLayers` 标志启用："
+      }
+    },
+    {
+      "segment_id": "71969be5",
+      "source_content": "```js\nexport default {\n  future: {\n    v4: {\n      // highlight-next-line\n      useCssCascadeLayers: true,\n    },\n  },\n};\n```",
+      "source_content_hash": "8aed411ac0599640b52ac377df33bdc520aa54a387cf05800e161a69d7e5cc5a",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_71969be5"
+      }
+    },
+    {
+      "segment_id": "674abb31",
+      "source_content": "We consider this feature as a **breaking change** because it can slightly alter the CSS rules application order in customized sites. These issues are usually limited, and relatively easy to fix (see for example the [React Native CSS changes](https://github.com/facebook/react-native-website/pull/4607)). Sites that do not provide custom CSS and do not swizzle any component should not be affected.",
+      "source_content_hash": "0645627a924dcf5d96709f0b11a0b607b847832f961f4e0b3ca5ba8ebb20e3da",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "我们将此特性视为**破坏性变更**，因为它可能轻微改变定制化站点中的 CSS 规则应用顺序。这类问题通常影响有限且易于修复（例如参见 [React Native 的 CSS 变更](https://github.com/facebook/react-native-website/pull/4607)）。未提供自定义 CSS 且未置换（swizzle）任何组件的站点不会受到影响。"
+      }
+    },
+    {
+      "segment_id": "9ef42155",
+      "source_content": "In practice, it permits to automatically apply built-in CSS Cascade Layers to all the CSS we provide, including our opinionated CSS framework [Infima](https://infima.dev/):",
+      "source_content_hash": "9df723c93a4378dba5827312c555af7aacb2ce668c04c6e60a991683b6795c94",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "实际应用中，该技术能自动将内置 CSS 级联层应用于我们提供的所有 CSS，包括我们自有的 CSS 框架 [Infima](https://infima.dev/)："
+      }
+    },
+    {
+      "segment_id": "8185786b",
+      "source_content": "```css\n@layer docusaurus.infima {\n  h1 {\n    /* Infima css rules */\n  }\n  pre {\n    /* Infima css rules */\n  }\n}\n```",
+      "source_content_hash": "b9c635ee7817a10294734a327d09beda61e1ca65b2ad9cf32b5c66acac40b068",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_8185786b"
+      }
+    },
+    {
+      "segment_id": "6fad5db5",
+      "source_content": "Layers can help solves our long-standing [Global CSS pollution issue](https://github.com/facebook/docusaurus/issues/6032). Our built-in global CSS rules may conflict with yours, making it harder to use Docusaurus to create playgrounds, demos and embedded widgets that are isolated from our CSS. Thankfully, [CSS Cascade Layers can be reverted](https://mayank.co/blog/revert-layer/) to create HTML subtrees that are not affected by the CSS Docusaurus provides.",
+      "source_content_hash": "deceec867856282a135e61544fac0bc48df36240490e5c84e33a9ab6a1fa94f5",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "级联层有助于解决长期存在的 [全局 CSS 污染问题](https://github.com/facebook/docusaurus/issues/6032)。我们的内置全局 CSS 规则可能与您的规则冲突，导致在创建与 Docusaurus CSS 隔离的 playground、演示和嵌入式组件时更加困难。幸运的是，[CSS 级联层可以被还原](https://mayank.co/blog/revert-layer/)以创建不受 Docusaurus CSS 影响的 HTML 子树。"
+      }
+    },
+    {
+      "segment_id": "6bb4b070",
+      "source_content": "<details>\n  <summary>Reverting layers</summary>\n\nAs [this issue](https://github.com/facebook/docusaurus/pull/11142) and [this blog post](https://mayank.co/blog/revert-layer/) explain, it is possible to revert layers to isolate an HTML subtree from the CSS that comes from that layer.\n\nIn practice, you can create a `.my-playground` class to revert the global CSS coming from Infima:\n\n```css\n/* The \"impossible\" :not() selector helps increase the specificity */\n.my-playground:not(#a#b) {\n  &,\n  * {\n    @layer docusaurus.infima {\n      all: revert-layer;\n    }\n  }\n}\n```\n\nThen you can apply this class to any HTML element, so that Infima doesn't apply to any of its children. The HTML subtree becomes isolated from our built-in CSS.\n\n<IframeWindow url=\"/tests/pages/style-isolation?docusaurus-data-navbar=false\" />\n\n</details>",
+      "source_content_hash": "6f12c77730c9f5ed242f7b22a0ea5e1b01f21c34b512cbc81fd2cd685f20f5d6",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_6bb4b070"
+      }
+    },
+    {
+      "segment_id": "976a3cd0",
+      "source_content": "### `postBuild()` Change",
+      "source_content_hash": "4b7f4daf35ddd05fa4398aeeb0a77acc8cc1f2fef067763b63f03cf71ddcb4c8",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### `postBuild()` 变更"
+      }
+    },
+    {
+      "segment_id": "f6479c91",
+      "source_content": "In [#10850](https://github.com/facebook/docusaurus/pull/10850), we added a new `removeLegacyPostBuildHeadAttribute` Future Flag that slightly changes the signature of the `postBuild()` plugin lifecycle method, removing the `head` attribute.",
+      "source_content_hash": "38514afcea0e7d77991beae322c4fee7ea1730267bf545cbca9dfdc0c49dda00",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "在 [#10850](https://github.com/facebook/docusaurus/pull/10850) 中，我们新增了 `removeLegacyPostBuildHeadAttribute` 未来标志，该标志会轻微修改 `postBuild()` 插件生命周期方法的签名，移除 `head` 属性。"
+      }
+    },
+    {
+      "segment_id": "cc3842c3",
+      "source_content": "```js\nexport default {\n  future: {\n    v4: {\n      // highlight-next-line\n      removeLegacyPostBuildHeadAttribute: true,\n    },\n  },\n};\n```",
+      "source_content_hash": "2c2fcd51d269c479d0fc32f33dc0a54a0a3184051d692fc411c6231105b5e2c0",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_cc3842c3"
+      }
+    },
+    {
+      "segment_id": "130a77cc",
+      "source_content": "This legacy data structure is coming from our [react-helmet-async](https://github.com/staylor/react-helmet-async) dependency and should have never been exposed as public API in the first place. It is not serializable, which prevents us from implementing [Worker Threads for the static site generation](#worker-threads).",
+      "source_content_hash": "2597b1e866a9f490a1dfc6e994453aa8b1e03630f8d66e740c116bdbcb41ec70",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "这个遗留数据结构源自 [react-helmet-async](https://github.com/staylor/react-helmet-async) 依赖项，本就不应作为公共 API 暴露。由于其不可序列化特性，阻碍了我们实现[静态站点生成的 Worker Threads](#worker-threads)。"
+      }
+    },
+    {
+      "segment_id": "d119b75c",
+      "source_content": "While technically a **breaking change**, we believe this change will not affect anyone. We couldn't find any open source plugin that uses the `head` parameter that this method receives. If turning this flag on breaks your site, please let us know [here](https://github.com/facebook/docusaurus/pull/10850).",
+      "source_content_hash": "03da6d52d7fa849c1bb5d915f84709a413d233d07808acbadf7eaa8abd52181e",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "虽然属于**破坏性变更**，但我们认为实际影响范围极小。目前未发现任何开源插件使用了该方法接收的 `head` 参数。若启用此标志导致问题，请通过[此链接](https://github.com/facebook/docusaurus/pull/10850)反馈。"
+      }
+    },
+    {
+      "segment_id": "c9f45ca3",
+      "source_content": "## System Color Mode",
+      "source_content_hash": "da2228ee0a1b9c336abff90ca3dd290859eca361e3d8e872411f16a0d7badabf",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 系统色彩模式"
+      }
+    },
+    {
+      "segment_id": "f211c69a",
+      "source_content": "In [#10987](https://github.com/facebook/docusaurus/pull/10987), the classic theme now lets you revert the color mode to the system/OS value.",
+      "source_content_hash": "180a5ae68f1a96abc390bce903633d426556cef911004d8a75464390707e2eeb",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "通过 [#10987](https://github.com/facebook/docusaurus/pull/10987) 提交，经典主题现在支持将色彩模式还原为系统/OS 设定值。"
+      }
+    },
+    {
+      "segment_id": "f8ba1091",
+      "source_content": "<BrowserWindow>\n  <div\n    className=\"margin-vert--md\"\n    style={{display: 'flex', justifyContent: 'center'}}>\n    <NavbarColorModeToggle />\n  </div>\n</BrowserWindow>",
+      "source_content_hash": "0f0d17686908e1f085bc2ad8290025c0e32a4b756b4e70460bce5e3fe7d7a589",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_f8ba1091"
+      }
+    },
+    {
+      "segment_id": "89d451de",
+      "source_content": "## Code Block Refactor",
+      "source_content_hash": "ba6450085bf5ab40ba569d4e36c111348d2397d0cd31094db754687ba334d320",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 代码块重构"
+      }
+    },
+    {
+      "segment_id": "32fb7230",
+      "source_content": "In [#11058](https://github.com/facebook/docusaurus/pull/11058), [#11059](https://github.com/facebook/docusaurus/pull/11059), [#11062](https://github.com/facebook/docusaurus/pull/11062) and [#11077](https://github.com/facebook/docusaurus/pull/11077), the theme code block components have been significantly refactored in a way that should be much easier to swizzle and extend.",
+      "source_content_hash": "aca8438c66c08b40df0928a4c61e20062ad53c8859b553d8de52f0446f3ac5f1",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "在 [#11058](https://github.com/facebook/docusaurus/pull/11058)、[#11059](https://github.com/facebook/docusaurus/pull/11059)、[#11062](https://github.com/facebook/docusaurus/pull/11062) 和 [#11077](https://github.com/facebook/docusaurus/pull/11077) 提交中，主题代码块组件经历了重大重构，新版本更易于置换（swizzle）和扩展。"
+      }
+    },
+    {
+      "segment_id": "41e7f712",
+      "source_content": "According to our [release process](/community/release-process), this is not a breaking change, but sites that have swizzled these components may need to upgrade them.",
+      "source_content_hash": "1c981d9dc57b5287656d2e5c07cdc53425282cbdcaea194cd12bf3667c66c370",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "根据我们的[发布流程](/community/release-process)，这不属于破坏性变更，但已置换这些组件的站点可能需要升级。"
+      }
+    },
+    {
+      "segment_id": "371cb514",
+      "source_content": "## Translations",
+      "source_content_hash": "833c7b5926569014321e6595331513ac182583b19706ac845a9e77f9dfb751a2",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 国际化翻译"
+      }
+    },
+    {
+      "segment_id": "9bef1009",
+      "source_content": "- 🇹🇷 [#10893](https://github.com/facebook/docusaurus/pull/10893): Add missing Turkish theme translations.\n- 🇵🇱 [#10884](https://github.com/facebook/docusaurus/pull/10884): Add missing Polish theme translations.\n- 🇨🇳 [#10816](https://github.com/facebook/docusaurus/pull/10816): Add missing Chinese theme translations.\n- 🇯🇵 [#11030](https://github.com/facebook/docusaurus/pull/11030): Add missing Japanese theme translations.",
+      "source_content_hash": "22ab31d8f2e881f772f7c8b4ce853c7d8eb3ab5b4ce834f9221f7642becb73c1",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "- 🇹🇷 [#10893](https://github.com/facebook/docusaurus/pull/10893): 补充土耳其语主题翻译缺失内容。\n- 🇵🇱 [#10884](https://github.com/facebook/docusaurus/pull/10884): 补充波兰语主题翻译缺失内容。\n- 🇨🇳 [#10816](https://github.com/facebook/docusaurus/pull/10816): 补充中文主题翻译缺失内容。\n- 🇯🇵 [#11030](https://github.com/facebook/docusaurus/pull/11030): 补充日语主题翻译缺失内容。"
+      }
+    },
+    {
+      "segment_id": "fe3afe38",
+      "source_content": "## Maintenance",
+      "source_content_hash": "35274ac7742ea4371070b2011f92aebcaf897b35c04367cd44a16c6ab4026444",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 维护更新"
+      }
+    },
+    {
+      "segment_id": "f50056c0",
+      "source_content": "Docusaurus 3.8 is ready for [Node.js 24](https://github.com/facebook/docusaurus/pull/11168) and [TypeScript 5.8](https://github.com/facebook/docusaurus/pull/10966).",
+      "source_content_hash": "0ae3f375b3d398f243ec9cdffe23faaa4c531921c758520fd7daa4c1d299b678",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "Docusaurus 3.8 已适配 [Node.js 24](https://github.com/facebook/docusaurus/pull/11168) 和 [TypeScript 5.8](https://github.com/facebook/docusaurus/pull/10966)。"
+      }
+    },
+    {
+      "segment_id": "30aa9816",
+      "source_content": "We also removed useless npm packages and internalizing unmaintained ones:",
+      "source_content_hash": "3f3c15c832244ac2a6ebb2a2cec46241432a3aae73effaa5dc4aea23e376faa0",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "我们还移除了无用的 npm 包并将无人维护的依赖项内部化："
+      }
+    },
+    {
+      "segment_id": "b321d4cc",
+      "source_content": "- In [#11010](https://github.com/facebook/docusaurus/pull/11010) and [#11014](https://github.com/facebook/docusaurus/pull/11014), we internalized the unmaintained `react-ideal-image` and `react-waypoint` package used in `@docusaurus/plugin-ideal-image`, and made them compatible with React 19.\n- In [#10956](https://github.com/facebook/docusaurus/pull/10956), we removed our dependency to the unmaintained `react-dev-utils` package (from Create-React-App).\n- In [#10358](https://github.com/facebook/docusaurus/pull/10358), we replaced the unmaintained `shelljs` package by `execa`\n- In [#11138](https://github.com/facebook/docusaurus/pull/11138), we removed the `reading-time` package in favor of the built-in `Intl.Segmenter` standard API to compute blog post reading times.\n- In [#11037](https://github.com/facebook/docusaurus/pull/11037), we removed the useless `clean-webpack-plugin`.",
+      "source_content_hash": "be91e1999fd5eb2129e3bfe870af0ab94b647f65c70d13c71afd95d50dcc2a06",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "- 在 [#11010](https://github.com/facebook/docusaurus/pull/11010) 和 [#11014](https://github.com/facebook/docusaurus/pull/11014) 中，我们将 `@docusaurus/plugin-ideal-image` 使用的无人维护包 `react-ideal-image` 和 `react-waypoint` 内部化，使其兼容 React 19。\n- 在 [#10956](https://github.com/facebook/docusaurus/pull/10956) 中，我们移除了对无人维护的 `react-dev-utils` 包（来自 Create-React-App）的依赖。\n- 在 [#10358](https://github.com/facebook/docusaurus/pull/10358) 中，我们用 `execa` 替换了无人维护的 `shelljs` 包。\n- 在 [#11138](https://github.com/facebook/docusaurus/pull/11138) 中，我们移除了 `reading-time` 包，改用标准 API `Intl.Segmenter` 来计算博客文章的阅读时长。\n- 在 [#11037](https://github.com/facebook/docusaurus/pull/11037) 中，我们移除了无用的 `clean-webpack-plugin`。"
+      }
+    },
+    {
+      "segment_id": "92505e51",
+      "source_content": "## Other changes",
+      "source_content_hash": "664d73286695bab6e722d97de9d3e8c2cfcb1f3862e89e29908a9dc19af1fe6d",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 其他变更"
+      }
+    },
+    {
+      "segment_id": "2f8456b2",
+      "source_content": "Other notable changes include:",
+      "source_content_hash": "7a7f506f7135be9a4fa913b729c202a73a90a1e28932ea8fe72609585c615fe3",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "其他值得注意的变更包括："
+      }
+    },
+    {
+      "segment_id": "941578d7",
+      "source_content": "- In [#10852](https://github.com/facebook/docusaurus/pull/10852), the theme `docsVersionDropdown` navbar item now accepts a `versions` attribute.\n- In [#10953](https://github.com/facebook/docusaurus/pull/10953), the `@docusaurus/remark-plugin-npm2yarn` plugin now supports Bun tabs conversions by default.\n- In [#10945](https://github.com/facebook/docusaurus/pull/10945), more stable CSS classes are now applied to the main theme layout elements, to let you create more reliable CSS selectors.\n- In [#10846](https://github.com/facebook/docusaurus/pull/10846), the Markdown code block `showLineNumbers` metastring can now accept a number to initialize the line counter initial value.\n- In [#11090](https://github.com/facebook/docusaurus/pull/11090), we made it easier to provide a custom page title formatter.\n- In [#11088](https://github.com/facebook/docusaurus/pull/11088), the page plugin now supports `frontMatter.slug` like docs and blog plugins already do.\n- In [#10875](https://github.com/facebook/docusaurus/pull/10875), the docs versioning CLI now also copies localized docs JSON translation files.",
+      "source_content_hash": "d4711f0991d49e662aa476c71b7029074cb630ec88083fce31ef77d6c74d4a52",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "- 在 [#10852](https://github.com/facebook/docusaurus/pull/10852) 中，主题的 `docsVersionDropdown` 导航栏项现在支持 `versions` 属性。\n- 在 [#10953](https://github.com/facebook/docusaurus/pull/10953) 中，`@docusaurus/remark-plugin-npm2yarn` 插件现在默认支持 Bun 标签转换。\n- 在 [#10945](https://github.com/facebook/docusaurus/pull/10945) 中，主题布局元素应用了更稳定的 CSS 类名，以便创建更可靠的 CSS 选择器。\n- 在 [#10846](https://github.com/facebook/docusaurus/pull/10846) 中，Markdown 代码块的 `showLineNumbers` 元字符串现在可以接受数字作为行号计数器的初始值。\n- 在 [#11090](https://github.com/facebook/docusaurus/pull/11090) 中，我们简化了自定义页面标题格式化器的实现方式。\n- 在 [#11088](https://github.com/facebook/docusaurus/pull/11088) 中，页面插件现在支持 `frontMatter.slug`，与文档和博客插件保持一致。\n- 在 [#10875](https://github.com/facebook/docusaurus/pull/10875) 中，文档版本化 CLI 现在也会复制本地化的文档 JSON 翻译文件。"
+      }
+    },
+    {
+      "segment_id": "aa705b4d",
+      "source_content": "Check the **[3.8.0 changelog entry](/changelog/3.8.0)** for an exhaustive list of changes.",
+      "source_content_hash": "2992933312806451748a9eb693f9df1531cdf53a452f6806eb2b687c50b5d9f0",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "查看 **[3.8.0 版本更新日志](/changelog/3.8.0)** 获取完整的变更列表。"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-blog/releases/3.8/index.mdx",
+  "last_updated_timestamp": "2025-06-03T17:28:35.713054+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "zh-CN": "ef7b69d8df08ea57adec77c4886dc87c137c6c4373402ee649def99f63d174e4"
+  }
+}

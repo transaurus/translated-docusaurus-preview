@@ -1,0 +1,210 @@
+{
+  "locales": [
+    "zh-CN"
+  ],
+  "folder_patterns": [
+    {
+      "source_dir_relative_to_docusaurus_root": "docs",
+      "target_i18n_subpath": "docusaurus-plugin-content-docs/current",
+      "original_agent_pattern": {
+        "source_pattern": "docs/**/*",
+        "translation_pattern": "i18n/%locale%/docusaurus-plugin-content-docs/current/**/%original_file_name%",
+        "type": "docs",
+        "description": "Main documentation files (current version)"
+      },
+      "type": "docs",
+      "description": "Main documentation files (current version)",
+      "ignore_patterns": null
+    },
+    {
+      "source_dir_relative_to_docusaurus_root": "versioned_docs/version-2.x",
+      "target_i18n_subpath": "docusaurus-plugin-content-docs/version-2.x",
+      "original_agent_pattern": {
+        "source_pattern": "versioned_docs/version-2.x/**/*",
+        "translation_pattern": "i18n/%locale%/docusaurus-plugin-content-docs/version-2.x/**/%original_file_name%",
+        "type": "versioned_docs",
+        "description": "Versioned documentation files for version 2.x"
+      },
+      "type": "versioned_docs",
+      "description": "Versioned documentation files for version 2.x",
+      "ignore_patterns": null
+    },
+    {
+      "source_dir_relative_to_docusaurus_root": "versioned_docs/version-3.0.1",
+      "target_i18n_subpath": "docusaurus-plugin-content-docs/version-3.0.1",
+      "original_agent_pattern": {
+        "source_pattern": "versioned_docs/version-3.0.1/**/*",
+        "translation_pattern": "i18n/%locale%/docusaurus-plugin-content-docs/version-3.0.1/**/%original_file_name%",
+        "type": "versioned_docs",
+        "description": "Versioned documentation files for version 3.0.1"
+      },
+      "type": "versioned_docs",
+      "description": "Versioned documentation files for version 3.0.1",
+      "ignore_patterns": null
+    },
+    {
+      "source_dir_relative_to_docusaurus_root": "versioned_docs/version-3.1.1",
+      "target_i18n_subpath": "docusaurus-plugin-content-docs/version-3.1.1",
+      "original_agent_pattern": {
+        "source_pattern": "versioned_docs/version-3.1.1/**/*",
+        "translation_pattern": "i18n/%locale%/docusaurus-plugin-content-docs/version-3.1.1/**/%original_file_name%",
+        "type": "versioned_docs",
+        "description": "Versioned documentation files for version 3.1.1"
+      },
+      "type": "versioned_docs",
+      "description": "Versioned documentation files for version 3.1.1",
+      "ignore_patterns": null
+    },
+    {
+      "source_dir_relative_to_docusaurus_root": "versioned_docs/version-3.2.1",
+      "target_i18n_subpath": "docusaurus-plugin-content-docs/version-3.2.1",
+      "original_agent_pattern": {
+        "source_pattern": "versioned_docs/version-3.2.1/**/*",
+        "translation_pattern": "i18n/%locale%/docusaurus-plugin-content-docs/version-3.2.1/**/%original_file_name%",
+        "type": "versioned_docs",
+        "description": "Versioned documentation files for version 3.2.1"
+      },
+      "type": "versioned_docs",
+      "description": "Versioned documentation files for version 3.2.1",
+      "ignore_patterns": null
+    },
+    {
+      "source_dir_relative_to_docusaurus_root": "versioned_docs/version-3.3.2",
+      "target_i18n_subpath": "docusaurus-plugin-content-docs/version-3.3.2",
+      "original_agent_pattern": {
+        "source_pattern": "versioned_docs/version-3.3.2/**/*",
+        "translation_pattern": "i18n/%locale%/docusaurus-plugin-content-docs/version-3.3.2/**/%original_file_name%",
+        "type": "versioned_docs",
+        "description": "Versioned documentation files for version 3.3.2"
+      },
+      "type": "versioned_docs",
+      "description": "Versioned documentation files for version 3.3.2",
+      "ignore_patterns": null
+    },
+    {
+      "source_dir_relative_to_docusaurus_root": "versioned_docs/version-3.4.0",
+      "target_i18n_subpath": "docusaurus-plugin-content-docs/version-3.4.0",
+      "original_agent_pattern": {
+        "source_pattern": "versioned_docs/version-3.4.0/**/*",
+        "translation_pattern": "i18n/%locale%/docusaurus-plugin-content-docs/version-3.4.0/**/%original_file_name%",
+        "type": "versioned_docs",
+        "description": "Versioned documentation files for version 3.4.0"
+      },
+      "type": "versioned_docs",
+      "description": "Versioned documentation files for version 3.4.0",
+      "ignore_patterns": null
+    },
+    {
+      "source_dir_relative_to_docusaurus_root": "versioned_docs/version-3.5.2",
+      "target_i18n_subpath": "docusaurus-plugin-content-docs/version-3.5.2",
+      "original_agent_pattern": {
+        "source_pattern": "versioned_docs/version-3.5.2/**/*",
+        "translation_pattern": "i18n/%locale%/docusaurus-plugin-content-docs/version-3.5.2/**/%original_file_name%",
+        "type": "versioned_docs",
+        "description": "Versioned documentation files for version 3.5.2"
+      },
+      "type": "versioned_docs",
+      "description": "Versioned documentation files for version 3.5.2",
+      "ignore_patterns": null
+    },
+    {
+      "source_dir_relative_to_docusaurus_root": "versioned_docs/version-3.6.3",
+      "target_i18n_subpath": "docusaurus-plugin-content-docs/version-3.6.3",
+      "original_agent_pattern": {
+        "source_pattern": "versioned_docs/version-3.6.3/**/*",
+        "translation_pattern": "i18n/%locale%/docusaurus-plugin-content-docs/version-3.6.3/**/%original_file_name%",
+        "type": "versioned_docs",
+        "description": "Versioned documentation files for version 3.6.3"
+      },
+      "type": "versioned_docs",
+      "description": "Versioned documentation files for version 3.6.3",
+      "ignore_patterns": null
+    },
+    {
+      "source_dir_relative_to_docusaurus_root": "versioned_docs/version-3.7.0",
+      "target_i18n_subpath": "docusaurus-plugin-content-docs/version-3.7.0",
+      "original_agent_pattern": {
+        "source_pattern": "versioned_docs/version-3.7.0/**/*",
+        "translation_pattern": "i18n/%locale%/docusaurus-plugin-content-docs/version-3.7.0/**/%original_file_name%",
+        "type": "versioned_docs",
+        "description": "Versioned documentation files for version 3.7.0"
+      },
+      "type": "versioned_docs",
+      "description": "Versioned documentation files for version 3.7.0",
+      "ignore_patterns": null
+    },
+    {
+      "source_dir_relative_to_docusaurus_root": "versioned_docs/version-3.8.0",
+      "target_i18n_subpath": "docusaurus-plugin-content-docs/version-3.8.0",
+      "original_agent_pattern": {
+        "source_pattern": "versioned_docs/version-3.8.0/**/*",
+        "translation_pattern": "i18n/%locale%/docusaurus-plugin-content-docs/version-3.8.0/**/%original_file_name%",
+        "type": "versioned_docs",
+        "description": "Versioned documentation files for version 3.8.0"
+      },
+      "type": "versioned_docs",
+      "description": "Versioned documentation files for version 3.8.0",
+      "ignore_patterns": null
+    },
+    {
+      "source_dir_relative_to_docusaurus_root": "community",
+      "target_i18n_subpath": "docusaurus-plugin-content-docs-community/current",
+      "original_agent_pattern": {
+        "source_pattern": "community/**/*",
+        "translation_pattern": "i18n/%locale%/docusaurus-plugin-content-docs-community/current/**/%original_file_name%",
+        "type": "docs-community",
+        "description": "Community documentation files (custom docs plugin instance)"
+      },
+      "type": "docs-community",
+      "description": "Community documentation files (custom docs plugin instance)",
+      "ignore_patterns": null
+    },
+    {
+      "source_dir_relative_to_docusaurus_root": "blog",
+      "target_i18n_subpath": "docusaurus-plugin-content-blog",
+      "original_agent_pattern": {
+        "source_pattern": "blog/**/*",
+        "translation_pattern": "i18n/%locale%/docusaurus-plugin-content-blog/**/%original_file_name%",
+        "type": "blog",
+        "description": "Main blog posts and related files"
+      },
+      "type": "blog",
+      "description": "Main blog posts and related files",
+      "ignore_patterns": null
+    },
+    {
+      "source_dir_relative_to_docusaurus_root": "src/pages",
+      "target_i18n_subpath": "docusaurus-plugin-content-pages",
+      "original_agent_pattern": {
+        "source_pattern": "src/pages/**/*.{md,mdx}",
+        "translation_pattern": "i18n/%locale%/docusaurus-plugin-content-pages/**/%original_file_name%",
+        "type": "pages",
+        "description": "Markdown and MDX pages",
+        "ignore_patterns": [
+          "**/*.{js,jsx,ts,tsx}"
+        ]
+      },
+      "type": "pages",
+      "description": "Markdown and MDX pages",
+      "ignore_patterns": [
+        "**/*.{js,jsx,ts,tsx}"
+      ]
+    },
+    {
+      "source_dir_relative_to_docusaurus_root": "i18n/en",
+      "target_i18n_subpath": "",
+      "original_agent_pattern": {
+        "source_pattern": "i18n/en/**/*.json",
+        "translation_pattern": "i18n/%locale%/**/%original_file_name%",
+        "type": "json_translations",
+        "description": "JSON translation files for React components and theme labels"
+      },
+      "type": "json_translations",
+      "description": "JSON translation files for React components and theme labels",
+      "ignore_patterns": null
+    }
+  ],
+  "docusaurus_root_dir_relative_to_repo": "website",
+  "docusaurus_config_filepath_relative_to_repo": "website/docusaurus.config.ts",
+  "source_language": "en"
+}

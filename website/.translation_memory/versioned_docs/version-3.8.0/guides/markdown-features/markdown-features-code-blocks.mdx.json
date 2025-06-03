@@ -1,0 +1,1222 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "versioned_docs/version-3.8.0/guides/markdown-features/markdown-features-code-blocks.mdx",
+  "source_file_content_hash": "d843dbad0d2613e6c39707dd150c1c6feeac42748d735e53c214de4248ed8aea",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\nid: code-blocks\ndescription: Handling code blocks in Docusaurus Markdown\nslug: /markdown-features/code-blocks\n---",
+      "source_content_hash": "652cbc388b10df656c846af0d2600fecd5353583ead0f89457118dedb1d3bfe2",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "a703643c",
+      "source_content": "# Code blocks",
+      "source_content_hash": "f72b25c60f3cb672bf5695fee59684cddb98f695444a0364b115d210c0028433",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "# 代码块"
+      }
+    },
+    {
+      "segment_id": "623f74e7",
+      "source_content": "import BrowserWindow from '@site/src/components/BrowserWindow';\nimport CodeBlock from '@theme/CodeBlock';",
+      "source_content_hash": "1d4d4c9795eaf3224193ed486041b8884235d564c0a840d2b9cf7a9249ef0f06",
+      "node_type": "mdxjsEsm",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_623f74e7"
+      }
+    },
+    {
+      "segment_id": "8d66f911",
+      "source_content": "Code blocks within documentation are super-powered 💪.",
+      "source_content_hash": "2510488fc30a460498f0eebac8270bb57b97cea9763695add97c75dc47dbca0d",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "文档中的代码块拥有超强能力 💪。"
+      }
+    },
+    {
+      "segment_id": "70153c6e",
+      "source_content": "## Code title {#code-title}",
+      "source_content_hash": "d6b62c422c1985d942b52fe768983bd4fee285dd79f686bb79690505541c282f",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 代码标题 {#code-title}"
+      }
+    },
+    {
+      "segment_id": "86b54d44",
+      "source_content": "You can add a title to the code block by adding a `title` key after the language (leave a space between them).",
+      "source_content_hash": "580046f2713ae2840466711714d45536685de4e786eb394b0ad1664e2ddcae1b",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "通过在语言后添加 `title` 键（两者之间留一个空格），可以为代码块添加标题。"
+      }
+    },
+    {
+      "segment_id": "6e5ba8fb",
+      "source_content": "````md\n```jsx title=\"/src/components/HelloCodeTitle.js\"\nfunction HelloCodeTitle(props) {\n  return <h1>Hello, {props.name}</h1>;\n}\n```\n````",
+      "source_content_hash": "ca44bea1ca44350bdc2866edd5ec43576e19ce90a07c02fc3ebab983d5ce1480",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_6e5ba8fb"
+      }
+    },
+    {
+      "segment_id": "1941846d",
+      "source_content": "<BrowserWindow>\n\n```jsx title=\"/src/components/HelloCodeTitle.js\"\nfunction HelloCodeTitle(props) {\n  return <h1>Hello, {props.name}</h1>;\n}\n```\n\n</BrowserWindow>",
+      "source_content_hash": "6f040c8853b93c2a294ff3ea3975aca75558764f69b4b1ec42735b98c9feda96",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_1941846d"
+      }
+    },
+    {
+      "segment_id": "109ace10",
+      "source_content": "## Syntax highlighting {#syntax-highlighting}",
+      "source_content_hash": "d29d707495db695baf12195ce3da96d559b385427924cd2c16608febdd48088f",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 语法高亮 {#syntax-highlighting}"
+      }
+    },
+    {
+      "segment_id": "135468ee",
+      "source_content": "Code blocks are text blocks wrapped around by strings of 3 backticks. You may check out [this reference](https://mdxjs.com/docs/) for the specifications of MDX.",
+      "source_content_hash": "6ebbd3c92893cddb2377b3794e5e991a02e0bac5f41993e9af65fced42b93643",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "代码块是由三个反引号包裹的文本块。您可以查阅 [MDX 规范](https://mdxjs.com/docs/)了解其具体说明。"
+      }
+    },
+    {
+      "segment_id": "a11df754",
+      "source_content": "````md\n```js\nconsole.log('Every repo must come with a mascot.');\n```\n````",
+      "source_content_hash": "2d120794a553763fa6d75a477062f63e8fbdf0e882beed1cedc20166bb93dbe4",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_a11df754"
+      }
+    },
+    {
+      "segment_id": "8af76f3d",
+      "source_content": "Use the matching language meta string for your code block, and Docusaurus will pick up syntax highlighting automatically, powered by [Prism React Renderer](https://github.com/FormidableLabs/prism-react-renderer).",
+      "source_content_hash": "3bbe9f296daf114f9b40d9556db454e60f5c87c3f81c62244f2d66ef785e283a",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "为代码块使用匹配的语言元字符串，Docusaurus 将自动启用语法高亮功能，该功能由 [Prism React Renderer](https://github.com/FormidableLabs/prism-react-renderer) 提供支持。"
+      }
+    },
+    {
+      "segment_id": "2f83a0f4",
+      "source_content": "<BrowserWindow>\n\n```js\nconsole.log('Every repo must come with a mascot.');\n```\n\n</BrowserWindow>",
+      "source_content_hash": "d9b23cd8a024b2ae035bd8f189a0ae5a7e0a8920a6aef1dba0f0028352b2d2b2",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_2f83a0f4"
+      }
+    },
+    {
+      "segment_id": "2c1b51df",
+      "source_content": "### Theming {#theming}",
+      "source_content_hash": "77dad092cfb1f362e0d278cefa728d382fd92bb2b79c0644b883d0bc7187c731",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### 主题 {#theming}"
+      }
+    },
+    {
+      "segment_id": "e536ea0d",
+      "source_content": "By default, the Prism [syntax highlighting theme](https://github.com/FormidableLabs/prism-react-renderer#theming) we use is [Palenight](https://github.com/FormidableLabs/prism-react-renderer/blob/master/packages/prism-react-renderer/src/themes/palenight.ts). You can change this to another theme by passing `theme` field in `prism` as `themeConfig` in your docusaurus.config.js.",
+      "source_content_hash": "457df4f71c078dfed86b7d7a7cc796872cda3c6a450e52426079ffd8830ce787",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "默认情况下，我们使用的 Prism [语法高亮主题](https://github.com/FormidableLabs/prism-react-renderer#theming)是 [Palenight](https://github.com/FormidableLabs/prism-react-renderer/blob/master/packages/prism-react-renderer/src/themes/palenight.ts)。您可以通过在 docusaurus.config.js 的 `themeConfig` 中传递 `prism` 的 `theme` 字段来更改为其他主题。"
+      }
+    },
+    {
+      "segment_id": "40158b4b",
+      "source_content": "For example, if you prefer to use the `dracula` highlighting theme:",
+      "source_content_hash": "4c49896b6475f24e76e4003964e3c7e048683cd484b9d136a5f0f732356318bb",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "例如，如果您更喜欢使用 `dracula` 高亮主题："
+      }
+    },
+    {
+      "segment_id": "3adc0ceb",
+      "source_content": "```js title=\"docusaurus.config.js\"\nimport {themes as prismThemes} from 'prism-react-renderer';\n\nexport default {\n  themeConfig: {\n    prism: {\n      // highlight-next-line\n      theme: prismThemes.dracula,\n    },\n  },\n};\n```",
+      "source_content_hash": "d1b45666b1825ec27c9079a08e1a665c973791342fb32ceb599b40dcb1beba92",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_3adc0ceb"
+      }
+    },
+    {
+      "segment_id": "f01228d3",
+      "source_content": "Because a Prism theme is just a JS object, you can also write your own theme if you are not satisfied with the default. Docusaurus enhances the `github` and `vsDark` themes to provide richer highlight, and you can check our implementations for the [light](https://github.com/facebook/docusaurus/blob/main/website/src/utils/prismLight.ts) and [dark](https://github.com/facebook/docusaurus/blob/main/website/src/utils/prismDark.ts) code block themes.",
+      "source_content_hash": "718fa0c5d543c229552b30735b8dd898e3014b825e5afffa963b8e2450b5f1a3",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "由于 Prism 主题只是一个 JS 对象，如果您对默认主题不满意，也可以编写自己的主题。Docusaurus 增强了 `github` 和 `vsDark` 主题以提供更丰富的高亮效果，您可以查看我们对 [浅色](https://github.com/facebook/docusaurus/blob/main/website/src/utils/prismLight.ts) 和 [深色](https://github.com/facebook/docusaurus/blob/main/website/src/utils/prismDark.ts) 代码块主题的实现。"
+      }
+    },
+    {
+      "segment_id": "93028a4e",
+      "source_content": "### Supported Languages {#supported-languages}",
+      "source_content_hash": "d6855b467acc95d7f096e20c2946cd1cd2274834c753b70e13316e72bcefe85e",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### 支持的语言 {#supported-languages}"
+      }
+    },
+    {
+      "segment_id": "e8e162a9",
+      "source_content": "By default, Docusaurus comes with a subset of [commonly used languages](https://github.com/FormidableLabs/prism-react-renderer/blob/master/packages/generate-prism-languages/index.ts#L9-L23).",
+      "source_content_hash": "0664310323eb001909f458d0ca932d7a37f92021709808ac36cb4c96079e9b89",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "默认情况下，Docusaurus 附带了一组 [常用语言](https://github.com/FormidableLabs/prism-react-renderer/blob/master/packages/generate-prism-languages/index.ts#L9-L23)。"
+      }
+    },
+    {
+      "segment_id": "cbde7a8e",
+      "source_content": ":::warning\n\nSome popular languages like Java, C#, or PHP are not enabled by default.\n\n:::",
+      "source_content_hash": "1c75a464023080222e47fab7c432421bb9c562da81bc2d8c961db6fdfb09bd34",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::warning\n\n一些流行语言如 Java、C# 或 PHP 默认未启用。\n\n:::"
+      }
+    },
+    {
+      "segment_id": "8126f763",
+      "source_content": "To add syntax highlighting for any of the other [Prism-supported languages](https://prismjs.com/#supported-languages), define it in an array of additional languages.",
+      "source_content_hash": "e772f586c6602ac927ef0ed0f6af7db8b7a8b694a358a13a9393cff8c0af2bec",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "要为其他 [Prism 支持的语言](https://prismjs.com/#supported-languages)添加语法高亮，请在附加语言数组中定义它们。"
+      }
+    },
+    {
+      "segment_id": "09f6e084",
+      "source_content": ":::note\n\nEach additional language has to be a valid Prism component name. For example, Prism would map the _language_ `cs` to `csharp`, but only `prism-csharp.js` exists as a _component_, so you need to use `additionalLanguages: ['csharp']`. You can look into `node_modules/prismjs/components` to find all components (languages) available.\n\n:::",
+      "source_content_hash": "6697f5aa3011f691f9a5a67cda28b69038e385ee2791846d8526c6a29a6ebe93",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::note\n\n每种附加语言必须是有效的 Prism 组件名称。例如，Prism 会将 _语言_ `cs` 映射到 `csharp`，但只有 `prism-csharp.js` 作为 _组件_ 存在，因此您需要使用 `additionalLanguages: ['csharp']`。您可以查看 `node_modules/prismjs/components` 以找到所有可用的组件（语言）。\n\n:::"
+      }
+    },
+    {
+      "segment_id": "785750ac",
+      "source_content": "For example, if you want to add highlighting for the PowerShell language:",
+      "source_content_hash": "65b5df00c51db0067dd723bd2341ccd67679eb54393ef417de73528c505b8ce5",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "例如，如果您想为 PowerShell 语言添加高亮："
+      }
+    },
+    {
+      "segment_id": "ec99e704",
+      "source_content": "```js title=\"docusaurus.config.js\"\nexport default {\n  // ...\n  themeConfig: {\n    prism: {\n      // highlight-next-line\n      additionalLanguages: ['powershell'],\n    },\n    // ...\n  },\n};\n```",
+      "source_content_hash": "277b2ce0f5a6ff07a9a1759ca7ef4bc869bea5f873a565fddaf17921e7b44bed",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_ec99e704"
+      }
+    },
+    {
+      "segment_id": "a81544fd",
+      "source_content": "After adding `additionalLanguages`, restart Docusaurus.",
+      "source_content_hash": "95a16fff722c9b32dff253410e10377899f2d5febaa870dccd22c56161759007",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "添加 `additionalLanguages` 后，请重启 Docusaurus。"
+      }
+    },
+    {
+      "segment_id": "0801d969",
+      "source_content": "If you want to add highlighting for languages not yet supported by Prism, you can swizzle `prism-include-languages`:",
+      "source_content_hash": "d15153961a3ff8184c2483d1f51ec7309dcc8952a91a9d0c88d079ce940ad6dc",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "如果您想为 Prism 尚未支持的语言添加高亮，可以 swizzle `prism-include-languages`："
+      }
+    },
+    {
+      "segment_id": "99070903",
+      "source_content": "```bash npm2yarn\nnpm run swizzle @docusaurus/theme-classic prism-include-languages\n```",
+      "source_content_hash": "04b7548230999873405b7430146d624fce83bf4d2ec5278cbfae0579fd557839",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_99070903"
+      }
+    },
+    {
+      "segment_id": "44aaa880",
+      "source_content": "It will produce `prism-include-languages.js` in your `src/theme` folder. You can add highlighting support for custom languages by editing `prism-include-languages.js`:",
+      "source_content_hash": "6d91026d014e1723f2ee432a5d9b54128c392f45a6bf3fd14fca39b3095d5b09",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "这将在您的 `src/theme` 文件夹中生成 `prism-include-languages.js`。您可以通过编辑 `prism-include-languages.js` 来为自定义语言添加高亮支持："
+      }
+    },
+    {
+      "segment_id": "353ca453",
+      "source_content": "```js title=\"src/theme/prism-include-languages.js\"\nconst prismIncludeLanguages = (Prism) => {\n  // ...\n\n  additionalLanguages.forEach((lang) => {\n    require(`prismjs/components/prism-${lang}`);\n  });\n\n  // highlight-next-line\n  require('/path/to/your/prism-language-definition');\n\n  // ...\n};\n```",
+      "source_content_hash": "84312b3c00a45d25d20150ab15ca94d9d6ab9467d4cbd8042b5a4b50f64e59c9",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_353ca453"
+      }
+    },
+    {
+      "segment_id": "5c7d994c",
+      "source_content": "You can refer to [Prism's official language definitions](https://github.com/PrismJS/prism/tree/master/components) when you are writing your own language definitions.",
+      "source_content_hash": "b729c6d29e1b249d582483fe5428e0f5e456bfd54ddf598928344f6b57dc66ae",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "在编写自己的语言定义时，您可以参考 [Prism 的官方语言定义](https://github.com/PrismJS/prism/tree/master/components)。"
+      }
+    },
+    {
+      "segment_id": "1ecf0882",
+      "source_content": "When adding a custom language definition, you do not need to add the language to the `additionalLanguages` config array, since Docusaurus only looks up the `additionalLanguages` strings in languages that Prism provides. Adding the language import in `prism-include-languages.js` is sufficient.",
+      "source_content_hash": "c53494db490547514f9bc75ff40f6f2cc14e98873400a4e4ee1494b065e20be4",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "添加自定义语言定义时，您无需将其加入 `additionalLanguages` 配置数组，因为 Docusaurus 仅在 Prism 提供的语言中查找 `additionalLanguages` 字符串。在 `prism-include-languages.js` 中导入语言已足够。"
+      }
+    },
+    {
+      "segment_id": "c6868a9f",
+      "source_content": "## Line highlighting {#line-highlighting}",
+      "source_content_hash": "810aba8038ef574bfc49d8b152eba563c74eb736e9b8a0a8ad91a9cbe7406ec9",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 行高亮 {#line-highlighting}"
+      }
+    },
+    {
+      "segment_id": "fff17ff8",
+      "source_content": "### Highlighting with comments {#highlighting-with-comments}",
+      "source_content_hash": "15ce7bd5e6d710da271e9aee9e2b3bcd1e54f09aa62cb8d6e5c062c151c569fd",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### 通过注释高亮 {#highlighting-with-comments}"
+      }
+    },
+    {
+      "segment_id": "8664ed0b",
+      "source_content": "You can use comments with `highlight-next-line`, `highlight-start`, and `highlight-end` to select which lines are highlighted.",
+      "source_content_hash": "038b3808b3a9a38b2f934195d0886e39dd21a534c33ab01baa866925687738fe",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "您可以使用 `highlight-next-line`、`highlight-start` 和 `highlight-end` 注释来选择需要高亮的行。"
+      }
+    },
+    {
+      "segment_id": "a6c3f55f",
+      "source_content": "````md\n```js\nfunction HighlightSomeText(highlight) {\n  if (highlight) {\n    // highlight-next-line\n    return 'This text is highlighted!';\n  }\n\n  return 'Nothing highlighted';\n}\n\nfunction HighlightMoreText(highlight) {\n  // highlight-start\n  if (highlight) {\n    return 'This range is highlighted!';\n  }\n  // highlight-end\n\n  return 'Nothing highlighted';\n}\n```\n````",
+      "source_content_hash": "a81d77d951a5ad2790b99853da15e08965b5cb12b7133f81d32feaead2e9176d",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_a6c3f55f"
+      }
+    },
+    {
+      "segment_id": "8f6fa9f3",
+      "source_content": "<BrowserWindow>\n\n```js\nfunction HighlightSomeText(highlight) {\n  if (highlight) {\n    // highlight-next-line\n    return 'This text is highlighted!';\n  }\n\n  return 'Nothing highlighted';\n}\n\nfunction HighlightMoreText(highlight) {\n  // highlight-start\n  if (highlight) {\n    return 'This range is highlighted!';\n  }\n  // highlight-end\n\n  return 'Nothing highlighted';\n}\n```\n\n</BrowserWindow>",
+      "source_content_hash": "0511ad505e4c9a16ec6fa8c61a33aefd5f8911200bda99359ebb4cab28f7e9d6",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_8f6fa9f3"
+      }
+    },
+    {
+      "segment_id": "295367fa",
+      "source_content": "Supported commenting syntax:",
+      "source_content_hash": "c8fc00c323ddcc4928a688707ff72a0510f67c0c23f223c5cdf0e32536c36031",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "支持的注释语法："
+      }
+    },
+    {
+      "segment_id": "144fc2d3",
+      "source_content": "| Style      | Syntax                   |\n| ---------- | ------------------------ |\n| C-style    | `/* ... */` and `// ...` |\n| JSX-style  | `{/* ... */}`            |\n| Bash-style | `# ...`                  |\n| HTML-style | `<!-- ... -->`           |",
+      "source_content_hash": "9b04a9c5ad77a980d3c2594b7cfa32ac4caccea4e902d76bf92335aa36d7f161",
+      "node_type": "table",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_144fc2d3"
+      }
+    },
+    {
+      "segment_id": "6e5d54a8",
+      "source_content": "We will do our best to infer which set of comment styles to use based on the language, and default to allowing _all_ comment styles. If there's a comment style that is not currently supported, we are open to adding them! Pull requests welcome. Note that different comment styles have no semantic difference, only their content does.",
+      "source_content_hash": "e38c123ea34565993e152d4be63ef3129119f4fe59012ed03bda5e240619e2c0",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "我们会根据语言自动推断应使用的注释风格，默认允许所有注释风格。若有未支持的注释风格，欢迎提交 PR 添加。请注意不同注释风格仅形式不同，功能无差异。"
+      }
+    },
+    {
+      "segment_id": "48249e3c",
+      "source_content": "You can set your own background color for highlighted code line in your `src/css/custom.css` which will better fit to your selected syntax highlighting theme. The color given below works for the default highlighting theme (Palenight), so if you are using another theme, you will have to tweak the color accordingly.",
+      "source_content_hash": "e7a3ff301f4b0bfbcf41bc61018dd32a541f8cae160562366ff240cb8250df15",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "您可在 `src/css/custom.css` 中为高亮代码行设置自定义背景色以适配语法高亮主题。下方示例颜色适用于默认主题 (Palenight)，若使用其他主题需调整颜色值。"
+      }
+    },
+    {
+      "segment_id": "cf50de8a",
+      "source_content": "```css title=\"/src/css/custom.css\"\n:root {\n  --docusaurus-highlighted-code-line-bg: rgb(72, 77, 91);\n}\n\n/* If you have a different syntax highlighting theme for dark mode. */\n[data-theme='dark'] {\n  /* Color which works with dark mode syntax highlighting theme */\n  --docusaurus-highlighted-code-line-bg: rgb(100, 100, 100);\n}\n```",
+      "source_content_hash": "ca4b82f027e1e2922020f92c5e869356c337dce70dc0004f9e254953a408f142",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_cf50de8a"
+      }
+    },
+    {
+      "segment_id": "be0f7233",
+      "source_content": "If you also need to style the highlighted code line in some other way, you can target on `theme-code-block-highlighted-line` CSS class.",
+      "source_content_hash": "75f7c7839537247971d07e3f1260922564f9f8345c790c97b1b6c40a047d208f",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "如需其他样式定制，可通过 `theme-code-block-highlighted-line` CSS 类选择器实现。"
+      }
+    },
+    {
+      "segment_id": "dc825187",
+      "source_content": "### Highlighting with metadata string {#highlighting-with-metadata-string}",
+      "source_content_hash": "c57ac420c80de7e05ee37c6881a04762c50d87b5c5ff35a5a3b19e13a1c9db83",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### 通过元数据字符串高亮 {#highlighting-with-metadata-string}"
+      }
+    },
+    {
+      "segment_id": "833ce577",
+      "source_content": "You can also specify highlighted line ranges within the language meta string (leave a space after the language). To highlight multiple lines, separate the line numbers by commas or use the range syntax to select a chunk of lines. This feature uses the `parse-number-range` library and you can find [more syntax](https://www.npmjs.com/package/parse-numeric-range) on their project details.",
+      "source_content_hash": "87d0614255025fed2fae35a73ab9fa9a3776264cc5fe06caabcc36b6729561fa",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "也可在语言元字符串中指定高亮行范围（语言后留空格）。多行高亮可用逗号分隔或区间语法，该功能基于 `parse-number-range` 库，更多语法详见[项目文档](https://www.npmjs.com/package/parse-numeric-range)。"
+      }
+    },
+    {
+      "segment_id": "3d4d9546",
+      "source_content": "````md\n```jsx {1,4-6,11}\nimport React from 'react';\n\nfunction MyComponent(props) {\n  if (props.isBar) {\n    return <div>Bar</div>;\n  }\n\n  return <div>Foo</div>;\n}\n\nexport default MyComponent;\n```\n````",
+      "source_content_hash": "b36888069f44565af29a49acab90d130ded1bbb95c63206d577b68d8b0df579d",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_3d4d9546"
+      }
+    },
+    {
+      "segment_id": "50067043",
+      "source_content": "<BrowserWindow>\n\n```jsx {1,4-6,11}\nimport React from 'react';\n\nfunction MyComponent(props) {\n  if (props.isBar) {\n    return <div>Bar</div>;\n  }\n\n  return <div>Foo</div>;\n}\n\nexport default MyComponent;\n```\n\n</BrowserWindow>",
+      "source_content_hash": "f7993f3aea99d11cfdbb6b0a2eb6b63a60480a58199349cb0e65521dd24bbacb",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_50067043"
+      }
+    },
+    {
+      "segment_id": "ade28a80",
+      "source_content": ":::tip[prefer comments]\n\nPrefer highlighting with comments where you can. By inlining highlight in the code, you don't have to manually count the lines if your code block becomes long. If you add/remove lines, you also don't have to offset your line ranges.\n\n````diff\n- ```jsx {3}\n+ ```jsx {4}\n  function HighlightSomeText(highlight) {\n    if (highlight) {\n+     console.log('Highlighted text found');\n      return 'This text is highlighted!';\n    }\n\n    return 'Nothing highlighted';\n  }\n  ```\n````\n\nBelow, we will introduce how the magic comment system can be extended to define custom directives and their functionalities. The magic comments would only be parsed if a highlight metastring is not present.\n\n:::",
+      "source_content_hash": "ad76e8dffa67723e19d56ebdc110d13c20d23322bc19c2bc2087d6f4e70997aa",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::tip[优先使用注释]\n\n建议优先使用注释高亮。直接在代码中标注可避免手动计算行号，增删行时也无需调整范围。\n\n````diff\n- ```jsx {3}\n+ ```jsx {4}\n  function HighlightSomeText(highlight) {\n    if (highlight) {\n+     console.log('发现高亮文本');\n      return '该文本已高亮！';\n    }\n\n    return '无高亮内容';\n  }\n  ```\n````\n\n下文将介绍如何扩展魔法注释系统以定义自定义指令。仅当未使用高亮元字符串时才会解析魔法注释。\n\n:::"
+      }
+    },
+    {
+      "segment_id": "04f25754",
+      "source_content": "### Custom magic comments {#custom-magic-comments}",
+      "source_content_hash": "3e5467f8fba4433c469f1478bf0330235e18c3bc0eefe89edbaf89b9f3297c80",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### 自定义魔法注释 {#custom-magic-comments}"
+      }
+    },
+    {
+      "segment_id": "1d39fdbf",
+      "source_content": "`// highlight-next-line` and `// highlight-start` etc. are called \"magic comments\", because they will be parsed and removed, and their purposes are to add metadata to the next line, or the section that the pair of start- and end-comments enclose.",
+      "source_content_hash": "4bcdc7ce9c69459ffe3f98189786f9dc6572999be86fca080f13a298b64c5252",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "`// highlight-next-line` 和 `// highlight-start` 等称为\"魔法注释\"，它们会被解析并移除，作用是为下一行或注释对包裹的代码段添加元数据。"
+      }
+    },
+    {
+      "segment_id": "bed77f05",
+      "source_content": "You can declare custom magic comments through theme config. For example, you can register another magic comment that adds a `code-block-error-line` class name:",
+      "source_content_hash": "c8c481da5490d668f66a84993a6ab64f9da888ff6b44dd7820f2f5b57896305e",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "可通过主题配置声明自定义魔法注释。例如注册一个添加 `code-block-error-line` 类名的注释："
+      }
+    },
+    {
+      "segment_id": "47b9425f",
+      "source_content": "<Tabs>\n<TabItem value=\"docusaurus.config.js\">\n\n```js\nexport default {\n  themeConfig: {\n    prism: {\n      magicComments: [\n        // Remember to extend the default highlight class name as well!\n        {\n          className: 'theme-code-block-highlighted-line',\n          line: 'highlight-next-line',\n          block: {start: 'highlight-start', end: 'highlight-end'},\n        },\n        // highlight-start\n        {\n          className: 'code-block-error-line',\n          line: 'This will error',\n        },\n        // highlight-end\n      ],\n    },\n  },\n};\n```\n\n</TabItem>\n<TabItem value=\"src/css/custom.css\">\n\n```css\n.code-block-error-line {\n  background-color: #ff000020;\n  display: block;\n  margin: 0 calc(-1 * var(--ifm-pre-padding));\n  padding: 0 var(--ifm-pre-padding);\n  border-left: 3px solid #ff000080;\n}\n```\n\n</TabItem>\n<TabItem value=\"myDoc.md\">\n\n````md\nIn JavaScript, trying to access properties on `null` will error.\n\n```js\nconst name = null;\n// This will error\nconsole.log(name.toUpperCase());\n// Uncaught TypeError: Cannot read properties of null (reading 'toUpperCase')\n```\n````\n\n</TabItem>\n</Tabs>",
+      "source_content_hash": "0d330bb8d136239878553452eca27b0caa0ac90426a443af2460d985833d8f98",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_47b9425f"
+      }
+    },
+    {
+      "segment_id": "29fe38a1",
+      "source_content": "<BrowserWindow>\n\nIn JavaScript, trying to access properties on `null` will error.\n\n```js\nconst name = null;\n// This will error\nconsole.log(name.toUpperCase());\n// Uncaught TypeError: Cannot read properties of null (reading 'toUpperCase')\n```\n\n</BrowserWindow>",
+      "source_content_hash": "4ed392d12abeff4c45acbb66bc7b8dc039cdabe25183a57bf11b99c1e702cb51",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_29fe38a1"
+      }
+    },
+    {
+      "segment_id": "c419a086",
+      "source_content": "If you use number ranges in metastring (the `{1,3-4}` syntax), Docusaurus will apply the **first `magicComments` entry**'s class name. This, by default, is `theme-code-block-highlighted-line`, but if you change the `magicComments` config and use a different entry as the first one, the meaning of the metastring range will change as well.",
+      "source_content_hash": "60b50b9444680cb255998f0b620f55c00d6dd5f6ca8a0f956d10fac0c1e5278e",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "若使用元字符串中的数字范围语法（如 `{1,3-4}`），Docusaurus 会应用首个 `magicComments` 条目的类名。默认是 `theme-code-block-highlighted-line`，若修改配置使其他条目成为首个，元字符串范围的含义也会随之改变。"
+      }
+    },
+    {
+      "segment_id": "d58af824",
+      "source_content": "You can disable the default line highlighting comments with `magicComments: []`. If there's no magic comment config, but Docusaurus encounters a code block containing a metastring range, it will error because there will be no class name to apply—the highlighting class name, after all, is just a magic comment entry.",
+      "source_content_hash": "2602f4d4cd11905c32c731f20f696771bef4fd70090000a982a013c0a05e7192",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "可通过 `magicComments: []` 禁用默认行高亮注释。若无魔法注释配置但存在含元字符串范围的代码块，Docusaurus 将报错——毕竟高亮类名本质上就是一个魔法注释条目。"
+      }
+    },
+    {
+      "segment_id": "0274aeec",
+      "source_content": "Every magic comment entry will contain three keys: `className` (required), `line`, which applies to the directly next line, or `block` (containing `start` and `end`), which applies to the entire block enclosed by the two comments.",
+      "source_content_hash": "17a6f778c765a5e92706a78ad99ad9263b60f5aaca5720b065622008eac61d90",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "每个魔法注释条目包含三个键：`className`（必填）、`line`（作用于紧接着的下一行）或包含`start`和`end`的`block`（作用于两个注释包裹的整个代码块）。"
+      }
+    },
+    {
+      "segment_id": "f7f08e35",
+      "source_content": "Using CSS to target the class can already do a lot, but you can unlock the full potential of this feature through [swizzling](../../swizzling.mdx).",
+      "source_content_hash": "fc5e95dabe290078cad16fb1561e07ac7ca4c61d3a0f398d1c7ad6234a4a277e",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "通过CSS定位类名已能实现许多效果，但您可以通过[主题定制](../../swizzling.mdx)解锁该功能的全部潜力。"
+      }
+    },
+    {
+      "segment_id": "96757ef3",
+      "source_content": "```bash npm2yarn\nnpm run swizzle @docusaurus/theme-classic CodeBlock/Line\n```",
+      "source_content_hash": "5a00bd37e135408a2816e97ba91f6c71bb6111d3c1bcf336ad4e365cc6d687d1",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_96757ef3"
+      }
+    },
+    {
+      "segment_id": "227b5df5",
+      "source_content": "The `Line` component will receive the list of class names, based on which you can conditionally render different markup.",
+      "source_content_hash": "03d3b1695c740aec811757403c4f061c500871c6ea7b56ed986e830361e9898e",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "`Line`组件将接收类名列表，您可据此有条件地渲染不同标记。"
+      }
+    },
+    {
+      "segment_id": "d15a149c",
+      "source_content": "## Line numbering {#line-numbering}",
+      "source_content_hash": "2c57be1c55d864a281647c38b85ab3b8685733ec772a4a5066e2785dcb8cf17e",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 行号显示 {#line-numbering}"
+      }
+    },
+    {
+      "segment_id": "b41b4d77",
+      "source_content": "You can enable line numbering for your code block by using `showLineNumbers` key within the language meta string (don't forget to add space directly before the key).",
+      "source_content_hash": "e92594f38758770544d53154ad4fd82e7bba2b813b53eaf5382c897b1d893f4a",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "在语言元字符串中使用`showLineNumbers`键可启用代码块行号显示（注意键名前需保留空格）。"
+      }
+    },
+    {
+      "segment_id": "b4d188d4",
+      "source_content": "````md\n```jsx showLineNumbers\nimport React from 'react';\n\nexport default function MyComponent(props) {\n  return <div>Foo</div>;\n}\n```\n````",
+      "source_content_hash": "dbcaf3133d2c6d61b9ab89994fc089abee072e046d58d687b91c54ed4fcd0b39",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_b4d188d4"
+      }
+    },
+    {
+      "segment_id": "12855fc6",
+      "source_content": "<BrowserWindow>\n\n```jsx showLineNumbers\nimport React from 'react';\n\nexport default function MyComponent(props) {\n  return <div>Foo</div>;\n}\n```\n\n</BrowserWindow>",
+      "source_content_hash": "42e135b4d35a2d74a0dd5f917390cfec6ef8ca0614eaa673232e6a9e3a8aa957",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_12855fc6"
+      }
+    },
+    {
+      "segment_id": "c4d69fe4",
+      "source_content": "By default, the counter starts at line number 1. It's possible to pass a custom counter start value to split large code blocks for readability:",
+      "source_content_hash": "918082746b40db99dc4625f526c7bb1a0e495b8c355ffda4cccf3a677ded6d25",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "默认从第1行开始计数。可通过自定义起始值拆分长代码块提升可读性："
+      }
+    },
+    {
+      "segment_id": "cb831e00",
+      "source_content": "````md\n```jsx showLineNumbers=3\nexport default function MyComponent(props) {\n  return <div>Foo</div>;\n}\n```\n````",
+      "source_content_hash": "3a32ad3addcd42cad80f34ac47ee6ea3481d3db4b12f369de54f153e10d7b6fc",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_cb831e00"
+      }
+    },
+    {
+      "segment_id": "e628df60",
+      "source_content": "<BrowserWindow>\n\n```jsx showLineNumbers=3\nexport default function MyComponent(props) {\n  return <div>Foo</div>;\n}\n```\n\n</BrowserWindow>",
+      "source_content_hash": "5bea5d5a3a3bb9a6ce0cf70dd4b205290261a8c93b3e041dea35727c5974d310",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_e628df60"
+      }
+    },
+    {
+      "segment_id": "babe18c8",
+      "source_content": "## Interactive code editor {#interactive-code-editor}",
+      "source_content_hash": "f7d713d352fc7ccc78092f8b89de45dbb309ac03fe172b10bb778db276afe8af",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 交互式代码编辑器 {#interactive-code-editor}"
+      }
+    },
+    {
+      "segment_id": "e3448845",
+      "source_content": "(Powered by [React Live](https://github.com/FormidableLabs/react-live))",
+      "source_content_hash": "44f9c8b0b5c8192aa7c29ff3b707f15da0dacdb547af52346d74af592408be17",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "（由[React Live](https://github.com/FormidableLabs/react-live)驱动）"
+      }
+    },
+    {
+      "segment_id": "0273ea32",
+      "source_content": "You can create an interactive coding editor with the `@docusaurus/theme-live-codeblock` plugin. First, add the plugin to your package.",
+      "source_content_hash": "da9ff349773c8087d793cc7e03aaa9913556245393ca892f9b54f266daa54450",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "通过`@docusaurus/theme-live-codeblock`插件可创建交互式代码编辑器。首先将插件添加到项目依赖。"
+      }
+    },
+    {
+      "segment_id": "86df7636",
+      "source_content": "```bash npm2yarn\nnpm install --save @docusaurus/theme-live-codeblock\n```",
+      "source_content_hash": "427ea4c8b04a9ea9902cddcf7144d1574ab5e32dc425b5bbd8ca81b6aad00a64",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_86df7636"
+      }
+    },
+    {
+      "segment_id": "2fc2d2cf",
+      "source_content": "You will also need to add the plugin to your `docusaurus.config.js`.",
+      "source_content_hash": "9b356d3ffb372ee8f6b16f07036465600199d804fa75f12694ff9e6fa4cc6092",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "同时需在`docusaurus.config.js`中配置该插件。"
+      }
+    },
+    {
+      "segment_id": "f412e370",
+      "source_content": "```js {3}\nexport default {\n  // ...\n  themes: ['@docusaurus/theme-live-codeblock'],\n  // ...\n};\n```",
+      "source_content_hash": "349b9efc10ea7e7098a15e5f305fce41565583a6d0f9033e0c0c5e7e3c18937d",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_f412e370"
+      }
+    },
+    {
+      "segment_id": "b79c3482",
+      "source_content": "To use the plugin, create a code block with `live` attached to the language meta string.",
+      "source_content_hash": "69e7405bc70739c65badc34e716fc2094c9f4ac93fd0b87a550a535fd3ef4f90",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "使用插件时，需在语言元字符串后附加`live`标识。"
+      }
+    },
+    {
+      "segment_id": "b91570a6",
+      "source_content": "````md\n```jsx live\nfunction Clock(props) {\n  const [date, setDate] = useState(new Date());\n  useEffect(() => {\n    const timerID = setInterval(() => tick(), 1000);\n\n    return function cleanup() {\n      clearInterval(timerID);\n    };\n  });\n\n  function tick() {\n    setDate(new Date());\n  }\n\n  return (\n    <div>\n      <h2>It is {date.toLocaleTimeString()}.</h2>\n    </div>\n  );\n}\n```\n````",
+      "source_content_hash": "91228edba2624c6660b3dde410afd79d575624fce06aec7ef3de3e29509b7900",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_b91570a6"
+      }
+    },
+    {
+      "segment_id": "9bc9e142",
+      "source_content": "The code block will be rendered as an interactive editor. Changes to the code will reflect on the result panel live.",
+      "source_content_hash": "1f7b0e964cf91488117c64602f776762c9b08f4e9d945ff545ac7360d3fae139",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "代码块将渲染为交互式编辑器，代码修改会实时反映在结果面板。"
+      }
+    },
+    {
+      "segment_id": "5b223f7f",
+      "source_content": "<BrowserWindow>\n\n```jsx live\nfunction Clock(props) {\n  const [date, setDate] = useState(new Date());\n  useEffect(() => {\n    const timerID = setInterval(() => tick(), 1000);\n\n    return function cleanup() {\n      clearInterval(timerID);\n    };\n  });\n\n  function tick() {\n    setDate(new Date());\n  }\n\n  return (\n    <div>\n      <h2>It is {date.toLocaleTimeString()}.</h2>\n    </div>\n  );\n}\n```\n\n</BrowserWindow>",
+      "source_content_hash": "7c2fcd621b7bcc6a948c8048aa0621458d60d594e3282b749edcab4012ae5b63",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_5b223f7f"
+      }
+    },
+    {
+      "segment_id": "dd33c745",
+      "source_content": "### Imports {#imports}",
+      "source_content_hash": "1a75f3f999090fafc723c51e0bc39dc5e3f5c59690fb3f197058679c3d8d46a5",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### 导入依赖 {#imports}"
+      }
+    },
+    {
+      "segment_id": "ed7d6a34",
+      "source_content": ":::warning[react-live and imports]\n\nIt is not possible to import components directly from the react-live code editor, you have to define available imports upfront.\n\n:::",
+      "source_content_hash": "1d35315fc77d476a683b6bd27da190fc794ea3043f03b446dc58444febd681d3",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::warning[react-live与导入限制]\n\n无法直接从react-live代码编辑器导入组件，必须预先声明可用导入项。\n\n:::"
+      }
+    },
+    {
+      "segment_id": "734995d4",
+      "source_content": "By default, all React imports are available. If you need more imports available, swizzle the react-live scope:",
+      "source_content_hash": "ea9a14429c5b240f4aa971e839a38cc747cd54864ada29520e570122d032901b",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "默认提供所有React导入。如需扩展导入范围，需定制react-live作用域："
+      }
+    },
+    {
+      "segment_id": "c9c0a81c",
+      "source_content": "```bash npm2yarn\nnpm run swizzle @docusaurus/theme-live-codeblock ReactLiveScope -- --eject\n```",
+      "source_content_hash": "0bdfb9efe5cd75453cdc562673fe110cc4f06942443cf625b6fc53c6a18eae92",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_c9c0a81c"
+      }
+    },
+    {
+      "segment_id": "b6fff5fe",
+      "source_content": "```jsx title=\"src/theme/ReactLiveScope/index.js\"\nimport React from 'react';\n\n// highlight-start\nconst ButtonExample = (props) => (\n  <button\n    {...props}\n    style={{\n      backgroundColor: 'white',\n      color: 'black',\n      border: 'solid red',\n      borderRadius: 20,\n      padding: 10,\n      cursor: 'pointer',\n      ...props.style,\n    }}\n  />\n);\n// highlight-end\n\n// Add react-live imports you need here\nconst ReactLiveScope = {\n  React,\n  ...React,\n  // highlight-next-line\n  ButtonExample,\n};\n\nexport default ReactLiveScope;\n```",
+      "source_content_hash": "c51e4bb9b070509b23984541eb9fd1de8fa3a630bf6391f39f1f78fa04945cb5",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_b6fff5fe"
+      }
+    },
+    {
+      "segment_id": "4fa5605e",
+      "source_content": "The `ButtonExample` component is now available to use:",
+      "source_content_hash": "306a5cb6ad34ab1fa38de74d0bbfb1777905c1e71df86cfaa6b4b739cfa531f4",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "此时`ButtonExample`组件即可使用："
+      }
+    },
+    {
+      "segment_id": "98ae50f8",
+      "source_content": "<BrowserWindow>\n\n```jsx live\nfunction MyPlayground(props) {\n  return (\n    <div>\n      <ButtonExample onClick={() => alert('hey!')}>Click me</ButtonExample>\n    </div>\n  );\n}\n```\n\n</BrowserWindow>",
+      "source_content_hash": "af568d6585e92895861a2618780601b3590a4a603ef13d71c8667f0573ff6aae",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_98ae50f8"
+      }
+    },
+    {
+      "segment_id": "ab6078b0",
+      "source_content": "### Imperative Rendering (noInline)",
+      "source_content_hash": "42753f987029260e436774c7fb7fb9a607d65c2dab462290e5d278364c62f6a2",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### 命令式渲染（noInline）"
+      }
+    },
+    {
+      "segment_id": "d66f9bc8",
+      "source_content": "The `noInline` option should be used to avoid errors when your code spans multiple components or variables.",
+      "source_content_hash": "cdf08e55323ab1e7ca63c5332f7acdc1d4320278d2a28e68531c278af68fea84",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "当代码涉及多个组件或变量时，应使用`noInline`选项避免错误。"
+      }
+    },
+    {
+      "segment_id": "d7f1274b",
+      "source_content": "````md\n```jsx live noInline\nconst project = 'Docusaurus';\n\nconst Greeting = () => <p>Hello {project}!</p>;\n\nrender(<Greeting />);\n```\n````",
+      "source_content_hash": "00abb86c8d79f3e3a4e5fb39f7d78a1235cb43f6b12457ca09983c8bd479f738",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_d7f1274b"
+      }
+    },
+    {
+      "segment_id": "d10e32d6",
+      "source_content": "Unlike an ordinary interactive code block, when using `noInline` React Live won't wrap your code in an inline function to render it.",
+      "source_content_hash": "43ffade0aaf7ae8b3ecc39fb301707f63ec60e39f5c23233b97a0246e3d13289",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "与普通交互式代码块不同，使用`noInline`时React Live不会将代码包裹在内联函数中渲染。"
+      }
+    },
+    {
+      "segment_id": "e93bb501",
+      "source_content": "You will need to explicitly call `render()` at the end of your code to display the output.",
+      "source_content_hash": "96ad0b5c533bde57cfde6274be82a4ac1d5ed4595e6fe481f2b0e8fc5f1b3ebd",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "需在代码末尾显式调用`render()`来显示输出。"
+      }
+    },
+    {
+      "segment_id": "5ea59838",
+      "source_content": "<BrowserWindow>\n\n```jsx live noInline\nconst project = \"Docusaurus\";\n\nconst Greeting = () => (\n  <p>Hello {project}!</p>\n);\n\nrender(\n  <Greeting />\n);\n```\n\n</BrowserWindow>",
+      "source_content_hash": "62fc10832a86218f05e152f0f623fa06de8c063e9c751e8cbec2fef0ce7125c1",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_5ea59838"
+      }
+    },
+    {
+      "segment_id": "f60afbc8",
+      "source_content": "## Using JSX markup in code blocks {#using-jsx-markup}",
+      "source_content_hash": "e1a694bbd69d75befb4e05092b19b26cd9a18bf227609255fa0f807cabb0e546",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 在代码块中使用JSX标记 {#using-jsx-markup}"
+      }
+    },
+    {
+      "segment_id": "9cd9a56c",
+      "source_content": "Code block in Markdown always preserves its content as plain text, meaning you can't do something like:",
+      "source_content_hash": "895f8c60957f3ba51f582c5ff7b4ae9bdb43d39b531f38411fb574d1ffd79897",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "Markdown中的代码块始终将其内容保留为纯文本，这意味着无法实现如下操作："
+      }
+    },
+    {
+      "segment_id": "320c2c43",
+      "source_content": "```ts\ntype EditUrlFunction = (params: {\n  // This doesn't turn into a link (for good reason!)\n  version: <a href=\"/docs/versioning\">Version</a>;\n  versionDocsDirPath: string;\n  docPath: string;\n  permalink: string;\n  locale: string;\n}) => string | undefined;\n```",
+      "source_content_hash": "30b8cc1d2c83fb75e200e3d96cc4b18970dc1ab6b4c902c97cbd733452736d71",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_320c2c43"
+      }
+    },
+    {
+      "segment_id": "a10f4259",
+      "source_content": "If you want to embed HTML markup such as anchor links or bold type, you can use the `<pre>` tag, `<code>` tag, or `<CodeBlock>` component.",
+      "source_content_hash": "2e6f9e74c1a4ab7649e35d10bdfe1e8779d122a27a228ca5ffd3e9773b37893e",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "如需嵌入锚链接或加粗文本等HTML标记，可使用`<pre>`标签、`<code>`标签或`<CodeBlock>`组件。"
+      }
+    },
+    {
+      "segment_id": "bcfd862a",
+      "source_content": "```jsx\n<pre>\n  <b>Input: </b>1 2 3 4{'\\n'}\n  <b>Output: </b>\"366300745\"{'\\n'}\n</pre>\n```",
+      "source_content_hash": "51a2c769cb5b93b94836e93c8244b7ce672440c66bdc34de299ee49d3e877f47",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_bcfd862a"
+      }
+    },
+    {
+      "segment_id": "102b5713",
+      "source_content": "<BrowserWindow>\n  <pre>\n    <b>{'Input: '}</b>\n    {'1 2 3 4\\n'}\n    <b>{'Output: '}</b>\n    {'\"366300745\"\\n'}\n  </pre>\n</BrowserWindow>",
+      "source_content_hash": "58f05c8b5df16f6e4216dd02036686a201d736c896b12975213ec85fc71b350e",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_102b5713"
+      }
+    },
+    {
+      "segment_id": "8873ba67",
+      "source_content": ":::warning[MDX is whitespace insensitive]\n\nMDX is in line with JSX behavior: line break characters, even when inside `<pre>`, are turned into spaces. You have to explicitly write the new line character for it to be printed out.\n\n:::",
+      "source_content_hash": "2e09a77190c058587a9f3a1362605ae1899034c238e59485535a87f7a6c60c06",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::warning[MDX对空白符不敏感]\n\nMDX遵循JSX行为规范：即使位于`<pre>`内，换行符也会被转为空格。必须显式写入换行符才能输出。\n\n:::"
+      }
+    },
+    {
+      "segment_id": "9be76f0c",
+      "source_content": ":::warning\n\nSyntax highlighting only works on plain strings. Docusaurus will not attempt to parse code block content containing JSX children.\n\n:::",
+      "source_content_hash": "01946ab2cc6168de7f182d507c6f2dbace21ccfb47a972997e6b64f84003cebb",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::warning\n\n语法高亮仅对纯字符串有效。Docusaurus不会尝试解析包含JSX子元素的代码块内容。\n\n:::"
+      }
+    },
+    {
+      "segment_id": "31962a34",
+      "source_content": "## Multi-language support code blocks {#multi-language-support-code-blocks}",
+      "source_content_hash": "26a0fc8e3f45e24b7b218b65654eb165b356bdb6e3777f869afbfdad2f20f15b",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 多语言支持代码块 {#multi-language-support-code-blocks}"
+      }
+    },
+    {
+      "segment_id": "92bceadb",
+      "source_content": "With MDX, you can easily create interactive components within your documentation, for example, to display code in multiple programming languages and switch between them using a tabs component.",
+      "source_content_hash": "b80de21e6af038b02b1dea7c941744425cb49b67b3cf6ac8c5eea190dba503b1",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "借助 MDX，您可以轻松在文档中创建交互式组件，例如通过标签页组件展示多种编程语言的代码并实现切换。"
+      }
+    },
+    {
+      "segment_id": "342196de",
+      "source_content": "Instead of implementing a dedicated component for multi-language support code blocks, we've implemented a general-purpose [`<Tabs>`](./markdown-features-tabs.mdx) component in the classic theme so that you can use it for other non-code scenarios as well.",
+      "source_content_hash": "5f14ee7657f530e62e735a67dc56c1deff7c6dd723731ccf76cd132d8129624e",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "我们并未专门为多语言代码块开发独立组件，而是在经典主题中实现了一个通用 [`<Tabs>`](./markdown-features-tabs.mdx) 组件，以便您也能将其用于非代码场景。"
+      }
+    },
+    {
+      "segment_id": "639b6949",
+      "source_content": "The following example is how you can have multi-language code tabs in your docs. Note that the empty lines above and below each language block are **intentional**. This is a [current limitation of MDX](./markdown-features-react.mdx#markdown-and-jsx-interoperability): you have to leave empty lines around Markdown syntax for the MDX parser to know that it's Markdown syntax and not JSX.",
+      "source_content_hash": "53ddb10f784bc39d20f968bd0b7ac05ffb2b6face5ffa7098faa2674e11df38f",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "以下示例展示了如何在文档中实现多语言代码标签页。请注意各语言块上下方的空行是**刻意保留**的，这是 [MDX 当前限制](./markdown-features-react.mdx#markdown-and-jsx-interoperability)：必须用空行分隔 Markdown 语法，MDX 解析器才能将其与 JSX 区分开。"
+      }
+    },
+    {
+      "segment_id": "540dcfaf",
+      "source_content": "````jsx\nimport Tabs from '@theme/Tabs';\nimport TabItem from '@theme/TabItem';\n\n<Tabs>\n<TabItem value=\"js\" label=\"JavaScript\">\n\n```js\nfunction helloWorld() {\n  console.log('Hello, world!');\n}\n```\n\n</TabItem>\n<TabItem value=\"py\" label=\"Python\">\n\n```py\ndef hello_world():\n  print(\"Hello, world!\")\n```\n\n</TabItem>\n<TabItem value=\"java\" label=\"Java\">\n\n```java\nclass HelloWorld {\n  public static void main(String args[]) {\n    System.out.println(\"Hello, World\");\n  }\n}\n```\n\n</TabItem>\n</Tabs>\n````",
+      "source_content_hash": "19e5945f38a95faa31b54f2ad743a7d8f18d69ebd41c2af1d6696cf64c43d48c",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_540dcfaf"
+      }
+    },
+    {
+      "segment_id": "664ad775",
+      "source_content": "And you will get the following:",
+      "source_content_hash": "49d0c372e86c0f32d7270479dac78dac10dc391e56c38941e07e4a2380abc8de",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "最终效果如下："
+      }
+    },
+    {
+      "segment_id": "70abc77f",
+      "source_content": "<BrowserWindow>\n<Tabs>\n<TabItem value=\"js\" label=\"JavaScript\">\n\n```js\nfunction helloWorld() {\n  console.log('Hello, world!');\n}\n```\n\n</TabItem>\n<TabItem value=\"py\" label=\"Python\">\n\n```py\ndef hello_world():\n  print(\"Hello, world!\")\n```\n\n</TabItem>\n<TabItem value=\"java\" label=\"Java\">\n\n```java\nclass HelloWorld {\n  public static void main(String args[]) {\n    System.out.println(\"Hello, World\");\n  }\n}\n```\n\n</TabItem>\n</Tabs>\n</BrowserWindow>",
+      "source_content_hash": "ad44d36476f7cc7877c7345474c88b46b27e53453911ac0096983f136688e7a2",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_70abc77f"
+      }
+    },
+    {
+      "segment_id": "bd471ae9",
+      "source_content": "If you have multiple of these multi-language code tabs, and you want to sync the selection across the tab instances, refer to the [Syncing tab choices section](markdown-features-tabs.mdx#syncing-tab-choices).",
+      "source_content_hash": "13c07e2393b19b674efdd1c495ed38cd088e822d47044c008a8f1df706d1e2ad",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "若存在多个多语言代码标签页且需要同步标签选择状态，请参考[同步标签选择章节](markdown-features-tabs.mdx#syncing-tab-choices)。"
+      }
+    },
+    {
+      "segment_id": "755ba429",
+      "source_content": "### Docusaurus npm2yarn remark plugin {#npm2yarn-remark-plugin}",
+      "source_content_hash": "9a030ec049566379e00014f162445c60bbae1c2e33d5739eee2a5cfa23960be7",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### Docusaurus npm2yarn 备注插件 {#npm2yarn-remark-plugin}"
+      }
+    },
+    {
+      "segment_id": "47f2d66d",
+      "source_content": "Displaying CLI commands in both npm and Yarn is a very common need, for example:",
+      "source_content_hash": "399e5053745e86e44cff6616b6c424184c93e5b795de9a5a17a8f42e033970f4",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "同时展示 npm 和 Yarn 的 CLI 命令是常见需求，例如："
+      }
+    },
+    {
+      "segment_id": "4d1ee5aa",
+      "source_content": "```bash npm2yarn\nnpm install @docusaurus/remark-plugin-npm2yarn\n```",
+      "source_content_hash": "321ac08343c7f36e9698f73fd49238628a1cedc76c7bfa36bb3eb272bfa8e330",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_4d1ee5aa"
+      }
+    },
+    {
+      "segment_id": "75e2e289",
+      "source_content": "Docusaurus provides such a utility out of the box, freeing you from using the `Tabs` component every time. To enable this feature, first install the `@docusaurus/remark-plugin-npm2yarn` package as above, and then in `docusaurus.config.js`, for the plugins where you need this feature (doc, blog, pages, etc.), register it in the `remarkPlugins` option. (See [Docs configuration](../../api/plugins/plugin-content-docs.mdx#ex-config) for more details on configuration format)",
+      "source_content_hash": "3233c7b450a20968e57e56cb808a3897cead2f9b7a7189b343247810b2ff842f",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "Docusaurus 内置了此功能，无需每次使用 `Tabs` 组件。启用该功能需先安装 `@docusaurus/remark-plugin-npm2yarn` 包，然后在 `docusaurus.config.js` 中为需要此功能的插件（文档、博客、页面等）在 `remarkPlugins` 选项注册。（配置格式详见[文档配置](../../api/plugins/plugin-content-docs.mdx#ex-config)）"
+      }
+    },
+    {
+      "segment_id": "1c28144c",
+      "source_content": "```js title=\"docusaurus.config.js\"\nexport default {\n  // ...\n  presets: [\n    [\n      '@docusaurus/preset-classic',\n      {\n        docs: {\n          // highlight-start\n          remarkPlugins: [\n            [require('@docusaurus/remark-plugin-npm2yarn'), {sync: true}],\n          ],\n          // highlight-end\n        },\n        pages: {\n          // highlight-next-line\n          remarkPlugins: [require('@docusaurus/remark-plugin-npm2yarn')],\n        },\n        blog: {\n          // highlight-start\n          remarkPlugins: [\n            [\n              require('@docusaurus/remark-plugin-npm2yarn'),\n              {converters: ['pnpm']},\n            ],\n          ],\n          // highlight-end\n          // ...\n        },\n      },\n    ],\n  ],\n};\n```",
+      "source_content_hash": "6497b9fad4e071681a5d5bb529caec3350e6d6482215ce99f4e59a06ff54421f",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_1c28144c"
+      }
+    },
+    {
+      "segment_id": "82467fd7",
+      "source_content": "And then use it by adding the `npm2yarn` key to the code block:",
+      "source_content_hash": "eae1d8cc62a56d18b68c7a18f974b78f63b6fe605b9ef5dc5032f70439170623",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "随后在代码块中添加 `npm2yarn` 键即可使用："
+      }
+    },
+    {
+      "segment_id": "85c99f1f",
+      "source_content": "````md\n```bash npm2yarn\nnpm install @docusaurus/remark-plugin-npm2yarn\n```\n````",
+      "source_content_hash": "765dce3a21d0f5868e50bb683cd1068457230f0d3c4c8396dcfa8e39f871c29f",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_85c99f1f"
+      }
+    },
+    {
+      "segment_id": "cb6a6950",
+      "source_content": "#### Configuration {#npm2yarn-remark-plugin-configuration}",
+      "source_content_hash": "4f45dcc396fe264471d1005837139080b1c6a79924adfe897e804da950524d5a",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "#### 配置项 {#npm2yarn-remark-plugin-configuration}"
+      }
+    },
+    {
+      "segment_id": "510d71ae",
+      "source_content": "| Option | Type | Default | Description |\n| --- | --- | --- | --- |\n| `sync` | `boolean` | `false` | Whether to sync the selected converter across all code blocks. |\n| `converters` | `array` | `'yarn'`, `'pnpm'` | The list of converters to use. The order of the converters is important, as the first converter will be used as the default choice. |",
+      "source_content_hash": "007b566eb3ae76da501f8142ae7f318c29d02e68e8ef9405ec9904db9e690410",
+      "node_type": "table",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_510d71ae"
+      }
+    },
+    {
+      "segment_id": "6684656d",
+      "source_content": "## Usage in JSX {#usage-in-jsx}",
+      "source_content_hash": "356d216a51952d4207c921c3a4b4726992382e086b1be3e36022995eefa24657",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 在 JSX 中使用 {#usage-in-jsx}"
+      }
+    },
+    {
+      "segment_id": "a54b7323",
+      "source_content": "Outside of Markdown, you can use the `@theme/CodeBlock` component to get the same output.",
+      "source_content_hash": "bcb57be46edef470544217cc88e88584cd1111cf61f0523783af42c724722fcc",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "在 Markdown 之外，您可以使用 `@theme/CodeBlock` 组件获得相同输出效果。"
+      }
+    },
+    {
+      "segment_id": "e8f60f27",
+      "source_content": "```jsx\nimport CodeBlock from '@theme/CodeBlock';\n\nexport default function MyReactPage() {\n  return (\n    <div>\n      {/* highlight-start */}\n      <CodeBlock\n        language=\"jsx\"\n        title=\"/src/components/HelloCodeTitle.js\"\n        showLineNumbers>\n        {`function HelloCodeTitle(props) {\n  return <h1>Hello, {props.name}</h1>;\n}`}\n      </CodeBlock>\n      {/* highlight-end */}\n    </div>\n  );\n}\n```",
+      "source_content_hash": "9def2b60f99d4540d77a2ec1cabe3b51be2ef9241ad495061b5f6c8059ce72b2",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_e8f60f27"
+      }
+    },
+    {
+      "segment_id": "d6f807e0",
+      "source_content": "<BrowserWindow>\n  <CodeBlock\n    language=\"jsx\"\n    title=\"/src/components/HelloCodeTitle.js\"\n    showLineNumbers>\n    {`function HelloCodeTitle(props) {\n  return <h1>Hello, {props.name}</h1>;\n}`}\n  </CodeBlock>\n</BrowserWindow>",
+      "source_content_hash": "d0c9e699c867456d0e7bf018971e45e3a47689b3fb5116983e527470f8d2f5c9",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_d6f807e0"
+      }
+    },
+    {
+      "segment_id": "b19ccef1",
+      "source_content": "The props accepted are `language`, `title` and `showLineNumbers`, in the same way as you write Markdown code blocks.",
+      "source_content_hash": "71eba0f05ee3a7e06a3fa45b27eb93d3c468a82aa1fdc30085828271ac1565fe",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "该组件接受的属性包括 `language`、`title` 和 `showLineNumbers`，与 Markdown 代码块的书写方式相同。"
+      }
+    },
+    {
+      "segment_id": "7e4076cc",
+      "source_content": "Although discouraged, you can also pass in a `metastring` prop like `metastring='{1-2} title=\"/src/components/HelloCodeTitle.js\" showLineNumbers'`, which is how Markdown code blocks are handled under the hood. However, we recommend you [use comments for highlighting lines](#highlighting-with-comments).",
+      "source_content_hash": "51bb1a9c5018dba918b23e5675b7cea2ec77851a1d56e1c8d490752e0527341b",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "虽然不推荐，您也可以传递 `metastring` 属性，例如 `metastring='{1-2} title=\"/src/components/HelloCodeTitle.js\" showLineNumbers'`，这是 Markdown 代码块的底层实现方式。但我们建议您[使用注释进行行高亮](#highlighting-with-comments)。"
+      }
+    },
+    {
+      "segment_id": "e7ded1fc",
+      "source_content": "As [previously stated](#using-jsx-markup), syntax highlighting is only applied when the children is a simple string.",
+      "source_content_hash": "151882455b0d08b9bd98597052922e32c38d51250a1dedd9ad5f51bc27121098",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "如前文[所述](#using-jsx-markup)，语法高亮仅在子内容为纯文本字符串时生效。"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs/version-3.8.0/guides/markdown-features/markdown-features-code-blocks.mdx",
+  "last_updated_timestamp": "2025-06-03T17:28:36.121230+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "zh-CN": "d843dbad0d2613e6c39707dd150c1c6feeac42748d735e53c214de4248ed8aea"
+  }
+}

@@ -1,0 +1,412 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "blog/2017/12-14-introducing-docusaurus.mdx",
+  "source_file_content_hash": "83d193dd9afbb4de50e6e920f289a44f5513b606d8ba6ff5183032d258fef072",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\ntitle: Introducing Docusaurus\nauthors: JMarcey\ntags: [documentation, blog, docusaurus]\n---",
+      "source_content_hash": "a9972065596e00e07782d2c89cf11f6ba96f360dc0599c2185da924d1f93f9c5",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "6ef78e84",
+      "source_content": "![](/img/slash-introducing.svg)",
+      "source_content_hash": "1488a72a4d0a77f0b5b33f79457cc24b118186d9b7d4c176755ea24c196663a2",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "![](/img/slash-introducing.svg)"
+      }
+    },
+    {
+      "segment_id": "53eaf0e1",
+      "source_content": "We are very happy to introduce [Docusaurus](https://github.com/facebook/docusaurus) to help you manage one or many open source websites.",
+      "source_content_hash": "b80cb06fe449e6b7d912c39b58f6233510f15ef78afff6901cac5f97ebaa29e5",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "我们非常高兴地向您介绍[Docusaurus](https://github.com/facebook/docusaurus)，它将帮助您管理一个或多个开源项目网站。"
+      }
+    },
+    {
+      "segment_id": "8ac585fb",
+      "source_content": "We created [Docusaurus](https://docusaurus.io) for the following reasons:",
+      "source_content_hash": "e9f931f1f59de30135804bdefe06b03adfc4a8b29ecc5331ecbc0cc5266b056a",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "我们创建[Docusaurus](https://docusaurus.io)的初衷如下："
+      }
+    },
+    {
+      "segment_id": "730c423c",
+      "source_content": "1. To put the focus on writing good documentation instead of worrying about the infrastructure of a website.\n1. To provide features that many of our open source websites need like blog support, search and versioning.\n1. To make it easy to push updates, new features, and bug fixes to everyone all at once.\n1. And, finally, to provide a consistent look and feel across all of our open source projects.",
+      "source_content_hash": "7426f1be5e4ba8e4030d111e4538374b90865e97823da72aa0b03f0064aa3549",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "1. 让开发者专注于撰写优质文档，而无需操心网站基础设施搭建\n1. 提供开源网站常用的核心功能：博客支持、搜索和版本管理\n1. 实现功能更新和缺陷修复的批量推送\n1. 最终为所有开源项目提供统一的视觉风格"
+      }
+    },
+    {
+      "segment_id": "45c63027",
+      "source_content": "<!--truncate-->",
+      "source_content_hash": "f5cded2aa7e288e395fe4f67f9dabda2281904b2f5358d07302b3aa8be0acdfa",
+      "node_type": "comment",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_45c63027"
+      }
+    },
+    {
+      "segment_id": "1acb9a05",
+      "source_content": "Docusaurus is a tool designed to make it easy for teams to publish documentation websites without having to worry about the infrastructure and design details. At its core, all a user has to provide are documentation files written in Markdown, customization of a provided home page written in React, and a few configuration modifications. Docusaurus handles the rest by providing default styles, site formatting, and simple document navigation. Getting started is easy, as users can [install](https://v1.docusaurus.io/docs/en/installation.html) it using `npm` or `yarn` via a simple initialization script that [creates a working example website out of the box](https://v1.docusaurus.io/docs/en/site-preparation.html).",
+      "source_content_hash": "913ba95cd2b0b3fa9900932080a4e33a88e17715d4917bea2d7ef79e43b17623",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "Docusaurus是一款旨在帮助团队轻松发布文档网站的工具，用户无需关注底层架构和设计细节。其核心工作流程只需用户提供：Markdown格式的文档文件、基于React编写的首页定制，以及少量配置修改。Docusaurus将自动处理样式设置、网站排版和文档导航等基础工作。通过简单的[npm或yarn安装](https://v1.docusaurus.io/docs/en/installation.html)，运行初始化脚本即可[快速生成可直接运行的示例网站](https://v1.docusaurus.io/docs/en/site-preparation.html)。"
+      }
+    },
+    {
+      "segment_id": "2df4f75f",
+      "source_content": "Docusaurus also provides core website and documentation features out-of-the-box including [blog support](https://v1.docusaurus.io/docs/en/blog.html), [internationalization](https://v1.docusaurus.io/docs/en/translation.html), [search](https://v1.docusaurus.io/docs/en/search.html), and [versioning](https://v1.docusaurus.io/docs/en/versioning.html). While some projects may not require any of these features, enabling them is generally a matter of updating configuration options instead of having to add the infrastructure from the ground up. As more features get added to Docusaurus, users just can easily update to the latest version. This can be done by simply running npm or yarn update and updating configuration options. Users or teams will no longer need to manually rework their entire website infrastructure each time a new feature gets added.",
+      "source_content_hash": "c9062a5dda9ab4e0c2b5ac8fef403c8b6fc2a906e80b81c1e7961b504823934a",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "Docusaurus默认提供多项核心功能：[博客支持](https://v1.docusaurus.io/docs/en/blog.html)、[国际化](https://v1.docusaurus.io/docs/en/translation.html)、[搜索](https://v1.docusaurus.io/docs/en/search.html)和[版本控制](https://v1.docusaurus.io/docs/en/versioning.html)。这些功能可通过配置选项快速启用，无需从零搭建基础设施。当新功能加入时，用户只需更新npm/yarn依赖并调整配置即可，彻底告别手动重构网站架构的繁琐流程。"
+      }
+    },
+    {
+      "segment_id": "95b38f97",
+      "source_content": "## The Birth of docusaurus",
+      "source_content_hash": "b38bfd08b43e2a6d9afbbaa83b7f2e682b8f26481f15bb191ec77b18a2640939",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## Docusaurus的诞生"
+      }
+    },
+    {
+      "segment_id": "ccc88b4c",
+      "source_content": "![](/img/slash-birth.png)",
+      "source_content_hash": "ee53d8892b605934dc12991c4e49095014b9dc22d9846739f3c8310774a478ff",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "![](/img/slash-birth.png)"
+      }
+    },
+    {
+      "segment_id": "d9172fa4",
+      "source_content": "When Facebook first started their open source program, many teams implemented a custom website for each of their open source projects. This approach presented challenges when the open source program team was asked to help the project teams improve their documentation. Since each site was unique, adding basic infrastructure such as a blog, consistent navigation, search, etc. became challenging undertakings.",
+      "source_content_hash": "8649e10d3d463653ae37e53a61c2ea2b21ab2f1960d50ce3c5fb62e74fab5cb3",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "当Facebook最初启动开源计划时，各团队为每个开源项目都独立开发了定制网站。这种模式在需要改进项目文档时面临巨大挑战——由于每个站点都是独特的，添加博客、统一导航、搜索等基础功能都成为艰巨任务。"
+      }
+    },
+    {
+      "segment_id": "26524352",
+      "source_content": "The open source team tried to help mitigate this problem by coming up with a standard template, based on Jekyll, that could be used as a starting point for a project website. We asked our new projects to manually copy our template source to their repo, write their docs, and publish. This template approach was adopted by most of open source projects launched; some existing projects even converted their custom website implementations to the new template as well.",
+      "source_content_hash": "2a39c1601b87dbfec3e56997c610b5a783e9e8bcb04195bc5692c483a725b0e4",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "开源团队尝试通过基于Jekyll的标准模板来缓解这个问题，要求新项目手动复制模板到代码库后编写文档并发布。该方案被大多数新开源项目采纳，部分现有项目甚至将其定制网站迁移至新模板。"
+      }
+    },
+    {
+      "segment_id": "73ab96a3",
+      "source_content": "The problem with the \"copy the template to your repo\" approach is that, even though the platform is consistent, pushing updates becomes unmaintainable across an entire suite of projects already using the template. This is because we lost control of the template after a project copied it to their repo. Projects were free to modify the template as desired and apply their own project-specific features to it. So while projects share the same site generation platform, they have now diverted enough where they cannot take advantage of the new features we have added to the template over time. There was no easy way we could ask all current projects to \"copy\" a new version of the template since it might break their existing site or remove features that they have added on their own. Instead, we would have to apply the updates manually to each project one-by-one. This became very problematic when projects started asking for our team for internationalization support within the template, requiring low-level changes to how the template was structured and generated.",
+      "source_content_hash": "4ac3e7cad8f863bdf9bdd385f6aa55720d9e2cea83a9290db500494e76ea4904",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "\"复制模板\"方案的致命缺陷在于：虽然初始平台一致，但后续更新无法在已采用模板的项目中同步维护。因为项目在复制模板后可以自由修改，导致各项目逐渐产生差异化。当模板新增功能时，这些项目由于本地化修改而无法直接受益。更棘手的是，要求所有项目\"重新复制\"新版模板可能破坏现有站点或删除他们自行添加的功能。特别是在项目提出国际化需求时，这种需要改动模板底层架构的情况，迫使我们不得不为每个项目单独手动更新。"
+      }
+    },
+    {
+      "segment_id": "7499a4e7",
+      "source_content": "So we started thinking about what we could do to help mitigate the challenge of keeping sites updated and consistent across our entire portfolio. We also wanted multiple projects to share the same site generation software. We wanted them to start out with the same template, and yet have the flexibility to customize and adapt their site theme to suit their needs. They should be able to extend and customize their site, but when we update the underlying infrastructure with fixes and features, the project should be able update simply and without any breaking changes.",
+      "source_content_hash": "b3b8a915cf415ca9ff3718193a675ea29288d7439547a9576f2d4cdbef5fe906",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "于是我们开始思考如何解决跨项目网站更新与风格统一的问题。我们希望多个项目能共享同一套站点生成系统——它们应当以相同模板为起点，同时保留自定义主题的灵活性。项目可以自由扩展和定制站点，但当我们更新底层基础设施时，它们只需简单升级而无需担心破坏性变更。"
+      }
+    },
+    {
+      "segment_id": "517051a7",
+      "source_content": "Docusaurus was born!",
+      "source_content_hash": "c4a446efa47cbfc102c5b0ffa8d3aae39a8ece4fd0deead8492633580d97953b",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "Docusaurus 由此诞生！"
+      }
+    },
+    {
+      "segment_id": "135468ee",
+      "source_content": "At Facebook, Docusaurus allows us to quickly get different projects up and running with documentation websites, especially for teams who don't have much experience with web development or primarily want a basic site to showcase their project. Docusaurus already supports sites needing more advanced features like internationalization for Jest and versioning for React Native. As different projects request new features for their sites, they are added to Docusaurus and simultaneously provided to all projects! All together, this ends up greatly reducing the work needed to maintain different sites for different projects. Our teams are able to focus on keeping their projects healthier by spending more time adding features, fixing bugs, and writing documentation.",
+      "source_content_hash": "d9edb5b0b8b275f644a24665517cff50ca3eccaaccd29f9af79e990000844eee",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "在Facebook内部，Docusaurus 能快速为不同项目搭建文档网站，尤其适合缺乏Web开发经验的团队或仅需基础展示页面的项目。它已支持高级功能如 Jest 的国际化需求和 React Native 的版本控制。当不同项目提出新需求时，这些功能会被集成到 Docusaurus 并同步提供给所有项目！这大幅减少了维护不同项目站点的工作量，让团队能更专注于功能开发、缺陷修复和文档编写，从而保持项目健康度。"
+      }
+    },
+    {
+      "segment_id": "782c902a",
+      "source_content": "## Getting Up and Running",
+      "source_content_hash": "3e95dd330781996ea8d4544df190303b4cdfc67d2bb8e0ccbd50b8cbd2dc8cc1",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 快速入门"
+      }
+    },
+    {
+      "segment_id": "50746522",
+      "source_content": "![](/img/slash-up-and-running.png)",
+      "source_content_hash": "edaf0e13e6fa42bf21d4f2ab20a3e85d22e15a7f1324e482a11e8bc6212457f5",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "![](/img/slash-up-and-running.png)"
+      }
+    },
+    {
+      "segment_id": "95e9ba12",
+      "source_content": "At its core, we wanted sites running Docusaurus to be simple to use. With one [installation](https://v1.docusaurus.io/docs/en/installation.html) command and some simple [configuration](https://v1.docusaurus.io/docs/en/site-preparation.html), you can actually have a default running website.",
+      "source_content_hash": "4d1c5c19d43b27427b279458ca4ae9a460c0d1dac8b684a41e07a0086a904b20",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "我们致力于让 Docusaurus 站点简单易用。只需执行一条[安装](https://v1.docusaurus.io/docs/en/installation.html)命令并完成基础[配置](https://v1.docusaurus.io/docs/en/site-preparation.html)，您就能立即获得一个可运行的默认网站。"
+      }
+    },
+    {
+      "segment_id": "8af76f3d",
+      "source_content": "When you run `docusaurus-init`, you will see a structure similar to:",
+      "source_content_hash": "a463dac69c698f2cf6f1931d664bb6c2ac6ea2a0b4f822bf14792ec93f886edd",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "运行 `docusaurus-init` 后，您将看到如下结构："
+      }
+    },
+    {
+      "segment_id": "48ec8149",
+      "source_content": "```bash\nroot-of-repo\n├── docs-examples-from-docusaurus\n│   ├── doc1.md\n│   ├── doc2.md\n│   ├── doc3.md\n│   ├── example-doc4.md\n│   └── example-doc5.md\n├── website\n│   ├── blog-examples-from-docusaurus\n│   │   ├── 2016-03-11-blog-post.md\n│   │   └── 2017-04-10-blog-post-two.md\n│   ├── core\n│   │   └── Footer.js\n│   ├── node_modules\n│   ├── package.json\n│   ├── pages\n│   ├── sidebars.json\n│   ├── siteConfig.js\n│   └── static\n```",
+      "source_content_hash": "658e62a563772883d1350c0364967a3dd19ff8dbab1db6379ed43e26db4a05a2",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_48ec8149"
+      }
+    },
+    {
+      "segment_id": "7f71ff2a",
+      "source_content": "With the exception of node_modules and package.json, all the directories and files you see are where you customize and add content to your Docusaurus-based website. The docs folder is where you add your Markdown that represents your documentation; the blog folder is where you add your Markdown for your [blog posts](https://v1.docusaurus.io/docs/en/blog.html); `siteConfig.js` is where you make most of the [customizations](https://v1.docusaurus.io/docs/en/site-config.html) for your site; `sidebars.json` is where you maintain the layout and content of the [sidebar](https://v1.docusaurus.io/docs/en/navigation.html) for your documentation; the `pages` folder is where you add [custom](https://v1.docusaurus.io/docs/en/custom-pages.html) pages for your site; the `static` folder is where all of your static assets go (e.g., CSS stylesheets and images); and the `core` folder is where you can customize core components of the site, in this case the footer.",
+      "source_content_hash": "00d0f304a37df92cf43b2b3b35277f87655fff3f03817e0baea21632b1b460ef",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "除 node_modules 和 package.json 外，所有目录文件都用于定制您的 Docusaurus 网站：docs 文件夹存放 Markdown 格式的文档；blog 文件夹存放[博客文章](https://v1.docusaurus.io/docs/en/blog.html)的 Markdown；`siteConfig.js` 是主要的[站点配置](https://v1.docusaurus.io/docs/en/site-config.html)文件；`sidebars.json` 控制文档[侧边栏](https://v1.docusaurus.io/docs/en/navigation.html)布局；`pages` 文件夹添加[自定义页面](https://v1.docusaurus.io/docs/en/custom-pages.html)；`static` 文件夹存放静态资源（如CSS样式表和图片）；`core` 文件夹则可定制站点核心组件（如页脚）。"
+      }
+    },
+    {
+      "segment_id": "047c2395",
+      "source_content": "## How does Docusaurus work?",
+      "source_content_hash": "4d722fdbbb0e18aefceb7a8990db65475efb41da8dd0f11d79980df46a5434bc",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 工作原理"
+      }
+    },
+    {
+      "segment_id": "883231d4",
+      "source_content": "Docusaurus is written primarily in JavaScript and [React](https://facebook.github.io/react), replacing Jekyll which we used in the old template. We use [Remarkable](https://github.com/jonschlinkert/remarkable) for our Markdown rendering and [highlight.js](https://highlightjs.org/) for our code block syntax highlighting. The core of Docusaurus' functionality is in the [lib directory](https://github.com/facebookexperimental/Docusaurus/tree/master/lib) of the [Docusaurus repo](https://github.com/facebook/docusaurus/). The general structure looks like:",
+      "source_content_hash": "be81a8306bf323fbc15cad888917d822d6867e4e230c1e62dd28f79a2b6c380b",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "Docusaurus 主要基于 JavaScript 和 [React](https://facebook.github.io/react) 开发，取代了旧模板使用的 Jekyll。我们采用 [Remarkable](https://github.com/jonschlinkert/remarkable) 渲染 Markdown，使用 [highlight.js](https://highlightjs.org/) 实现代码块语法高亮。核心功能位于 [Docusaurus 代码库](https://github.com/facebook/docusaurus/)的 [lib 目录](https://github.com/facebookexperimental/Docusaurus/tree/master/lib)，其结构如下："
+      }
+    },
+    {
+      "segment_id": "468b36ba",
+      "source_content": "```bash\nroot-of-Docusaurus\n├── lib\n│   ├── core\n│   ├── server\n│   │   ├── generate.js\n│   │   ├── server.js\n│   │   └── ...and more files\n│   ├── static\n│   ├── build-files.js\n│   ├── copy-examples.js\n│   ├── generate-feed.js\n│   ├── publish-gh-pages.js\n│   ├── rename-version.js\n│   ├── start-server.js\n│   ├── versions.js\n│   └── write-translations.js\n```",
+      "source_content_hash": "e78b947cead96ba11a7b51911e10c8b8130da6687bbfd2e8efbf0f114c67913b",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_468b36ba"
+      }
+    },
+    {
+      "segment_id": "785750ac",
+      "source_content": "The key files here are build-files.js and start-server.js. There are many similarities between these two files: `build-files.js` is used to build the physical artifacts for serving by an external web server. `start-server.js` is used to run the Docusaurus server and locally test your site. Both go through the following general process to take all of the Markdown and configuration to create a runnable website:",
+      "source_content_hash": "cadecf8e3bf820eb1a5f85c7e420fa86525cfdaf0d5a6980b4e3cfad0066ce68",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "关键文件是 build-files.js 和 start-server.js：前者生成供外部服务器部署的物理文件，后者用于本地运行测试。两者都遵循相同流程——通过解析所有 Markdown 和配置文件来构建可运行网站："
+      }
+    },
+    {
+      "segment_id": "b264104e",
+      "source_content": "1. Process your website settings in `siteConfig.js`\n1. Read the document metadata that exists in all the Markdown files in your docs directory.\n1. Create a table of contents for your documents based upon the IDs extracted from the metadata.\n1. Convert the Markdown to HTML, including doing link replacement.\n1. These files will go in a build/docs directory of the compiled site, and any translated versions will go into a language specific folder within the build/docs folder.\n1. Repeat 1-3 for blog posts.\n1. The blog file will go in a build/blog directory of the compiled site.\n1. Read the main.css file and concatenate any user-defined css into master css file that will be in the build/css directory of the compiled site.\n1. Copy images into an build/img directory of the compiled site.\n1. Take any custom pages that were added to the pages folder of the site and compile/copy those into the root build directory of the compiled site. Any translated versions will go into a language specific folder within build.\n1. Create CNAME and sitemap.xml files and add those to build.",
+      "source_content_hash": "20d19702a52af2591876e2319e21b5e230253752ca38ceea77ef44aafc9a25a1",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "1. 在 `siteConfig.js` 中处理您的网站设置\n1. 读取文档目录中所有 Markdown 文件内的元数据\n1. 根据从元数据提取的 ID 创建文档目录表\n1. 将 Markdown 转换为 HTML（包括链接替换）\n1. 这些文件将存放在编译后站点的 build/docs 目录下，翻译版本则会存放在 build/docs 文件夹内对应的语言子目录中\n1. 对博客文章重复步骤 1-3\n1. 博客文件将存放在编译后站点的 build/blog 目录下\n1. 读取 main.css 文件并将用户定义的 CSS 合并到编译后站点 build/css 目录下的主 CSS 文件中\n1. 将图片复制到编译后站点的 build/img 目录\n1. 将添加到 pages 文件夹的任何自定义页面编译/复制到编译后站点的根 build 目录中。翻译版本则会存放在 build 文件夹内对应的语言子目录中\n1. 创建 CNAME 和 sitemap.xml 文件并添加到 build 目录"
+      }
+    },
+    {
+      "segment_id": "0e80209e",
+      "source_content": "Note that this process does not take into full account how translations or versioning works. The underlying details of those features will be saved for future blog posts.",
+      "source_content_hash": "67f19b73d00d12c3b8829c7fb50ce7fb7cdee29afe5689607ed75f7f862e3726",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "请注意，此流程未完整考虑翻译和版本控制功能的具体实现细节，这些特性的底层原理将在未来的博客文章中专门说明。"
+      }
+    },
+    {
+      "segment_id": "7bc8bb24",
+      "source_content": "The final structure of your compiled site will look similar to:",
+      "source_content_hash": "df3ef5ceb64858bfa5e400eaec645f4eb259b3c262986030069e1aa51057b8b1",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "最终编译完成的站点结构示例如下："
+      }
+    },
+    {
+      "segment_id": "f39e109c",
+      "source_content": "```bash\nbuild\n├── website\n│   ├── CNAME\n│   ├── blog\n│   ├── css\n│   ├── docs\n│   ├── en\n│   ├── help.html # custom page\n│   ├── img\n│   ├── index.html # landing page\n│   ├── sitemap.xml\n│   └── users.html # custom page\n```",
+      "source_content_hash": "144bcca347cffba1ac6584dd31a79b901ee791965d7f5269950790befa3538fb",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_f39e109c"
+      }
+    },
+    {
+      "segment_id": "36d6c3de",
+      "source_content": "## Community",
+      "source_content_hash": "be955f6b536547890fd3f3512fb7a25d4eb38f958b5aa6bab1c04c6660f8c9ed",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 社区"
+      }
+    },
+    {
+      "segment_id": "c364340c",
+      "source_content": "![](/img/docusaurus.svg)",
+      "source_content_hash": "56eb3a12d81e4cb9883d2eba00374e639981cdaf6a64352cd7e5c10148a8b469",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "![](/img/docusaurus.svg)"
+      }
+    },
+    {
+      "segment_id": "f45239ba",
+      "source_content": "We welcome your [contributions](https://github.com/facebook/docusaurus/blob/master/CONTRIBUTING.md) to Docusaurus, whether you want to use it for your own site, you want to [contribute](https://github.com/facebook/docusaurus/blob/master/CONTRIBUTING.md) to the Docusaurus core or just have questions. Follow us on [GitHub](https://github.com/facebook/docusaurus) and [X)](https://x.com/docusaurus).",
+      "source_content_hash": "a2cc04cfbbe899934b7a0bcc528028cc2a2c9e6daf5e391d0a3db3ecafee601f",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "我们欢迎您为 Docusaurus 作出[贡献](https://github.com/facebook/docusaurus/blob/master/CONTRIBUTING.md)，无论是用于自己的站点、参与[Docusaurus 核心开发](https://github.com/facebook/docusaurus/blob/master/CONTRIBUTING.md)，还是仅提出疑问。请在[GitHub](https://github.com/facebook/docusaurus)和[X（原推特）](https://x.com/docusaurus)上关注我们。"
+      }
+    },
+    {
+      "segment_id": "8f1c1cd6",
+      "source_content": "## Acknowledgements",
+      "source_content_hash": "1ef93036e7583a5c0bf23fede1d8c1545de1509c0759adabe508e64b182adc00",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 致谢"
+      }
+    },
+    {
+      "segment_id": "383fbdd2",
+      "source_content": "Docusaurus wouldn't exist without the work of the rest of the core Docusaurus team: [Eric Nakagawa](http://x.com/ericnakagawa), [Hector Ramos](https://x.com/hectorramos), [Eric Vicenti](https://x.com/EricVicenti) and [Frank Li](https://github.com/deltice) — a former intern at Facebook who implemented the core technology and features.",
+      "source_content_hash": "77bbdf6cf146396444cacaa46867bf2e81d12526dfe5ff77ccf97cf51c8afe65",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "Docusaurus 的诞生离不开核心团队成员的工作：[Eric Nakagawa](http://x.com/ericnakagawa)、[Hector Ramos](https://x.com/hectorramos)、[Eric Vicenti](https://x.com/EricVicenti) 以及 Facebook 前实习生 [Frank Li](https://github.com/deltice)——他实现了核心技术特性。"
+      }
+    },
+    {
+      "segment_id": "14bc6b75",
+      "source_content": "Special thanks also goes out to our earliest [adopters](https://v1.docusaurus.io/en/users.html) of Docusaurus:",
+      "source_content_hash": "895463e92f99cc4255e783f0904d4ee07d8edf8be1a6951997b81f26e3e78270",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "特别感谢早期采用 Docusaurus 的[项目](https://v1.docusaurus.io/en/users.html)："
+      }
+    },
+    {
+      "segment_id": "292df6cb",
+      "source_content": "- [BuckleScript](https://bucklescript.github.io/)\n- [FastText](https://fasttext.cc)\n- [Jest](https://jestjs.io)\n- [Make It Open](http://makeitopen.com)\n- [Prettier](https://prettier.io/)\n- [Reason-react](https://reasonml.github.io/reason-react/)\n- [React Native](https://facebook.github.io/react-native/)\n- [Relay](https://facebook.github.io/relay/)",
+      "source_content_hash": "8e15d81549618fec12000bba425ff60eacc4d372dcc38ebfaa15e7750056eb12",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "- [BuckleScript](https://bucklescript.github.io/)\n- [FastText](https://fasttext.cc)\n- [Jest](https://jestjs.io)\n- [Make It Open](http://makeitopen.com)\n- [Prettier](https://prettier.io/)\n- [Reason-react](https://reasonml.github.io/reason-react/)\n- [React Native](https://facebook.github.io/react-native/)\n- [Relay](https://facebook.github.io/relay/)"
+      }
+    },
+    {
+      "segment_id": "be17ccc3",
+      "source_content": "Without their dedication to creating or migrating their websites over to the platform, we would have not have been in the position where we are today.",
+      "source_content_hash": "a6d98cad3114a094dccac7a9b4b4aba2731fb41d398f2b67cfad8b24b4ade9e8",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "正是这些项目坚持创建或迁移网站到本平台，才让我们取得今天的成就。"
+      }
+    },
+    {
+      "segment_id": "3cd8185f",
+      "source_content": "## Resources",
+      "source_content_hash": "75c6211de8f8951e8037d10289e3e5d0177b8a172b593345006b5b42a8e08e0e",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 资源"
+      }
+    },
+    {
+      "segment_id": "a627a446",
+      "source_content": "- [Read our documentation](https://v1.docusaurus.io)\n- [Follow our X feed](https://x.com/docusaurus)\n- [Follow us on GitHub](https://github.com/facebook/docusaurus)\n- [About Slash, the Docusaurus mascot](https://v1.docusaurus.io/about-slash.html)",
+      "source_content_hash": "f9ea33e179725d6b678523853d8b1d710c31294ef5c38ea36a00ef2bd60c888c",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "- [阅读文档](https://v1.docusaurus.io)\n- [关注 X 官方账号](https://x.com/docusaurus)\n- [GitHub 主页](https://github.com/facebook/docusaurus)\n- [关于吉祥物 Slash](https://v1.docusaurus.io/about-slash.html)"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-blog/2017/12-14-introducing-docusaurus.mdx",
+  "last_updated_timestamp": "2025-06-03T17:28:35.687243+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "zh-CN": "83d193dd9afbb4de50e6e920f289a44f5513b606d8ba6ff5183032d258fef072"
+  }
+}

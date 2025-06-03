@@ -1,0 +1,392 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "versioned_docs/version-3.2.1/advanced/ssg.mdx",
+  "source_file_content_hash": "59982ea0525fc92a51eab870501c8e5b637bcf96065a3e5fac15be33c9f669d6",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\nsidebar_label: Static site generation\ndescription: Docusaurus statically renders your React code into HTML, allowing faster load speed and better SEO.\n---",
+      "source_content_hash": "fec258513966f77cb0b2ecea901755898f69ed6750ceca835a6b04e66f7918c1",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "b3de8742",
+      "source_content": "# Static site generation (SSG)",
+      "source_content_hash": "9fd94e8ad4c49004a9b28c4ed9df0ba7e6a4ce62b016ef4d714072123905e32a",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "# 静态站点生成（SSG）"
+      }
+    },
+    {
+      "segment_id": "3fbbcc07",
+      "source_content": "In [architecture](architecture.mdx), we mentioned that the theme is run in Webpack. But beware: that doesn't mean it always has access to browser globals! The theme is built twice:",
+      "source_content_hash": "b79e342886763f96dc258ea15e0ce70961d485b3d38c13687baa8bd7496dc0e0",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "在[架构文档](architecture.mdx)中我们提到，主题是在Webpack中运行的。但请注意：这并不意味着它始终能访问浏览器全局对象！主题会经历两次构建："
+      }
+    },
+    {
+      "segment_id": "4a5b6a68",
+      "source_content": "- During **server-side rendering**, the theme is compiled in a sandbox called [React DOM Server](https://reactjs.org/docs/react-dom-server.html). You can see this as a \"headless browser\", where there is no `window` or `document`, only React. SSR produces static HTML pages.\n- During **client-side rendering**, the theme is compiled to JavaScript that gets eventually executed in the browser, so it has access to browser variables.",
+      "source_content_hash": "2c4eee5569c81e40d97039fc64c2a2b8c42c517ad7fe58cdea9238deddadebf7",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "- **服务端渲染**期间，主题会在名为[React DOM Server](https://reactjs.org/docs/react-dom-server.html)的沙箱中编译。你可以将其视为\"无头浏览器\"，这里没有`window`或`document`对象，只有React。SSR会生成静态HTML页面。\n- **客户端渲染**期间，主题会被编译成最终在浏览器中执行的JavaScript，因此可以访问浏览器变量。"
+      }
+    },
+    {
+      "segment_id": "2e76584d",
+      "source_content": ":::info[SSR or SSG?]\n\n_Server-side rendering_ and _static site generation_ can be different concepts, but we use them interchangeably.\n\nStrictly speaking, Docusaurus is a static site generator, because there's no server-side runtime—we statically render to HTML files that are deployed on a CDN, instead of dynamically pre-rendering on each request. This differs from the working model of [Next.js](https://nextjs.org/).\n\n:::",
+      "source_content_hash": "ae2b2d63d58e38a932215509b6be248fde6bfd034abd0ab6ea05527128515ee2",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::info[SSR还是SSG？]\n\n严格来说，_服务端渲染_和_静态站点生成_是不同的概念，但我们将其混用。\n\nDocusaurus实际上是一个静态站点生成器，因为没有服务端运行时——我们静态渲染为HTML文件并部署到CDN，而不是在每次请求时动态预渲染。这与[Next.js](https://nextjs.org/)的工作模式不同。\n\n:::"
+      }
+    },
+    {
+      "segment_id": "f5f6d2ce",
+      "source_content": "Therefore, while you probably know not to access Node globals like `process` ([or can we?](#node-env)) or the `'fs'` module, you can't freely access browser globals either.",
+      "source_content_hash": "2e96fa3fe2302d69db70042028888cdd48b061845ec8bca8768e6cf539f5c361",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "因此，虽然你可能知道不应访问Node全局对象如`process`（[或者可以吗？](#node-env)）或`'fs'`模块，但也不能随意访问浏览器全局对象。"
+      }
+    },
+    {
+      "segment_id": "41a8ae85",
+      "source_content": "```jsx\nimport React from 'react';\n\nexport default function WhereAmI() {\n  return <span>{window.location.href}</span>;\n}\n```",
+      "source_content_hash": "eed3809af34e09ee6984a9f868aff7b5307a2c8f05bf87d94e20119b4a32300b",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_41a8ae85"
+      }
+    },
+    {
+      "segment_id": "dfe931a2",
+      "source_content": "This looks like idiomatic React, but if you run `docusaurus build`, you will get an error:",
+      "source_content_hash": "d1bd67a607fb80f407a3ac98c954bb7d9f8f5e6207b27a93beb484686d82305a",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "这段代码看起来符合React惯例，但如果运行`docusaurus build`，你会遇到错误："
+      }
+    },
+    {
+      "segment_id": "a2110253",
+      "source_content": "```\nReferenceError: window is not defined\n```",
+      "source_content_hash": "843d1cbb3e6ac96b39924fac7b8de20b19f0fc78c8835c844a213335fd878a8f",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_a2110253"
+      }
+    },
+    {
+      "segment_id": "97ae4a01",
+      "source_content": "This is because during server-side rendering, the Docusaurus app isn't actually run in browser, and it doesn't know what `window` is.",
+      "source_content_hash": "9e310774f9916af7d650f535b20767261044e2ee9a33a80c306b13c645e94abf",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "这是因为在服务端渲染期间，Docusaurus应用并非运行在浏览器中，它无法识别`window`对象。"
+      }
+    },
+    {
+      "segment_id": "100eac36",
+      "source_content": "<details id=\"node-env\">\n<summary>What about <code>process.env.NODE_ENV</code>?</summary>\n\nOne exception to the \"no Node globals\" rule is `process.env.NODE_ENV`. In fact, you can use it in React, because Webpack injects this variable as a global:\n\n```jsx\nimport React from 'react';\n\nexport default function expensiveComp() {\n  if (process.env.NODE_ENV === 'development') {\n    return <>This component is not shown in development</>;\n  }\n  const res = someExpensiveOperationThatLastsALongTime();\n  return <>{res}</>;\n}\n```\n\nDuring Webpack build, the `process.env.NODE_ENV` will be replaced with the value, either `'development'` or `'production'`. You will then get different build results after dead code elimination:\n\nimport Tabs from '@theme/Tabs';\nimport TabItem from '@theme/TabItem';\n\n<Tabs>\n<TabItem value=\"Development\">\n\n```diff\nimport React from 'react';\n\nexport default function expensiveComp() {\n  // highlight-next-line\n  if ('development' === 'development') {\n+   return <>This component is not shown in development</>;\n  }\n- const res = someExpensiveOperationThatLastsALongTime();\n- return <>{res}</>;\n}\n```\n\n</TabItem>\n<TabItem value=\"Production\">\n\n```diff\nimport React from 'react';\n\nexport default function expensiveComp() {\n  // highlight-next-line\n- if ('production' === 'development') {\n-   return <>This component is not shown in development</>;\n- }\n+ const res = someExpensiveOperationThatLastsALongTime();\n+ return <>{res}</>;\n}\n```\n\n</TabItem>\n</Tabs>\n</details>",
+      "source_content_hash": "74f147ac2c70fe65ba67c410d9b5483ef763f87ed818a3bb10e9cf83aebc948e",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_100eac36"
+      }
+    },
+    {
+      "segment_id": "b10963d7",
+      "source_content": "## Understanding SSR {#understanding-ssr}",
+      "source_content_hash": "b3666697772a9bcc9ef1d1aabfbd751528eacdb34c41219edb587bcbb2987a1c",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 理解SSR机制 {#understanding-ssr}"
+      }
+    },
+    {
+      "segment_id": "2822251a",
+      "source_content": "React is not just a dynamic UI runtime—it's also a templating engine. Because Docusaurus sites mostly contain static contents, it should be able to work without any JavaScript (which React runs in), but only plain HTML/CSS. And that's what server-side rendering offers: statically rendering your React code into HTML, without any dynamic content. An HTML file has no concept of client state (it's purely markup), hence it shouldn't rely on browser APIs.",
+      "source_content_hash": "453eeb9f05855cf1887990b30774a6254a3d4688b53baa4fda49b80390a2e1af",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "React不仅是动态UI运行时——它还是个模板引擎。由于Docusaurus站点主要包含静态内容，它应该能在没有JavaScript（React运行环境）的情况下工作，仅依赖纯HTML/CSS。这正是服务端渲染提供的功能：将你的React代码静态渲染为HTML，不含任何动态内容。HTML文件没有客户端状态的概念（纯标记语言），因此不应依赖浏览器API。"
+      }
+    },
+    {
+      "segment_id": "25212439",
+      "source_content": "These HTML files are the first to arrive at the user's browser screen when a URL is visited (see [routing](routing.mdx)). Afterwards, the browser fetches and runs other JS code to provide the \"dynamic\" parts of your site—anything implemented with JavaScript. However, before that, the main content of your page is already visible, allowing faster loading.",
+      "source_content_hash": "0ed3bdd88e73cbaaf7495ab10bf2f914ab39197388ed98db722e4b5e4715238f",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "当用户访问URL时（参见[路由文档](routing.mdx)），这些HTML文件会最先抵达用户浏览器。之后浏览器才会获取并运行其他JS代码来提供站点的\"动态\"部分——任何由JavaScript实现的功能。但在此之前，页面的主要内容已经可见，这实现了更快的加载速度。"
+      }
+    },
+    {
+      "segment_id": "d79a4831",
+      "source_content": "In CSR-only apps, all DOM elements are generated on client side with React, and the HTML file only ever contains one root element for React to mount DOM to; in SSR, React is already facing a fully built HTML page, and it only needs to correlate the DOM elements with the virtual DOM in its model. This step is called \"hydration\". After React has hydrated the static markup, the app starts to work as any normal React app.",
+      "source_content_hash": "b0e0bea8a82dae4321f95b92ff53ecb8bf62b417310577135055c0f0571f824d",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "在纯CSR应用中，所有DOM元素都由React在客户端生成，HTML文件仅包含一个供React挂载DOM的根元素；而在SSR中，React面对的是已构建完成的HTML页面，它只需将DOM元素与虚拟DOM模型关联。这个步骤称为\"注水\"(hydration)。当React完成静态标记的注水后，应用就开始像普通React应用一样运行。"
+      }
+    },
+    {
+      "segment_id": "2838eb68",
+      "source_content": "Note that Docusaurus is ultimately a single-page application, so static site generation is only an optimization (_progressive enhancement_, as it's called), but our functionality does not fully depend on those HTML files. This is contrary to site generators like [Jekyll](https://jekyllrb.com/) and [Docusaurus v1](https://v1.docusaurus.io/), where all files are statically transformed to markup, and interactiveness is added through external JavaScript linked with `<script>` tags. If you inspect the build output, you will still see JS assets under `build/assets/js`, which are, really, the core of Docusaurus.",
+      "source_content_hash": "61339257a6e0f17539c827d5d74fe28f9a7a76958fabd66e585e4590e13c7b6f",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "需要注意的是，Docusaurus本质上是个单页应用，因此静态站点生成只是一种优化（称为_渐进增强_），我们的功能并不完全依赖这些HTML文件。这与[Jekyll](https://jekyllrb.com/)和[Docusaurus v1](https://v1.docusaurus.io/)等站点生成器形成对比——后者所有文件都被静态转换为标记，交互性通过`<script>`标签引入的外部JavaScript实现。如果你检查构建输出，仍然会看到`build/assets/js`目录下的JS资源，这些才是Docusaurus的核心。"
+      }
+    },
+    {
+      "segment_id": "42a5832e",
+      "source_content": "## Escape hatches {#escape-hatches}",
+      "source_content_hash": "00ccd299d1f111069f591141ef5089551aa1f5214d0b9f3257ca4925b20055b8",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "## 应急方案 {#escape-hatches}"
+      }
+    },
+    {
+      "segment_id": "0e80209e",
+      "source_content": "If you want to render any dynamic content on your screen that relies on the browser API to be functional at all, for example:",
+      "source_content_hash": "8d2a128b582fffeffb64b214befcaab8cb270332316cd1c2e4510cd122d96d08",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "如果你需要渲染任何依赖浏览器API才能正常工作的动态内容，例如："
+      }
+    },
+    {
+      "segment_id": "38417f80",
+      "source_content": "- Our [live codeblock](../guides/markdown-features/markdown-features-code-blocks.mdx#interactive-code-editor), which runs in the browser's JS runtime\n- Our [themed image](../guides/markdown-features/markdown-features-assets.mdx#themed-images) that detects the user's color scheme to display different images\n- The JSON viewer of our debug panel which uses the `window` global for styling",
+      "source_content_hash": "730ae7be6a7813b75789a60bed78cf1015c8104ce62d6a214ebbc69284332cdd",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "- 我们的[实时代码块](../guides/markdown-features/markdown-features-code-blocks.mdx#interactive-code-editor)，运行在浏览器的JS运行时中\n- 根据用户配色方案显示不同图片的[主题化图片](../guides/markdown-features/markdown-features-assets.mdx#themed-images)\n- 调试面板中使用`window`全局变量进行样式处理的JSON查看器"
+      }
+    },
+    {
+      "segment_id": "e9313fef",
+      "source_content": "You may need to escape from SSR since static HTML can't display anything useful without knowing the client state.",
+      "source_content_hash": "d7811101367c001f5998282b6879c8f2da954f434665995e527bb1a2475e1cff",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "由于静态HTML在不了解客户端状态时无法显示有效内容，您可能需要规避服务端渲染的限制。"
+      }
+    },
+    {
+      "segment_id": "379173ce",
+      "source_content": ":::warning\n\nIt is important for the first client-side render to produce the exact same DOM structure as server-side rendering, otherwise, React will correlate virtual DOM with the wrong DOM elements.\n\nTherefore, the naïve attempt of `if (typeof window !== 'undefined) {/* render something */}` won't work appropriately as a browser vs. server detection, because the first client render would instantly render different markup from the server-generated one.\n\nYou can read more about this pitfall in [The Perils of Rehydration](https://www.joshwcomeau.com/react/the-perils-of-rehydration/).\n\n:::",
+      "source_content_hash": "b69ebdbf3f031cfdaea60b5b59406d0027d7481428bdcb98bc9d90b69be00299",
+      "node_type": "containerDirective",
+      "translatable": true,
+      "translations": {
+        "zh-CN": ":::warning\n\n首次客户端渲染必须生成与服务端渲染完全相同的DOM结构，否则React会将虚拟DOM与错误的DOM元素关联。\n\n因此，简单的`if (typeof window !== 'undefined) {/* 渲染内容 */}`检测浏览器环境的方式并不适用，因为首次客户端渲染会立即生成与服务端不同的标记。\n\n您可以在[《再水化的隐患》](https://www.joshwcomeau.com/react/the-perils-of-rehydration/)中了解更多关于这个陷阱的内容。\n\n:::"
+      }
+    },
+    {
+      "segment_id": "b9331170",
+      "source_content": "We provide several more reliable ways to escape SSR.",
+      "source_content_hash": "7d214df75f8da4ebbc75fa1ca8579d49e201de0fb123fa05d3d9ac11ed795a87",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "我们提供了几种更可靠的规避SSR方案。"
+      }
+    },
+    {
+      "segment_id": "2bb63d77",
+      "source_content": "### `<BrowserOnly>` {#browseronly}",
+      "source_content_hash": "7e6accf5ef6b209ecf942b746cf48671f09f72bbfaa09cb1ca7d4e8aaaf12817",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### `<BrowserOnly>` {#browseronly}"
+      }
+    },
+    {
+      "segment_id": "53aa2b95",
+      "source_content": "If you need to render some component in browser only (for example, because the component relies on browser specifics to be functional at all), one common approach is to wrap your component with [`<BrowserOnly>`](../docusaurus-core.mdx#browseronly) to make sure it's invisible during SSR and only rendered in CSR.",
+      "source_content_hash": "8fcbae65c885b1c9f2a4e3216d4b4e087c6907f046391b477dc8c85755edc2b0",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "若某些组件必须仅在浏览器中渲染（例如依赖浏览器特性才能运行），常见做法是使用[`<BrowserOnly>`](../docusaurus-core.mdx#browseronly)包裹组件，确保其在SSR期间不可见，仅在CSR时渲染。"
+      }
+    },
+    {
+      "segment_id": "18fb666f",
+      "source_content": "```jsx\nimport BrowserOnly from '@docusaurus/BrowserOnly';\n\nfunction MyComponent(props) {\n  return (\n    // highlight-start\n    <BrowserOnly fallback={<div>Loading...</div>}>\n      {() => {\n        const LibComponent =\n          require('some-lib-that-accesses-window').LibComponent;\n        return <LibComponent {...props} />;\n      }}\n    </BrowserOnly>\n    // highlight-end\n  );\n}\n```",
+      "source_content_hash": "71112773f0100723d6dfa7704f565599cfeb5a1001cb43ad602defb7fdbdbd69",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_18fb666f"
+      }
+    },
+    {
+      "segment_id": "ad3e22c6",
+      "source_content": "It's important to realize that the children of `<BrowserOnly>` is not a JSX element, but a function that _returns_ an element. This is a design decision. Consider this code:",
+      "source_content_hash": "676cfa8c1ec5d993b2e476bda85a624762493131cf860302468f719c019dab5f",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "需特别注意：`<BrowserOnly>`的子元素不是JSX元素，而是返回元素的函数。这是设计决策。考虑以下代码："
+      }
+    },
+    {
+      "segment_id": "cf5bbc3b",
+      "source_content": "```jsx\nimport BrowserOnly from '@docusaurus/BrowserOnly';\n\nfunction MyComponent() {\n  return (\n    <BrowserOnly>\n      {/* highlight-start */}\n      {/* DON'T DO THIS - doesn't actually work */}\n      <span>page url = {window.location.href}</span>\n      {/* highlight-end */}\n    </BrowserOnly>\n  );\n}\n```",
+      "source_content_hash": "4db4b425f7b35bcf3b833a86b7478a02689bfe165e7ec42f115cc9a857a38854",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_cf5bbc3b"
+      }
+    },
+    {
+      "segment_id": "fd7ed056",
+      "source_content": "While you may expect that `BrowserOnly` hides away the children during server-side rendering, it actually can't. When the React renderer tries to render this JSX tree, it does see the `{window.location.href}` variable as a node of this tree and tries to render it, although it's actually not used! Using a function ensures that we only let the renderer see the browser-only component when it's needed.",
+      "source_content_hash": "237f9c532f88bef82be46197b7d9deca08ffcb158d28b771f23c0826ffe97e6b",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "虽然您可能认为`BrowserOnly`会在服务端渲染时隐藏子元素，但实际上无法实现。当React渲染器尝试渲染此JSX树时，它确实会将`{window.location.href}`变量视为树的节点并尝试渲染，尽管该变量实际上未被使用！使用函数可确保仅在需要时才让渲染器看到浏览器专用组件。"
+      }
+    },
+    {
+      "segment_id": "58f98d22",
+      "source_content": "### `useIsBrowser` {#useisbrowser}",
+      "source_content_hash": "50c525310ce74b75fbbf9207c3c609af5a963d75d2389ae86637ce6b0dbd5964",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### `useIsBrowser` {#useisbrowser}"
+      }
+    },
+    {
+      "segment_id": "d636abf8",
+      "source_content": "You can also use the `useIsBrowser()` hook to test if the component is currently in a browser environment. It returns `false` in SSR and `true` is CSR, after first client render. Use this hook if you only need to perform certain conditional operations on client-side, but not render an entirely different UI.",
+      "source_content_hash": "56a723cdc857c69f089d6dad244d2494cc0df8ea53a9430591f1027be84d827e",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "您也可以使用`useIsBrowser()`钩子检测当前是否处于浏览器环境。该钩子在SSR时返回`false`，在首次客户端渲染后的CSR中返回`true`。当您只需在客户端执行特定条件操作而非完全不同的UI渲染时，可使用此钩子。"
+      }
+    },
+    {
+      "segment_id": "a1af15b5",
+      "source_content": "```jsx\nimport useIsBrowser from '@docusaurus/useIsBrowser';\n\nfunction MyComponent() {\n  const isBrowser = useIsBrowser();\n  const location = isBrowser ? window.location.href : 'fetching location...';\n  return <span>{location}</span>;\n}\n```",
+      "source_content_hash": "d7ee8fe1dfec50a4cea142ba05a7178c76ca7c32918e05b80a917bcf39e3aa61",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_a1af15b5"
+      }
+    },
+    {
+      "segment_id": "1297ec42",
+      "source_content": "### `useEffect` {#useeffect}",
+      "source_content_hash": "56f819406ad95fc2fe6adbadeb9acf4477633a9551c95833dfa50abc6d4e75e4",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### `useEffect` {#useeffect}"
+      }
+    },
+    {
+      "segment_id": "c8a6ab3e",
+      "source_content": "Lastly, you can put your logic in `useEffect()` to delay its execution until after first CSR. This is most appropriate if you are only performing side-effects but don't _get_ data from the client state.",
+      "source_content_hash": "72ad77059701525e6813dd0dbcdc65313e756d434a7d58fc80191aea7160d6d4",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "最后，您可以将逻辑放入`useEffect()`以延迟到首次CSR后执行。这最适合仅执行副作用但不从客户端状态获取数据的情况。"
+      }
+    },
+    {
+      "segment_id": "f02969e0",
+      "source_content": "```jsx\nfunction MyComponent() {\n  useEffect(() => {\n    // Only logged in the browser console; nothing is logged during server-side rendering\n    console.log(\"I'm now in the browser\");\n  }, []);\n  return <span>Some content...</span>;\n}\n```",
+      "source_content_hash": "e61b7cf5cbc241e9a76e2683f135aca0030fd156c4e64db4bd7123ff8db55cf4",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_f02969e0"
+      }
+    },
+    {
+      "segment_id": "3bff4086",
+      "source_content": "### `ExecutionEnvironment` {#executionenvironment}",
+      "source_content_hash": "49588495f6be5deeff38767e8acfd03a3b59ed74a3ec762d4f28216d704f3bd3",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "### `ExecutionEnvironment` {#executionenvironment}"
+      }
+    },
+    {
+      "segment_id": "015c0c6e",
+      "source_content": "The [`ExecutionEnvironment`](../docusaurus-core.mdx#executionenvironment) namespace contains several values, and `canUseDOM` is an effective way to detect browser environment.",
+      "source_content_hash": "bfa36f889a919a3b83cb1fe6822ef0e9e972088246da94d97fccf54e058568b9",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "[`ExecutionEnvironment`](../docusaurus-core.mdx#executionenvironment)命名空间包含多个值，其中`canUseDOM`是检测浏览器环境的有效方式。"
+      }
+    },
+    {
+      "segment_id": "6e5d54a8",
+      "source_content": "Beware that it essentially checked `typeof window !== 'undefined'` under the hood, so you should not use it for rendering-related logic, but only imperative code, like reacting to user input by sending web requests, or dynamically importing libraries, where DOM isn't updated at all.",
+      "source_content_hash": "70bbcd4682afa9c88eff7e530f4d26cb953bc0ff63011dcb226cbb57ea02cfa1",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "zh-CN": "请注意其底层原理是检测`typeof window !== 'undefined'`，因此不应将其用于渲染相关逻辑，仅适用于命令式代码场景——如响应用户输入发送网络请求，或动态导入库等不涉及DOM更新的操作。"
+      }
+    },
+    {
+      "segment_id": "bf3146e1",
+      "source_content": "```js title=\"a-client-module.js\"\nimport ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';\n\nif (ExecutionEnvironment.canUseDOM) {\n  document.title = \"I'm loaded!\";\n}\n```",
+      "source_content_hash": "ab63ee25e4ccd2e119c679f8ee2b597f993c22b5585b2288a0227a3abf878865",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "zh-CN": "@@untranslatable_placeholder_bf3146e1"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs/version-3.2.1/advanced/ssg.mdx",
+  "last_updated_timestamp": "2025-06-03T17:28:35.853868+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "zh-CN": "59982ea0525fc92a51eab870501c8e5b637bcf96065a3e5fac15be33c9f669d6"
+  }
+}
