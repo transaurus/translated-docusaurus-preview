@@ -1,0 +1,122 @@
+---
+title: How I Converted Profilo to Docusaurus in Under 2 Hours
+authors: [abernathyca]
+tags: [profilo, adoption]
+---
+
+> _"Joel和我当时正在讨论建站事宜，提到如果能随项目上线同步发布网站就再好不过了。于是我决定挑战自己添加Docusaurus支持。整个过程仅花费一个半小时。我会将修改内容通过PR发送给您审阅，您的工作流只需像往常编辑Markdown文件那样简单。"_
+>
+> _——发送给Profilo团队的留言_
+
+这是关于使用Docusaurus创建[Profilo](https://facebookincubator.github.io/profilo/)网站的简短历程。
+
+今年早些时候，用于收集生产环境性能追踪的Android库[Profilo](https://code.fb.com/android/profilo-understanding-app-performance-in-the-wild/)正式发布。该项目[发布于GitHub](https://github.com/facebookincubator/profilo/tree/802042f90f990998a272387e371b893af52465b8)时仅附带[少量Markdown文档](https://github.com/facebookincubator/profilo/tree/802042f90f990998a272387e371b893af52465b8/docs)，缺乏展示品牌标识的专属网站。我们的任务是将这些现有文档和标识转化为完整网站。
+
+<!--truncate-->
+
+通常使用Docusaurus建站包含以下步骤：
+
+1. 使用Docusaurus脚本生成网站模板
+1. 根据项目需求定制模板文件（如网站配色、GitHub链接等配置）
+1. 创建网站内容：
+   1. 添加文档及配套资源
+   1. 定制Docusaurus提供的默认着陆页
+   1. 配置站点导航文件
+1. 发布网站并设置后续更新机制
+
+由于已有现成Markdown文件，我无需从头创建核心内容，只需确保通过添加元数据使Docusaurus能正确解析这些文件。主要工作量集中在定制Docusaurus的默认配置上。
+
+## 实施步骤概览
+
+以下是网站搭建的关键步骤概览，设计相关细节将在后续章节详述。
+
+**设计与配色：**
+
+1. 从设计师处获取所有标识文件格式，并自行创建.favicon文件
+1. 使用http://paletton.com/工具确定主辅色调方案——该工具极为便捷！
+
+**网站初始化：**
+
+1. 在GitHub上fork[Profilo项目](https://github.com/facebookincubator/profilo/)，克隆至本地进行网站搭建
+1. 按照[安装指南](https://v1.docusaurus.io/docs/en/installation.html)初始化Docusaurus网站
+1. 删除无需的`docs-examples-from-docusaurus`和`website/blog-examples-from-docusaurus`文件夹，直接使用现有文档且暂不需要博客功能
+
+**内容创建：**
+
+1. 为`docs`文件夹中的现有Markdown文件添加元数据，例如：
+
+   ```md
+   ---
+   id: architecture
+   title: 架构
+   sidebar_label: 架构
+   ---
+   ```
+
+2. 将徽标资源添加到`website/static/img`文件夹。
+3. 修改`website/pages/en/index.js`（着陆页）以突出Profilo功能。
+4. 修改`website/core/Footer.js`（页脚）以简化Profilo的页脚。
+5. 编辑`website/siteConfig.js`（网站配置文件）以指定先前选择的主色和辅色。
+6. 修改`website/sidebars.json`（侧边栏导航配置文件）。列出所有文档并根据Markdown文件中添加的元数据进行定制。
+7. 编辑网站配置文件以指定GitHub属性、徽标图像、页眉链接和网站链接。
+8. 在此阶段全程本地测试网站。（通过从`website`文件夹运行`yarn start`启动服务器。）
+
+**反馈与审查修改：**
+
+1. 向项目提交[拉取请求](https://github.com/facebookincubator/profilo/pull/6)。
+2. 在设计师对我选择的颜色表示震惊后更新配色方案（声明：我不是设计师）。
+3. 更新颜色并更新PR。
+4. PR随后被接受并[合并](https://github.com/facebookincubator/profilo/commit/6ad033aaf5a7d54e6d842f45a5bccd051a8e45ad)。皆大欢喜！
+
+**网站发布：**
+
+1. 通过从命令行运行Docusaurus发布脚本推送首个网站版本：
+
+   ```bash
+   USE_SSH=true \
+     GIT_USER=caabernathy \
+     CURRENT_BRANCH=master \
+     yarn run publish-gh-pages
+   ```
+
+2. 按照[Docusaurus提供的说明](https://v1.docusaurus.io/docs/en/publishing.html#automating-deployments-using-continuous-integration)配置CircleCI。为此提交了2个PR：[第一个](https://github.com/facebookincubator/profilo/pull/8)用于初始配置，[第二个](https://github.com/facebookincubator/profilo/pull/12)确保CircleCI仅针对master分支的变更触发（感谢Joel Marcey！）。
+
+最终网站发布于https://facebookincubator.github.io/profilo/。初始PR阶段耗时1.5小时，响应审查反馈和发布网站又花费约半小时。
+
+## 设计
+
+以下是首次提交PR时的初始网站效果：
+
+![网站首页，采用高饱和度的亮红色作为主色，与Profilo徽标颜色相近，导致导航栏中的徽标难以辨认](/img/profilo_blog_post_website_initial.png)
+
+内容创作阶段的大部分时间用于选择与给定徽标协调的配色方案。这些颜色为设计师反馈提供了良好起点。我使用Photoshop对徽标不同区域进行取样。
+
+![在Photoshop中选择颜色，背景显示Profilo徽标和主工作区，前景显示颜色选择器对话框，选中一种红色调](/img/profilo_blog_post_photoshop_color_picker.png)
+
+随后我提取该颜色的RGB值，将其作为基准色输入[Paletton](http://paletton.com/)。该网站通过编辑Docusaurus配置文件为我提供了多种可试用的配色方案。
+
+![使用Paletton从选定的红色调生成完整调色板。左侧显示所有色调的色轮，右侧显示各种红色调的方块](/img/profilo_blog_post_palette_website_color_picker.png)
+
+所选的主色和辅色为设计师反馈提供了良好的基础。
+
+我们还对Docusaurus生成的默认网站进行了修改。这些改动主要集中在简化页脚设计，并为Profilo项目定制了展示其功能特性的着陆页。
+
+以下是最终网站的效果：
+
+![网站首页，采用更深的红色作为主色调，使徽标和主色标题文字都清晰可辨。](/img/profilo_blog_post_website_final.png)
+
+这是一个核心内容页面的示例（以"快速入门"页面为例）：
+
+![文档页面左侧为侧边栏占屏幕四分之一宽度，右侧为主内容区。文本使用了主色调，正文部分包含加粗、列表和代码等多种排版形式](/img/profilo_blog_post_website_final_docs.png)
+
+该页面也展示了通过编辑`website/sidebars.json`配置的侧边栏结构。
+
+最后值得一提的是，我们无需额外处理响应式设计——Docusaurus已原生支持这一特性！
+
+![首页和示例文档页的移动端截图。布局自动适配移动端显示，文档侧边栏被收纳在可展开的按钮后](/img/profilo_blog_post_android_ios.png)
+
+## 最终总结
+
+Profilo的工程师们很高兴发现他们无需改变现有工作流程来更新内容，仍可继续使用Markdown文件进行创作。未来添加新文档时这个优势依然存在，不过如果侧边栏导航需要调整，可能需进行一些配置更改。
+
+Docusaurus提供的基础设施能轻松将Markdown文件转化为功能完备的网站。尽管该项目只有三篇文档，但由此呈现的专业形象使其完全值得投入这短暂的时间成本。

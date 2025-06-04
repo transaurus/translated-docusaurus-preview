@@ -1,0 +1,182 @@
+---
+description: Configuring your site's behavior through docusaurus.config.js and more.
+---
+
+# 配置
+
+import TOCInline from '@theme/TOCInline';
+
+Docusaurus 对配置有独特的处理方式。我们建议您将站点信息集中在一处管理。我们会保护该配置文件的字段，并确保这个数据对象能在整个站点中便捷访问。
+
+维护良好的 `docusaurus.config.js` 能让您、协作者和开源贡献者专注于文档编写，同时仍能灵活定制站点。
+
+## `docusaurus.config.js` 包含哪些内容？ {#what-goes-into-a-docusaurusconfigjs}
+
+即使您正在开发站点，也无需从零编写 `docusaurus.config.js`。所有模板都自带包含常用选项默认值的配置文件。
+
+但了解配置的设计和实现原理仍对您有所帮助。
+
+Docusaurus 配置的高层概述可分为以下几类：
+
+<TOCInline toc={toc} minHeadingLevel={3} maxHeadingLevel={3} />
+
+具体每个可配置字段的详细说明，请参阅 [**`docusaurus.config.js` API 参考文档**](api/docusaurus.config.js.mdx)。
+
+### 站点元数据 {#site-metadata}
+
+站点元数据包含核心全局信息，如 `title`（标题）、`url`（网址）、`baseUrl`（基础路径）和 `favicon`（网站图标）。
+
+这些信息会用于多个场景：站点标题和页眉、浏览器标签页图标、社交媒体分享（Facebook、X）信息，甚至是生成静态文件的正确路径。
+
+### 部署配置 {#deployment-configurations}
+
+部署配置如 `projectName`（项目名称）、`organizationName`（组织名称）及可选的 `deploymentBranch`（部署分支），会在使用 `deploy` 命令部署站点时被调用。
+
+建议查阅 [部署文档](deployment.mdx) 获取更多信息。
+
+### 主题、插件和预设配置 {#theme-plugin-and-preset-configurations}
+
+分别在 `themes`、`plugins` 和 `presets` 字段中列出站点的[主题](./using-plugins.mdx#using-themes)、[插件](./using-plugins.mdx)和[预设](./using-plugins.mdx#using-presets)。这些通常是 npm 包：
+
+```js title="docusaurus.config.js"
+module.exports = {
+  // ...
+  plugins: [
+    '@docusaurus/plugin-content-blog',
+    '@docusaurus/plugin-content-pages',
+  ],
+  themes: ['@docusaurus/theme-classic'],
+};
+```
+
+:::tip
+
+Docusaurus 支持[**模块简写**](./using-plugins.mdx#module-shorthands)，您可以将上述配置简化为：
+
+```js title="docusaurus.config.js"
+module.exports = {
+  // ...
+  plugins: ['content-blog', 'content-pages'],
+  themes: ['classic'],
+};
+```
+
+:::
+
+也可以从本地目录加载：
+
+```js title="docusaurus.config.js"
+const path = require('path');
+
+module.exports = {
+  // ...
+  themes: [path.resolve(__dirname, '/path/to/docusaurus-local-theme')],
+};
+```
+
+要为插件或主题指定选项，请在配置文件中将插件/主题名称替换为包含名称和选项对象的数组：
+
+```js title="docusaurus.config.js"
+module.exports = {
+  // ...
+  plugins: [
+    [
+      'content-blog',
+      {
+        path: 'blog',
+        routeBasePath: 'blog',
+        include: ['*.md', '*.mdx'],
+        // ...
+      },
+    ],
+    'content-pages',
+  ],
+};
+```
+
+要为预设中捆绑的插件或主题指定选项，需通过 `presets` 字段传递选项。下例中，`docs` 指代 `@docusaurus/plugin-content-docs`，`theme` 指代 `@docusaurus/theme-classic`。
+
+```js title="docusaurus.config.js"
+module.exports = {
+  // ...
+  presets: [
+    [
+      '@docusaurus/preset-classic',
+      {
+        docs: {
+          sidebarPath: require.resolve('./sidebars.js'),
+        },
+        theme: {
+          customCss: [require.resolve('./src/css/custom.css')],
+        },
+      },
+    ],
+  ],
+};
+```
+
+:::tip
+
+`presets: [['classic', {...}]]` 的简写形式同样有效。
+
+:::
+
+有关配置主题、插件和预设的更多帮助，请参阅[使用插件](./using-plugins.mdx)。
+
+### 自定义配置 {#custom-configurations}
+
+Docusaurus 会保护 `docusaurus.config.js` 免受未知字段影响。如需添加自定义字段，请在 `customFields` 中定义。
+
+示例：
+
+```js title="docusaurus.config.js"
+module.exports = {
+  // ...
+  // highlight-start
+  customFields: {
+    image: '',
+    keywords: [],
+  },
+  // highlight-end
+  // ...
+};
+```
+
+## 从组件中访问配置 {#accessing-configuration-from-components}
+
+您的配置对象将对站点的所有组件可用。您可以通过 React 上下文以 `siteConfig` 的形式访问它们。
+
+基础示例：
+
+```jsx
+import React from 'react';
+// highlight-next-line
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+
+const Hello = () => {
+  // highlight-start
+  const {siteConfig} = useDocusaurusContext();
+  // highlight-end
+  const {title, tagline} = siteConfig;
+
+  return <div>{`${title} · ${tagline}`}</div>;
+};
+```
+
+:::tip
+
+如果仅需在客户端使用这些字段，您可以创建自己的 JS 文件并通过 ES6 模块导入，无需将其放入 `docusaurus.config.js` 中。
+
+:::
+
+## 自定义 Babel 配置 {#customizing-babel-configuration}
+
+对于新建的 Docusaurus 项目，我们会在项目根目录自动生成 `babel.config.js` 文件。
+
+```js title="babel.config.js"
+module.exports = {
+  presets: [require.resolve('@docusaurus/core/lib/babel/preset')],
+};
+```
+
+大多数情况下，此配置可直接使用。如需自定义 Babel 配置（例如添加 Flow 支持），可直接编辑该文件。修改生效需要重启 Docusaurus 开发服务器。

@@ -1,0 +1,129 @@
+# 插件
+
+插件是 Docusaurus 网站功能的构建模块。每个插件负责其独立的功能特性。插件可以打包并通过预设集进行分发。
+
+## 创建插件 {#creating-plugins}
+
+插件是一个接收两个参数（`context` 和 `options`）的函数，返回插件实例对象（或 Promise）。您可以将插件创建为函数或模块。更多信息请参阅[插件方法参考章节](../api/plugin-methods/README.mdx)。
+
+### 函数式定义 {#function-definition}
+
+您可以直接在 Docusaurus 配置文件中以函数形式使用插件：
+
+```js title="docusaurus.config.js"
+export default {
+  // ...
+  plugins: [
+    // highlight-start
+    async function myPlugin(context, options) {
+      // ...
+      return {
+        name: 'my-plugin',
+        async loadContent() {
+          // ...
+        },
+        async contentLoaded({content, actions}) {
+          // ...
+        },
+        /* other lifecycle API */
+      };
+    },
+    // highlight-end
+  ],
+};
+```
+
+### 模块式定义 {#module-definition}
+
+您可以通过引用独立文件或 npm 包的路径来使用插件模块：
+
+```js title="docusaurus.config.js"
+export default {
+  // ...
+  plugins: [
+    // without options:
+    './my-plugin',
+    // or with options:
+    ['./my-plugin', options],
+  ],
+};
+```
+
+然后在 `my-plugin` 文件夹中创建如下所示的 `index.js` 文件：
+
+```js title="my-plugin/index.js"
+export default async function myPlugin(context, options) {
+  // ...
+  return {
+    name: 'my-plugin',
+    async loadContent() {
+      /* ... */
+    },
+    async contentLoaded({content, actions}) {
+      /* ... */
+    },
+    /* other lifecycle API */
+  };
+}
+```
+
+---
+
+您可以通过[调试插件的元数据面板](/__docusaurus/debug/metadata)查看站点中安装的所有插件。
+
+插件分为以下几种类型：
+
+- `package`：已安装的外部包
+- `project`：项目中创建并通过本地文件路径提供给 Docusaurus 的插件
+- `local`：通过函数式定义创建的插件
+- `synthetic`：Docusaurus 内部创建的"虚拟插件"，用于利用模块化架构优势（核心系统无需特殊处理）。该类型不会在元数据中显示，属于实现细节。
+
+可通过 `useDocusaurusContext().siteMetadata.pluginVersions` 在客户端访问插件信息。
+
+## 插件设计 {#plugin-design}
+
+Docusaurus 的插件系统实现允许我们通过钩子介入网站的生命周期，从而修改开发/构建阶段的行为，包括但不限于扩展 webpack 配置、修改加载数据以及创建页面使用的新组件。
+
+### 主题设计 {#theme-design}
+
+当插件加载完内容后，数据会通过 [`createData` + `addRoute`](../api/plugin-methods/lifecycle-apis.mdx#addRoute) 或 [`setGlobalData`](../api/plugin-methods/lifecycle-apis.mdx#setGlobalData) 等操作提供给客户端。这些数据需要被序列化为纯字符串，因为[插件和主题运行在不同环境](./architecture.mdx)。数据到达客户端后，React 开发者就会熟悉后续流程：数据通过组件传递，组件由 Webpack 打包，最终通过 `ReactDOM.render` 渲染到窗口...
+
+**主题提供用于渲染内容的 UI 组件集。** 多数内容插件需要搭配主题才能实际发挥作用。UI 是与数据模式分离的独立层，这使得设计切换变得容易。
+
+例如，Docusaurus 博客可能由博客插件和博客主题共同构成。
+
+:::note
+
+这是一个人为示例：实际场景中 `@docusaurus/theme-classic` 会为文档、博客和布局提供主题。
+
+:::
+
+```js title="docusaurus.config.js"
+export default {
+  // highlight-next-line
+  themes: ['theme-blog'],
+  plugins: ['plugin-content-blog'],
+};
+```
+
+如果您想使用 Bootstrap 样式，可以替换为虚构的 `theme-blog-bootstrap` 主题：
+
+```js title="docusaurus.config.js"
+export default {
+  // highlight-next-line
+  themes: ['theme-blog-bootstrap'],
+  plugins: ['plugin-content-blog'],
+};
+```
+
+此时虽然主题接收到的插件数据相同，但主题选择如何将数据渲染为 UI 的方式可能截然不同。
+
+尽管主题与插件共享完全相同的生命周期方法，但基于设计目标的不同，主题的实现可能与插件存在显著差异。
+
+主题(Theme)的设计目的是完成Docusaurus站点的构建，并为站点、插件及主题自身提供所使用的组件。主题仍具有插件特性并暴露部分生命周期方法，但通常不会使用[`loadContent`](../api/plugin-methods/lifecycle-apis.mdx#loadContent)方法，因为主题仅接收来自插件的数据而不自行生成数据；主题通常还伴随一个包含组件的`src/theme`目录，这些组件通过[`getThemePath`](../api/plugin-methods/extend-infrastructure.mdx#getThemePath)生命周期方法向核心系统注册。
+
+总结如下：
+
+- 主题与插件共享相同的生命周期方法
+- 主题在所有现有插件之后运行
+- 主题通过提供`getThemePath`来添加组件别名

@@ -1,0 +1,220 @@
+---
+description: How to make your Docusaurus site maximally search-engine-friendly.
+sidebar_label: SEO
+keywords:
+  - seo
+  - positioning
+---
+
+# 搜索引擎优化（SEO）
+
+import BrowserWindow from '@site/src/components/BrowserWindow';
+
+Docusaurus 通过多种方式支持搜索引擎优化。
+
+## 全局元数据 {#global-metadata}
+
+通过[站点配置](./configuration.mdx#site-metadata)为整个网站提供全局元属性。这些元数据将全部以键值对的形式作为属性名和值渲染到 HTML `<head>` 中。`metadata` 属性是声明 `<meta>` 标签的便捷方式，但也可以通过 `headTags` 属性在 `<head>` 中注入任意标签。
+
+```js title="docusaurus.config.js"
+export default {
+  themeConfig: {
+    // Declare some <meta> tags
+    metadata: [
+      {name: 'keywords', content: 'cooking, blog'},
+      {name: 'twitter:card', content: 'summary_large_image'},
+    ],
+  },
+  headTags: [
+    // Declare a <link> preconnect tag
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'preconnect',
+        href: 'https://example.com',
+      },
+    },
+    // Declare some json-ld structured data
+    {
+      tagName: 'script',
+      attributes: {
+        type: 'application/ld+json',
+      },
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org/',
+        '@type': 'Organization',
+        name: 'Meta Open Source',
+        url: 'https://opensource.fb.com/',
+        logo: 'https://opensource.fb.com/img/logos/Meta-Open-Source.svg',
+      }),
+    },
+  ],
+};
+```
+
+Docusaurus 默认会添加一些元数据。例如，如果配置了[国际化](./i18n/i18n-introduction.mdx)，你将获得一个 [`hreflang`](https://developers.google.com/search/docs/advanced/crawling/localized-versions) 备用链接。
+
+要了解更多关于元标签类型的详细信息，请访问 [MDN 文档](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta)。
+
+## 单页元数据 {#single-page-metadata}
+
+与[全局元数据](#global-metadata)类似，Docusaurus 也允许为单个页面添加元信息。按照[本指南](./guides/markdown-features/markdown-features-head-metadata.mdx)配置 `<head>` 标签。简而言之：
+
+```md title="my-markdown-page.mdx"
+# A cooking guide
+
+<head>
+  <meta name="keywords" content="cooking, blog" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://example.com" />
+  <script type="application/ld+json">
+    {JSON.stringify({
+      '@context': 'https://schema.org/',
+      '@type': 'Organization',
+      name: 'Meta Open Source',
+      url: 'https://opensource.fb.com/',
+      logo: 'https://opensource.fb.com/img/logos/Meta-Open-Source.svg',
+    })}
+  </script>
+</head>
+
+Some content...
+```
+
+Docusaurus 会自动为每个 Markdown 页面添加 `description`、`title`、规范 URL 链接和其他有用的元数据。这些可以通过[前置元数据](./guides/markdown-features/markdown-features-intro.mdx#front-matter)进行配置：
+
+```md
+---
+title: Title for search engines; can be different from the actual heading
+description: A short description of this page
+image: a thumbnail image to be shown in social media cards
+keywords: [keywords, describing, the main topics]
+---
+```
+
+在创建 React 页面时，在 `Layout` 中添加这些字段也可以提升 SEO。
+
+:::tip
+
+对于 `description` 和 `keywords` 等字段，建议使用[前置元数据](./guides/markdown-features/markdown-features-intro.mdx#front-matter)：Docusaurus 会自动将其同时应用到 `description` 和 `og:description`，而使用 `<head>` 标签时则需要手动声明两个元标签。
+
+:::
+
+:::info
+
+官方插件均支持以下[前置元数据](./guides/markdown-features/markdown-features-intro.mdx#front-matter)：`title`、`description`、`keywords` 和 `image`。有关其他[前置元数据](./guides/markdown-features/markdown-features-intro.mdx#front-matter)支持，请参阅各自的 API 文档：
+
+- [文档前置元数据](./api/plugins/plugin-content-docs.mdx#markdown-front-matter)
+- [博客前置元数据](./api/plugins/plugin-content-blog.mdx#markdown-front-matter)
+- [页面前置元数据](./api/plugins/plugin-content-pages.mdx#markdown-front-matter)
+
+:::
+
+对于 JSX 页面，可以使用 Docusaurus 的 [`<Head>`](docusaurus-core.mdx#head) 组件。
+
+```jsx title="my-react-page.jsx"
+import React from 'react';
+import Layout from '@theme/Layout';
+import Head from '@docusaurus/Head';
+
+export default function page() {
+  return (
+    <Layout title="Page" description="A React page demo">
+      <Head>
+        <meta property="og:image" content="image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <link rel="preconnect" href="https://example.com" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org/',
+            '@type': 'Organization',
+            name: 'Meta Open Source',
+            url: 'https://opensource.fb.com/',
+            logo: 'https://opensource.fb.com/img/logos/Meta-Open-Source.svg',
+          })}
+        </script>
+      </Head>
+      {/* ... */}
+    </Layout>
+  );
+}
+```
+
+:::tip
+
+为方便起见，默认主题的 `<Layout>` 组件接受 `title` 和 `description` 作为属性。
+
+:::
+
+## 静态 HTML 生成 {#static-html-generation}
+
+Docusaurus 是一个静态站点生成器——每个 URL 路由都会静态生成 HTML 文件，这有助于搜索引擎更容易发现你的内容。
+
+## 图片元描述 {#image-meta-description}
+
+图片的 alt 标签告诉搜索引擎图片的内容，并在图片无法被视觉看到时使用，例如使用屏幕阅读器时或图片损坏时。Markdown 通常支持 alt 标签。
+
+你也可以为图片添加标题——这对 SEO 影响不大，但会在鼠标悬停在图片上时显示为工具提示，通常用于提供提示。
+
+```md
+![Docusaurus banner](./assets/docusaurus-asset-example-banner.png 'Image title')
+```
+
+<BrowserWindow>
+
+![Docusaurus banner](./assets/docusaurus-asset-example-banner.png 'Image title')
+
+</BrowserWindow>
+
+## 富搜索信息 {#rich-search-information}
+
+Docusaurus 博客默认支持[富搜索结果](https://search.google.com/test/rich-results)，以获取最佳搜索引擎体验。这些信息根据您在博客/全局配置中的元信息生成。要获得富搜索信息的优势，请填写文章发布日期、作者和图片等信息。更多关于元信息的详情请参阅[此处](./blog.mdx)。
+
+## Robots 文件 {#robots-file}
+
+`robots.txt` 文件用于规范搜索引擎的行为，决定哪些内容应该被显示，哪些不应该。您可以将其作为[静态资源](./static-assets.mdx)提供。以下示例允许所有请求访问所有子页面：
+
+```text title="static/robots.txt"
+User-agent: *
+Disallow:
+```
+
+更多关于 robots 文件的信息，请参阅[Google 文档](https://developers.google.com/search/docs/advanced/robots/intro)。
+
+:::warning
+
+**重要提示**：`robots.txt` 文件**不会**阻止 HTML 页面被索引。
+
+要阻止整个 Docusaurus 站点被索引，请使用 [`noIndex`](./api/docusaurus.config.js.mdx#noIndex) 站点配置。某些[托管服务提供商](./deployment.mdx)可能还允许您配置 `X-Robots-Tag: noindex` HTTP 头（GitHub Pages 不支持此功能）。
+
+要阻止单个页面被索引，请使用 `<meta name="robots" content="noindex">` 作为[页面元数据](#single-page-metadata)。更多关于 [robots 元标签](https://developers.google.com/search/docs/advanced/robots/robots_meta_tag)的信息。
+
+:::
+
+## 站点地图文件 {#sitemap-file}
+
+Docusaurus 提供了 [`@docusaurus/plugin-sitemap`](./api/plugins/plugin-sitemap.mdx) 插件，默认随 `preset-classic` 一起提供。它会自动生成一个 `sitemap.xml` 文件，在生产构建后可通过 `https://example.com/[baseUrl]/sitemap.xml` 访问。此站点地图元数据有助于搜索引擎爬虫更准确地抓取您的网站。
+
+:::tip
+
+站点地图插件会自动过滤包含 `noindex` [robots 元指令](https://developers.google.com/search/docs/advanced/robots/robots_meta_tag)的页面。
+
+例如，[`/examples/noIndex`](/examples/noIndex) 不包含在 [Docusaurus sitemap.xml 文件](pathname:///sitemap.xml)中，因为它包含以下[页面元数据](#single-page-metadata)：
+
+```html
+<head>
+  <meta name="robots" content="noindex, nofollow" />
+</head>
+```
+
+:::
+
+## 人类可读链接 {#human-readable-links}
+
+Docusaurus 使用您的文件名作为链接，但您始终可以使用 slugs 来更改这一点，更多详情请参阅此[教程](./guides/docs/docs-create-doc.mdx#document-id)。
+
+## 结构化内容 {#structured-content}
+
+搜索引擎依赖 HTML 标记（如 `<h2>`、`<table>` 等）来理解您的网页结构。当 Docusaurus 渲染您的页面时，会使用语义化标记（如 `<aside>`、`<nav>`、`<main>`）来划分页面的不同部分，帮助搜索引擎定位侧边栏、导航栏和主页面内容等部分。
+
+大多数 [CommonMark](https://spec.commonmark.org/0.30/#atx-headings) 语法都有对应的 HTML 标签。通过在项目中一致地使用 Markdown，您将使搜索引擎更容易理解您的页面内容。

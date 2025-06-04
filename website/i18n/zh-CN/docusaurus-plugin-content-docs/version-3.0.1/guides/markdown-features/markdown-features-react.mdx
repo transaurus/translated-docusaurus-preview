@@ -1,0 +1,358 @@
+---
+id: react
+description: Using the power of React in Docusaurus Markdown documents, thanks to MDX
+slug: /markdown-features/react
+---
+
+# MDX 与 React
+
+import BrowserWindow from '@site/src/components/BrowserWindow';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import styles from './markdown-features-react.module.css';
+
+Docusaurus 内置支持 [MDX](https://mdxjs.com/)，允许您在 Markdown 文件中编写 JSX 并将其渲染为 React 组件。
+
+查看 [MDX 文档](https://mdxjs.com/) 了解您能用 MDX 实现哪些高级功能。
+
+:::tip[调试 MDX]
+
+MDX 格式非常严格，您可能会遇到编译错误。
+
+使用 **[MDX 交互式演示](https://mdxjs.com/playground/)** 进行调试，确保语法正确。
+
+:::
+
+### 导出组件 {#exporting-components}
+
+要在 MDX 文件中定义自定义组件，必须使用 `export` 导出：只有以 `export` 开头的段落才会被解析为组件而非普通文本。
+
+```jsx
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+<Highlight color="#25c2a0">Docusaurus green</Highlight> and <Highlight color="#1877F2">Facebook blue</Highlight> are my favorite colors.
+
+I can write **Markdown** alongside my _JSX_!
+```
+
+请注意它如何同时渲染 React 组件的标记和 Markdown 语法：
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+<BrowserWindow minHeight={240}>
+
+<><Highlight color="#25c2a0">Docusaurus green</Highlight>
+{` `}and <Highlight color="#1877F2">Facebook blue</Highlight> are my favorite colors.</>
+
+I can write **Markdown** alongside my _JSX_!
+
+</BrowserWindow>
+
+:::warning[MDX 即 JSX]
+
+由于所有文档文件都使用 MDX 解析，任何看似 HTML 的内容实际上都是 JSX。因此，如果需要内联样式组件，请遵循 JSX 规范并使用样式对象。
+
+{/* prettier-ignore */}
+```jsx
+/* 不要这样写： */
+<span style="background-color: red">Foo</span>
+/* 应该这样写： */
+<span style={{backgroundColor: 'red'}}>Foo</span>
+```
+
+:::
+
+### 导入组件 {#importing-components}
+
+您还可以导入其他文件中定义的自定义组件，或通过 npm 安装的第三方组件。
+
+```md
+<!-- Docusaurus theme component -->
+import TOCInline from '@theme/TOCInline';
+<!-- External component -->
+import Button from '@mui/material/Button';
+<!-- Custom component -->
+import BrowserWindow from '@site/src/components/BrowserWindow';
+```
+
+:::tip
+
+`@site` 别名指向您网站的目录（通常包含 `docusaurus.config.js` 文件）。使用别名而非相对路径（如 `'../../src/components/BrowserWindow'`）可以避免在移动文件或进行[文档版本控制](../docs/versioning.mdx)和[国际化翻译](../../i18n/i18n-tutorial.mdx)时修改导入路径。
+
+:::
+
+虽然在 Markdown 中声明组件对简单场景非常方便，但由于编辑器支持有限、存在解析错误风险且可复用性低，难以维护复杂逻辑。当组件涉及复杂 JS 逻辑时，请使用单独的 `.js` 文件：
+
+```jsx title="src/components/Highlight.js"
+import React from 'react';
+
+export default function Highlight({children, color}) {
+  return (
+    <span
+      style={{
+        backgroundColor: color,
+        borderRadius: '2px',
+        color: '#fff',
+        padding: '0.2rem',
+      }}>
+      {children}
+    </span>
+  );
+}
+```
+
+```md title="markdown-file.mdx"
+import Highlight from '@site/src/components/Highlight';
+
+<Highlight color="#25c2a0">Docusaurus green</Highlight>
+```
+
+:::tip
+
+如果某个组件在多个文件中重复使用，无需每次都导入——可将其添加到全局作用域。[详见下文](#mdx-component-scope)
+
+:::
+
+### MDX 组件作用域 {#mdx-component-scope}
+
+除了[导入组件](#importing-components)和[导出组件](#exporting-components)外，第三种在 MDX 中使用组件的方式是**将其注册到全局作用域**，这样无需导入语句即可在所有 MDX 文件中自动使用。
+
+例如给定以下 MDX 文件：
+
+```md
+- a
+- list!
+
+And some <Highlight>custom markup</Highlight>...
+```
+
+它将被编译为包含 `ul`、`li`、`p` 和 `Highlight` 元素的 React 组件。`Highlight` 不是原生 HTML 元素：您需要为其提供自己的 React 组件实现。
+
+在 Docusaurus 中，MDX 组件作用域由 `@theme/MDXComponents` 文件提供。与 `@theme/` 别名下的大多数导出不同，它本身不是 React 组件，而是一个从标签名（如 `Highlight`）到对应 React 组件实现的映射表。
+
+如果您[混写（swizzle）](../../swizzling.mdx)该组件，您会发现所有已实现的标签，并可以通过混写相应的子组件（如用于渲染[Markdown代码块](./markdown-features-code-blocks.mdx)的`@theme/MDXComponents/Code`）进一步自定义我们的实现。
+
+若需注册额外标签（如上述`<Highlight>`标签），建议[包装`@theme/MDXComponents`](../../swizzling.mdx#wrapping)，这样无需维护所有现有映射关系。由于混写CLI尚不支持包装非组件文件，您需要手动创建包装器：
+
+```js title="src/theme/MDXComponents.js"
+import React from 'react';
+// Import the original mapper
+import MDXComponents from '@theme-original/MDXComponents';
+// highlight-next-line
+import Highlight from '@site/src/components/Highlight';
+
+export default {
+  // Re-use the default mapping
+  ...MDXComponents,
+  // Map the "<Highlight>" tag to our Highlight component
+  // `Highlight` will receive all props that were passed to `<Highlight>` in MDX
+  // highlight-next-line
+  Highlight,
+};
+```
+
+现在，您无需编写导入语句即可在所有页面自由使用`<Highlight>`：
+
+```md
+I can conveniently use <Highlight color="#25c2a0">Docusaurus green</Highlight> everywhere!
+```
+
+<BrowserWindow>
+
+I can conveniently use <Highlight color="#25c2a0">Docusaurus green</Highlight> everywhere!
+
+</BrowserWindow>
+
+:::warning
+
+我们**刻意使用大写**标签名如`Highlight`。
+
+从MDX v3+开始（Docusaurus v3+），小写标签名始终会被渲染为原生HTML元素，不会使用您提供的任何组件映射。
+
+:::
+
+:::warning
+
+该功能由[`MDXProvider`](https://mdxjs.com/docs/using-mdx/#mdx-provider)驱动。若在React页面中导入Markdown，您需要通过`MDXContent`主题组件自行提供该Provider：
+
+```jsx title="src/pages/index.js"
+import React from 'react';
+import FeatureDisplay from './_featureDisplay.mdx';
+// highlight-next-line
+import MDXContent from '@theme/MDXContent';
+
+export default function LandingPage() {
+  return (
+    <div>
+      {/* highlight-start */}
+      <MDXContent>
+        <FeatureDisplay />
+      </MDXContent>
+      {/* highlight-end */}
+    </div>
+  );
+}
+```
+
+若未用`MDXContent`包裹导入的MDX，全局作用域将不可用。
+
+:::
+
+### Markdown与JSX的互操作性 {#markdown-and-jsx-interoperability}
+
+Docusaurus v3采用[MDX v3](https://mdxjs.com/blog/v3/)。
+
+[MDX语法](https://mdxjs.com/docs/what-is-mdx/#mdx-syntax)基本兼容[CommonMark](https://commonmark.org/)，但更为严格，因为`.mdx`文件可使用JSX并被编译为真实React组件（参见[playground](https://mdxjs.com/playground/)）。
+
+部分有效的CommonMark特性在MDX中不可用（[更多信息](https://mdxjs.com/docs/what-is-mdx/#markdown)），特别是：
+
+- 缩进代码块：改用三重反引号
+- 自动链接（`<http://localhost:3000>`）：改用常规链接语法（`[http://localhost:3000](http://localhost:3000)`）
+- HTML语法（`<p style="color: red;">`）：改用JSX（`<p style={{color: 'red'}}>`）
+- 未转义的`{`和`<`：使用`\`转义（`\{`和`\<`）
+
+:::danger[实验性CommonMark支持]
+
+Docusaurus v3通过以下选项支持选择启用限制更少的标准[CommonMark](https://commonmark.org/)：
+
+- 前置声明`mdx.format: md`
+- 文件扩展名`.md`配合站点配置`siteConfig.markdown.format: "detect"`
+
+该功能目前处于**实验阶段**，存在若干[限制](https://github.com/facebook/docusaurus/issues/9092)。
+
+:::
+
+## 导入代码片段 {#importing-code-snippets}
+
+您不仅可以导入包含组件定义的文件，还能借助[Webpack raw-loader](https://webpack.js.org/loaders/raw-loader/)将任何代码文件作为原始文本导入并插入代码块。要使用`raw-loader`，需先在项目中安装：
+
+```bash npm2yarn
+npm install --save raw-loader
+```
+
+现在你可以直接导入另一个文件中的代码片段：
+
+```jsx title="myMarkdownFile.mdx"
+import CodeBlock from '@theme/CodeBlock';
+import MyComponentSource from '!!raw-loader!./myComponent';
+
+<CodeBlock language="jsx">{MyComponentSource}</CodeBlock>
+```
+
+import CodeBlock from '@theme/CodeBlock';
+import MyComponentSource from '!!raw-loader!@site/src/pages/examples/_myComponent';
+
+<BrowserWindow>
+
+<CodeBlock language="jsx">{MyComponentSource}</CodeBlock>
+
+</BrowserWindow>
+
+有关 `<CodeBlock>` 组件的更多细节，请参阅 [JSX 中的代码块用法](./markdown-features-code-blocks.mdx#usage-in-jsx)。
+
+:::note
+
+必须使用 `<CodeBlock>` 而非 Markdown 的三反引号 ```，因为后者会原样输出所有内容，而这里你需要对导入的文本进行插值处理。
+
+:::
+
+:::warning
+
+此功能为实验性质，未来可能存在破坏性 API 变更。
+
+:::
+
+## 导入 Markdown 文件 {#importing-markdown}
+
+你可以将 Markdown 文件作为组件导入到其他 Markdown 文件或 React 页面中使用。
+
+按照约定，使用 **文件名前缀 `_`** 表示该 Markdown 文件是**"局部"**文件，不会被创建为独立文档页面，仅供其他文件导入使用。
+
+```md title="_markdown-partial-example.mdx"
+<span>Hello {props.name}</span>
+
+This is text some content from `_markdown-partial-example.mdx`.
+```
+
+```jsx title="someOtherDoc.mdx"
+import PartialExample from './_markdown-partial-example.mdx';
+
+<PartialExample name="Sebastien" />
+```
+
+import PartialExample from './_markdown-partial-example.mdx';
+
+<BrowserWindow>
+  <PartialExample name="Sebastien" />
+</BrowserWindow>
+
+通过这种方式，你可以在多个页面间复用内容，避免材料重复。
+
+:::warning
+
+当前目录树(TOC)不会包含被导入的 Markdown 标题。这是我们正在解决的技术限制（[相关 issue](https://github.com/facebook/docusaurus/issues/3915)）。
+
+:::
+
+## 可用导出项 {#available-exports}
+
+在 MDX 页面中，以下变量可作为全局变量使用：
+
+- `frontMatter`: 以字符串键值对形式存储的 front matter 元数据；
+- `toc`: 目录树结构。具体用例可参阅 [内联目录](./markdown-features-toc.mdx#inline-table-of-contents)；
+- `contentTitle`: Markdown 标题文本（即文档中第一个 `h1` 级标题）。如果不存在（例如 front matter 中已指定标题），则该值为 `undefined`。
+
+```jsx
+import TOCInline from '@theme/TOCInline';
+import CodeBlock from '@theme/CodeBlock';
+
+The table of contents for this page, serialized:
+
+<CodeBlock className="language-json">{JSON.stringify(toc, null, 2)}</CodeBlock>
+
+The front matter of this page:
+
+<ul>
+  {Object.entries(frontMatter).map(([key, value]) => <li key={key}><b>{key}</b>: {value}</li>)}
+</ul>
+
+<p>The title of this page is: <b>{contentTitle}</b></p>
+```
+
+import TOCInline from '@theme/TOCInline';
+
+<BrowserWindow>
+
+The table of contents for this page, serialized:
+
+<CodeBlock className="language-json">{JSON.stringify(toc, null, 2)}</CodeBlock>
+
+The front matter of this page:
+
+<ul>
+  {Object.entries(frontMatter).map(([key, value]) => <li key={key}><b>{key}</b>: {value}</li>)}
+</ul>
+
+<p>The title of this page is: <b>{contentTitle}</b></p>
+
+</BrowserWindow>

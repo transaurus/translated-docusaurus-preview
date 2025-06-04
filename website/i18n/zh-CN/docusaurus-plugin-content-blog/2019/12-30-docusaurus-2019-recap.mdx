@@ -1,0 +1,61 @@
+---
+title: Docusaurus 2019 Recap
+authors: yangshun
+tags: [recap]
+---
+
+2019年对Docusaurus而言是硕果累累的一年——我们在[Docusaurus 2](https://docusaurus.io/)上取得了重大进展。当前未使用翻译功能的Docusaurus 1用户可以随时试用并[迁移](https://docusaurus.io/docs/migration)至新版本！否则我们将在2020年协助您完成迁移 :)
+
+<!--truncate-->
+
+## Docusaurus 2（D2）
+
+2018年，我们提出了[彻底重构Docusaurus](https://github.com/facebook/docusaurus/issues/789)的计划。这项工作涉及重大架构调整——我们从零开始构建了以内容为核心的CSS框架、插件系统，并将静态HTML页面转变为具有预渲染路由的单页应用。这是一次疯狂的冒险和艰难的壮举，尤其是在没有专职人员负责该项目的情况下。在从实习生转变为贡献者继而成为维护者的[@endilie](https://github.com/endiliey)的帮助下，我们在D2上取得了显著进展，当前版本为2.0.0-alpha.40。除翻译功能外，Docusaurus 1的所有特性均已移植到新版本。
+
+D2的核心优势是**暗黑模式**和**卓越性能**。D2开箱即支持暗黑模式，几乎无需额外工作即可创建适配暗黑模式的文档站点。Endilie在性能优化方面投入了大量精力，默认实现了多项优化策略——包括图片优化、将所有路由预渲染为静态HTML后启用客户端路由、当用户悬停在导航链接时预加载后续导航所需资源等。
+
+最后但同样重要的是，我们实现了插件架构并将代码库改造为[Lerna monorepo](https://github.com/facebook/docusaurus/tree/main/packages)。我们相信这种插件架构将有助于构建社区生态，同时让用户能为特定用例开发自定义功能。
+
+## GitHub动态
+
+- 星标数：10050 → 14632（同比增长45.6%）
+- 总贡献者：182 → 303（同比增长66.4%），其中大部分为非Facebook贡献者
+- 日均npm下载量：728 → 2320（同比增长218.7%），峰值出现在11月
+- GitHub上目前有3872个项目使用D1，247个项目使用D2
+- 活跃核心贡献者增至4人！（同比增长100%）
+
+## 知名用户
+
+开源社区中大量项目采用Docusaurus。过去半年我们还成功让更多知名项目迁移至Docusaurus 2：
+
+- [Create React App](https://create-react-app.dev/)
+- [Redux](https://redux.js.org/)
+- [Draft.js](https://draftjs.org/)
+- [Flux](http://facebook.github.io/flux/)
+
+同时欢迎更多项目加入Docusaurus 1阵营：
+
+- [Libra](https://developers.libra.org/)
+- [MobX](https://mobx.js.org/)
+- [Immer](https://immerjs.github.io/immer/)
+- [Sorbet](https://sorbet.org/)
+
+## 媒体报道
+
+Yangshun在F8大会上进行了主题为[使用Docusaurus创建开源网站](https://www.youtube.com/watch?v=QcGJsf6mgZE)的教学演讲。
+
+## 社区生态
+
+部分第三方托管/开发服务已实现对Docusaurus的一键式集成：
+
+- [Vercel部署](https://github.com/vercel/vercel/tree/main/examples/docusaurus)
+- [CodeSandbox](https://codesandbox.io/s/docusaurus-template-x3vg9)
+- [Render](https://render.com/docs/deploy-docusaurus)
+
+## 未来展望
+
+D2 已在[开发者社区](https://docusaurus.io/showcase)中取得一定影响力。2020年，我们的目标是在上半年实现与D1的完整功能对等，并协助剩余的Facebook项目从D1迁移至D2。若能实现将Docusaurus用于内部文档系统也将意义重大，但这绝非易事。若您有此需求或相关构想，欢迎与我们交流！
+
+衷心感谢社区的贡献，特别是核心团队成员——[Endilie Yacop Sucipto](https://github.com/endiliey)、[Alexey Pyltsyn](https://github.com/lex111)、[Wei Gao](https://github.com/wgao19)。最后，感谢[Docusaurus创始人Joel Marcey](https://github.com/JoelMarcey)长期以来的支持。
+
+2020年必将精彩纷呈！🎉

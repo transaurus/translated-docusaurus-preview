@@ -1,0 +1,53 @@
+---
+sidebar_position: 11
+slug: /api/plugins/@docusaurus/plugin-vercel-analytics
+---
+
+# 📦 plugin-vercel-analytics
+
+import APITable from '@site/src/components/APITable';
+
+[Vercel Analytics](https://vercel.com/docs/analytics) 提供全面的网站访问者洞察，可追踪热门页面、流量来源以及地理位置、操作系统和浏览器信息等用户画像数据。
+
+:::warning[仅生产环境]
+
+该插件在开发环境中始终处于非激活状态，**仅在生产环境** (`docusaurus build`) 下生效，以避免污染分析统计数据。
+
+:::
+
+## 安装 {#installation}
+
+```bash npm2yarn
+npm install --save @docusaurus/plugin-vercel-analytics
+```
+
+## 配置 {#configuration}
+
+可配置字段：
+
+<APITable>
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `mode` | `string` | `'auto'` | Override the automatic environment detection. Read the [official docs](https://vercel.com/docs/analytics/package#mode) for details. |
+| `debug` | `boolean` | `undefined` | Enable browser console logging of analytics events. Read the [official docs](https://vercel.com/docs/analytics/package#debug) for details. |
+
+</APITable>
+
+### 配置示例 {#ex-config}
+
+您可以通过插件选项配置此插件。
+
+```js title="docusaurus.config.js"
+export default {
+  plugins: [
+    [
+      'vercel-analytics',
+      {
+        debug: true,
+        mode: 'auto',
+      },
+    ],
+  ],
+};
+```

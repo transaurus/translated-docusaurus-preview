@@ -1,0 +1,52 @@
+---
+slug: /migration
+---
+
+# 升级 Docusaurus
+
+Docusaurus 版本遵循 `主版本号.次版本号.修订号` 的命名规则，并严格遵循[语义化版本规范](https://semver.org/)。
+
+**重大变更**仅会在主版本升级时发布，相关变更细节均记录在以下升级指南中。
+
+import DocCardList from '@theme/DocCardList';
+
+<DocCardList />
+
+## 升级问题排查
+
+升级 Docusaurus 时可能会遇到因依赖缓存不匹配导致的问题——在提交错误报告或寻求技术支持前，您应执行以下常见问题排查步骤。
+
+### 运行 `clear` 命令
+
+该 CLI 命令用于清除 Docusaurus 站点生成的静态资源、缓存及构建产物。
+
+```bash npm2yarn
+npm run clear
+```
+
+### 删除 `node_modules` 和锁文件
+
+使用以下命令删除 `node_modules` 文件夹和包管理器的锁文件：
+
+<Tabs>
+<TabItem label="Bash" value="bash">
+
+```bash
+rm -rf node_modules yarn.lock package-lock.json
+```
+
+</TabItem>
+<TabItem label="PowerShell" value="powershell">
+
+```powershell
+@('node_modules','yarn.lock','package-lock.json') | Remove-Item -Force -Recurse -ErrorAction SilentlyContinue
+```
+
+</TabItem>
+</Tabs>
+
+随后重新安装依赖并重新生成锁文件：
+
+```bash npm2yarn
+npm install
+```

@@ -1,0 +1,311 @@
+---
+description: A Docusaurus site is a pre-rendered single-page React application. You can style it the way you style React apps.
+---
+
+import ColorGenerator from '@site/src/components/ColorGenerator';
+import IframeWindow from '@site/src/components/BrowserWindow/IframeWindow';
+
+# 样式与布局
+
+:::tip
+
+本节重点介绍通过样式表进行样式定制。如需更高级的定制（DOM结构、React代码等），请参阅[组件替换指南](./swizzling.mdx)。
+
+:::
+
+Docusaurus站点是一个单页React应用，其样式定制方式与常规React应用相同。
+
+根据您的偏好和网站类型，可选择多种样式方案/框架。对于交互性强、更接近Web应用形态的网站，采用将样式与组件共置的现代样式方案会更有优势。当您需要定制或替换组件时，组件级样式方案也特别有用。
+
+## 全局样式 {#global-styles}
+
+这是大多数开发者（包括非前端开发者）最熟悉的传统样式方案，适合定制需求较少的小型网站。
+
+若使用`@docusaurus/preset-classic`，您可创建自定义CSS文件（如`/src/css/custom.css`），并通过经典主题的配置选项将其全局引入。
+
+```js title="docusaurus.config.js"
+export default {
+  // ...
+  presets: [
+    [
+      '@docusaurus/preset-classic',
+      {
+        // highlight-start
+        theme: {
+          customCss: ['./src/css/custom.css'],
+        },
+        // highlight-end
+      },
+    ],
+  ],
+};
+```
+
+该文件内编写的所有CSS将全局生效，可直接通过字符串字面量引用。
+
+```css title="/src/css/custom.css"
+.purple-text {
+  color: rebeccapurple;
+}
+```
+
+```jsx
+function MyComponent() {
+  return (
+    <main>
+      <h1 className="purple-text">Purple Heading!</h1>
+    </main>
+  );
+}
+```
+
+要为元素添加CSS样式，可通过浏览器开发者工具查看其类名。类名主要分为以下几类：
+
+- **主题类名**：完整列表见[下一小节](#theme-class-names)。这些类名没有默认样式属性，在自定义CSS中应优先选用这类稳定类名。
+- **Infima类名**：常见于经典主题，通常遵循[BEM命名规范](http://getbem.com/naming/)的`block__element--modifier`格式。虽然相对稳定，但仍属实现细节，通常应避免直接引用。不过您可以[修改Infima CSS变量](#styling-your-site-with-infima)。
+- **CSS模块类名**：生产环境带哈希值（如`codeBlockContainer_RIuc`），开发环境附带长文件路径。这些属于实现细节，几乎永远不应在自定义CSS中直接引用。如必须使用，可采用[属性选择器](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Attribute_selectors)（如`[class*='codeBlockContainer']`）忽略哈希部分。
+
+### 主题类名 {#theme-class-names}
+
+我们提供了一系列稳定的CSS类名，用于实现健壮且可维护的全局布局样式。这些类名与主题无关，专为自定义CSS设计。
+
+:::tip
+
+如果找不到合适的CSS选择器方案，请[提交您的定制需求](https://github.com/facebook/docusaurus/discussions/5468)，我们将评估是否添加新类名。
+
+:::
+
+<details>
+
+<summary>Exhaustive list of stable class names</summary>
+
+import ThemeClassNamesCode from '!!raw-loader!@site/../packages/docusaurus-theme-common/src/utils/ThemeClassNames.ts';
+import CodeBlock from '@theme/CodeBlock';
+
+<CodeBlock className="language-ts">
+  {ThemeClassNamesCode
+    // remove source comments
+    .replace(/\/\*[\s\S]*?\*\/|\/\/.*/g,'')
+    .replace(/^ *\n/gm,'')
+    .trim()}
+</CodeBlock>
+
+</details>
+
+### 使用Infima定制站点样式 {#styling-your-site-with-infima}
+
+`@docusaurus/preset-classic`采用[Infima](https://infima.dev/)作为底层样式框架。该框架为内容型网站（博客、文档、落地页）提供灵活的布局和通用UI组件样式，详见[Infima官网](https://infima.dev/)。
+
+通过`create-docusaurus`创建项目时，网站会自带基础Infima样式表和默认样式。您可以全局覆盖Infima CSS变量。
+
+```css title="/src/css/custom.css"
+:root {
+  --ifm-color-primary: #25c2a0;
+  --ifm-code-font-size: 95%;
+}
+```
+
+Infima采用7阶色板系统。推荐使用[ColorBox](https://www.colorbox.io/)工具生成主色调的色阶方案。
+
+或者，您可以使用以下工具为网站生成不同色阶的配色方案，并将变量复制到 `/src/css/custom.css` 文件中。
+
+<ColorGenerator />
+
+### 深色模式 {#dark-mode}
+
+在浅色模式下，`<html>` 元素会带有 `data-theme="light"` 属性；深色模式下则为 `data-theme="dark"`。因此您可以通过针对特定属性的 `html` 选择器来限定 CSS 仅作用于深色模式。
+
+```css
+/* Overriding root Infima variables */
+[data-theme='dark'] {
+  --ifm-color-primary: #4e89e8;
+}
+/* Styling one class specially in dark mode */
+[data-theme='dark'] .purple-text {
+  color: plum;
+}
+```
+
+:::tip
+
+您可以直接通过 `docusaurus-theme` 查询字符串参数初始化 Docusaurus 主题。
+
+示例：
+
+<IframeWindow url="/docs/?docusaurus-theme=dark" />
+
+<IframeWindow url="/docs/configuration?docusaurus-theme=light" />
+
+:::
+
+### 数据属性 {#data-attributes}
+
+可以通过遵循 `docusaurus-data-<key>` 模式的查询字符串参数向 `<html>` 元素注入数据属性。这使您能够根据查询字符串灵活调整页面样式。
+
+例如，以下示例将页面渲染为红色边框且无导航栏：
+
+```css title="/src/css/custom.css"
+html[data-navbar='false'] .navbar {
+  display: none;
+}
+
+html[data-red-border] div#__docusaurus {
+  border: red solid thick;
+}
+```
+
+<IframeWindow url="/docs/?docusaurus-data-navbar=false&docusaurus-data-red-border" />
+
+:::tip[iframe 模式]
+
+如果您计划通过 iframe 在其他站点中嵌入 Docusaurus 页面，可以创建替代显示模式并使用类似 `https://mysite.com/docs/myDoc?docusaurus-data-mode=iframe` 的 iframe 链接。您需要自行提供额外样式，并决定保留或隐藏哪些 UI 元素。
+
+:::
+
+### 移动端视图 {#mobile-view}
+
+Docusaurus 使用 `996px` 作为移动端与桌面端屏幕宽度的分界点。如需在移动视图中采用不同布局，可使用媒体查询实现。
+
+```css
+.banner {
+  padding: 4rem;
+}
+/** In mobile view, reduce the padding */
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 2rem;
+  }
+}
+```
+
+:::tip[自定义断点值]
+
+部分 React 组件（如页眉和侧边栏）在移动视图中会实现不同的 JavaScript 逻辑。如果您在自定义 CSS 中修改了断点值，可能还需要通过[组件替换](./swizzling.mdx)更新 `useWindowSize` 钩子的调用，并传递显式选项参数。
+
+:::
+
+## CSS 模块 {#css-modules}
+
+使用 [CSS 模块](https://github.com/css-modules/css-modules)为组件添加样式时，需将样式表文件命名为 `.module.css` 后缀（如 `welcome.module.css`）。Webpack 会将这些 CSS 文件作为 CSS 模块加载，您需要通过导入的 CSS 模块属性引用类名（而非直接使用字符串）。此约定与 [Create React App](https://facebook.github.io/create-react-app/docs/adding-a-css-modules-stylesheet) 的用法一致。
+
+```css title="styles.module.css"
+.main {
+  padding: 12px;
+}
+
+.heading {
+  font-weight: bold;
+}
+
+.contents {
+  color: #ccc;
+}
+```
+
+```jsx
+import styles from './styles.module.css';
+
+function MyComponent() {
+  return (
+    <main className={styles.main}>
+      <h1 className={styles.heading}>Hello!</h1>
+      <article className={styles.contents}>Lorem Ipsum</article>
+    </main>
+  );
+}
+```
+
+构建过程中，Webpack 会将类名处理为全局唯一标识符。
+
+## CSS-in-JS {#css-in-js}
+
+:::warning
+
+CSS-in-JS 支持尚在开发中，因此像 MUI 这样的库可能存在显示问题。[欢迎提交 PR](https://github.com/facebook/docusaurus/issues/1640)。
+
+:::
+
+## Sass/SCSS {#sassscss}
+
+要使用 Sass/SCSS 作为 CSS 预处理器，请安装非官方 Docusaurus 插件 [`docusaurus-plugin-sass`](https://github.com/rlamana/docusaurus-plugin-sass)。该插件同时支持全局样式和 CSS 模块方案：
+
+1. 安装 [`docusaurus-plugin-sass`](https://github.com/rlamana/docusaurus-plugin-sass)：
+
+```bash npm2yarn
+npm install --save docusaurus-plugin-sass sass
+```
+
+2. 在 `docusaurus.config.js` 文件中引入插件：
+
+```js title="docusaurus.config.js"
+export default {
+  // ...
+  // highlight-next-line
+  plugins: ['docusaurus-plugin-sass'],
+  // ...
+};
+```
+
+3. 正常编写并导入你的Sass/SCSS样式表。
+
+### 使用Sass/SCSS的全局样式 {#global-styles-using-sassscss}
+
+现在你可以将`@docusaurus/preset-classic`的`customCss`属性指向你的Sass/SCSS文件：
+
+```js title="docusaurus.config.js"
+export default {
+  presets: [
+    [
+      '@docusaurus/preset-classic',
+      {
+        // ...
+        theme: {
+          // highlight-next-line
+          customCss: ['./src/css/custom.scss'],
+        },
+        // ...
+      },
+    ],
+  ],
+};
+```
+
+### 使用Sass/SCSS的模块 {#modules-using-sassscss}
+
+将样式表文件命名为`.module.scss`后缀（例如`welcome.module.scss`）而非`.css`。Webpack会使用`sass-loader`预处理你的样式表并将其作为CSS模块加载。
+
+```scss title="styles.module.scss"
+.main {
+  padding: 12px;
+
+  article {
+    color: #ccc;
+  }
+}
+```
+
+```jsx
+import styles from './styles.module.scss';
+
+function MyComponent() {
+  return (
+    <main className={styles.main}>
+      <article>Lorem Ipsum</article>
+    </main>
+  );
+}
+```
+
+#### TypeScript支持
+
+要为Sass/SCSS模块启用TypeScript支持，需更新TypeScript配置以添加`docusaurus-plugin-sass`类型定义。可在`tsconfig.json`文件中进行如下配置：
+
+```diff
+{
+  "extends": "@docusaurus/tsconfig",
+  "compilerOptions": {
+    ...
++    "types": ["docusaurus-plugin-sass"]
+  }
+}
+```

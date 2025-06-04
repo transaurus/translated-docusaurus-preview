@@ -1,0 +1,156 @@
+---
+title: Introducing Docusaurus
+authors: JMarcey
+tags: [documentation, blog, docusaurus]
+---
+
+![](/img/slash-introducing.svg)
+
+我们非常高兴地向您介绍[Docusaurus](https://github.com/facebook/docusaurus)，它将帮助您管理一个或多个开源项目网站。
+
+我们创建[Docusaurus](https://docusaurus.io)的初衷如下：
+
+1. 让开发者专注于撰写优质文档，而无需操心网站基础设施搭建
+1. 提供开源网站常用的核心功能：博客支持、搜索和版本管理
+1. 实现功能更新和缺陷修复的批量推送
+1. 最终为所有开源项目提供统一的视觉风格
+
+<!--truncate-->
+
+Docusaurus是一款旨在帮助团队轻松发布文档网站的工具，用户无需关注底层架构和设计细节。其核心工作流程只需用户提供：Markdown格式的文档文件、基于React编写的首页定制，以及少量配置修改。Docusaurus将自动处理样式设置、网站排版和文档导航等基础工作。通过简单的[npm或yarn安装](https://v1.docusaurus.io/docs/en/installation.html)，运行初始化脚本即可[快速生成可直接运行的示例网站](https://v1.docusaurus.io/docs/en/site-preparation.html)。
+
+Docusaurus默认提供多项核心功能：[博客支持](https://v1.docusaurus.io/docs/en/blog.html)、[国际化](https://v1.docusaurus.io/docs/en/translation.html)、[搜索](https://v1.docusaurus.io/docs/en/search.html)和[版本控制](https://v1.docusaurus.io/docs/en/versioning.html)。这些功能可通过配置选项快速启用，无需从零搭建基础设施。当新功能加入时，用户只需更新npm/yarn依赖并调整配置即可，彻底告别手动重构网站架构的繁琐流程。
+
+## Docusaurus的诞生
+
+![](/img/slash-birth.png)
+
+当Facebook最初启动开源计划时，各团队为每个开源项目都独立开发了定制网站。这种模式在需要改进项目文档时面临巨大挑战——由于每个站点都是独特的，添加博客、统一导航、搜索等基础功能都成为艰巨任务。
+
+开源团队尝试通过基于Jekyll的标准模板来缓解这个问题，要求新项目手动复制模板到代码库后编写文档并发布。该方案被大多数新开源项目采纳，部分现有项目甚至将其定制网站迁移至新模板。
+
+"复制模板"方案的致命缺陷在于：虽然初始平台一致，但后续更新无法在已采用模板的项目中同步维护。因为项目在复制模板后可以自由修改，导致各项目逐渐产生差异化。当模板新增功能时，这些项目由于本地化修改而无法直接受益。更棘手的是，要求所有项目"重新复制"新版模板可能破坏现有站点或删除他们自行添加的功能。特别是在项目提出国际化需求时，这种需要改动模板底层架构的情况，迫使我们不得不为每个项目单独手动更新。
+
+于是我们开始思考如何解决跨项目网站更新与风格统一的问题。我们希望多个项目能共享同一套站点生成系统——它们应当以相同模板为起点，同时保留自定义主题的灵活性。项目可以自由扩展和定制站点，但当我们更新底层基础设施时，它们只需简单升级而无需担心破坏性变更。
+
+Docusaurus 由此诞生！
+
+在Facebook内部，Docusaurus 能快速为不同项目搭建文档网站，尤其适合缺乏Web开发经验的团队或仅需基础展示页面的项目。它已支持高级功能如 Jest 的国际化需求和 React Native 的版本控制。当不同项目提出新需求时，这些功能会被集成到 Docusaurus 并同步提供给所有项目！这大幅减少了维护不同项目站点的工作量，让团队能更专注于功能开发、缺陷修复和文档编写，从而保持项目健康度。
+
+## 快速入门
+
+![](/img/slash-up-and-running.png)
+
+我们致力于让 Docusaurus 站点简单易用。只需执行一条[安装](https://v1.docusaurus.io/docs/en/installation.html)命令并完成基础[配置](https://v1.docusaurus.io/docs/en/site-preparation.html)，您就能立即获得一个可运行的默认网站。
+
+运行 `docusaurus-init` 后，您将看到如下结构：
+
+```bash
+root-of-repo
+├── docs-examples-from-docusaurus
+│   ├── doc1.md
+│   ├── doc2.md
+│   ├── doc3.md
+│   ├── example-doc4.md
+│   └── example-doc5.md
+├── website
+│   ├── blog-examples-from-docusaurus
+│   │   ├── 2016-03-11-blog-post.md
+│   │   └── 2017-04-10-blog-post-two.md
+│   ├── core
+│   │   └── Footer.js
+│   ├── node_modules
+│   ├── package.json
+│   ├── pages
+│   ├── sidebars.json
+│   ├── siteConfig.js
+│   └── static
+```
+
+除 node_modules 和 package.json 外，所有目录文件都用于定制您的 Docusaurus 网站：docs 文件夹存放 Markdown 格式的文档；blog 文件夹存放[博客文章](https://v1.docusaurus.io/docs/en/blog.html)的 Markdown；`siteConfig.js` 是主要的[站点配置](https://v1.docusaurus.io/docs/en/site-config.html)文件；`sidebars.json` 控制文档[侧边栏](https://v1.docusaurus.io/docs/en/navigation.html)布局；`pages` 文件夹添加[自定义页面](https://v1.docusaurus.io/docs/en/custom-pages.html)；`static` 文件夹存放静态资源（如CSS样式表和图片）；`core` 文件夹则可定制站点核心组件（如页脚）。
+
+## 工作原理
+
+Docusaurus 主要基于 JavaScript 和 [React](https://facebook.github.io/react) 开发，取代了旧模板使用的 Jekyll。我们采用 [Remarkable](https://github.com/jonschlinkert/remarkable) 渲染 Markdown，使用 [highlight.js](https://highlightjs.org/) 实现代码块语法高亮。核心功能位于 [Docusaurus 代码库](https://github.com/facebook/docusaurus/)的 [lib 目录](https://github.com/facebookexperimental/Docusaurus/tree/master/lib)，其结构如下：
+
+```bash
+root-of-Docusaurus
+├── lib
+│   ├── core
+│   ├── server
+│   │   ├── generate.js
+│   │   ├── server.js
+│   │   └── ...and more files
+│   ├── static
+│   ├── build-files.js
+│   ├── copy-examples.js
+│   ├── generate-feed.js
+│   ├── publish-gh-pages.js
+│   ├── rename-version.js
+│   ├── start-server.js
+│   ├── versions.js
+│   └── write-translations.js
+```
+
+关键文件是 build-files.js 和 start-server.js：前者生成供外部服务器部署的物理文件，后者用于本地运行测试。两者都遵循相同流程——通过解析所有 Markdown 和配置文件来构建可运行网站：
+
+1. 在 `siteConfig.js` 中处理您的网站设置
+1. 读取文档目录中所有 Markdown 文件内的元数据
+1. 根据从元数据提取的 ID 创建文档目录表
+1. 将 Markdown 转换为 HTML（包括链接替换）
+1. 这些文件将存放在编译后站点的 build/docs 目录下，翻译版本则会存放在 build/docs 文件夹内对应的语言子目录中
+1. 对博客文章重复步骤 1-3
+1. 博客文件将存放在编译后站点的 build/blog 目录下
+1. 读取 main.css 文件并将用户定义的 CSS 合并到编译后站点 build/css 目录下的主 CSS 文件中
+1. 将图片复制到编译后站点的 build/img 目录
+1. 将添加到 pages 文件夹的任何自定义页面编译/复制到编译后站点的根 build 目录中。翻译版本则会存放在 build 文件夹内对应的语言子目录中
+1. 创建 CNAME 和 sitemap.xml 文件并添加到 build 目录
+
+请注意，此流程未完整考虑翻译和版本控制功能的具体实现细节，这些特性的底层原理将在未来的博客文章中专门说明。
+
+最终编译完成的站点结构示例如下：
+
+```bash
+build
+├── website
+│   ├── CNAME
+│   ├── blog
+│   ├── css
+│   ├── docs
+│   ├── en
+│   ├── help.html # custom page
+│   ├── img
+│   ├── index.html # landing page
+│   ├── sitemap.xml
+│   └── users.html # custom page
+```
+
+## 社区
+
+![](/img/docusaurus.svg)
+
+我们欢迎您为 Docusaurus 作出[贡献](https://github.com/facebook/docusaurus/blob/master/CONTRIBUTING.md)，无论是用于自己的站点、参与[Docusaurus 核心开发](https://github.com/facebook/docusaurus/blob/master/CONTRIBUTING.md)，还是仅提出疑问。请在[GitHub](https://github.com/facebook/docusaurus)和[X（原推特）](https://x.com/docusaurus)上关注我们。
+
+## 致谢
+
+Docusaurus 的诞生离不开核心团队成员的工作：[Eric Nakagawa](http://x.com/ericnakagawa)、[Hector Ramos](https://x.com/hectorramos)、[Eric Vicenti](https://x.com/EricVicenti) 以及 Facebook 前实习生 [Frank Li](https://github.com/deltice)——他实现了核心技术特性。
+
+特别感谢早期采用 Docusaurus 的[项目](https://v1.docusaurus.io/en/users.html)：
+
+- [BuckleScript](https://bucklescript.github.io/)
+- [FastText](https://fasttext.cc)
+- [Jest](https://jestjs.io)
+- [Make It Open](http://makeitopen.com)
+- [Prettier](https://prettier.io/)
+- [Reason-react](https://reasonml.github.io/reason-react/)
+- [React Native](https://facebook.github.io/react-native/)
+- [Relay](https://facebook.github.io/relay/)
+
+正是这些项目坚持创建或迁移网站到本平台，才让我们取得今天的成就。
+
+## 资源
+
+- [阅读文档](https://v1.docusaurus.io)
+- [关注 X 官方账号](https://x.com/docusaurus)
+- [GitHub 主页](https://github.com/facebook/docusaurus)
+- [关于吉祥物 Slash](https://v1.docusaurus.io/about-slash.html)

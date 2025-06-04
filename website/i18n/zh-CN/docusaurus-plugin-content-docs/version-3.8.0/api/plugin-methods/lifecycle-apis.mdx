@@ -1,0 +1,493 @@
+---
+sidebar_position: 1
+toc_max_heading_level: 4
+---
+
+# 生命周期 API
+
+在构建过程中，插件会并行加载以获取自身内容并将其渲染为路由。插件还可以配置 webpack 或对生成的文件进行后处理。
+
+## `async loadContent()` {#loadContent}
+
+插件应使用此生命周期从数据源（文件系统、远程 API、无头 CMS 等）获取数据或进行一些服务器端处理。返回值是其所需的内容。
+
+例如，下面的插件返回一个 1 到 10 之间的随机整数作为内容。
+
+```js title="docusaurus-plugin/src/index.js"
+export default function (context, options) {
+  return {
+    name: 'docusaurus-plugin',
+    // highlight-start
+    async loadContent() {
+      return 1 + Math.floor(Math.random() * 10);
+    },
+    // highlight-end
+  };
+}
+```
+
+## `async contentLoaded({content, actions})` {#contentLoaded}
+
+`loadContent` 中加载的数据将在 `contentLoaded` 中被消费。它可以被渲染为路由、注册为全局数据等。
+
+### `content` {#content}
+
+`contentLoaded` 将在 `loadContent` 完成后被调用。`loadContent()` 的返回值将作为 `content` 传递给 `contentLoaded`。
+
+### `actions` {#actions}
+
+`actions` 包含三个函数：
+
+#### `addRoute(config: RouteConfig): void` {#addRoute}
+
+创建要添加到网站的路由。
+
+```ts
+export type RouteConfig = {
+  /**
+   * With leading slash. Trailing slash will be normalized by config.
+   */
+  path: string;
+  /**
+   * Component used to render this route, a path that the bundler can `require`.
+   */
+  component: string;
+  /**
+   * Props. Each entry should be `[propName]: pathToPropModule` (created with
+   * `createData`)
+   */
+  modules?: RouteModules;
+  /**
+   * The route context will wrap the `component`. Use `useRouteContext` to
+   * retrieve what's declared here. Note that all custom route context declared
+   * here will be namespaced under {@link RouteContext.data}.
+   */
+  context?: RouteModules;
+  /**
+   * Nested routes config, useful for "layout routes" having subroutes.
+   */
+  routes?: RouteConfig[];
+  /**
+   * React router config option: `exact` routes would not match subroutes.
+   */
+  exact?: boolean;
+  /**
+   * React router config option: `strict` routes are sensitive to the presence
+   * of a trailing slash.
+   */
+  strict?: boolean;
+  /**
+   * Used to sort routes.
+   * Higher-priority routes will be matched first.
+   */
+  priority?: number;
+  /**
+   * Optional route metadata
+   */
+  metadata?: RouteMetadata;
+  /**
+   * Extra props; will be available on the client side.
+   */
+  [propName: string]: unknown;
+};
+
+/**
+ * Plugin authors can assign extra metadata to the created routes
+ * It is only available on the Node.js side, and not sent to the browser
+ * Optional: plugin authors are encouraged but not required to provide it
+ *
+ * Some plugins might use this data to provide additional features.
+ * This is the case of the sitemap plugin to provide support for "lastmod".
+ * See also: https://github.com/facebook/docusaurus/pull/9954
+ */
+export type RouteMetadata = {
+  /**
+   * The source code file path that led to the creation of the current route
+   * In official content plugins, this is usually a Markdown or React file
+   * This path is expected to be relative to the site directory
+   */
+  sourceFilePath?: string;
+  /**
+   * The last updated date of this route
+   * This is generally read from the Git history of the sourceFilePath
+   * but can also be provided through other means (usually front matter)
+   *
+   * This has notably been introduced for adding "lastmod" support to the
+   * sitemap plugin, see https://github.com/facebook/docusaurus/pull/9954
+   */
+  lastUpdatedAt?: number;
+};
+
+type RouteModules = {
+  [module: string]: Module | RouteModules | RouteModules[];
+};
+
+type Module =
+  | {
+      path: string;
+      __import?: boolean;
+      query?: ParsedUrlQueryInput;
+    }
+  | string;
+```
+
+#### `createData(name: string, data: any): Promise<string>` {#createData}
+
+一个声明式回调，用于创建静态数据（通常是 JSON 或字符串），稍后可以作为 props 提供给您的路由。接收文件名和要存储的数据，并返回实际数据文件的路径。
+
+例如，下面的插件创建一个 `/friends` 页面，显示 `你的朋友是：Yangshun, Sebastien`：
+
+```jsx title="website/src/components/Friends.js"
+import React from 'react';
+
+export default function FriendsComponent({friends}) {
+  return <div>Your friends are {friends.join(',')}</div>;
+}
+```
+
+```js title="docusaurus-friends-plugin/src/index.js"
+export default function friendsPlugin(context, options) {
+  return {
+    name: 'docusaurus-friends-plugin',
+    // highlight-start
+    async contentLoaded({content, actions}) {
+      const {createData, addRoute} = actions;
+      // Create friends.json
+      const friends = ['Yangshun', 'Sebastien'];
+      const friendsJsonPath = await createData(
+        'friends.json',
+        JSON.stringify(friends),
+      );
+
+      // Add the '/friends' routes, and ensure it receives the friends props
+      addRoute({
+        path: '/friends',
+        component: '@site/src/components/Friends.js',
+        modules: {
+          // propName -> JSON file path
+          friends: friendsJsonPath,
+        },
+        exact: true,
+      });
+    },
+    // highlight-end
+  };
+}
+```
+
+#### `setGlobalData(data: any): void` {#setGlobalData}
+
+此函数允许创建一些全局插件数据，这些数据可以从任何页面读取，包括其他插件创建的页面和您的主题布局。
+
+这些数据可以通过 [`useGlobalData`](../../docusaurus-core.mdx#useGlobalData) 和 [`usePluginData`](../../docusaurus-core.mdx#usePluginData) 钩子在客户端/主题代码中访问。
+
+:::warning
+
+全局数据是...全局的：其大小会影响您站点所有页面的加载时间，因此请尽量保持其小巧。尽可能优先使用 `createData` 和页面特定数据。
+
+:::
+
+例如，下面的插件创建一个 `/friends` 页面，显示 `你的朋友是：Yangshun, Sebastien`：
+
+```jsx title="website/src/components/Friends.js"
+import React from 'react';
+import {usePluginData} from '@docusaurus/useGlobalData';
+
+export default function FriendsComponent() {
+  const {friends} = usePluginData('docusaurus-friends-plugin');
+  return <div>Your friends are {friends.join(',')}</div>;
+}
+```
+
+```js title="docusaurus-friends-plugin/src/index.js"
+export default function friendsPlugin(context, options) {
+  return {
+    name: 'docusaurus-friends-plugin',
+    // highlight-start
+    async contentLoaded({content, actions}) {
+      const {setGlobalData, addRoute} = actions;
+      // Create friends global data
+      setGlobalData({friends: ['Yangshun', 'Sebastien']});
+
+      // Add the '/friends' routes
+      addRoute({
+        path: '/friends',
+        component: '@site/src/components/Friends.js',
+        exact: true,
+      });
+    },
+    // highlight-end
+  };
+}
+```
+
+## `configureWebpack(config, isServer, utils, content)` {#configureWebpack}
+
+修改内部 webpack 配置。如果返回值是一个 JavaScript 对象，它将使用 [`webpack-merge`](https://github.com/survivejs/webpack-merge) 合并到最终配置中。如果是一个函数，它将被调用，并接收 `config` 作为第一个参数，`isServer` 标志作为第二个参数。
+
+:::warning
+
+`configureWebpack` 的 API 将在未来修改为接收一个对象（`configureWebpack({config, isServer, utils, content})`）
+
+:::
+
+### `config` {#config}
+
+`configureWebpack` 被调用时会传入根据客户端/服务器端构建生成的 `config`。您可以将其视为要合并的基础配置。
+
+### `isServer` {#isServer}
+
+`configureWebpack` 会在服务端构建和客户端构建时被调用。服务端构建传入 `true`，客户端构建传入 `false` 作为 `isServer` 参数。
+
+### `utils` {#utils}
+
+`configureWebpack` 还会接收一个工具对象：
+
+- `getStyleLoaders(isServer: boolean, cssOptions: {[key: string]: any}): Loader[]`
+- `getJSLoader(isServer: boolean, cacheOptions?: {}): Loader | null`
+
+您可以使用它们来有条件地返回您的 webpack 配置。
+
+例如，下面的插件修改 webpack 配置以转译 `.foo` 文件。
+
+```js title="docusaurus-plugin/src/index.js"
+export default function (context, options) {
+  return {
+    name: 'custom-docusaurus-plugin',
+    // highlight-start
+    configureWebpack(config, isServer, utils) {
+      const {getJSLoader} = utils;
+      return {
+        module: {
+          rules: [
+            {
+              test: /\.foo$/,
+              use: [getJSLoader(isServer), 'my-custom-webpack-loader'],
+            },
+          ],
+        },
+      };
+    },
+    // highlight-end
+  };
+}
+```
+
+### `content` {#content-1}
+
+`configureWebpack` 会同时传入插件加载的内容。
+
+### 合并策略 {#merge-strategy}
+
+我们使用 [webpack-merge](https://github.com/survivejs/webpack-merge) 将插件的 Webpack 配置部分合并到全局 Webpack 配置中。
+
+可以指定合并策略。例如，如果您希望 webpack 规则前置而不是追加：
+
+```js title="docusaurus-plugin/src/index.js"
+export default function (context, options) {
+  return {
+    name: 'custom-docusaurus-plugin',
+    configureWebpack(config, isServer, utils) {
+      return {
+        // highlight-start
+        mergeStrategy: {'module.rules': 'prepend'},
+        module: {rules: [myRuleToPrepend]},
+        // highlight-end
+      };
+    },
+  };
+}
+```
+
+阅读 [webpack-merge 策略文档](https://github.com/survivejs/webpack-merge#merging-with-strategies) 了解更多详情。
+
+### 配置开发服务器 {#configuring-dev-server}
+
+可以通过返回 `devServer` 字段来配置开发服务器。
+
+```js title="docusaurus-plugin/src/index.js"
+export default function (context, options) {
+  return {
+    name: 'custom-docusaurus-plugin',
+    configureWebpack(config, isServer, utils) {
+      return {
+        // highlight-start
+        devServer: {
+          open: '/docs', // Opens localhost:3000/docs instead of localhost:3000/
+        },
+        // highlight-end
+      };
+    },
+  };
+}
+```
+
+## `configurePostCss(options)` {#configurePostCss}
+
+在生成客户端包时修改 [`postcss-loader` 的 `postcssOptions`](https://webpack.js.org/loaders/postcss-loader/#postcssoptions)。
+
+应返回修改后的 `postcssOptions`。
+
+默认情况下，`postcssOptions` 如下所示：
+
+```js
+const postcssOptions = {
+  ident: 'postcss',
+  plugins: [require('autoprefixer')],
+};
+```
+
+示例：
+
+```js title="docusaurus-plugin/src/index.js"
+export default function (context, options) {
+  return {
+    name: 'docusaurus-plugin',
+    // highlight-start
+    configurePostCss(postcssOptions) {
+      // Appends new PostCSS plugin.
+      postcssOptions.plugins.push(require('postcss-import'));
+      return postcssOptions;
+    },
+    // highlight-end
+  };
+}
+```
+
+## `postBuild(props)` {#postBuild}
+
+在（生产）构建完成时调用。
+
+```ts
+interface Props {
+  siteDir: string;
+  generatedFilesDir: string;
+  siteConfig: DocusaurusConfig;
+  outDir: string;
+  baseUrl: string;
+  headTags: string;
+  preBodyTags: string;
+  postBodyTags: string;
+  routesPaths: string[];
+  routesBuildMetadata: {[location: string]: {noIndex: boolean}};
+  plugins: Plugin<any>[];
+  content: Content;
+}
+```
+
+示例：
+
+```js title="docusaurus-plugin/src/index.js"
+export default function (context, options) {
+  return {
+    name: 'docusaurus-plugin',
+    // highlight-start
+    async postBuild({siteConfig = {}, routesPaths = [], outDir}) {
+      // Print out to console all the rendered routes.
+      routesPaths.map((route) => {
+        console.log(route);
+      });
+    },
+    // highlight-end
+  };
+}
+```
+
+## `injectHtmlTags({content})` {#injectHtmlTags}
+
+向 Docusaurus 生成的 HTML 中注入 head 和/或 body HTML 标签。
+
+`injectHtmlTags` 会同时传入插件加载的内容。
+
+```ts
+function injectHtmlTags(): {
+  headTags?: HtmlTags;
+  preBodyTags?: HtmlTags;
+  postBodyTags?: HtmlTags;
+};
+
+type HtmlTags = string | HtmlTagObject | (string | HtmlTagObject)[];
+
+type HtmlTagObject = {
+  /**
+   * Attributes of the HTML tag
+   * E.g. `{'disabled': true, 'value': 'demo', 'rel': 'preconnect'}`
+   */
+  attributes?: {
+    [attributeName: string]: string | boolean;
+  };
+  /**
+   * The tag name e.g. `div`, `script`, `link`, `meta`
+   */
+  tagName: string;
+  /**
+   * The inner HTML
+   */
+  innerHTML?: string;
+};
+```
+
+示例：
+
+```js title="docusaurus-plugin/src/index.js"
+export default function (context, options) {
+  return {
+    name: 'docusaurus-plugin',
+    loadContent: async () => {
+      return {remoteHeadTags: await fetchHeadTagsFromAPI()};
+    },
+    // highlight-start
+    injectHtmlTags({content}) {
+      return {
+        headTags: [
+          {
+            tagName: 'link',
+            attributes: {
+              rel: 'preconnect',
+              href: 'https://www.github.com',
+            },
+          },
+          ...content.remoteHeadTags,
+        ],
+        preBodyTags: [
+          {
+            tagName: 'script',
+            attributes: {
+              charset: 'utf-8',
+              src: '/noflash.js',
+            },
+          },
+        ],
+        postBodyTags: [`<div> This is post body </div>`],
+      };
+    },
+    // highlight-end
+  };
+}
+```
+
+标签将按以下方式添加：
+
+- `headTags` 将在 `</head>` 关闭标签前插入，位于配置添加的脚本之后。
+- `preBodyTags` 将在 `<body>` 开始标签后插入，位于所有子元素之前。
+- `postBodyTags` 将在 `</body>` 关闭标签前插入，位于所有子元素之后。
+
+## `getClientModules()` {#getClientModules}
+
+返回要导入到客户端包中的[客户端模块](../../advanced/client.mdx#client-modules)路径数组。
+
+例如，要使您的主题加载用户通过 `options` 传入的 `customCss` 或 `customJs` 文件路径：
+
+```js title="my-theme/src/index.js"
+export default function (context, options) {
+  const {customCss, customJs} = options || {};
+  return {
+    name: 'name-of-my-theme',
+    // highlight-start
+    getClientModules() {
+      return [customCss, customJs];
+    },
+    // highlight-end
+  };
+}
+```

@@ -1,0 +1,31 @@
+---
+slug: /api/misc/@docusaurus/eslint-plugin/prefer-docusaurus-heading
+---
+
+# 优先使用Docusaurus标题组件
+
+确保使用Docusaurus [`theme-classic`](../../themes/theme-classic.mdx)提供的`@theme/Heading`主题组件，而非直接使用`<hn>`标签作为标题。
+
+## 规则详情 {#details}
+
+该规则的**错误**代码示例：
+
+```html
+<h1>This is heading 1</h1>
+
+<h2>This is heading 2</h2>
+
+<h3>This is heading 3</h3>
+```
+
+该规则的**正确**代码示例：
+
+```javascript
+import Heading from '@theme/Heading'
+
+<Heading as='h1'>This is heading 1</Heading>
+
+<Heading as='h2'>This is heading 2</Heading>
+
+<Heading as='h3'>This is heading 3</Heading>
+```

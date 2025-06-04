@@ -1,0 +1,176 @@
+---
+slug: /migration/v2/versioned-sites
+---
+
+# 版本化站点
+
+请先阅读 https://docusaurus.io/blog/2018/09/11/Towards-Docusaurus-2#versioning 了解v1版本控制方案存在的问题。
+
+:::note
+
+版本化文档通常可通过[迁移CLI](./migration-automated.mdx)正确迁移
+
+:::
+
+## 迁移 `versioned_docs` 的 front matter 配置 {#migrate-your-versioned_docs-front-matter}
+
+与v1不同，每个版本化文档的Markdown头部不再通过使用`version-${version}-${original_id}`作为实际ID字段的值来修改。以下场景可更清晰地说明。
+
+例如，您有一个`docs/hello.md`文件。
+
+```md
+---
+id: hello
+title: Hello, World !
+---
+
+Hi, Endilie here :)
+```
+
+当您创建新版本1.0.0时，在Docusaurus v1中，`website/versioned_docs/version-1.0.0/hello.md`文件内容如下：
+
+```md
+---
+id: version-1.0.0-hello
+title: Hello, World !
+original_id: hello
+---
+
+Hi, Endilie here :)
+```
+
+相比之下，Docusaurus 2的`website/versioned_docs/version-1.0.0/hello.md`文件内容如下（与原文件完全一致）：
+
+```md
+---
+id: hello
+title: Hello, World !
+---
+
+Hi, Endilie here :)
+```
+
+由于我们采用快照机制并允许用户在版本内自由移动（和编辑）文档，`id` front matter不再被修改并保持原样。在内部，它被设置为`version-${version}/${id}`。
+
+本质上，每个versioned_docs文件需要做以下变更：
+
+```diff {2-3,5}
+---
+- id: version-1.0.0-hello
++ id: hello
+title: Hello, World !
+- original_id: hello
+---
+Hi, Endilie here :)
+```
+
+## 迁移 `versioned_sidebars` 配置 {#migrate-your-versioned_sidebars}
+
+- 将`versioned_docs`的ID引用方式从v1的`version-${version}-${original_id}`改为v2的`version-${version}/${id}`。
+
+因为在v1中很可能有人创建了front matter ID为`"version-${version}-${id}"`的新文件，这会与`versioned_docs`的ID产生冲突。
+
+例如，Docusaurus 1无法区分`docs/xxx.md`
+
+```md
+---
+id: version-1.0.0-hello
+---
+
+Another content
+```
+
+与`website/versioned_docs/version-1.0.0/hello.md`
+
+```md
+---
+id: version-1.0.0-hello
+title: Hello, World !
+original_id: hello
+---
+
+Hi, Endilie here :)
+```
+
+由于我们在v1和v2中都不允许front matter出现`/`字符，冲突发生的可能性更低。
+
+因此v1用户需要迁移他们的versioned_sidebars文件
+
+示例`versioned_sidebars/version-1.0.0-sidebars.json`文件：
+
+```diff {2-3,5-6,9-10}  title="versioned_sidebars/version-1.0.0-sidebars.json"
+{
++ "version-1.0.0/docs": {
+- "version-1.0.0-docs": {
+    "Test": [
++    "version-1.0.0/foo/bar",
+-    "version-1.0.0-foo/bar",
+    ],
+    "Guides": [
++    "version-1.0.0/hello",
+-    "version-1.0.0-hello"
+    ]
+  }
+}
+```
+
+## 填充您的 `versioned_sidebars` 和 `versioned_docs` {#populate-your-versioned_sidebars-and-versioned_docs}
+
+在v2中，我们采用快照机制实现文档版本控制。**每个版本的文档不依赖于其他版本**。可能出现`foo.md`存在于`version-1.0.0`但不存在于`version-1.2.0`的情况。由于Docusaurus v1的回退功能(https://v1.docusaurus.io/docs/en/versioning#fallback-functionality)，这在之前版本中无法实现。
+
+例如，如果v1中您的`versions.json`如下所示
+
+```json title="versions.json"
+["1.1.0", "1.0.0"]
+```
+
+Docusaurus v1仅在文档内容发生变化时才会创建版本化文档。如果从v1.0.0到v1.1.0唯一变更的文档是`hello.md`，您的文档结构可能如下所示。
+
+```bash
+website
+├── versioned_docs
+│   ├── version-1.1.0
+│   │   └── hello.md
+│   └── version-1.0.0
+│       ├── foo
+│       │   └── bar.md
+│       └── hello.md
+├── versioned_sidebars
+│   └── version-1.0.0-sidebars.json
+```
+
+在v2中，您需要手动填充缺失的`versioned_docs`和`versioned_sidebars`（同时确保front matter和ID引用正确）。
+
+```bash {3-5,12}
+website
+├── versioned_docs
+│   ├── version-1.1.0
+│   │   ├── foo
+│   │   │   └── bar.md
+│   │   └── hello.md
+│   └── version-1.0.0
+│       ├── foo
+│       │   └── bar.md
+│       └── hello.md
+├── versioned_sidebars
+│   ├── version-1.1.0-sidebars.json
+│   └── version-1.0.0-sidebars.json
+```
+
+## 将 MDX 中的样式属性转换为样式对象 {#convert-style-attributes-to-style-objects-in-mdx}
+
+Docusaurus 2 使用 JSX 处理文档文件。如果您在 Docusaurus 1 的文档中使用了任何样式属性，请将它们转换为样式对象，如下所示：
+
+```diff
+---
+id: demo
+title: Demo
+---
+
+## Section
+
+hello world
+
+- <pre style="background: black">zzz</pre>
++ <pre style={{background: 'black'}}>zzz</pre>
+```

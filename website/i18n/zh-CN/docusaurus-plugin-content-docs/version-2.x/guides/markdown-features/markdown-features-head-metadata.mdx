@@ -1,0 +1,80 @@
+---
+id: head-metadata
+description: Declaring page-specific head metadata through MDX
+slug: /markdown-features/head-metadata
+---
+
+# 头部元数据
+
+## 自定义头部元数据 {#customizing-head-metadata}
+
+Docusaurus 会自动为页面设置实用的 `<html>`、`<head>` 和 `<body>` 元数据。您可以通过 Markdown 文件中的 `<head>` 标签添加额外元数据（或覆盖现有元数据）：
+
+```md title="markdown-features-head-metadata.mdx"
+---
+id: head-metadata
+title: Head Metadata
+---
+
+<!-- highlight-start -->
+<head>
+  <html className="some-extra-html-class" />
+  <body className="other-extra-body-class" />
+  <title>Head Metadata customized title!</title>
+  <meta charSet="utf-8" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="canonical" href="https://docusaurus.io/docs/markdown-features/head-metadata" />
+</head>
+<!-- highlight-end -->
+
+# Head Metadata
+
+My text
+```
+
+<head>
+  <html className="some-extra-html-class" />
+  <body className="other-extra-body-class" />
+  <title>Head Metadata customized title!</title>
+  <meta charSet="utf-8" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="canonical" href="https://docusaurus.io/docs/markdown-features/head-metadata" />
+</head>
+
+当前 Markdown 文档已添加此 `<head>` 声明作为演示。打开浏览器开发者工具，查看本页元数据如何被影响。
+
+:::note
+
+此功能基于 Docusaurus [`<Head>`](./../../docusaurus-core.mdx#head) 组件实现。完整文档请参考 [react-helmet](https://github.com/nfl/react-helmet)。
+
+:::
+
+:::tip[常规SEO场景无需手动设置]
+
+内容插件（如文档和博客）提供了 `description`、`keywords` 和 `image` 等 front matter 选项，这些值会自动同时应用于 `description` 和 `og:description` 元数据。而使用 `<head>` 标签时您需要手动声明两个元数据标签。
+
+:::
+
+## Markdown页面描述 {#markdown-page-description}
+
+Markdown 页面的描述元数据可能用于比头部元数据更多的场景。例如文档插件的[自动生成分类索引页](../docs/sidebar/items.mdx#generated-index-page)会使用该描述作为文档卡片说明。
+
+默认情况下，描述取自第一个有效内容行，并会尝试转换为纯文本格式。例如以下文件...
+
+```md
+# Title
+
+Main content... May contain some [links](./file.mdx) or **emphasis**.
+```
+
+...将获得默认描述"主要内容...可能包含链接或强调格式"。但**该功能并非设计为全自动解决方案**。当自动生成描述不合理时，您可以通过 front matter 显式指定：
+
+```md
+---
+description: This description will override the default.
+---
+
+# Title
+
+Main content... May contain some [links](./file.mdx) or **emphasis**.
+```

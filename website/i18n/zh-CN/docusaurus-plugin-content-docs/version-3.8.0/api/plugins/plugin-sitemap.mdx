@@ -1,0 +1,106 @@
+---
+sidebar_position: 10
+slug: /api/plugins/@docusaurus/plugin-sitemap
+---
+
+# 📦 plugin-sitemap
+
+import APITable from '@site/src/components/APITable';
+
+该插件可为您的站点生成站点地图，使搜索引擎爬虫能更精准地抓取内容。
+
+:::warning[仅生产环境生效]
+
+此插件在开发模式下始终处于非活跃状态，**仅在生产环境生效**，因其作用于构建输出阶段。
+
+:::
+
+## 安装 {#installation}
+
+```bash npm2yarn
+npm install --save @docusaurus/plugin-sitemap
+```
+
+:::tip
+
+若使用 `@docusaurus/preset-classic` 预设，则无需单独安装此插件依赖。
+
+可通过[预设配置](../../using-plugins.mdx#docusauruspreset-classic)进行配置。
+
+:::
+
+## 配置 {#configuration}
+
+可配置字段：
+
+<APITable>
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `lastmod` | `'date' \| 'datetime' \| null` | `null` | `date` is YYYY-MM-DD. `datetime` is a ISO 8601 datetime. `null` is disabled. See [sitemap docs](https://www.sitemaps.org/protocol.html#xmlTagDefinitions). |
+| `changefreq` | `string \| null` | `'weekly'` | See [sitemap docs](https://www.sitemaps.org/protocol.html#xmlTagDefinitions) |
+| `priority` | `number \| null` | `0.5` | See [sitemap docs](https://www.sitemaps.org/protocol.html#xmlTagDefinitions) |
+| `ignorePatterns` | `string[]` | `[]` | A list of glob patterns; matching route paths will be filtered from the sitemap. Note that you may need to include the base URL in here. |
+| `filename` | `string` | `sitemap.xml` | The path to the created sitemap file, relative to the output directory. Useful if you have two plugin instances outputting two files. |
+| `createSitemapItems` | <code>[CreateSitemapItemsFn](#CreateSitemapItemsFn) \| undefined</code> | `undefined` | An optional function which can be used to transform and / or filter the items in the sitemap. |
+
+</APITable>
+
+### 类型定义 {#types}
+
+#### `CreateSitemapItemsFn` {#CreateSitemapItemsFn}
+
+```ts
+type CreateSitemapItemsFn = (params: {
+  siteConfig: DocusaurusConfig;
+  routes: RouteConfig[];
+  defaultCreateSitemapItems: CreateSitemapItemsFn;
+}) => Promise<SitemapItem[]>;
+```
+
+:::info
+
+本插件同时遵循以下站点配置：
+
+- [`noIndex`](../docusaurus.config.js.mdx#noIndex)：若启用则不会生成站点地图
+- [`trailingSlash`](../docusaurus.config.js.mdx#trailingSlash)：决定站点地图中的URL是否包含尾部斜杠
+
+:::
+
+:::note[关于`lastmod`]
+
+`lastmod`选项仅在插件提供[路由元数据](../plugin-methods/lifecycle-apis.mdx#addRoute)属性`sourceFilePath`和/或`lastUpdatedAt`时输出站点地图的`<lastmod>`标签。
+
+所有官方内容插件都会为基于内容文件（Markdown、MDX或React页面组件）的路由提供元数据，但第三方插件作者可能未提供此信息，此时插件将无法为其路由输出`<lastmod>`标签。
+
+:::
+
+### 配置示例 {#ex-config}
+
+可通过预设选项或插件选项配置此插件。
+
+:::tip
+
+多数Docusaurus用户通过预设选项配置此插件。
+
+:::
+
+```js config-tabs
+// Preset Options: sitemap
+// Plugin Options: @docusaurus/plugin-sitemap
+
+const config = {
+  lastmod: 'date',
+  changefreq: 'weekly',
+  priority: 0.5,
+  ignorePatterns: ['/tags/**'],
+  filename: 'sitemap.xml',
+  createSitemapItems: async (params) => {
+    const {defaultCreateSitemapItems, ...rest} = params;
+    const items = await defaultCreateSitemapItems(rest);
+    return items.filter((item) => !item.url.includes('/page/'));
+  },
+};
+```
+
+站点地图文件位于 `/sitemap.xml`。

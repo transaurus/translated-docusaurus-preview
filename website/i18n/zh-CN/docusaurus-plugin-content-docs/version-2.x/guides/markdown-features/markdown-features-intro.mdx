@@ -1,0 +1,137 @@
+---
+id: introduction
+description: Docusaurus uses MDX. Find out more about Docusaurus-specific features when writing Markdown.
+slug: /markdown-features
+---
+
+# Markdown 功能
+
+import BrowserWindow from '@site/src/components/BrowserWindow';
+
+文档是产品与用户交互的重要界面。一套撰写精良、结构清晰的文档能帮助用户快速理解产品。我们的共同目标是让用户以最快速度找到并理解所需信息。
+
+Docusaurus 2 采用现代化工具链，助您轻松构建交互式文档。您可以嵌入 React 组件，或创建实时编程区块让用户即时体验代码。这是吸引潜在用户最有效的方式——让观众无法移开视线的代码演示。
+
+:::info
+
+本节内容默认您正在使用官方 Docusaurus 内容插件。
+
+:::
+
+## 标准功能 {#standard-features}
+
+Markdown 是一种通过可读性语法编写格式化内容的标记语言。
+
+我们使用 [MDX](https://mdxjs.com/) 作为解析引擎，它不仅能解析 [标准 Markdown 语法](https://daringfireball.net/projects/markdown/syntax)，还能在文档中渲染 React 组件。
+
+```md
+### My Doc Section
+
+Hello world message with some **bold** text, some _italic_ text, and a [link](/)
+
+![img alt](/img/docusaurus.png)
+```
+
+<BrowserWindow>
+
+<h3>My Doc Section</h3>
+
+Hello world message with some **bold** text, some _italic_ text and a [link](/)
+
+![img alt](/img/docusaurus.png)
+
+</BrowserWindow>
+
+<details>
+
+<summary>Markdown is declarative</summary>
+
+Some may assume a 1-1 correlation between Markdown and HTML, e.g., `![Preview](/img/docusaurus.png)` will always become `<img src="/img/docusaurus.png" alt="Preview" />`, as-is. However, _that is not the case_.
+
+The Markdown syntax `![message](url)` only declaratively tells Docusaurus that an image needs to be inserted here, but we may do other things like transforming a [file path to URL path](./markdown-features-assets.mdx#images), so the generated markup may differ from the output of other Markdown renderers, or a naïve hand-transcription to the equivalent JSX/HTML code.
+
+In general, you should only assume the _semantics_ of the markup (` ``` ` fences become [code blocks](./markdown-features-code-blocks.mdx); `>` becomes [quotes](#quotes), etc.), but not the actual compiled output.
+
+</details>
+
+## Front matter {#front-matter}
+
+Front matter 用于为 Markdown 文件添加元数据。所有内容插件都有各自的 front matter 架构，并利用这些元数据来增强从内容或其他配置推断出的默认元数据。
+
+Front matter 位于文件最顶部，由三个破折号 `---` 包裹。其内容以 [YAML](https://yaml.org/spec/1.2.2/) 格式解析。
+
+```md
+---
+title: My Doc Title
+more_data:
+  - Can be provided
+  - as: objects
+    or: arrays
+---
+```
+
+## 引用 {#quotes}
+
+Markdown 引用区块具有精美样式：
+
+```md
+> Easy to maintain open source documentation websites.
+>
+> — Docusaurus
+```
+
+<BrowserWindow>
+
+> Easy to maintain open source documentation websites.
+>
+> — Docusaurus
+
+</BrowserWindow>
+
+## 折叠区块 {#details}
+
+Markdown 可嵌入 HTML 元素，其中 [`details`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details) 元素会被优雅地样式化：
+
+```md
+### Details element example
+
+<details>
+  <summary>Toggle me!</summary>
+  <div>
+    <div>This is the detailed content</div>
+    <br/>
+    <details>
+      <summary>
+        Nested toggle! Some surprise inside...
+      </summary>
+      <div>😲😲😲😲😲</div>
+    </details>
+  </div>
+</details>
+```
+
+<BrowserWindow>
+
+<h3>Details element example</h3>
+
+<details>
+  <summary>Toggle me!</summary>
+  <div>
+    <div>This is the detailed content</div>
+    <br/>
+    <details>
+      <summary>
+        Nested toggle! Some surprise inside...
+      </summary>
+      <div>😲😲😲😲😲</div>
+    </details>
+  </div>
+</details>
+
+</BrowserWindow>
+
+:::note
+
+实际上这些并非真正的 HTML 元素，而是 React JSX 元素——我们将在后续章节详述！
+
+:::

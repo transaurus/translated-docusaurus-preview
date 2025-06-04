@@ -1,0 +1,186 @@
+---
+description: How to install Docusaurus locally, and start a Docusaurus site in no time.
+---
+
+# 安装指南
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+Docusaurus由一组npm[包](https://github.com/facebook/docusaurus/tree/main/packages)构成。
+
+:::tip
+
+使用**[快速入门](introduction.mdx#fast-track)**，只需**5分钟⏱**即可了解Docusaurus！
+
+访问**[docusaurus.new](https://docusaurus.new)**立即在浏览器中体验Docusaurus！
+
+:::
+
+## 环境要求 {#requirements}
+
+- [Node.js](https://nodejs.org/en/download/)版本18.0或更高（可通过运行`node -v`查看）。建议使用[nvm](https://github.com/nvm-sh/nvm)管理单机上的多Node版本。
+  - 安装Node.js时，建议勾选所有与依赖项相关的复选框。
+
+## 创建项目脚手架 {#scaffold-project-website}
+
+安装Docusaurus最简单的方式是使用命令行工具生成网站骨架。该命令可在新空仓库或现有仓库的任何位置运行，将创建一个包含脚手架文件的新目录。
+
+```bash
+npx create-docusaurus@latest my-website classic
+```
+
+我们推荐使用`classic`模板快速上手，它包含Docusaurus 1的核心功能。该模板内置`@docusaurus/preset-classic`，提供标准文档系统、博客功能、自定义页面和CSS框架（支持暗黑模式）。通过经典模板可极速搭建站点，待熟悉Docusaurus后再进行定制。
+
+也可通过`--typescript`标志使用TypeScript变体模板。详见[TypeScript支持](./typescript-support.mdx)。
+
+```bash
+npx create-docusaurus@latest my-website classic --typescript
+```
+
+:::info[Meta专属]
+
+若为Meta开源项目新建Docusaurus站点，请在内部仓库运行此命令，该命令包含Meta专属的实用默认配置：
+
+```bash
+scarf static-docs-bootstrap
+```
+
+:::
+
+<details>
+  <summary>Alternative installation commands</summary>
+
+You can also initialize a new project using your preferred project manager:
+
+```bash npm2yarn
+npm init docusaurus
+```
+
+</details>
+
+运行`npx create-docusaurus@latest --help`或查阅[API文档](./api/misc/create-docusaurus.mdx)获取所有可用标志的详细信息。
+
+## 项目结构 {#project-structure}
+
+假设选择经典模板并将站点命名为`my-website`，将在新建的`my-website/`目录下看到以下文件：
+
+```bash
+my-website
+├── blog
+│   ├── 2019-05-28-hola.md
+│   ├── 2019-05-29-hello-world.md
+│   └── 2020-05-30-welcome.md
+├── docs
+│   ├── doc1.md
+│   ├── doc2.md
+│   ├── doc3.md
+│   └── mdx.md
+├── src
+│   ├── css
+│   │   └── custom.css
+│   └── pages
+│       ├── styles.module.css
+│       └── index.js
+├── static
+│   └── img
+├── docusaurus.config.js
+├── package.json
+├── README.md
+├── sidebars.js
+└── yarn.lock
+```
+
+### 项目结构详解 {#project-structure-rundown}
+
+- `/blog/` - 存放博客的 Markdown 文件。如果已禁用博客插件可删除该目录，或通过设置 `path` 选项修改目录名称。更多细节请参阅[博客指南](blog.mdx)
+- `/docs/` - 存放文档的 Markdown 文件。可通过 `sidebars.js` 自定义文档侧边栏顺序。如果已禁用文档插件可删除该目录，或通过设置 `path` 选项修改目录名称。更多细节请参阅[文档指南](./guides/docs/docs-introduction.mdx)
+- `/src/` - 非文档类文件（如页面或自定义 React 组件）。虽然不强制要求将非文档文件放在此处，但集中存放便于进行代码检查/处理
+  - `/src/pages` - 该目录下的所有 JSX/TSX/MDX 文件都将转换为网站页面。更多细节请参阅[页面指南](guides/creating-pages.mdx)
+- `/static/` - 静态资源目录。该目录下所有内容会被直接复制到最终 `build` 目录的根路径
+- `/docusaurus.config.js` - 站点配置文件，相当于 Docusaurus v1 中的 `siteConfig.js`
+- `/package.json` - Docusaurus 网站本质是 React 应用，可安装使用任意 npm 包
+- `/sidebars.js` - 用于指定文档侧边栏的排序规则
+
+### 单体仓库 (Monorepos) {#monorepos}
+
+若需为现有项目编写文档，采用单体仓库可能是理想方案。该架构允许在关联项目间共享依赖项，例如网站可直接引用本地包来展示最新功能（而非依赖发布版本），这样贡献者就能在实现功能时同步更新文档。下方是单体仓库的目录结构示例：
+
+```bash
+my-monorepo
+├── package-a # Another package, your actual project
+│   ├── src
+│   └── package.json # Package A's dependencies
+├── website   # Docusaurus root
+│   ├── docs
+│   ├── src
+│   └── package.json # Docusaurus' dependencies
+├── package.json # Monorepo's shared dependencies
+```
+
+这种情况下，应在 `./my-monorepo` 文件夹内执行 `npx create-docusaurus` 命令。
+
+若使用 Netlify 或 Vercel 等托管服务，需将站点的「基础目录」指向 Docusaurus 根目录（本例中为 `./website`）。关于忽略命令配置的更多信息，请参阅[部署文档](./deployment.mdx#deploying-to-netlify)。
+
+更多单体仓库实践可参考 [Yarn 文档](https://yarnpkg.com/features/workspaces)（Yarn 并非唯一解决方案，但属于常见方式），或查看 [Docusaurus](https://github.com/facebook/docusaurus) 与 [Jest](https://github.com/facebook/jest) 的实际案例。
+
+## 运行开发服务器 {#running-the-development-server}
+
+要实时预览编辑效果，可运行本地开发服务器来托管网站并同步最新变更。
+
+```bash npm2yarn
+cd my-website
+npm run start
+```
+
+默认情况下，浏览器会自动打开 [`http://localhost:3000`](http://localhost:3000)。
+
+恭喜！您已成功创建首个 Docusaurus 站点！浏览网站查看现有功能。
+
+## 构建 {#build}
+
+Docusaurus 是现代化的静态网站生成器，需将网站构建为静态文件才能通过 Web 服务器访问。执行构建命令：
+
+```bash npm2yarn
+npm run build
+```
+
+构建产物将生成在 `/build` 目录，可部署至任意静态托管服务如 [GitHub Pages](https://pages.github.com/)、[Vercel](https://vercel.com/) 或 [Netlify](https://www.netlify.com/)。更多细节请参阅[部署文档](deployment.mdx)。
+
+## 更新 Docusaurus 版本 {#updating-your-docusaurus-version}
+
+有多种方式可以更新您的 Docusaurus 版本。最可靠的方法是手动修改 `package.json` 中的版本号为所需版本。请注意所有 `@docusaurus/` 命名空间下的包都应保持相同版本号。
+
+import UpgradeGuide from '@site/src/components/UpgradeGuide';
+
+<UpgradeGuide />
+
+然后在包含 `package.json` 的目录中，运行您所用包管理器的安装命令：
+
+```bash npm2yarn
+npm install
+```
+
+要验证更新是否成功，请运行：
+
+```bash
+npx docusaurus --version
+```
+
+您应该能看到正确的版本号输出。
+
+如果您使用 Yarn，也可以执行：
+
+```bash
+yarn add @docusaurus/core @docusaurus/preset-classic
+```
+
+:::tip
+
+通过 [`@canary` npm 分发标签](/community/canary) 使用 Docusaurus 尚未发布的新功能
+
+:::
+
+## 遇到问题？ {#problems}
+
+请在 [Stack Overflow](https://stackoverflow.com/questions/tagged/docusaurus)、我们的 [GitHub 仓库](https://github.com/facebook/docusaurus)、[Discord 服务器](https://discordapp.com/invite/docusaurus) 或 [X 平台](https://x.com/docusaurus) 寻求帮助。

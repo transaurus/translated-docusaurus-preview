@@ -1,0 +1,26 @@
+---
+description: How Docusaurus works to build your app
+---
+
+# 客户端架构
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import Zoom from 'react-medium-image-zoom';
+
+<Zoom>
+
+![Architecture overview](/img/architecture.png)
+
+</Zoom>
+
+此图展示了 Docusaurus 构建应用的运作机制。各插件收集内容并生成 JSON 数据；主题提供布局组件，这些组件以路由模块形式接收 JSON 数据。打包工具将所有组件打包后输出服务端包和客户端包。
+
+请注意，尽管您（插件开发者或站点创建者）始终在编写 JavaScript 代码，但这些代码实际运行在不同环境中：
+
+- 所有插件生命周期方法均在 Node 环境中运行。因此在支持 ES 模块前，插件源码必须提供为可被导入的 ES 模块或可被 `require` 的 CommonJS 模块
+- 主题代码通过 Webpack 构建，可遵循 React 惯例提供为 ESM 模块
+
+插件代码与主题代码从不直接相互引用：它们仅通过协议通信（本例中通过 JSON 临时文件和 `addRoute` 调用）。可将插件想象为用 Rust 等其他语言编写，用户只能通过运行在 Node 环境的 `docusaurus.config.js` 与之交互（故可使用 `require` 并传递回调作为插件选项）。
+
+打包过程中，配置文件本身会被序列化并打包，使得主题能通过 [`useDocusaurusContext()`](../docusaurus-core.mdx#useDocusaurusContext) 访问 `themeConfig` 或 `baseUrl` 等配置项。但 `siteConfig` 对象仅包含**可序列化值**（经 `JSON.stringify()` 保留的值），函数、正则表达式等会在客户端丢失。`themeConfig` 被设计为完全可序列化。

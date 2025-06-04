@@ -1,0 +1,213 @@
+---
+id: multi-instance
+description: Use multiple docs plugin instances on a single Docusaurus site.
+slug: /docs-multi-instance
+---
+
+# 多实例文档
+
+`@docusaurus/plugin-content-docs`插件支持[多实例](../../using-plugins.mdx#multi-instance-plugins-and-plugin-ids)功能。
+
+:::note
+
+此特性仅对[版本化文档](./versioning.mdx)有用。建议在阅读本页面前先熟悉文档版本控制。如果仅需要[多侧边栏](./sidebar/multiple-sidebars.mdx)，可以在单个插件内实现。
+
+:::
+
+## 使用场景 {#use-cases}
+
+有时您可能希望在一个Docusaurus站点中托管2套（或更多）独立的文档集。
+
+这些文档集可能具有不同的版本控制/发布周期。
+
+### 移动端SDK文档 {#mobile-sdks-documentation}
+
+如果您开发跨平台移动端SDK，可能拥有2套文档：
+
+- Android SDK文档（`v1.0`、`v1.1`）
+- iOS SDK文档（`v1.0`、`v2.0`）
+
+这种情况下，可以为每个移动端SDK文档使用独立的插件实例。
+
+:::warning
+
+若每个文档实例体量庞大，建议创建2个独立的Docusaurus站点。
+
+当有人编辑iOS文档时，重新构建所有内容（包括未变更的Android文档）是否真的必要？
+
+:::
+
+### 版本化与非版本化文档 {#versioned-and-unversioned-doc}
+
+有时您希望部分文档进行版本控制，而其他"全局性"文档则无需版本化。
+
+Docusaurus官网自身就采用这种模式：
+
+- [/docs/\*](/docs) 部分进行版本控制
+- [/community/\*](/community/support) 部分不做版本控制
+
+## 配置方法 {#setup}
+
+假设您有两套文档：
+
+- 产品文档：关于产品的版本化文档
+- 社区文档：关于产品周边社区的未版本化文档
+
+这种情况下，您应该在站点配置中两次使用相同插件。
+
+:::warning
+
+`@docusaurus/preset-classic`已默认包含一个文档插件实例！
+
+:::
+
+使用预设时：
+
+```js title="docusaurus.config.js"
+export default {
+  presets: [
+    [
+      '@docusaurus/preset-classic',
+      {
+        docs: {
+          // highlight-start
+          // id: 'product', // omitted => default instance
+          // highlight-end
+          path: 'product',
+          routeBasePath: 'product',
+          sidebarPath: './sidebarsProduct.js',
+          // ... other options
+        },
+      },
+    ],
+  ],
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        // highlight-start
+        id: 'community',
+        // highlight-end
+        path: 'community',
+        routeBasePath: 'community',
+        sidebarPath: './sidebarsCommunity.js',
+        // ... other options
+      },
+    ],
+  ],
+};
+```
+
+不使用预设时：
+
+```js title="docusaurus.config.js"
+export default {
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        // highlight-start
+        // id: 'product', // omitted => default instance
+        // highlight-end
+        path: 'product',
+        routeBasePath: 'product',
+        sidebarPath: './sidebarsProduct.js',
+        // ... other options
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        // highlight-start
+        id: 'community',
+        // highlight-end
+        path: 'community',
+        routeBasePath: 'community',
+        sidebarPath: './sidebarsCommunity.js',
+        // ... other options
+      },
+    ],
+  ],
+};
+```
+
+请勿忘记为插件实例分配唯一的`id`属性。
+
+:::note
+
+我们将`product`实例视为最重要的实例，通过不分配ID使其成为"默认"实例。
+
+:::
+
+## 版本化路径 {#versioned-paths}
+
+每个插件实例将在独立文件夹中存储版本化文档。
+
+默认插件实例使用以下路径：
+
+- `website/versions.json`
+- `website/versioned_docs`
+- `website/versioned_sidebars`
+
+其他插件实例（带`id`属性）使用以下路径：
+
+- `website/[pluginId]_versions.json`
+- `website/[pluginId]_versioned_docs`
+- `website/[pluginId]_versioned_sidebars`
+
+:::tip
+
+可为其中一个文档插件实例省略`id`属性（默认为`default`)。
+
+这样实例路径会更简洁，且与单实例设置保持向后兼容。
+
+:::
+
+## 标记新版本 {#tagging-new-versions}
+
+每个插件实例都有独立的CLI命令来标记新版本。运行以下命令即可查看：
+
+```bash npm2yarn
+npm run docusaurus -- --help
+```
+
+要为产品/默认文档插件实例创建版本：
+
+```bash npm2yarn
+npm run docusaurus docs:version 1.0.0
+```
+
+要为非默认/社区文档插件实例创建版本：
+
+```bash npm2yarn
+npm run docusaurus docs:version:community 1.0.0
+```
+
+## 文档导航栏项目 {#docs-navbar-items}
+
+每个与文档相关的[主题导航栏项目](../../api/themes/theme-configuration.mdx#navbar)都可选配`docsPluginId`属性。
+
+例如，若需要为每个移动端SDK（iOS和Android）单独配置版本下拉菜单，可以这样实现：
+
+```js title="docusaurus.config.js"
+export default {
+  themeConfig: {
+    navbar: {
+      items: [
+        {
+          type: 'docsVersionDropdown',
+          // highlight-start
+          docsPluginId: 'ios',
+          // highlight-end
+        },
+        {
+          type: 'docsVersionDropdown',
+          // highlight-start
+          docsPluginId: 'android',
+          // highlight-end
+        },
+      ],
+    },
+  },
+};
+```

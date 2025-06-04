@@ -1,0 +1,100 @@
+---
+sidebar_position: 5
+slug: /api/plugins/@docusaurus/plugin-debug
+---
+
+# 📦 plugin-debug
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+调试插件将在 [`http://localhost:3000/__docusaurus/debug`](http://localhost:3000/__docusaurus/debug) 显示有用的调试信息。
+
+该插件主要对插件开发者有用，可以更方便地检查 `.docusaurus` 文件夹中的内容（如创建的路由），同时也能检查未写入磁盘的数据结构，例如通过 `contentLoaded` 生命周期加载的插件数据。
+
+:::info
+
+如果通过经典预设使用该插件，默认情况下预设会**在开发环境中启用该插件，在生产环境中禁用它**（`debug: undefined`），以避免暴露潜在的敏感信息。您可以使用 `debug: true` 始终启用它，或使用 `debug: false` 始终禁用它。
+
+如果使用独立插件，可能需要通过检查环境变量来实现相同的效果：
+
+```js title="docusaurus.config.js"
+export default {
+  plugins: [
+    // highlight-next-line
+    process.env.NODE_ENV === 'production' && '@docusaurus/plugin-debug',
+  ].filter(Boolean),
+};
+```
+
+:::
+
+:::note
+
+如果您报告一个错误，我们可能会要求您在生产环境中启用此插件，以便更轻松地检查您的部署配置。
+
+如果您没有任何敏感信息，可以像我们一样在生产环境中保持启用状态 [示例链接](/__docusaurus/debug)。
+
+:::
+
+## 安装 {#installation}
+
+```bash npm2yarn
+npm install --save @docusaurus/plugin-debug
+```
+
+:::tip
+
+如果使用预设 `@docusaurus/preset-classic`，则无需单独安装此插件作为依赖项。
+
+您可以通过 [预设选项](../../using-plugins.mdx#docusauruspreset-classic) 配置此插件。
+
+:::
+
+## 配置 {#configuration}
+
+该插件目前没有可配置选项。
+
+### 示例配置 {#ex-config}
+
+您可以通过预设选项或插件选项配置此插件。
+
+:::tip
+
+大多数 Docusaurus 用户通过预设选项配置此插件。
+
+:::
+
+<Tabs groupId="api-config-ex">
+<TabItem value="preset" label="Preset options">
+
+If you use a preset, configure this plugin through the [preset options](../../using-plugins.mdx#docusauruspreset-classic):
+
+```js title="docusaurus.config.js"
+export default {
+  presets: [
+    [
+      '@docusaurus/preset-classic',
+      {
+        // highlight-next-line
+        debug: true, // This will enable the plugin in production
+      },
+    ],
+  ],
+};
+```
+
+</TabItem>
+<TabItem value="plugin" label="Plugin Options">
+
+If you are using a standalone plugin, provide options directly to the plugin:
+
+```js title="docusaurus.config.js"
+export default {
+  // highlight-next-line
+  plugins: ['@docusaurus/plugin-debug'],
+};
+```
+
+</TabItem>
+</Tabs>

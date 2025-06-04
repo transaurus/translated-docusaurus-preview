@@ -1,0 +1,288 @@
+---
+title: Docusaurus 3.8
+authors: [slorber]
+tags: [release]
+image: ./img/social-card.png
+date: 2025-05-26
+---
+
+我们很高兴地宣布 **Docusaurus 3.8** 正式发布。
+
+此版本显著提升了构建性能，新增多项功能，并引入"未来标志"（Future Flags）机制，帮助您为 Docusaurus 4 做好准备。
+
+升级过程非常简单。我们遵循[语义化版本控制](https://semver.org/)，根据[发布流程](/community/release-process)，次要版本更新不会包含破坏性变更。
+
+![Docusaurus 博客文章社交媒体卡片](./img/social-card.png)
+
+import BrowserWindow from '@site/src/components/BrowserWindow';
+import IframeWindow from '@site/src/components/BrowserWindow/IframeWindow';
+import NavbarColorModeToggle from '@theme/Navbar/ColorModeToggle';
+
+## 性能优化
+
+本次发布通过多项优化措施和2个新的Docusaurus Faster选项，持续提升构建基础设施性能。
+
+### Docusaurus Faster
+
+[Docusaurus Faster](https://github.com/facebook/docusaurus/issues/10556)功能在[Docusaurus v3.6](/blog/releases/3.6#docusaurus-faster)中首次引入，允许您选择启用升级后的构建基础设施，大幅提升站点构建速度。这些实验性标志可以单独启用，但我们建议通过以下快捷方式一次性全部启用：
+
+```js
+const config = {
+  future: {
+    // highlight-next-line
+    experimental_faster: true,
+  },
+};
+```
+
+:::tip
+
+请务必先安装`@docusaurus/faster`依赖项！
+
+:::
+
+#### 持久化缓存
+
+在[#10931](https://github.com/facebook/docusaurus/pull/10931)中，我们启用了**[Rspack持久化缓存](https://rspack.dev/blog/announcing-1-2#persistent-cache)**功能。与已支持的[Webpack持久化缓存](https://webpack.js.org/blog/2020-10-10-webpack-5-release/#persistent-caching)类似，该功能可显著提升后续构建中Docusaurus应用的打包速度。
+
+实际应用中，当您第二次运行`docusaurus build`时，站点构建速度将大幅提升。
+
+此功能需配合[Rspack打包工具](https://rspack.dev/)使用，可通过`rspackPersistentCache`标志启用：
+
+```js
+const config = {
+  future: {
+    experimental_faster: {
+      // highlight-start
+      rspackBundler: true, // required flag
+      rspackPersistentCache: true, // new flag
+      // highlight-end
+    },
+  },
+};
+```
+
+:::caution[缓存保留]
+
+持久化缓存功能需要保留`./node_modules/.cache`文件夹在多次构建之间不被清除。
+
+Netlify和Vercel等主流CDN已自动实现此功能。根据您的CI和部署流程，可能需要额外配置来保留缓存。
+
+:::
+
+**效果**：平均而言，重建时的打包速度可提升约2-5倍🔥。如果[禁用可选的`concatenateModule`优化](https://github.com/facebook/docusaurus/discussions/11199)，效果将更为显著。
+
+#### 工作线程
+
+在[#10826](https://github.com/facebook/docusaurus/pull/10826)中，我们引入了[Node.js工作线程池](https://github.com/tinylibs/tinypool)来执行静态站点生成代码。通过这一新策略，可以更充分地利用所有可用CPU资源，缩短静态站点生成时间，并遏制潜在的内存泄漏。
+
+此功能可通过`ssgWorkerThreads`标志启用，但需要同时启用[`v4.removeLegacyPostBuildHeadAttribute`](#postbuild-change)未来标志：
+
+```js
+const config = {
+  future: {
+    v4: {
+      // highlight-next-line
+      removeLegacyPostBuildHeadAttribute: true, // required
+    },
+    experimental_faster: {
+      // highlight-next-line
+      ssgWorkerThreads: true,
+    },
+  },
+};
+```
+
+**效果**：平均而言，静态站点生成时间可缩短约2倍🔥。该数据基于MacBook Pro M3测得，实际效果可能因CI环境而异。
+
+### 其他优化
+
+我们还发现并解决了若干主要性能瓶颈，包括：
+
+- 在 [#11007](https://github.com/facebook/docusaurus/pull/11007) 中，我们优化了 macOS 用户的开发服务器启动时间。我们发现打开浏览器的代码使用了昂贵的同步/阻塞调用，阻碍了打包器的工作。现在，打包器和 macOS 浏览器打开操作将并行运行，从而为所有 macOS 用户带来更快的 `docusaurus start` 体验。
+- 在 [#11163](https://github.com/facebook/docusaurus/pull/11163) 中，我们注意到文档的 `showLastUpdateAuthor` 和 `showLastUpdateTime` 功能开销较大，需要为每个文档运行 `git log` 命令。在大型站点上，并行运行这些命令可能导致系统资源耗尽并引发 Node.js `EBADF` 错误。我们实现了 Git 命令队列来避免系统过载，同时也略微提升了插件 `loadContent()` 生命周期的性能。
+- 在 [#10885](https://github.com/facebook/docusaurus/pull/10885) 中，我们为外部链接图标实现了 SVG 精灵图。由于该图标在站点的多个位置（导航栏、页脚、侧边栏等）重复出现，使用 React SVG 组件会导致最终 HTML 中出现重复的 SVG 标记。使用精灵图可以只嵌入一次图标 SVG，减少生成的 HTML 体积和静态生成时间。我们[计划未来使用更多 SVG 精灵图](https://github.com/facebook/docusaurus/issues/5865)。
+- 在 [#11176](https://github.com/facebook/docusaurus/pull/11176) 中，我们微调了 webpack/Rspack 配置以移除无用的优化项。
+
+:::tip
+
+如果打包时间是关注重点，可以考虑禁用可选的 `concatenateModule` 打包器优化。我们在[这里](https://github.com/facebook/docusaurus/discussions/11199)解释了权衡取舍和操作方法。该优化仅节省 3% 的 JS 体积，但对于超大型站点，这一改动效果惊人：冷构建速度提升 4 倍，重建速度提升 16 倍 🔥。
+
+:::
+
+### 效果评估
+
+我们已将 [React Native 网站升级至 Docusaurus v3.8](https://github.com/facebook/react-native-website/pull/4607)。以下是针对约 2000 页面的站点，展示 Docusaurus Faster 对总构建时间影响的更新基准测试：
+
+| ReactNative.dev       | Cold Build         | Warm Rebuild       |
+| --------------------- | ------------------ | ------------------ |
+| 🐢 Docusaurus Slower  | 120s (baseline)    | 33s (3.6 × faster) |
+| ⚡️ Docusaurus Faster | 31s (3.8 × faster) | 17s (7 × faster)   |
+
+在我们的官网上也测量到了类似结果：
+
+| Docusaurus.io         | Cold Build         | Warm Rebuild       |
+| --------------------- | ------------------ | ------------------ |
+| 🐢️ Docusaurus Slower | 146s (baseline)    | 45s (3.2 × faster) |
+| ⚡️ Docusaurus Faster | 42s (3.5 × faster) | 24s (6.1 × faster) |
+
+您还可以预期内存使用率的改善，以及更快的 `docusaurus start` 体验。
+
+## 未来标志
+
+Docusaurus v4 未来标志允许您**选择性启用即将到来的 Docusaurus v4 破坏性变更**，帮助您逐步管理这些变更。启用所有未来标志将使您的站点更容易升级到 Docusaurus v4 正式版。
+
+:::info[并非首创]
+
+未来标志的概念并非我们首创。它由 Remix 社区推广普及。您可以在此阅读更多关于这种渐进式功能采用策略的内容：
+
+- [通过未来标志实现渐进式功能采用](https://remix.run/docs/en/main/guides/api-development-strategy)
+- [为您的 Remix 应用未来护航](https://remix.run/blog/future-flags)
+
+:::
+
+:::tip[一次性启用所有 v4 未来标志]
+
+您可以通过以下快捷方式一次性启用所有 v4 未来标志：
+
+```js
+const config = {
+  future: {
+    // highlight-next-line
+    v4: true,
+  },
+};
+```
+
+这种方式能确保您的站点始终为 Docusaurus v4 做好准备。请注意我们会在后续小版本中引入更多未来标志。升级时，请务必阅读我们的发布博客文章以了解您选择启用的新破坏性变更。
+
+:::
+
+### CSS 级联层
+
+在 Docusaurus v4 中，我们计划采用 [CSS 级联层](https://css-tricks.com/css-cascade-layers/)技术。这项现代 CSS 特性已获得广泛支持，允许将 CSS 规则按特异性分组到不同层级。它能显著提升您对 CSS 级联的控制力，使 CSS 规则减少对插入顺序的依赖。现在，您未分层的规则将始终覆盖我们提供的分层 CSS。
+
+通过 [#11142](https://github.com/facebook/docusaurus/pull/11142) 提交，我们实现了一个实验性的 [`@docusaurus/plugin-css-cascade-layers`](/docs/api/plugins/@docusaurus/plugin-css-cascade-layers) 插件。若您使用经典预设，可通过 `v4.useCssCascadeLayers` 标志启用：
+
+```js
+export default {
+  future: {
+    v4: {
+      // highlight-next-line
+      useCssCascadeLayers: true,
+    },
+  },
+};
+```
+
+我们将此特性视为**破坏性变更**，因为它可能轻微改变定制化站点中的 CSS 规则应用顺序。这类问题通常影响有限且易于修复（例如参见 [React Native 的 CSS 变更](https://github.com/facebook/react-native-website/pull/4607)）。未提供自定义 CSS 且未置换（swizzle）任何组件的站点不会受到影响。
+
+实际应用中，该技术能自动将内置 CSS 级联层应用于我们提供的所有 CSS，包括我们自有的 CSS 框架 [Infima](https://infima.dev/)：
+
+```css
+@layer docusaurus.infima {
+  h1 {
+    /* Infima css rules */
+  }
+  pre {
+    /* Infima css rules */
+  }
+}
+```
+
+级联层有助于解决长期存在的 [全局 CSS 污染问题](https://github.com/facebook/docusaurus/issues/6032)。我们的内置全局 CSS 规则可能与您的规则冲突，导致在创建与 Docusaurus CSS 隔离的 playground、演示和嵌入式组件时更加困难。幸运的是，[CSS 级联层可以被还原](https://mayank.co/blog/revert-layer/)以创建不受 Docusaurus CSS 影响的 HTML 子树。
+
+<details>
+  <summary>Reverting layers</summary>
+
+As [this issue](https://github.com/facebook/docusaurus/pull/11142) and [this blog post](https://mayank.co/blog/revert-layer/) explain, it is possible to revert layers to isolate an HTML subtree from the CSS that comes from that layer.
+
+In practice, you can create a `.my-playground` class to revert the global CSS coming from Infima:
+
+```css
+/* The "impossible" :not() selector helps increase the specificity */
+.my-playground:not(#a#b) {
+  &,
+  * {
+    @layer docusaurus.infima {
+      all: revert-layer;
+    }
+  }
+}
+```
+
+Then you can apply this class to any HTML element, so that Infima doesn't apply to any of its children. The HTML subtree becomes isolated from our built-in CSS.
+
+<IframeWindow url="/tests/pages/style-isolation?docusaurus-data-navbar=false" />
+
+</details>
+
+### `postBuild()` 变更
+
+在 [#10850](https://github.com/facebook/docusaurus/pull/10850) 中，我们新增了 `removeLegacyPostBuildHeadAttribute` 未来标志，该标志会轻微修改 `postBuild()` 插件生命周期方法的签名，移除 `head` 属性。
+
+```js
+export default {
+  future: {
+    v4: {
+      // highlight-next-line
+      removeLegacyPostBuildHeadAttribute: true,
+    },
+  },
+};
+```
+
+这个遗留数据结构源自 [react-helmet-async](https://github.com/staylor/react-helmet-async) 依赖项，本就不应作为公共 API 暴露。由于其不可序列化特性，阻碍了我们实现[静态站点生成的 Worker Threads](#worker-threads)。
+
+虽然属于**破坏性变更**，但我们认为实际影响范围极小。目前未发现任何开源插件使用了该方法接收的 `head` 参数。若启用此标志导致问题，请通过[此链接](https://github.com/facebook/docusaurus/pull/10850)反馈。
+
+## 系统色彩模式
+
+通过 [#10987](https://github.com/facebook/docusaurus/pull/10987) 提交，经典主题现在支持将色彩模式还原为系统/OS 设定值。
+
+<BrowserWindow>
+  <div
+    className="margin-vert--md"
+    style={{display: 'flex', justifyContent: 'center'}}>
+    <NavbarColorModeToggle />
+  </div>
+</BrowserWindow>
+
+## 代码块重构
+
+在 [#11058](https://github.com/facebook/docusaurus/pull/11058)、[#11059](https://github.com/facebook/docusaurus/pull/11059)、[#11062](https://github.com/facebook/docusaurus/pull/11062) 和 [#11077](https://github.com/facebook/docusaurus/pull/11077) 提交中，主题代码块组件经历了重大重构，新版本更易于置换（swizzle）和扩展。
+
+根据我们的[发布流程](/community/release-process)，这不属于破坏性变更，但已置换这些组件的站点可能需要升级。
+
+## 国际化翻译
+
+- 🇹🇷 [#10893](https://github.com/facebook/docusaurus/pull/10893): 补充土耳其语主题翻译缺失内容。
+- 🇵🇱 [#10884](https://github.com/facebook/docusaurus/pull/10884): 补充波兰语主题翻译缺失内容。
+- 🇨🇳 [#10816](https://github.com/facebook/docusaurus/pull/10816): 补充中文主题翻译缺失内容。
+- 🇯🇵 [#11030](https://github.com/facebook/docusaurus/pull/11030): 补充日语主题翻译缺失内容。
+
+## 维护更新
+
+Docusaurus 3.8 已适配 [Node.js 24](https://github.com/facebook/docusaurus/pull/11168) 和 [TypeScript 5.8](https://github.com/facebook/docusaurus/pull/10966)。
+
+我们还移除了无用的 npm 包并将无人维护的依赖项内部化：
+
+- 在 [#11010](https://github.com/facebook/docusaurus/pull/11010) 和 [#11014](https://github.com/facebook/docusaurus/pull/11014) 中，我们将 `@docusaurus/plugin-ideal-image` 使用的无人维护包 `react-ideal-image` 和 `react-waypoint` 内部化，使其兼容 React 19。
+- 在 [#10956](https://github.com/facebook/docusaurus/pull/10956) 中，我们移除了对无人维护的 `react-dev-utils` 包（来自 Create-React-App）的依赖。
+- 在 [#10358](https://github.com/facebook/docusaurus/pull/10358) 中，我们用 `execa` 替换了无人维护的 `shelljs` 包。
+- 在 [#11138](https://github.com/facebook/docusaurus/pull/11138) 中，我们移除了 `reading-time` 包，改用标准 API `Intl.Segmenter` 来计算博客文章的阅读时长。
+- 在 [#11037](https://github.com/facebook/docusaurus/pull/11037) 中，我们移除了无用的 `clean-webpack-plugin`。
+
+## 其他变更
+
+其他值得注意的变更包括：
+
+- 在 [#10852](https://github.com/facebook/docusaurus/pull/10852) 中，主题的 `docsVersionDropdown` 导航栏项现在支持 `versions` 属性。
+- 在 [#10953](https://github.com/facebook/docusaurus/pull/10953) 中，`@docusaurus/remark-plugin-npm2yarn` 插件现在默认支持 Bun 标签转换。
+- 在 [#10945](https://github.com/facebook/docusaurus/pull/10945) 中，主题布局元素应用了更稳定的 CSS 类名，以便创建更可靠的 CSS 选择器。
+- 在 [#10846](https://github.com/facebook/docusaurus/pull/10846) 中，Markdown 代码块的 `showLineNumbers` 元字符串现在可以接受数字作为行号计数器的初始值。
+- 在 [#11090](https://github.com/facebook/docusaurus/pull/11090) 中，我们简化了自定义页面标题格式化器的实现方式。
+- 在 [#11088](https://github.com/facebook/docusaurus/pull/11088) 中，页面插件现在支持 `frontMatter.slug`，与文档和博客插件保持一致。
+- 在 [#10875](https://github.com/facebook/docusaurus/pull/10875) 中，文档版本化 CLI 现在也会复制本地化的文档 JSON 翻译文件。
+
+查看 **[3.8.0 版本更新日志](/changelog/3.8.0)** 获取完整的变更列表。

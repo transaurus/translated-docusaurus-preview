@@ -1,0 +1,93 @@
+---
+title: Docusaurus 3.1
+authors: [slorber]
+tags: [release]
+image: ./img/social-card.png
+date: 2024-01-05
+---
+
+我们很高兴地宣布 **Docusaurus 3.1** 版本发布。
+
+升级过程应该很简单：正如我们的[发布流程文档](/community/release-process)所述，次要版本遵循[语义化版本控制](https://semver.org/)规范。
+
+![Docusaurus 博客文章社交卡片](./img/social-card.png)
+
+<!--truncate-->
+
+import BrowserWindow from '@site/src/components/BrowserWindow';
+import IframeWindow from '@site/src/components/BrowserWindow/IframeWindow';
+import ErrorBoundaryTestButton from '@site/src/components/ErrorBoundaryTestButton';
+
+## 重点更新
+
+### 断裂锚点检查器
+
+在 [#9528](https://github.com/facebook/docusaurus/pull/9528) 中，我们改进了内置的断裂链接检查器，使其能够检测断裂的锚点。
+
+![Docusaurus 博客文章社交卡片](./img/broken-anchor.jpg)
+
+:::tip[快速失败机制]
+
+出于向后兼容考虑，新的 [`onBrokenAnchors`](/docs/api/docusaurus-config#onBrokenAnchors) 选项默认值为 `warn`。
+
+我们建议将其改为 `throw`，让 CI 构建因断裂锚点而失败，而不是将断裂锚点部署到生产环境。
+
+:::
+
+:::note
+
+对于实现自定义 `<Heading>` 和 `<Link>` 组件的用户和插件作者，我们提供了新的 [`useBrokenLinks`](/docs/docusaurus-core#useBrokenLinks) React 钩子 API。
+
+**大多数 Docusaurus 用户无需关注此功能**，内置组件（`docusaurus/Link` 和 `@theme/Heading`）已内部集成该功能。
+
+:::
+
+### `parseFrontMatter` 钩子
+
+在 [#9624](https://github.com/facebook/docusaurus/pull/9624) 中，我们新增了 [`siteConfig.markdown.parseFrontMatter` 函数钩子](/docs/api/docusaurus-config#markdown)。
+
+通过该功能，您可以实现便捷的前置元数据转换、快捷操作，或集成 Docusaurus 插件不支持的外部系统前置元数据。
+
+```js title="docusaurus.config.js"
+export default {
+  markdown: {
+    // highlight-start
+    parseFrontMatter: async (params) => {
+      // Reuse the default parser
+      const result = await params.defaultParseFrontMatter(params);
+
+      // Process front matter description placeholders
+      result.frontMatter.description =
+        result.frontMatter.description?.replaceAll('{{MY_VAR}}', 'MY_VALUE');
+
+      // Create your own front matter shortcut
+      if (result.frontMatter.i_do_not_want_docs_pagination) {
+        result.frontMatter.pagination_prev = null;
+        result.frontMatter.pagination_next = null;
+      }
+
+      // Rename an unsupported front matter coming from another system
+      if (result.frontMatter.cms_seo_summary) {
+        result.frontMatter.description = result.frontMatter.cms_seo_summary;
+        delete result.frontMatter.cms_seo_summary;
+      }
+
+      return result;
+    },
+    // highlight-end
+  },
+};
+```
+
+详情请参阅[前置元数据指南](/docs/markdown-features#front-matter)和 [`parseFrontMatter` API 文档](/docs/api/docusaurus-config#markdown)。
+
+## 其他变更
+
+其他值得注意的变更包括：
+
+- [#9674](https://github.com/facebook/docusaurus/pull/9674)：新增 `siteConfig.markdown.remarkRehypeOptions` 以传递参数给 `remark-rehype`，支持自定义 MDX 脚注标签等配置
+- [#9671](https://github.com/facebook/docusaurus/pull/9671)：为 (Visual) Basic/Batch/Fortran/COBOL/ML 语言添加代码块魔法注释支持
+- [#9610](https://github.com/facebook/docusaurus/pull/9610)：支持通过 `PORT` 环境变量配置 CLI 端口
+- [#9477](https://github.com/facebook/docusaurus/pull/9477)：完成巴西葡萄牙语(pt-BR)翻译
+
+查看 **[3.1.0 版本变更日志](/changelog/3.1.0)** 获取完整变更列表。

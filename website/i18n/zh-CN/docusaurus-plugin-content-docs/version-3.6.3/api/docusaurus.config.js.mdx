@@ -1,0 +1,752 @@
+---
+sidebar_position: 0
+description: API reference for Docusaurus configuration file.
+slug: /api/docusaurus-config
+---
+
+# `docusaurus.config.js`
+
+import APITable from '@site/src/components/APITable';
+
+:::info
+
+参考[**配置**](../configuration.mdx)入门指南获取示例。
+
+:::
+
+## 概述 {#overview}
+
+`docusaurus.config.js` 包含您站点的配置信息，需放置在站点根目录下。
+
+:::note
+
+对于使用 [TypeScript](../typescript-support.mdx) 的 Docusaurus 项目，配置文件可命名为 `docusaurus.config.ts`。其语法与 `js` 配置文件基本相同，仅增加类型声明。可参考 [Docusaurus 官网](https://github.com/facebook/docusaurus/blob/main/website/docusaurus.config.ts)的示例。
+
+:::
+
+该文件**运行于 Node.js 环境**，需导出一个站点配置对象或生成该对象的函数。
+
+`docusaurus.config.js` 支持：
+
+- [**ES 模块**](https://flaviocopes.com/es-modules/)
+- [**CommonJS**](https://flaviocopes.com/commonjs/)
+- [**TypeScript**](../typescript-support.mdx#typing-config)
+
+示例：
+
+```js title="docusaurus.config.js"
+export default {
+  title: 'Docusaurus',
+  url: 'https://docusaurus.io',
+  // your site config ...
+};
+```
+
+```js title="docusaurus.config.js"
+export default async function createConfigAsync() {
+  return {
+    title: 'Docusaurus',
+    url: 'https://docusaurus.io',
+    // your site config ...
+  };
+}
+```
+
+:::tip
+
+更多完整示例与说明请参阅[**`docusaurus.config.js` 声明语法**](../configuration.mdx#syntax-to-declare-docusaurus-config)。
+
+:::
+
+## 必填字段 {#required-fields}
+
+### `title` {#title}
+
+- 类型：`string`
+
+网站标题。将用于元数据和浏览器标签页标题。
+
+```js title="docusaurus.config.js"
+export default {
+  title: 'Docusaurus',
+};
+```
+
+### `url` {#url}
+
+- 类型：`string`
+
+网站 URL。可视为顶级域名。例如 `https://facebook.github.io` 是 https://facebook.github.io/metro/ 的 URL，而 `https://docusaurus.io` 是 https://docusaurus.io 的 URL。该字段与 [`baseUrl`](#baseUrl) 字段相关。
+
+```js title="docusaurus.config.js"
+export default {
+  url: 'https://docusaurus.io',
+};
+```
+
+### `baseUrl` {#baseUrl}
+
+- 类型：`string`
+
+站点基础 URL。可视为主机名后的路径。例如 `/metro/` 是 https://facebook.github.io/metro/ 的基础 URL。对于无路径的 URL，baseUrl 应设为 `/`。该字段与 [`url`](#url) 字段相关。始终包含首尾斜杠。
+
+```js title="docusaurus.config.js"
+export default {
+  baseUrl: '/',
+};
+```
+
+## 可选字段 {#optional-fields}
+
+### `favicon` {#favicon}
+
+- 类型：`string | undefined`
+
+站点图标路径；必须是可用于链接 href 的 URL。例如若图标位于 `static/img/favicon.ico`：
+
+```js title="docusaurus.config.js"
+export default {
+  favicon: '/img/favicon.ico',
+};
+```
+
+### `trailingSlash` {#trailingSlash}
+
+- 类型：`boolean | undefined`
+
+用于自定义 URL/链接末尾是否包含斜杠，以及静态 HTML 文件的生成方式：
+
+- `undefined`（默认值）：保持URL不变，并为`/docs/myDoc.md`生成`/docs/myDoc/index.html`
+- `true`：为URL/链接添加尾部斜杠，并为`/docs/myDoc.md`生成`/docs/myDoc/index.html`
+- `false`：移除URL/链接中的尾部斜杠，并为`/docs/myDoc.md`生成`/docs/myDoc.html`
+
+:::tip
+
+各静态托管服务商处理静态文件的方式不同（该行为可能随时间变化）。
+
+请参考[部署指南](../deployment.mdx)和[slorber/trailing-slash-guide](https://github.com/slorber/trailing-slash-guide)选择合适配置。
+
+:::
+
+### `i18n` {#i18n}
+
+- 类型：`Object`
+
+用于[站点本地化](../i18n/i18n-introduction.mdx)的多语言配置对象。
+
+示例：
+
+```js title="docusaurus.config.js"
+export default {
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'fa'],
+    path: 'i18n',
+    localeConfigs: {
+      en: {
+        label: 'English',
+        direction: 'ltr',
+        htmlLang: 'en-US',
+        calendar: 'gregory',
+        path: 'en',
+      },
+      fa: {
+        label: 'فارسی',
+        direction: 'rtl',
+        htmlLang: 'fa-IR',
+        calendar: 'persian',
+        path: 'fa',
+      },
+    },
+  },
+};
+```
+
+- `defaultLocale`：该语言环境将（1）不在基础URL中显示名称（2）直接通过`docusaurus start`启动（无需`--locale`参数）（3）用于`<link hrefLang="x-default">`标签
+- `locales`：站点部署的语言环境列表。必须包含`defaultLocale`
+- `path`：所有语言环境文件夹的相对根目录。可以是绝对路径或相对于配置文件的路径。默认为`i18n`
+- `localeConfigs`：各语言环境的独立配置
+  - `label`：在语言切换下拉框中显示的标签
+  - `direction`：`ltr`（默认）或`rtl`（适用于波斯语、阿拉伯语、希伯来语等[从右至左语言](https://developer.mozilla.org/en-US/docs/Glossary/rtl)）。用于选择CSS和HTML元属性
+  - `htmlLang`：用于`<html lang="...">`（或其他DOM标签）和`<link ... hreflang="...">`的BCP 47语言标签
+  - `calendar`：用于计算日期纪元的[日历系统](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/calendar)。注意这不控制实际显示格式：`MM/DD/YYYY`和`DD/MM/YYYY`都属于`gregory`日历。要选择格式需设置语言环境名称为`en-GB`或`en-US`（`en`默认为`en-US`）
+  - `path`：该语言环境所有插件本地化文件夹的相对根目录。将基于`i18n.path`解析。默认为语言环境名称。注：不影响语言环境的`baseUrl`——基础URL定制功能正在开发中
+
+### `future` {#future}
+
+- 类型：`Object`
+
+`future`配置对象允许启用尚未稳定的实验性功能，这些功能尚未达到生产就绪状态。
+
+该配置也可用于提前适配下一个主版本的破坏性变更，让站点在当前版本就能为升级做好准备。[Remix未来标志博客文章](https://remix.run/blog/future-flags)对此理念有详细阐述。
+
+:::danger[次要版本中的破坏性变更]
+
+带有`experimental_`或`unstable_`前缀的功能可能在**次要版本**中变更，且不被视为[语义化版本破坏性变更](/community/release-process)。
+
+带有`v<主版本号>_`前缀的功能（如`v6_`、`v7_`等）是预期在下个主版本默认启用的未来标志。这些配置变更可能性较低，但我们保留调整权利。
+
+`future`API的破坏性变更将易于处理，并会在次要/主版本博客文章中说明。
+
+:::
+
+示例：
+
+```js title="docusaurus.config.js"
+export default {
+  future: {
+    experimental_faster: {
+      swcJsLoader: true,
+      swcJsMinimizer: true,
+      swcHtmlMinimizer: true,
+      lightningCssMinimizer: true,
+      rspackBundler: true,
+      mdxCrossCompilerCache: true,
+    },
+    experimental_storage: {
+      type: 'localStorage',
+      namespace: true,
+    },
+    experimental_router: 'hash',
+  },
+};
+```
+
+- `experimental_faster`: 包含用于加速Docusaurus构建的特性标志对象。需在项目依赖中添加`@docusaurus/faster`包。使用`true`可快捷启用所有标志。详见[Docusaurus Faster](https://github.com/facebook/docusaurus/issues/10556)议题。可用特性标志：
+  - [`swcJsLoader`](https://github.com/facebook/docusaurus/pull/10435): 使用[SWC](https://swc.rs/)替代[Babel](https://babeljs.io/)转译JS
+  - [`swcJsMinimizer`](https://github.com/facebook/docusaurus/pull/10441): 使用[SWC](https://swc.rs/)替代[Terser](https://github.com/terser/terser)压缩JS
+  - [`swcHtmlMinimizer`](https://github.com/facebook/docusaurus/pull/10554): 使用[SWC](https://swc.rs/)替代[html-minifier-terser](https://github.com/terser/html-minifier-terser)压缩HTML及内联JS/CSS
+  - [`lightningCssMinimizer`](https://github.com/facebook/docusaurus/pull/10522): 使用[Lightning CSS](https://lightningcss.dev/)替代[cssnano](https://github.com/cssnano/cssnano)和[clean-css](https://github.com/clean-css/clean-css)压缩CSS
+  - [`rspackBundler`](https://github.com/facebook/docusaurus/pull/10402): 使用[Rspack](https://rspack.dev/)替代[webpack](https://webpack.js.org/)打包应用
+  - [`mdxCrossCompilerCache`](https://github.com/facebook/docusaurus/pull/10479): 对MDX文件只需编译一次即可同时适用于浏览器/Node.js环境
+- `experimental_storage`: 全站浏览器存储选项，主题开发者应遵循此配置
+  - `type`: 主题开发者应使用的浏览器存储类型。可选值为`localStorage`和`sessionStorage`，默认为`localStorage`
+  - `namespace`: 是否对浏览器存储键进行命名空间隔离，避免同域名下或localhost环境的多站点存储键冲突。可选值为`string | boolean`。命名空间会附加在存储键末尾形成`key-namespace`格式。设为`true`时将根据站点`url + baseUrl`自动生成随机命名空间。默认为`false`（保持历史行为不隔离）
+- `experimental_router`: 使用的路由类型。可选值为`browser`和`hash`，默认为`browser`。`hash`路由仅适用于需要完全放弃静态站点生成的特殊场景，构建纯客户端应用且仅生成单入口`index.html`文件。此模式适合将Docusaurus站点打包为[无需Web服务器即可本地浏览的.zip压缩包](https://github.com/facebook/docusaurus/issues/3825)
+
+### `noIndex` {#noIndex}
+
+- 类型：`boolean`
+
+此选项会在所有页面添加`<meta name="robots" content="noindex, nofollow">`标签，指示搜索引擎不要索引本站（详见[此处](https://moz.com/learn/seo/robots-meta-directives)）
+
+示例：
+
+```js title="docusaurus.config.js"
+export default {
+  noIndex: true, // Defaults to `false`
+};
+```
+
+### `onBrokenLinks` {#onBrokenLinks}
+
+- 类型：`'ignore' | 'log' | 'warn' | 'throw'`
+
+Docusaurus检测到失效链接时的处理行为
+
+默认情况下会抛出错误，确保不会发布含有失效链接的站点
+
+:::note
+
+链接有效性检测仅在生产环境构建时生效（`docusaurus build`）
+
+:::
+
+### `onBrokenAnchors` {#onBrokenAnchors}
+
+- 类型：`'ignore' | 'log' | 'warn' | 'throw'`
+
+Docusaurus检测到通过`Heading`组件声明的失效锚点时的处理行为
+
+默认情况下会显示警告，以便您了解存在损坏的锚点链接。
+
+### `onBrokenMarkdownLinks` {#onBrokenMarkdownLinks}
+
+- 类型: `'ignore' | 'log' | 'warn' | 'throw'`
+
+Docusaurus检测到损坏的Markdown链接时的处理行为。
+
+默认情况下会显示警告，以便您了解存在损坏的Markdown链接。
+
+### `onDuplicateRoutes` {#onDuplicateRoutes}
+
+- 类型: `'ignore' | 'log' | 'warn' | 'throw'`
+
+Docusaurus检测到[重复路由](/guides/creating-pages.mdx#duplicate-routes)时的处理行为。
+
+默认情况下会在运行`yarn start`或`yarn build`后显示警告。
+
+### `tagline` {#tagline}
+
+- 类型: `string`
+
+网站的标语文本。
+
+```js title="docusaurus.config.js"
+export default {
+  tagline:
+    'Docusaurus makes it easy to maintain Open Source documentation websites.',
+};
+```
+
+### `organizationName` {#organizationName}
+
+- 类型: `string`
+
+拥有代码仓库的GitHub用户或组织。如果不使用`docusaurus deploy`命令则无需配置此项。
+
+```js title="docusaurus.config.js"
+export default {
+  // Docusaurus' organization is facebook
+  organizationName: 'facebook',
+};
+```
+
+### `projectName` {#projectName}
+
+- 类型: `string`
+
+GitHub仓库名称。如果不使用`docusaurus deploy`命令则无需配置此项。
+
+```js title="docusaurus.config.js"
+export default {
+  projectName: 'docusaurus',
+};
+```
+
+### `deploymentBranch` {#deploymentBranch}
+
+- 类型: `string`
+
+部署静态文件的目标分支名称。如果不使用`docusaurus deploy`命令则无需配置此项。
+
+```js title="docusaurus.config.js"
+export default {
+  deploymentBranch: 'gh-pages',
+};
+```
+
+### `githubHost` {#githubHost}
+
+- 类型: `string`
+
+服务器主机名。适用于GitHub Enterprise用户。如果不使用`docusaurus deploy`命令则无需配置此项。
+
+```js title="docusaurus.config.js"
+export default {
+  githubHost: 'github.com',
+};
+```
+
+### `githubPort` {#githubPort}
+
+- 类型: `string`
+
+服务器端口号。适用于GitHub Enterprise用户。如果不使用`docusaurus deploy`命令则无需配置此项。
+
+```js title="docusaurus.config.js"
+export default {
+  githubPort: '22',
+};
+```
+
+### `themeConfig` {#themeConfig}
+
+- 类型: `Object`
+
+用于自定义网站UI（如导航栏和页脚）的[主题配置](./themes/theme-configuration.mdx)对象。
+
+示例:
+
+```js title="docusaurus.config.js"
+export default {
+  themeConfig: {
+    docs: {
+      sidebar: {
+        hideable: false,
+        autoCollapseCategories: false,
+      },
+    },
+    colorMode: {
+      defaultMode: 'light',
+      disableSwitch: false,
+      respectPrefersColorScheme: true,
+    },
+    navbar: {
+      title: 'Site Title',
+      logo: {
+        alt: 'Site Logo',
+        src: 'img/logo.svg',
+        width: 32,
+        height: 32,
+      },
+      items: [
+        {
+          to: 'docs/docusaurus.config.js',
+          activeBasePath: 'docs',
+          label: 'docusaurus.config.js',
+          position: 'left',
+        },
+        // ... other links
+      ],
+    },
+    footer: {
+      style: 'dark',
+      links: [
+        {
+          title: 'Docs',
+          items: [
+            {
+              label: 'Docs',
+              to: 'docs/doc1',
+            },
+          ],
+        },
+        // ... other links
+      ],
+      logo: {
+        alt: 'Meta Open Source Logo',
+        src: 'img/meta_oss_logo.png',
+        href: 'https://opensource.fb.com',
+        width: 160,
+        height: 51,
+      },
+      copyright: `Copyright © ${new Date().getFullYear()} Facebook, Inc.`, // You can also put own HTML here
+    },
+  },
+};
+```
+
+### `plugins` {#plugins}
+
+- 类型: `PluginConfig[]`
+
+```ts
+type PluginConfig = string | [string, any] | PluginModule | [PluginModule, any];
+```
+
+关于`PluginModule`的结构定义，请参阅[插件方法参考文档](./plugin-methods/README.mdx)。
+
+```js title="docusaurus.config.js"
+export default {
+  plugins: [
+    'docusaurus-plugin-awesome',
+    ['docusuarus-plugin-confetti', {fancy: false}],
+    () => ({
+      postBuild() {
+        console.log('Build finished');
+      },
+    }),
+  ],
+};
+```
+
+### `themes` {#themes}
+
+- 类型: `PluginConfig[]`
+
+```js title="docusaurus.config.js"
+export default {
+  themes: ['@docusaurus/theme-classic'],
+};
+```
+
+### `presets` {#presets}
+
+- 类型: `PresetConfig[]`
+
+```ts
+type PresetConfig = string | [string, any];
+```
+
+```js title="docusaurus.config.js"
+export default {
+  presets: [],
+};
+```
+
+### `markdown` {#markdown}
+
+Docusaurus 的全局 Markdown 配置。
+
+- 类型: `MarkdownConfig`
+
+```ts
+type MarkdownPreprocessor = (args: {
+  filePath: string;
+  fileContent: string;
+}) => string;
+
+type MDX1CompatOptions =
+  | boolean
+  | {
+      comments: boolean;
+      admonitions: boolean;
+      headingIds: boolean;
+    };
+
+export type ParseFrontMatter = (params: {
+  filePath: string;
+  fileContent: string;
+  defaultParseFrontMatter: ParseFrontMatter;
+}) => Promise<{
+  frontMatter: {[key: string]: unknown};
+  content: string;
+}>;
+
+type MarkdownAnchorsConfig = {
+  maintainCase: boolean;
+};
+
+type MarkdownConfig = {
+  format: 'mdx' | 'md' | 'detect';
+  mermaid: boolean;
+  preprocessor?: MarkdownPreprocessor;
+  parseFrontMatter?: ParseFrontMatter;
+  mdx1Compat: MDX1CompatOptions;
+  remarkRehypeOptions: object; // see https://github.com/remarkjs/remark-rehype#options
+  anchors: MarkdownAnchorsConfig;
+};
+```
+
+示例:
+
+```js title="docusaurus.config.js"
+export default {
+  markdown: {
+    format: 'mdx',
+    mermaid: true,
+    preprocessor: ({filePath, fileContent}) => {
+      return fileContent.replaceAll('{{MY_VAR}}', 'MY_VALUE');
+    },
+    parseFrontMatter: async (params) => {
+      const result = await params.defaultParseFrontMatter(params);
+      result.frontMatter.description =
+        result.frontMatter.description?.replaceAll('{{MY_VAR}}', 'MY_VALUE');
+      return result;
+    },
+    mdx1Compat: {
+      comments: true,
+      admonitions: true,
+      headingIds: true,
+    },
+    anchors: {
+      maintainCase: true,
+    },
+  },
+};
+```
+
+<APITable>
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `format` | `'mdx' \| 'md' \| 'detect'` | `'mdx'` | The default parser format to use for Markdown content. Using 'detect' will select the appropriate format automatically based on file extensions: `.md` vs `.mdx`. |
+| `mermaid` | `boolean` | `false` | When `true`, allows Docusaurus to render Markdown code blocks with `mermaid` language as Mermaid diagrams. |
+| `preprocessor` | `MarkdownPreprocessor` | `undefined` | Gives you the ability to alter the Markdown content string before parsing. Use it as a last-resort escape hatch or workaround: it is almost always better to implement a Remark/Rehype plugin. |
+| `parseFrontMatter` | `ParseFrontMatter` | `undefined` | Gives you the ability to provide your own front matter parser, or to enhance the default parser. Read our [front matter guide](../guides/markdown-features/markdown-features-intro.mdx#front-matter) for details. |
+| `mdx1Compat` | `MDX1CompatOptions` | `{comments: true, admonitions: true, headingIds: true}` | Compatibility options to make it easier to upgrade to Docusaurus v3+. |
+| `anchors` | `MarkdownAnchorsConfig` | `{maintainCase: false}` | Options to control the behavior of anchors generated from Markdown headings |
+| `remarkRehypeOptions` | `object` | `undefined` | Makes it possible to pass custom [`remark-rehype` options](https://github.com/remarkjs/remark-rehype#options). |
+
+</APITable>
+
+### `customFields` {#customFields}
+
+Docusaurus 会阻止 `docusaurus.config.js` 中出现未知字段。如需添加自定义字段，需在 `customFields` 中定义。
+
+- 类型: `Object`
+
+```js title="docusaurus.config.js"
+export default {
+  customFields: {
+    admin: 'endi',
+    superman: 'lol',
+  },
+};
+```
+
+尝试在配置中添加未知字段会导致构建时报错：
+
+```bash
+Error: The field(s) 'foo', 'bar' are not recognized in docusaurus.config.js
+```
+
+### `staticDirectories` {#staticDirectories}
+
+路径数组（相对于站点目录或绝对路径）。这些路径下的文件将原样复制到构建输出目录。
+
+- 类型: `string[]`
+
+示例:
+
+```js title="docusaurus.config.js"
+export default {
+  staticDirectories: ['static'],
+};
+```
+
+### `headTags` {#headTags}
+
+将插入 HTML `<head>` 的标签数组。值必须为包含两个属性的对象：`tagName` 和 `attributes`。`tagName` 必须是决定所创建标签的字符串（如 `"link"`），`attributes` 必须是属性-值的映射表。
+
+- 类型: `{ tagName: string; attributes: Object; }[]`
+
+示例:
+
+```js title="docusaurus.config.js"
+export default {
+  headTags: [
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'icon',
+        href: '/img/docusaurus.png',
+      },
+    },
+  ],
+};
+```
+
+这将在生成的 HTML 中变为 `<link rel="icon" href="img/docusaurus.png" />`。
+
+### `scripts` {#scripts}
+
+需加载的脚本数组。值可以是字符串或属性-值映射表的普通对象。`<script>` 标签将插入 HTML `<head>` 中。若使用普通对象，唯一必需的属性是 `src`，其他属性均可选（每个属性的值应为布尔值/字符串）。
+
+注意此处添加的 `<script>` 会阻塞渲染，因此可能需要为对象添加 `async: true`/`defer: true`。
+
+- 类型: `(string | Object)[]`
+
+示例:
+
+```js title="docusaurus.config.js"
+export default {
+  scripts: [
+    // String format.
+    'https://docusaurus.io/script.js',
+    // Object format.
+    {
+      src: 'https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js',
+      async: true,
+    },
+  ],
+};
+```
+
+### `stylesheets` {#stylesheets}
+
+需加载的 CSS 源数组。值可以是字符串或属性-值映射表的普通对象。`<link>` 标签将插入 HTML `<head>` 中。若使用对象，唯一必需的属性是 `href`，其他属性均可选（每个属性的值应为布尔值/字符串）。
+
+- 类型: `(string | Object)[]`
+
+示例:
+
+```js title="docusaurus.config.js"
+export default {
+  stylesheets: [
+    // String format.
+    'https://docusaurus.io/style.css',
+    // Object format.
+    {
+      href: 'http://mydomain.com/style.css',
+    },
+  ],
+};
+```
+
+:::info
+
+默认情况下，`<link>` 标签会带有 `rel="stylesheet"`，但你可以显式添加自定义 `rel` 值来注入任何类型的 `<link>` 标签（不一定是样式表）。
+
+:::
+
+### `clientModules` {#clientModules}
+
+需在站点全局加载的[客户端模块](../advanced/client.mdx#client-modules)数组。
+
+示例:
+
+```js title="docusaurus.config.js"
+export default {
+  clientModules: ['./mySiteGlobalJs.js', './mySiteGlobalCss.css'],
+};
+```
+
+### `ssrTemplate` {#ssrTemplate}
+
+一个采用 [Eta 语法](https://eta.js.org/docs/syntax#syntax-overview)编写的 HTML 模板，用于渲染您的应用程序。可通过此模板设置 `body` 标签的自定义属性、添加额外的 `meta` 标签、自定义 `viewport` 等。请注意，Docusaurus 的正常运行依赖于模板结构的正确性，一旦自定义模板，您必须确保其符合上游要求。
+
+- 类型: `string`
+
+示例:
+
+```js title="docusaurus.config.js"
+export default {
+  ssrTemplate: `<!DOCTYPE html>
+<html <%~ it.htmlAttributes %>>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="generator" content="Docusaurus v<%= it.version %>">
+    <% it.metaAttributes.forEach((metaAttribute) => { %>
+      <%~ metaAttribute %>
+    <% }); %>
+    <%~ it.headTags %>
+    <% it.stylesheets.forEach((stylesheet) => { %>
+      <link rel="stylesheet" href="<%= it.baseUrl %><%= stylesheet %>" />
+    <% }); %>
+    <% it.scripts.forEach((script) => { %>
+      <link rel="preload" href="<%= it.baseUrl %><%= script %>" as="script">
+    <% }); %>
+  </head>
+  <body <%~ it.bodyAttributes %>>
+    <%~ it.preBodyTags %>
+    <div id="__docusaurus">
+      <%~ it.appHtml %>
+    </div>
+    <% it.scripts.forEach((script) => { %>
+      <script src="<%= it.baseUrl %><%= script %>"></script>
+    <% }); %>
+    <%~ it.postBodyTags %>
+  </body>
+</html>`,
+};
+```
+
+### `titleDelimiter` {#titleDelimiter}
+
+- 类型: `string`
+
+将作为生成 `<title>` 标签时的标题分隔符。
+
+示例:
+
+```js title="docusaurus.config.js"
+export default {
+  titleDelimiter: '🦖', // Defaults to `|`
+};
+```
+
+### `baseUrlIssueBanner` {#baseUrlIssueBanner}
+
+- 类型: `boolean`
+
+启用后，当站点无法加载 CSS 或 JavaScript 文件时（通常由站点配置中错误的 `baseUrl` 导致），将显示警示横幅。
+
+示例:
+
+```js title="docusaurus.config.js"
+export default {
+  baseUrlIssueBanner: true, // Defaults to `true`
+};
+```
+
+![baseUrl 问题横幅示例。由于样式表加载失败，显示效果较为原始。文字内容为「您的 Docusaurus 站点加载异常... 当前配置的 baseUrl = /（默认值）；建议尝试 baseUrl = /build/」](/img/baseUrlIssueBanner.png)
+
+:::warning
+
+此横幅需要内联 CSS/JS，以防因错误的 base URL 导致所有资源加载失败。
+
+若您启用了严格的 [内容安全策略](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)，建议禁用此功能。
+
+:::

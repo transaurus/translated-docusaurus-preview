@@ -1,0 +1,598 @@
+---
+sidebar_position: 0
+description: API reference for Docusaurus configuration file.
+slug: /api/docusaurus-config
+---
+
+# `docusaurus.config.js`
+
+## 概述 {#overview}
+
+`docusaurus.config.js` 包含您站点的配置信息，通常放置在站点的根目录下。
+
+该文件通常导出一个站点配置对象：
+
+```js title="docusaurus.config.js"
+module.exports = {
+  // site config...
+};
+```
+
+<details>
+<summary>Config files also support config creator functions and async code.</summary>
+
+```js title="docusaurus.config.js"
+module.exports = function configCreator() {
+  return {
+    // site config...
+  };
+};
+```
+
+```js title="docusaurus.config.js"
+module.exports = async function configCreatorAsync() {
+  return {
+    // site config...
+  };
+};
+```
+
+```js title="docusaurus.config.js"
+module.exports = Promise.resolve({
+  // site config...
+});
+```
+
+</details>
+
+## 必填字段 {#required-fields}
+
+### `title` {#title}
+
+- 类型: `string`
+
+站点的标题。将用于元数据和浏览器标签页标题。
+
+```js title="docusaurus.config.js"
+module.exports = {
+  title: 'Docusaurus',
+};
+```
+
+### `url` {#url}
+
+- 类型: `string`
+
+站点的URL。可视为顶级域名。例如，`https://facebook.github.io` 是 https://facebook.github.io/metro/ 的URL，而 `https://docusaurus.io` 是 https://docusaurus.io 的URL。该字段与 [`baseUrl`](#baseUrl) 字段相关。
+
+```js title="docusaurus.config.js"
+module.exports = {
+  url: 'https://docusaurus.io',
+};
+```
+
+### `baseUrl` {#baseUrl}
+
+- 类型: `string`
+
+站点的基础URL。可视为主机名后的路径。例如，`/metro/` 是 https://facebook.github.io/metro/ 的基础URL。对于没有路径的URL，`baseUrl` 应设置为 `/`。该字段与 [`url`](#url) 字段相关。始终包含前导和尾随斜杠。
+
+```js title="docusaurus.config.js"
+module.exports = {
+  baseUrl: '/',
+};
+```
+
+## 可选字段 {#optional-fields}
+
+### `favicon` {#favicon}
+
+- 类型: `string | undefined`
+
+站点图标的路径；必须是一个可用于链接 `href` 属性的URL。例如，如果您的图标位于 `static/img/favicon.ico`：
+
+```js title="docusaurus.config.js"
+module.exports = {
+  favicon: '/img/favicon.ico',
+};
+```
+
+### `trailingSlash` {#trailingSlash}
+
+- 类型: `boolean | undefined`
+
+允许自定义URL/链接末尾是否包含尾随斜杠，以及静态HTML文件的生成方式：
+
+- `undefined`（默认）：保持URL不变，并为 `/docs/myDoc.md` 生成 `/docs/myDoc/index.html`
+- `true`：为URL/链接添加尾随斜杠，并为 `/docs/myDoc.md` 生成 `/docs/myDoc/index.html`
+- `false`：从URL/链接中移除尾随斜杠，并为 `/docs/myDoc.md` 生成 `/docs/myDoc.html`
+
+:::tip
+
+每个静态托管提供商对静态文件的处理方式不同（此行为可能会随时间变化）。
+
+请参考[部署指南](../deployment.mdx)和 [slorber/trailing-slash-guide](https://github.com/slorber/trailing-slash-guide) 选择合适的设置。
+
+:::
+
+### `i18n` {#i18n}
+
+- 类型: `Object`
+
+用于[本地化您的站点](../i18n/i18n-introduction.mdx)的国际化配置对象。
+
+示例：
+
+<!-- cSpell:ignore فارسی -->
+
+```js title="docusaurus.config.js"
+module.exports = {
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'fa'],
+    path: 'i18n',
+    localeConfigs: {
+      en: {
+        label: 'English',
+        direction: 'ltr',
+        htmlLang: 'en-US',
+        calendar: 'gregory',
+        path: 'en',
+      },
+      fa: {
+        label: 'فارسی',
+        direction: 'rtl',
+        htmlLang: 'fa-IR',
+        calendar: 'persian',
+        path: 'fa',
+      },
+    },
+  },
+};
+```
+
+- `defaultLocale`: 默认语言环境，具有以下特征：(1) 其名称不会出现在基础URL中 (2) 直接运行 `docusaurus start` 命令（不带 `--locale` 参数）时使用的语言 (3) 将用于 `<link hrefLang="x-default">` 标签
+- `locales`: 站点部署的所有语言环境列表。必须包含 `defaultLocale`。
+- `path`: 所有语言环境文件夹的相对根目录。可以是绝对路径或相对于配置文件。默认为 `i18n`。
+- `localeConfigs`: 各语言环境的独立配置项。
+  - `label`: 在语言切换下拉框中显示的标签文本。
+  - `direction`: 文本方向，默认为 `ltr`（从左到右），可设为 `rtl`（用于波斯语、阿拉伯语、希伯来语等[从右到左语言](https://developer.mozilla.org/zh-CN/docs/Glossary/rtl)）。用于选择该语言环境的CSS和HTML元属性。
+  - `htmlLang`: 用于 `<html lang="...">`（或其他DOM标签）和 `<link ... hreflang="...">` 的[BCP 47语言标签](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Global_attributes/lang)
+  - `calendar`: 用于计算日期纪元的[日历系统](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/calendar)。注意这不会控制实际显示的日期格式：`MM/DD/YYYY` 和 `DD/MM/YYYY` 都属于公历(`gregory`)。要选择格式需通过语言标签，如使用 `en-GB` 或 `en-US`（`en` 默认表示 `en-US`）。
+  - `path`: 该语言环境下所有插件本地化文件夹的相对根目录。将基于 `i18n.path` 解析。默认为语言环境名称。注意：这不会影响语言环境的 `baseUrl`——基础URL定制功能仍在开发中。
+
+### `noIndex` {#noIndex}
+
+- 类型: `boolean`
+
+此选项会在每个页面添加 `<meta name="robots" content="noindex, nofollow">` 标签，指示搜索引擎不要索引该站点（详见[此处说明](https://moz.com/learn/seo/robots-meta-directives)）。
+
+示例:
+
+```js title="docusaurus.config.js"
+module.exports = {
+  noIndex: true, // Defaults to `false`
+};
+```
+
+### `onBrokenLinks` {#onBrokenLinks}
+
+- 类型: `'ignore' | 'log' | 'warn' | 'throw'`
+
+Docusaurus检测到失效链接时的处理方式。
+
+默认会抛出错误（确保不会发布失效链接），但可根据需要降低严格级别。
+
+:::note
+
+失效链接检测仅在生产环境构建时生效（`docusaurus build`）。
+
+:::
+
+### `onBrokenMarkdownLinks` {#onBrokenMarkdownLinks}
+
+- 类型: `'ignore' | 'log' | 'warn' | 'throw'`
+
+Docusaurus检测到失效Markdown链接时的处理方式。
+
+默认显示警告（提醒存在失效链接），但可调整此安全级别。
+
+### `onDuplicateRoutes` {#onDuplicateRoutes}
+
+- 类型: `'ignore' | 'log' | 'warn' | 'throw'`
+
+Docusaurus检测到[重复路由](/guides/creating-pages.mdx#duplicate-routes)时的处理方式。
+
+运行 `yarn start` 或 `yarn build` 后默认显示警告。
+
+### `tagline` {#tagline}
+
+- 类型: `string`
+
+站点的标语文本。
+
+```js title="docusaurus.config.js"
+module.exports = {
+  tagline:
+    'Docusaurus makes it easy to maintain Open Source documentation websites.',
+};
+```
+
+### `organizationName` {#organizationName}
+
+- 类型: `string`
+
+拥有该代码库的 GitHub 用户或组织。如果不使用 `docusaurus deploy` 命令则无需配置此项。
+
+```js title="docusaurus.config.js"
+module.exports = {
+  // Docusaurus' organization is facebook
+  organizationName: 'facebook',
+};
+```
+
+### `projectName` {#projectName}
+
+- 类型: `string`
+
+GitHub 代码库名称。如果不使用 `docusaurus deploy` 命令则无需配置此项。
+
+```js title="docusaurus.config.js"
+module.exports = {
+  projectName: 'docusaurus',
+};
+```
+
+### `deploymentBranch` {#deploymentBranch}
+
+- 类型: `string`
+
+部署静态文件的目标分支名称。如果不使用 `docusaurus deploy` 命令则无需配置此项。
+
+```js title="docusaurus.config.js"
+module.exports = {
+  deploymentBranch: 'gh-pages',
+};
+```
+
+### `githubHost` {#githubHost}
+
+- 类型: `string`
+
+服务器主机名。适用于 GitHub Enterprise 用户。如果不使用 `docusaurus deploy` 命令则无需配置此项。
+
+```js title="docusaurus.config.js"
+module.exports = {
+  githubHost: 'github.com',
+};
+```
+
+### `githubPort` {#githubPort}
+
+- 类型: `string`
+
+服务器端口号。适用于 GitHub Enterprise 用户。如果不使用 `docusaurus deploy` 命令则无需配置此项。
+
+```js title="docusaurus.config.js"
+module.exports = {
+  githubPort: '22',
+};
+```
+
+### `themeConfig` {#themeConfig}
+
+- 类型: `Object`
+
+用于自定义站点 UI（如导航栏和页脚）的[主题配置](./themes/theme-configuration.mdx)对象。
+
+示例:
+
+```js title="docusaurus.config.js"
+module.exports = {
+  themeConfig: {
+    docs: {
+      sidebar: {
+        hideable: false,
+        autoCollapseCategories: false,
+      },
+    },
+    colorMode: {
+      defaultMode: 'light',
+      disableSwitch: false,
+      respectPrefersColorScheme: true,
+    },
+    navbar: {
+      title: 'Site Title',
+      logo: {
+        alt: 'Site Logo',
+        src: 'img/logo.svg',
+        width: 32,
+        height: 32,
+      },
+      items: [
+        {
+          to: 'docs/docusaurus.config.js',
+          activeBasePath: 'docs',
+          label: 'docusaurus.config.js',
+          position: 'left',
+        },
+        // ... other links
+      ],
+    },
+    footer: {
+      style: 'dark',
+      links: [
+        {
+          title: 'Docs',
+          items: [
+            {
+              label: 'Docs',
+              to: 'docs/doc1',
+            },
+          ],
+        },
+        // ... other links
+      ],
+      logo: {
+        alt: 'Meta Open Source Logo',
+        src: 'img/meta_oss_logo.png',
+        href: 'https://opensource.fb.com',
+        width: 160,
+        height: 51,
+      },
+      copyright: `Copyright © ${new Date().getFullYear()} Facebook, Inc.`, // You can also put own HTML here
+    },
+  },
+};
+```
+
+### `plugins` {#plugins}
+
+- 类型: `PluginConfig[]`
+
+```ts
+type PluginConfig = string | [string, any] | PluginModule | [PluginModule, any];
+```
+
+关于 `PluginModule` 的结构说明，请参阅[插件方法参考](./plugin-methods/README.mdx)。
+
+```js title="docusaurus.config.js"
+module.exports = {
+  plugins: [
+    'docusaurus-plugin-awesome',
+    ['docusuarus-plugin-confetti', {fancy: false}],
+    () => ({
+      postBuild() {
+        console.log('Build finished');
+      },
+    }),
+  ],
+};
+```
+
+### `themes` {#themes}
+
+- 类型: `PluginConfig[]`
+
+```js title="docusaurus.config.js"
+module.exports = {
+  themes: ['@docusaurus/theme-classic'],
+};
+```
+
+### `presets` {#presets}
+
+- 类型: `PresetConfig[]`
+
+```ts
+type PresetConfig = string | [string, any];
+```
+
+```js title="docusaurus.config.js"
+module.exports = {
+  presets: [],
+};
+```
+
+### `customFields` {#customfields}
+
+Docusaurus 会阻止 `docusaurus.config.js` 中出现未知字段。如需添加自定义字段，需在 `customFields` 中定义。
+
+- 类型: `Object`
+
+```js title="docusaurus.config.js"
+module.exports = {
+  customFields: {
+    admin: 'endi',
+    superman: 'lol',
+  },
+};
+```
+
+在配置中添加未知字段会导致构建时报错:
+
+```bash
+Error: The field(s) 'foo', 'bar' are not recognized in docusaurus.config.js
+```
+
+### `staticDirectories` {#staticDirectories}
+
+路径数组（相对于站点目录或绝对路径）。这些路径下的文件将原样复制到构建输出目录。
+
+- 类型: `string[]`
+
+示例:
+
+```js title="docusaurus.config.js"
+module.exports = {
+  staticDirectories: ['static'],
+};
+```
+
+### `headTags` {#headTags}
+
+将插入 HTML `<head>` 的标签数组。值必须为包含两个属性的对象：`tagName` 确定要创建的标签（如 `"link"`），`attributes` 为属性-值映射表。
+
+- 类型: `{ tagName: string; attributes: Object; }[]`
+
+示例:
+
+```js title="docusaurus.config.js"
+module.exports = {
+  headTags: [
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'icon',
+        href: '/img/docusaurus.png',
+      },
+    },
+  ],
+};
+```
+
+这将在生成的 HTML 中变为 `<link rel="icon" href="img/docusaurus.png" />`。
+
+### `scripts` {#scripts}
+
+用于加载的脚本数组。值可以是字符串或属性-值映射的普通对象。`<script>` 标签将被插入到 HTML `<head>` 中。如果使用普通对象，唯一必需的属性是 `src`，其他属性均可添加（每个属性的值应为布尔值/字符串）。
+
+请注意此处添加的 `<script>` 会阻塞渲染，因此建议在对象中添加 `async: true`/`defer: true`。
+
+- 类型：`(string | Object)[]`
+
+示例：
+
+```js title="docusaurus.config.js"
+module.exports = {
+  scripts: [
+    // String format.
+    'https://docusaurus.io/script.js',
+    // Object format.
+    {
+      src: 'https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js',
+      async: true,
+    },
+  ],
+};
+```
+
+### `stylesheets` {#stylesheets}
+
+用于加载的 CSS 源数组。值可以是字符串或属性-值映射的普通对象。`<link>` 标签将被插入到 HTML `<head>` 中。如果使用对象，唯一必需的属性是 `href`，其他属性均可添加（每个属性的值应为布尔值/字符串）。
+
+- 类型：`(string | Object)[]`
+
+示例：
+
+```js title="docusaurus.config.js"
+module.exports = {
+  stylesheets: [
+    // String format.
+    'https://docusaurus.io/style.css',
+    // Object format.
+    {
+      href: 'http://mydomain.com/style.css',
+    },
+  ],
+};
+```
+
+:::info
+
+默认情况下 `<link>` 标签会带有 `rel="stylesheet"`，但你可以显式添加自定义 `rel` 值来注入任意类型的 `<link>` 标签，不限于样式表。
+
+:::
+
+### `clientModules` {#clientModules}
+
+要在站点全局加载的[客户端模块](../advanced/client.mdx#client-modules)数组。
+
+示例：
+
+```js title="docusaurus.config.js"
+module.exports = {
+  clientModules: [
+    require.resolve('./mySiteGlobalJs.js'),
+    require.resolve('./mySiteGlobalCss.css'),
+  ],
+};
+```
+
+### `ssrTemplate` {#ssrTemplate}
+
+采用 [Eta 语法](https://eta.js.org/docs/syntax#syntax-overview)编写的 HTML 模板，用于渲染你的应用。可用于设置 `body` 标签的自定义属性、额外的 `meta` 标签、自定义 `viewport` 等。请注意 Docusaurus 依赖模板的正确结构才能正常运行，自定义模板后需确保其符合上游要求。
+
+- 类型：`string`
+
+示例：
+
+```js title="docusaurus.config.js"
+module.exports = {
+  ssrTemplate: `<!DOCTYPE html>
+<html <%~ it.htmlAttributes %>>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="generator" content="Docusaurus v<%= it.version %>">
+    <% it.metaAttributes.forEach((metaAttribute) => { %>
+      <%~ metaAttribute %>
+    <% }); %>
+    <%~ it.headTags %>
+    <% it.stylesheets.forEach((stylesheet) => { %>
+      <link rel="stylesheet" href="<%= it.baseUrl %><%= stylesheet %>" />
+    <% }); %>
+    <% it.scripts.forEach((script) => { %>
+      <link rel="preload" href="<%= it.baseUrl %><%= script %>" as="script">
+    <% }); %>
+  </head>
+  <body <%~ it.bodyAttributes %>>
+    <%~ it.preBodyTags %>
+    <div id="__docusaurus">
+      <%~ it.appHtml %>
+    </div>
+    <% it.scripts.forEach((script) => { %>
+      <script src="<%= it.baseUrl %><%= script %>"></script>
+    <% }); %>
+    <%~ it.postBodyTags %>
+  </body>
+</html>`,
+};
+```
+
+### `titleDelimiter` {#titleDelimiter}
+
+- 类型：`string`
+
+将用作生成 `<title>` 标签时的标题分隔符。
+
+示例：
+
+```js title="docusaurus.config.js"
+module.exports = {
+  titleDelimiter: '🦖', // Defaults to `|`
+};
+```
+
+### `baseUrlIssueBanner` {#baseUrlIssueBanner}
+
+- 类型：`boolean`
+
+启用后，当站点无法加载 CSS 或 JavaScript 文件时会显示横幅（常见问题通常与站点配置中错误的 `baseUrl` 有关）。
+
+示例：
+
+```js title="docusaurus.config.js"
+module.exports = {
+  baseUrlIssueBanner: true, // Defaults to `true`
+};
+```
+
+![基础URL问题横幅示例。由于样式表加载失败，样式非常原始。文字显示"您的Docusaurus站点加载异常...当前配置的baseUrl = /（默认值）；建议尝试baseUrl = /build/"](/img/baseUrlIssueBanner.png)
+
+:::warning
+
+此横幅需要内联 CSS/JS，以防因错误的基础URL导致所有资源加载失败。
+
+如果设置了严格的[内容安全策略](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)，建议禁用此功能。
+
+:::

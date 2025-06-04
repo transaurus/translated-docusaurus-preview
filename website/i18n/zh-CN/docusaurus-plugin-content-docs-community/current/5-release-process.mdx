@@ -1,0 +1,170 @@
+# 发布流程
+
+了解 Docusaurus 如何处理**版本控制、发布与破坏性变更**。
+
+:::info
+
+对于高度定制的站点而言，此主题尤为重要，这类站点在升级时可能面临较大困难。
+
+:::
+
+## 语义化版本控制 {#semantic-versioning}
+
+Docusaurus 采用 `主版本号.次版本号.修订号` 的版本控制方案，并遵循[语义化版本规范](https://semver.org/)。
+
+遵循语义化版本控制具有重要意义：
+
+- 只要您仅使用[公共API](/community/release-process#public-api-surface)，就能**确保次版本升级的平滑性**
+- 符合前端生态的通用惯例
+- 每个主版本更新都是系统记录破坏性变更的契机
+- 每个主/次版本更新都可通过博文形式宣传新特性
+
+### 主版本 {#major-versions}
+
+**每次破坏性变更**都会递增 `主版本号`。
+
+新主版本发布时，我们将提供：
+
+- 包含特性亮点、重大缺陷修复、**破坏性变更与升级指南**的博文
+- 完整的变更日志记录
+
+:::tip
+
+阅读[公共API范围](#public-api-surface)章节以明确我们认定的破坏性变更标准。
+
+:::
+
+### 次版本 {#minor-versions}
+
+`次版本号` 随每个重大向后兼容变更递增。
+
+新次版本发布时，我们将提供：
+
+- 包含特性亮点与重大缺陷修复列表的博文
+- 完整的变更日志记录
+
+:::tip
+
+只要使用[公共API范围](#public-api-surface)，您应该能快速完成升级！
+
+:::
+
+### 修订版本 {#patch-versions}
+
+`修订号` 随每个缺陷修复版本递增。
+
+新修订版本发布时，我们将提供：
+
+- 完整的变更日志记录
+
+## 版本分支 {#versions}
+
+import {
+  CurrentMajorVersionNumber,
+  StableMajorBranchLink,
+  MainBranchLink,
+} from "@site/src/components/Versions";
+
+Docusaurus 团队采用简明的开发流程，同一时间仅维护一个主版本与一个Git分支：
+
+- **Docusaurus {CurrentMajorVersionNumber}**：稳定版本，基于 <MainBranchLink/> 分支。
+
+:::note[新版本发布策略]
+
+当准备发布 **Docusaurus {CurrentMajorVersionNumber + 1}** 时，我们将：
+
+- 创建 <StableMajorBranchLink/> 分支
+- 将破坏性变更合并至 <MainBranchLink/> 分支
+- 直接从 <MainBranchLink/> 分支发布新版本
+
+:::
+
+:::warning[安全修复策略]
+
+新版稳定版本发布后，旧版稳定版本将继续获得**重大安全问题**支持，期限为**3个月**。
+
+实际操作中，我们会将安全修复反向移植至 <StableMajorBranchLink/> 分支。除此之外，所有特性将被冻结，非关键缺陷将不予修复。
+
+建议在此时间窗口内升级至新稳定版本。
+
+:::
+
+## 公共API范围 {#public-api-surface}
+
+Docusaurus 承诺遵循语义化版本控制。这意味着当公共API发生破坏向后兼容性的变更时，我们将递增 `主版本号`。
+
+:::tip
+
+Docusaurus 保证公共API在 `次版本` 间的向后兼容性。只要不使用内部API，`次版本` 升级应当非常顺畅。
+
+:::
+
+下文将界定公共API的具体范围。
+
+### 核心公共API {#core-public-api}
+
+✅ 我们的公开 API 包括：
+
+- Docusaurus 配置文件
+- Docusaurus 客户端 API
+- Docusaurus 命令行工具
+- 预设选项
+- 插件选项
+- 插件生命周期 API
+- 主题配置
+- 核心插件路由组件属性
+- `@docusaurus/types` TypeScript 类型定义
+  - 我们保留增强类型严格性（可能导致类型检查失败）的权利
+
+❌ 我们的公开 API **不包括**：
+
+- Docusaurus 配置中的 `future` 字段
+- 所有以 `experimental_` 或 `unstable_` 为前缀的功能
+- 所有以 `v<主版本号>_` 为前缀的功能（如 `v6_`、`v7_` 等）
+
+:::tip
+
+对于非主题 API，任何文档记载的 API 均视为公开 API（将保持稳定）；任何未文档化的 API 均视为内部 API。
+
+:::
+
+API 的"稳定性"意味着：当您仅升级 Docusaurus 的补丁或次要版本（不作其他更改）后，运行 `docusaurus start` 或 `docusaurus build` 不应抛出错误。
+
+### 主题公开 API {#theming-public-api}
+
+Docusaurus 拥有高度灵活的主题系统：
+
+- 支持自定义 CSS
+- 支持[置换（swizzle）](/docs/swizzling)任何 React 主题组件
+
+此系统也隐式形成了庞大的 API 表面。为了保持开发迭代速度，我们无法保证向后兼容性。
+
+✅ 我们的主题公开 API 包括：
+
+- [主题类名](/docs/styling-layout#theme-class-names)
+- [Infima](/docs/styling-layout#styling-your-site-with-infima) 类名与 CSS 变量
+- [安全置换](/docs/swizzling#what-is-safe-to-swizzle)的 React 组件
+- 主题用户体验
+- 浏览器兼容性
+
+:::tip
+
+若您无法通过此公开 API 实现站点定制需求，请[提交您的用例](https://github.com/facebook/docusaurus/discussions/5468)，我们将研究如何扩展公开 API。
+
+:::
+
+❌ 我们的主题公开 API **不包括**：
+
+- DOM 结构
+- 带哈希后缀的 CSS 模块类名（通常通过 `[class*='myClassName']` 选择器定位）
+- [不安全或禁止置换](/docs/swizzling#what-is-safe-to-swizzle)的 React 组件
+- 从 `@docusaurus/theme-common/internal` 导入的 React 组件
+- 主题的精确视觉呈现
+
+:::note
+
+当[置换](/docs/swizzling)安全组件时，您可能会遇到从 `@docusaurus/theme-common`（非 `/internal` 子路径）导入未文档化 API 的组件。
+
+这些 API 仍保持向后兼容性（因此标记为"安全"），但我们不鼓励直接使用。
+
+:::

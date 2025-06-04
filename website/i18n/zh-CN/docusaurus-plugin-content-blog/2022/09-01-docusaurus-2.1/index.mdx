@@ -1,0 +1,85 @@
+---
+title: Docusaurus 2.1
+authors:
+  - slorber
+tags: [release]
+image: ./img/social-card.png
+---
+
+我们很高兴地宣布**Docusaurus 2.1**的发布，这是我们的首个次要版本更新。
+
+升级过程应该很简单：正如我们的[发布流程文档](/community/release-process)所述，次要版本遵循[语义化版本控制](https://semver.org/)规范。
+
+![Docusaurus 2.1 社交卡片](./img/social-card.png)
+
+<!--truncate-->
+
+## 亮点功能
+
+### DocCardList组件优化
+
+在[#8008](https://github.com/facebook/docusaurus/pull/8008)中，我们简化了`<DocCardList>`组件的使用方式，该组件主要用于侧边栏分类的自动生成索引页面。
+
+现在`items`属性变为可选参数，系统会自动从父级侧边栏分类内容中推断出所需数据：
+
+```diff
+import DocCardList from '@theme/DocCardList';
+- import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
+
+- <DocCardList items={useCurrentSidebarCategory().items}/>
++ <DocCardList/>
+```
+
+此外，我们还使其能用于任何文档页面，包括未关联到侧边栏分类的常规文档。
+
+![简化后的DocCardList组件](./img/doc-card-list.png)
+
+### `noindex`功能增强
+
+我们改进了对[`noindex`元机器人指令](https://developers.google.com/search/docs/advanced/crawling/block-indexing)的支持，该指令用于向搜索引擎声明不希望特定页面被索引。
+
+在[#7963](https://github.com/facebook/docusaurus/pull/7963)中，我们实现了按文档版本配置`noindex`的功能。
+
+使用以下插件选项可告知爬虫程序不希望索引`1.0.0`版本：
+
+```jsx
+const options = {
+  versions: {
+    '1.0.0': {
+      noIndex: true,
+    },
+  },
+};
+```
+
+实际效果是，Docusaurus会在该版本每个页面中添加如下元标签：
+
+```html
+<meta name="robots" content="noindex, nofollow" />
+```
+
+在[#7964](https://github.com/facebook/docusaurus/pull/7964)中，我们还修复了站点地图插件仍会包含带有`noindex`指令页面的问题。现在站点地图插件能可靠地过滤掉所有含`noindex`指令的页面。
+
+### 覆盖默认元标签
+
+通过[#7952](https://github.com/facebook/docusaurus/pull/7952)，现在可以覆盖之前无法修改的默认HTML元标签：
+
+```jsx
+<>
+  {siteConfig.noIndex && <meta name="robots" content="nofollow, noindex" />}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</>
+```
+
+现在可以通过`<Head>`或`themeConfig.metadata`实现：
+
+- 覆盖`viewport`元标签
+- 覆盖`robots`元标签：您可以将整个站点标记为`noIndex`，同时允许特定页面被索引
+
+### 乌克兰语翻译支持
+
+在[#7953](https://github.com/facebook/docusaurus/pull/7953)中，我们为乌克兰语添加了经典主题的默认翻译。
+
+## 其他变更
+
+完整变更列表请参阅[2.1.0更新日志](/changelog/2.1.0)。

@@ -1,0 +1,184 @@
+---
+description: How the Docusaurus client is structured
+---
+
+# 客户端架构
+
+## 主题别名 {#theme-aliases}
+
+主题通过导出一系列组件（如`Navbar`、`Layout`、`Footer`）来渲染插件传递的数据。Docusaurus和用户通过`@theme`这个webpack别名来引用这些组件：
+
+```js
+import Navbar from '@theme/Navbar';
+```
+
+`@theme`别名按以下优先级指向多个目录：
+
+1. 用户自定义的`website/src/theme`目录（具有最高优先级）
+2. Docusaurus主题包的`theme`目录
+3. Docusaurus核心提供的回退组件（通常不需要使用）
+
+这种架构称为_分层架构_：高优先级层提供的组件会覆盖低优先级层，从而实现组件替换（swizzling）。假设有如下结构：
+
+```
+website
+├── node_modules
+│   └── @docusaurus/theme-classic
+│       └── theme
+│           └── Navbar.js
+└── src
+    └── theme
+        └── Navbar.js
+```
+
+当导入`@theme/Navbar`时，`website/src/theme/Navbar.js`会优先被引用。这种行为称为组件替换。如果你熟悉Objective C中运行时交换函数实现的方式，这里的机制完全相同——只是改变了`@theme/Navbar`指向的目标！
+
+我们之前讨论过如何通过[`@theme-original`](../swizzling.mdx#wrapping)别名让`src/theme`中的"用户主题"复用主题组件。一个主题包也可以通过`@theme-init`导入来包装另一个主题的组件。
+
+以下示例展示了如何使用此特性为默认主题的`CodeBlock`组件增强`react-live`交互式编程功能。
+
+```js
+import InitialCodeBlock from '@theme-init/CodeBlock';
+import React from 'react';
+
+export default function CodeBlock(props) {
+  return props.live ? (
+    <ReactLivePlayground {...props} />
+  ) : (
+    <InitialCodeBlock {...props} />
+  );
+}
+```
+
+详见`@docusaurus/theme-live-codeblock`的代码实现。
+
+:::warning
+
+除非你要发布可复用的"主题增强器"（如`@docusaurus/theme-live-codeblock`），否则通常不需要使用`@theme-init`。
+
+:::
+
+这些别名机制可能较难理解。假设一个极端场景：三个主题/插件和站点本身都尝试定义同一个组件。Docusaurus内部将这些主题加载为一个"堆栈"。
+
+```text
++-------------------------------------------------+
+|        `website/src/theme/CodeBlock.js`         | <-- `@theme/CodeBlock` always points to the top
++-------------------------------------------------+
+| `theme-live-codeblock/theme/CodeBlock/index.js` | <-- `@theme-original/CodeBlock` points to the topmost non-swizzled component
++-------------------------------------------------+
+|  `plugin-awesome-codeblock/theme/CodeBlock.js`  |
++-------------------------------------------------+
+|     `theme-classic/theme/CodeBlock/index.js`    | <-- `@theme-init/CodeBlock` always points to the bottom
++-------------------------------------------------+
+```
+
+组件按`预设插件 > 预设主题 > 插件 > 主题 > 站点`的顺序压入"堆栈"，因此`website/src/theme`中的替换组件总是位于顶层（最后加载）。
+
+`@theme/*`始终指向最顶层的组件——当`CodeBlock`被替换时，所有请求`@theme/CodeBlock`的组件都会获得替换后的版本。
+
+`@theme-original/*`始终指向最顶层未被替换的组件。这就是为什么你可以在替换组件中导入`@theme-original/CodeBlock`——它指向"组件堆栈"中的下一个（由主题提供的）组件。插件作者不应使用此别名，因为你的组件可能成为顶层组件导致循环导入。
+
+`@theme-init/*`始终指向最底层的组件——通常来自首次提供该组件的主题或插件。单个插件/主题可以通过`@theme-init/CodeBlock`安全地获取基础版本。站点创建者通常不应使用此别名，因为你更可能想增强_最顶层_而非_最底层_的组件。另外`@theme-init/CodeBlock`别名可能根本不存在——Docusaurus仅在它指向不同于`@theme-original/CodeBlock`的组件时（即由多个主题提供时）创建该别名。我们不会浪费别名！
+
+## 客户端模块 {#client-modules}
+
+客户端模块是站点打包产物的一部分，与主题组件类似。但它们通常具有副作用。客户端模块可以是任何能被 Webpack 导入的内容——CSS、JS 等。JS 脚本通常在全局上下文中运行，例如注册事件监听器、创建全局变量...
+
+这些模块会在 React 渲染初始 UI 之前就被全局导入。
+
+```js title="@docusaurus/core/App.tsx"
+// How it works under the hood
+import '@generated/client-modules';
+```
+
+插件和站点都可以通过 [`getClientModules`](../api/plugin-methods/lifecycle-apis.mdx#getClientModules) 和 [`siteConfig.clientModules`](../api/docusaurus.config.js.mdx#clientModules) 分别声明客户端模块。
+
+客户端模块在服务端渲染期间也会被调用，因此访问客户端全局变量前请务必检查[执行环境](./ssg.mdx#escape-hatches)。
+
+```js title="mySiteGlobalJs.js"
+import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
+
+if (ExecutionEnvironment.canUseDOM) {
+  // As soon as the site loads in the browser, register a global event listener
+  window.addEventListener('keydown', (e) => {
+    if (e.code === 'Period') {
+      location.assign(location.href.replace('.com', '.dev'));
+    }
+  });
+}
+```
+
+作为客户端模块导入的 CSS 样式表是[全局生效](../styling-layout.mdx#global-styles)的。
+
+```css title="mySiteGlobalCss.css"
+/* This stylesheet is global. */
+.globalSelector {
+  color: red;
+}
+```
+
+### 客户端模块生命周期 {#client-module-lifecycles}
+
+除了引入副作用外，客户端模块还可以选择性地导出两个生命周期函数：`onRouteUpdate` 和 `onRouteDidUpdate`。
+
+由于 Docusaurus 构建的是单页应用，`script` 标签仅在页面首次加载时执行，页面跳转时不会重新执行。这些生命周期对于需要在每次新页面加载时执行的命令式 JS 逻辑非常有用，例如操作 DOM 元素、发送分析数据等。
+
+每次路由切换时，会经历以下几个关键时间点：
+
+1. 用户点击链接，导致路由器变更当前地址。
+2. Docusaurus 预加载下个路由的资源，同时继续展示当前页面内容。
+3. 下个路由的资源加载完成。
+4. 新地址的路由组件被渲染到 DOM。
+
+`onRouteUpdate` 会在事件 (2) 时调用，`onRouteDidUpdate` 则在 (4) 时调用。它们都会接收当前地址和上一个地址（首次加载时可能为 `null`）。
+
+`onRouteUpdate` 可以选择返回一个"清理"回调函数，该回调会在 (3) 时被调用。例如，如果你想显示进度条，可以在 `onRouteUpdate` 中启动定时器，然后在回调中清除定时器。（经典主题正是通过这种方式集成了 `nprogress`）
+
+请注意，新页面的 DOM 仅在事件 (4) 后才可用。如果需要操作新页面的 DOM，通常应该使用 `onRouteDidUpdate`，它会在新页面 DOM 挂载后立即触发。
+
+```js title="myClientModule.js"
+export function onRouteDidUpdate({location, previousLocation}) {
+  // Don't execute if we are still on the same page; the lifecycle may be fired
+  // because the hash changes (e.g. when navigating between headings)
+  if (location.pathname !== previousLocation?.pathname) {
+    const title = document.getElementsByTagName('h1')[0];
+    if (title) {
+      title.innerText += '❤️';
+    }
+  }
+}
+
+export function onRouteUpdate({location, previousLocation}) {
+  if (location.pathname !== previousLocation?.pathname) {
+    const progressBarTimeout = window.setTimeout(() => {
+      nprogress.start();
+    }, delay);
+    return () => window.clearTimeout(progressBarTimeout);
+  }
+  return undefined;
+}
+```
+
+如果使用 TypeScript 并希望利用上下文类型：
+
+```ts title="myClientModule.ts"
+import type {ClientModule} from '@docusaurus/types';
+
+const module: ClientModule = {
+  onRouteUpdate({location, previousLocation}) {
+    // ...
+  },
+  onRouteDidUpdate({location, previousLocation}) {
+    // ...
+  },
+};
+export default module;
+```
+
+两个生命周期都会在首次渲染时触发，但不会在服务端触发，因此可以安全地在其中访问浏览器全局对象。
+
+:::tip[优先使用 React]
+
+客户端生命周期是纯命令式的，无法在其中使用 React Hooks 或访问 React 上下文。如果你的操作与状态相关或涉及复杂的 DOM 操作，应考虑[组件置换](../swizzling.mdx)方案。
+
+:::

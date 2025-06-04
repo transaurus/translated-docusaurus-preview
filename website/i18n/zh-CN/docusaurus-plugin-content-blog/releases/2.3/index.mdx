@@ -1,0 +1,152 @@
+---
+title: Docusaurus 2.3
+authors: [slorber]
+tags: [release]
+image: ./img/social-card.png
+date: 2023-01-27
+---
+
+我们很高兴地宣布**Docusaurus 2.3**正式发布。
+
+升级过程应该很简单：正如我们的[发布流程文档](/community/release-process)所述，次要版本遵循[语义化版本控制](https://semver.org/)规范。
+
+![Docusaurus 2.2 社交媒体卡片](./img/social-card.png)
+
+<!--truncate-->
+
+## 重点更新
+
+### Google Tag Manager插件
+
+Google Tag Manager是一个提供高度灵活性的标签管理系统，它使分析和营销团队能够轻松加载其他第三方追踪器并触发分析标签。
+
+我们现在提供了[`@docusaurus/plugin-google-tag-manager`](/docs/api/plugins/@docusaurus/plugin-google-tag-manager/)包，您可以将其与现有的[gtag.js插件](/docs/api/plugins/@docusaurus/plugin-google-gtag/)一起使用或作为替代方案（请参阅[此文档](https://support.google.com/tagmanager/answer/7582054)了解何时使用哪种解决方案）。
+
+:::warning[Google即将停止支持Universal Analytics]
+
+[Google将于2023年7月1日停止其Universal Analytics服务](https://blog.google/products/marketingplatform/analytics/prepare-for-future-with-google-analytics-4/)，并要求用户迁移至**Google Analytics 4**。
+
+因此，我们也将**弃用现有的[`@docusaurus/plugin-google-analytics`](/docs/api/plugins/@docusaurus/plugin-google-analytics)**包。Docusaurus用户应创建新的Google Analytics 4属性，并迁移至[gtag.js插件](/docs/api/plugins/@docusaurus/plugin-google-gtag/)或[Google Tag Manager插件](/docs/api/plugins/@docusaurus/plugin-google-tag-manager/)。详情和问题请参阅[专门的Docusaurus议题](https://github.com/facebook/docusaurus/issues/7221)。
+
+:::
+
+### 标签页查询字符串支持
+
+现在可以将选定的标签页与查询字符串参数关联。当选择标签页时，它会以`?qs-param=tab-value`搜索参数的形式存储在浏览器URL中。
+
+此功能允许深度链接到特定的文档标签页，该标签页将在页面加载时预选。
+
+当与`groupId`属性一起使用时，查询字符串标签值优先于`localStorage`值。
+
+请务必查看[文档](/docs/markdown-features/tabs#query-string)和下面的演示以了解其工作原理：
+
+import BrowserWindow from '@site/src/components/BrowserWindow';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+```tsx
+<Tabs groupId="current-os" queryString>
+  <TabItem value="android" label="Android">
+    Android
+  </TabItem>
+  <TabItem value="ios" label="iOS">
+    iOS
+  </TabItem>
+</Tabs>
+```
+
+<BrowserWindow>
+  <Tabs groupId="current-os" queryString>
+    <TabItem value="android" label="Android">
+      Android
+    </TabItem>
+    <TabItem value="ios" label="iOS">
+      iOS
+    </TabItem>
+  </Tabs>
+</BrowserWindow>
+
+### 嵌套警示框
+
+现在可以通过为外部/包围的警示框添加额外的冒号来实现嵌套警示框：
+
+```md
+::::tip[nested admonitions]
+
+You can now nest one admonition within another!
+
+:::danger
+
+Use this sparingly when it makes sense.
+
+:::
+
+::::
+```
+
+::::tip[嵌套警示框]
+
+您现在可以在一个警示框中嵌套另一个警示框！
+
+:::danger
+
+请谨慎使用此功能，仅在确实需要时使用。
+
+:::
+
+::::
+
+### 博客`createFeedItems`功能
+
+新的博客插件选项[`feedOptions.createFeedItems`](/docs/api/plugins/@docusaurus/plugin-content-blog/#CreateFeedItemsFn)为您提供了对RSS/Atom源生成的更多控制。现在可以通过新的回调函数来转换/过滤/限制源项目。
+
+```tsx title="docusaurus.config.js"
+[
+  '@docusaurus/preset-classic',
+  {
+    blog: {
+      feedOptions: {
+        // highlight-start
+        createFeedItems: async (params) => {
+          const {blogPosts, defaultCreateFeedItems, ...rest} = params;
+          return defaultCreateFeedItems({
+            // keep only the 10 most recent blog posts in the feed
+            blogPosts: blogPosts.filter((item, index) => index < 10),
+            ...rest,
+          });
+        },
+        // highlight-end
+      },
+    },
+  },
+];
+```
+
+### 翻译支持
+
+我们为多种语言添加或完善了默认主题的翻译支持：
+
+- 🇸🇮 [#8541](https://github.com/facebook/docusaurus/pull/8541) 斯洛文尼亚语
+- 🇹🇷 [#8289](https://github.com/facebook/docusaurus/pull/8289) 土耳其语
+- 🇮🇷 [#8406](https://github.com/facebook/docusaurus/pull/8406) 波斯语
+- 🇵🇱 [#8525](https://github.com/facebook/docusaurus/pull/8525) 波兰语
+- 🇨🇳 [#8423](https://github.com/facebook/docusaurus/pull/8423) 中文
+- 🇸🇪 [#8312](https://github.com/facebook/docusaurus/pull/8312) 瑞典语
+- 🇻🇳 [#8450](https://github.com/facebook/docusaurus/pull/8450) 越南语
+
+:::tip
+
+完善主题翻译是一项[持续进行的工作](https://github.com/facebook/docusaurus/issues/3526)，也是为Docusaurus做贡献的简单方式。我们会定期新增主题功能，通常[需要新的翻译](https://github.com/facebook/docusaurus/issues/3526)。
+
+:::
+
+## 其他变更
+
+其他值得注意的变更包括：
+
+- [#8463](https://github.com/facebook/docusaurus/pull/8463) 和 [#8328](https://github.com/facebook/docusaurus/pull/8328)：修复了一些烦人的Docusaurus布局问题
+- [#8539](https://github.com/facebook/docusaurus/pull/8539)：Algolia插件的`options.searchPagePath`现在能正确应用到搜索模态框的页脚
+- [#8462](https://github.com/facebook/docusaurus/pull/8462)：Algolia插件现在更容易通过自定义逻辑转换显示的搜索结果
+- [#8397](https://github.com/facebook/docusaurus/pull/8397)：`deploy` CLI现在能识别git url的`insteadOf`配置
+
+查看完整的变更列表请参阅**[2.3.0版本更新日志](/changelog/2.3.0)**。

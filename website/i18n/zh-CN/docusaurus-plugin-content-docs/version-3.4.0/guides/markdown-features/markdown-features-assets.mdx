@@ -1,0 +1,225 @@
+---
+id: assets
+description: Handling assets in Docusaurus Markdown
+slug: /markdown-features/assets
+---
+
+# 静态资源
+
+import BrowserWindow from '@site/src/components/BrowserWindow';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+有时您需要直接从 Markdown 文件链接静态资源（如 docx 文档、图片等），将资源文件与使用它的 Markdown 文件放在同一目录下会非常方便。
+
+假设有以下文件结构：
+
+```
+# Your doc
+/website/docs/myFeature.mdx
+
+# Some assets you want to use
+/website/docs/assets/docusaurus-asset-example-banner.png
+/website/docs/assets/docusaurus-asset-example.docx
+```
+
+## 图片 {#images}
+
+您可以通过三种方式显示图片：Markdown 语法、CJS require 或 ES 导入语法。
+
+<Tabs>
+<TabItem value="Markdown syntax">
+
+Display images using simple Markdown syntax:
+
+```md
+![Example banner](./assets/docusaurus-asset-example-banner.png)
+```
+
+</TabItem>
+<TabItem value="CommonJS require">
+
+Display images using inline CommonJS `require` in JSX image tag:
+
+```jsx
+<img
+  src={require('./assets/docusaurus-asset-example-banner.png').default}
+  alt="Example banner"
+/>
+```
+
+</TabItem>
+<TabItem value="Import statement">
+
+Display images using ES `import` syntax and JSX image tag:
+
+```jsx
+import myImageUrl from './assets/docusaurus-asset-example-banner.png';
+
+<img src={myImageUrl} alt="Example banner" />;
+```
+
+</TabItem>
+</Tabs>
+
+以上所有方式最终都会显示该图片：
+
+<BrowserWindow>
+
+![My image alternative text](../../assets/docusaurus-asset-example-banner.png)
+
+</BrowserWindow>
+
+:::note
+
+如果您正在使用 [@docusaurus/plugin-ideal-image](../../api/plugins/plugin-ideal-image.mdx)，则需要按照文档使用专用的图片组件。
+
+:::
+
+## 文件 {#files}
+
+同样地，您可以通过 `require` 引入现有资源文件，并将返回的 URL 用于 `video` 视频标签、`a` 锚点链接等场景。
+
+```md
+# My Markdown page
+
+<a target="\_blank" href={require('./assets/docusaurus-asset-example.docx').default}> Download this docx </a>
+
+or
+
+[Download this docx using Markdown](./assets/docusaurus-asset-example.docx)
+```
+
+<BrowserWindow>
+
+<a
+  target="_blank"
+  href={require('../../assets/docusaurus-asset-example.docx').default}>
+  {'Download this docx'}
+</a>
+
+[Download this docx using Markdown](../../assets/docusaurus-asset-example.docx)
+
+</BrowserWindow>
+
+:::info[Markdown 链接始终解析为文件路径]
+
+当使用 Markdown 图片或链接语法时，所有资源路径都会被 Docusaurus 解析为文件路径并自动转换为 `require()` 调用。除非使用 JSX 语法（这种情况下需要自行处理），否则在 Markdown 中无需手动使用 `require()`。
+
+:::
+
+## 内联 SVG {#inline-svgs}
+
+Docusaurus 原生支持内联 SVG 图片。
+
+```jsx
+import DocusaurusSvg from './docusaurus.svg';
+
+<DocusaurusSvg />;
+```
+
+<BrowserWindow>
+
+import DocusaurusSvg from '@site/static/img/docusaurus.svg';
+
+<DocusaurusSvg />
+
+</BrowserWindow>
+
+当您需要通过 CSS 修改 SVG 图片的某些部分时，这个功能非常有用。例如，可以根据当前主题切换 SVG 的某个颜色。
+
+```jsx
+import DocusaurusSvg from './docusaurus.svg';
+
+<DocusaurusSvg className="themedDocusaurus" />;
+```
+
+```css
+[data-theme='light'] .themedDocusaurus [fill='#FFFF50'] {
+  fill: greenyellow;
+}
+
+[data-theme='dark'] .themedDocusaurus [fill='#FFFF50'] {
+  fill: seagreen;
+}
+```
+
+<BrowserWindow>
+  <DocusaurusSvg className="themedDocusaurus" />
+</BrowserWindow>
+
+## 主题化图片 {#themed-images}
+
+Docusaurus 支持主题化图片：内置的 `ThemedImage` 组件（包含在主题中）允许您根据当前主题切换图片源。
+
+```jsx
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import ThemedImage from '@theme/ThemedImage';
+
+<ThemedImage
+  alt="Docusaurus themed image"
+  // highlight-start
+  sources={{
+    light: useBaseUrl('/img/docusaurus_light.svg'),
+    dark: useBaseUrl('/img/docusaurus_dark.svg'),
+  }}
+  // highlight-end
+/>;
+```
+
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import ThemedImage from '@theme/ThemedImage';
+
+<BrowserWindow>
+<ThemedImage
+  alt="Docusaurus themed image"
+  sources={{
+    light: useBaseUrl('/img/docusaurus_keytar.svg'),
+    dark: useBaseUrl('/img/docusaurus_speed.svg'),
+  }}
+/>
+</BrowserWindow>
+
+### GitHub 风格的主题化图片 {#github-style-themed-images}
+
+GitHub 采用其特有的[图片主题化方案](https://github.blog/changelog/2021-11-24-specify-theme-context-for-images-in-markdown/)，通过路径片段实现，您可以轻松自行实现该方案。
+
+要通过路径片段切换图片显示（GitHub 使用的是 `#gh-dark-mode-only` 和 `#gh-light-mode-only`），请将以下代码添加到自定义 CSS 中（如果不希望与 GitHub 耦合，也可以使用自己的后缀）：
+
+```css title="src/css/custom.css"
+[data-theme='light'] img[src$='#gh-dark-mode-only'],
+[data-theme='dark'] img[src$='#gh-light-mode-only'] {
+  display: none;
+}
+```
+
+```md
+![Docusaurus themed image](/img/docusaurus_keytar.svg#gh-light-mode-only)![Docusaurus themed image](/img/docusaurus_speed.svg#gh-dark-mode-only)
+```
+
+<BrowserWindow>
+
+![Docusaurus themed image](/img/docusaurus_keytar.svg#gh-light-mode-only)![Docusaurus themed image](/img/docusaurus_speed.svg#gh-dark-mode-only)
+
+</BrowserWindow>
+
+## 静态资源目录 {#static-assets}
+
+如果 Markdown 链接或图片使用绝对路径，该路径将被视为文件路径，并从静态资源目录中解析。例如，若您配置了[静态资源目录](../../static-assets.mdx)为 `['public', 'static']`，那么对于以下图片：
+
+```md title="my-doc.md"
+![An image from the static](/img/docusaurus.png)
+```
+
+Docusaurus 会依次在 `static/img/docusaurus.png` 和 `public/img/docusaurus.png` 路径下查找。该链接最终会被转换为 `require()` 调用而非保留为 URL 形式。这一机制在以下两方面具有优势：
+
+1. 您无需担心基础URL问题，Docusaurus会在提供资源时自动处理；
+2. 图片会进入Webpack的构建流程，其文件名会被附加哈希值，这使得浏览器能积极缓存图片并提升网站性能。
+
+如需直接使用URL链接，可通过`pathname://`协议禁用自动资源链接功能。
+
+```md
+![banner](pathname:///img/docusaurus-asset-example-banner.png)
+```
+
+该链接将直接生成`<img src="/img/docusaurus-asset-example-banner.png" alt="banner" />`，不会进行任何处理或文件存在性检查。

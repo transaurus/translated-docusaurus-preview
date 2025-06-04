@@ -1,0 +1,50 @@
+---
+slug: /api/misc/@docusaurus/eslint-plugin/no-untranslated-text
+---
+
+# no-untranslated-text
+
+import APITable from '@site/src/components/APITable';
+
+强制要求JSX中的文本标签必须被translate调用包裹。
+
+当使用[i18n功能](../../../i18n/i18n-introduction.mdx)时，此规则确保网站上显示的所有标签都是可翻译的，避免任何字符串意外地未经翻译直接显示。
+
+## 规则详情 {#details}
+
+该规则的**错误**代码示例：
+
+```js
+// Hello World is not translated
+<Component>Hello World</Component>
+```
+
+该规则的**正确**代码示例：
+
+```js
+// Hello World is translated
+<Component>
+  <Translate>Hello World</Translate>
+</Component>
+```
+
+## 规则配置 {#configuration}
+
+可接受字段：
+
+<APITable>
+
+| Option | Type | Default | Description |
+| --- | --- | --- | --- |
+| `ignoredStrings` | `string[]` | `[]` | Text labels that only contain strings in this list will not be reported. |
+
+</APITable>
+
+## 何时不使用 {#when-not-to-use}
+
+如果您未使用[i18n功能](../../../i18n/i18n-introduction.mdx)，可以禁用此规则。对于不需要翻译的文本场景也可以禁用此规则。
+
+## 扩展阅读 {#further-reading}
+
+- https://docusaurus.io/docs/docusaurus-core#translate
+- https://docusaurus.io/docs/docusaurus-core#translate-imperative

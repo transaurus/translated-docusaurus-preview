@@ -1,0 +1,91 @@
+---
+sidebar_position: 9
+slug: /api/plugins/@docusaurus/plugin-css-cascade-layers
+---
+
+# 📦 plugin-css-cascade-layers
+
+import APITable from '@site/src/components/APITable';
+
+:::caution[实验性功能]
+
+该插件主要设计为通过[Docusaurus `future.v4.useCssCascadeLayers`标志](../docusaurus.config.js.mdx#future)在经典预设内部使用，但也可作为独立插件使用。如果您有相关使用场景，请[在此告知我们](https://github.com/facebook/docusaurus/pull/11142)，帮助我们设计更符合Docusaurus未来发展的API。
+
+:::
+
+该插件用于将Docusaurus站点的CSS模块包裹在[CSS级联层](https://css-tricks.com/css-cascade-layers/)中。这项现代CSS特性已获得所有主流浏览器的广泛支持，它允许将CSS规则按特异性分组到不同层级，从而提供对CSS级联更精细的控制。
+
+该插件的用途包括：
+
+- 为任何CSS模块（包括未分层的第三方CSS）应用顶层`@layer myLayer { ... }`块规则
+- 定义显式的层级排序
+
+:::caution
+
+要正确使用本插件，建议您充分理解[CSS级联层](https://css-tricks.com/css-cascade-layers/)、[CSS级联](https://developer.mozilla.org/docs/Web/CSS/CSS_cascade/Cascade)和[特异性](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascade/Specificity)等概念。
+
+:::
+
+## 安装 {#installation}
+
+```bash npm2yarn
+npm install --save @docusaurus/plugin-css-cascade-layers
+```
+
+:::tip
+
+如果您使用`@docusaurus/preset-classic`预设，该插件会通过[`siteConfig.future.v4.useCssCascadeLayers`](../docusaurus.config.js.mdx#future)标志自动配置。
+
+:::
+
+## 配置 {#configuration}
+
+可接受字段：
+
+<APITable>
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `layers` | `Layers` | **Built-in layers** | An object representing all the CSS cascade layers you want to use, and whether the layer should be applied to a given file path. See examples and types below. |
+
+</APITable>
+
+### 类型定义 {#types}
+
+#### `Layers` {#EditUrlFunction}
+
+```ts
+type Layers = Record<
+  string, // layer name
+  (filePath: string) => boolean // layer matcher
+>;
+```
+
+`layers`对象定义为：
+
+- 键(key)：表示层级名称
+- 值(value)：判断给定CSS模块文件是否应归入该层的函数
+
+:::caution[顺序重要性]
+
+对象顺序至关重要：
+
+- 键的顺序定义了显式的CSS层级顺序
+- 当多个层级匹配文件路径时，仅第一个匹配层级会生效
+
+:::
+
+### 配置示例 {#ex-config}
+
+您可以通过插件选项配置该插件。
+
+```js
+const options = {
+  layers: {
+    'docusaurus.infima': (filePath) =>
+      filePath.includes('/node_modules/infima/dist'),
+    'docusaurus.theme-classic': (filePath) =>
+      filePath.includes('/node_modules/@docusaurus/theme-classic/lib'),
+  },
+};
+```

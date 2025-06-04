@@ -1,0 +1,58 @@
+---
+sidebar_position: 0
+slug: /api/misc/create-docusaurus
+---
+
+# 📦 create-docusaurus
+
+一个脚手架工具，可帮助您快速搭建功能完备的Docusaurus应用。
+
+## 使用方法 {#usage}
+
+```bash
+npx create-docusaurus@latest [name] [template] [rootDir]
+```
+
+参数`name`将同时作为站点路径和所创建应用package.json中的`name`字段值。可以是绝对路径，也可以是相对于`rootDir`的相对路径。
+
+参数`template`可选值包括：
+
+- `classic`：使用经典模板（推荐）
+- `facebook`：使用Facebook/Meta模板，包含Meta特有的配置
+- 以`https://`或`git@`开头的Git仓库URL（将被克隆到目标目录）
+- 相对于当前工作目录的本地文件路径（其内容将被复制到目标目录）
+
+参数`rootDir`用于解析站点目录的绝对路径，默认为当前工作目录。
+
+:::warning
+
+建议在交互式shell中使用此命令以确保所有功能可用。
+
+:::
+
+## 选项 {#options}
+
+### `-t, --typescript` {#typescript}
+
+当模板参数为预设名称时使用。目前仅`classic`模板提供TypeScript变体。
+
+### `-g, --git-strategy` {#git-strategy}
+
+当模板参数为Git仓库时使用，可选值为：
+
+- `deep`：保留完整Git历史记录
+- `shallow`：使用`--depth=1`参数克隆
+- `copy`：执行浅克隆但不创建Git仓库
+- `custom`：输入自定义git clone命令。我们将提示您输入，例如可填写`git clone --depth 10`，系统会自动追加仓库URL和目标目录参数。
+
+### `-p, --package-manager` {#package-manager}
+
+可选值为`npm`、`yarn`、`pnpm`或`bun`。若未显式指定，Docusaurus将根据以下条件推断：
+
+- 当前工作目录中已存在的锁文件（例如在已有项目中搭建网站时）
+- 调用`create-docusaurus`时使用的命令（如`npm init`、`npx`、`yarn create`、`bunx`等）
+- 当所有启发式条件都不满足时，将通过交互式提示选择
+
+### `-s, --skip-install` {#skip-install}
+
+若指定此参数，Docusaurus在创建应用后不会自动安装依赖。`--package-manager`选项仅在实际安装依赖时生效。

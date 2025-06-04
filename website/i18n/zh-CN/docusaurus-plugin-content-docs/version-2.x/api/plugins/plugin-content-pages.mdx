@@ -1,0 +1,97 @@
+---
+sidebar_position: 3
+slug: /api/plugins/@docusaurus/plugin-content-pages
+---
+
+# 📦 plugin-content-pages
+
+import APITable from '@site/src/components/APITable';
+
+Docusaurus 的默认页面插件。经典模板已预装此插件并配置默认参数。该插件提供[创建页面](guides/creating-pages.mdx)功能。
+
+## 安装 {#installation}
+
+```bash npm2yarn
+npm install --save @docusaurus/plugin-content-pages
+```
+
+:::tip
+
+若使用 `@docusaurus/preset-classic` 预设，则无需单独安装此插件依赖。
+
+可通过[预设选项](../../using-plugins.mdx#docusauruspreset-classic)配置本插件。
+
+:::
+
+## 配置 {#configuration}
+
+可配置字段：
+
+<APITable>
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `path` | `string` | `'src/pages'` | Path to data on filesystem relative to site dir. Components in this directory will be automatically converted to pages. |
+| `routeBasePath` | `string` | `'/'` | URL route for the pages section of your site. **DO NOT** include a trailing slash. |
+| `include` | `string[]` | `['**/*.{js,jsx,ts,tsx,md,mdx}']` | Matching files will be included and processed. |
+| `exclude` | `string[]` | _See example configuration_ | No route will be created for matching files. |
+| `mdxPageComponent` | `string` | `'@theme/MDXPage'` | Component used by each MDX page. |
+| `remarkPlugins` | `[]` | `any[]` | Remark plugins passed to MDX. |
+| `rehypePlugins` | `[]` | `any[]` | Rehype plugins passed to MDX. |
+| `beforeDefaultRemarkPlugins` | `any[]` | `[]` | Custom Remark plugins passed to MDX before the default Docusaurus Remark plugins. |
+| `beforeDefaultRehypePlugins` | `any[]` | `[]` | Custom Rehype plugins passed to MDX before the default Docusaurus Rehype plugins. |
+
+</APITable>
+
+### 配置示例 {#ex-config}
+
+可通过预设选项或插件选项配置本插件。
+
+:::tip
+
+多数 Docusaurus 用户通过预设选项配置此插件。
+
+:::
+
+```js config-tabs
+// Preset Options: pages
+// Plugin Options: @docusaurus/plugin-content-pages
+
+const config = {
+  path: 'src/pages',
+  routeBasePath: '',
+  include: ['**/*.{js,jsx,ts,tsx,md,mdx}'],
+  exclude: [
+    '**/_*.{js,jsx,ts,tsx,md,mdx}',
+    '**/_*/**',
+    '**/*.test.{js,jsx,ts,tsx}',
+    '**/__tests__/**',
+  ],
+  mdxPageComponent: '@theme/MDXPage',
+  remarkPlugins: [require('remark-math')],
+  rehypePlugins: [],
+  beforeDefaultRemarkPlugins: [],
+  beforeDefaultRehypePlugins: [],
+};
+```
+
+## 国际化 {#i18n}
+
+请先阅读[国际化介绍](../../i18n/i18n-introduction.mdx)。
+
+### 翻译文件路径 {#translation-files-location}
+
+- **基础路径**：`website/i18n/[locale]/docusaurus-plugin-content-pages`
+- **多实例路径**：`website/i18n/[locale]/docusaurus-plugin-content-pages-[pluginId]`
+- **JSON文件**：通过 [`docusaurus write-translations`](../../cli.mdx#docusaurus-write-translations-sitedir) 命令提取
+- **Markdown文件**：`website/i18n/[locale]/docusaurus-plugin-content-pages`
+
+### 文件系统结构示例 {#example-file-system-structure}
+
+```bash
+website/i18n/[locale]/docusaurus-plugin-content-pages
+│
+│ # translations for website/src/pages
+├── first-markdown-page.md
+└── second-markdown-page.md
+```

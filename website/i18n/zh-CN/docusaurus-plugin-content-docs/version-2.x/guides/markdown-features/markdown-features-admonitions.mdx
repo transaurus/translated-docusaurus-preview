@@ -1,0 +1,249 @@
+---
+id: admonitions
+description: Handling admonitions/callouts in Docusaurus Markdown
+slug: /markdown-features/admonitions
+---
+
+# 告示框
+
+import BrowserWindow from '@site/src/components/BrowserWindow';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import Admonition from '@theme/Admonition';
+
+除了基础Markdown语法外，我们提供了一种特殊的告示框语法：用三组冒号包裹文本，后跟表示类型的标签。
+
+示例：
+
+```md
+:::note
+
+Some **content** with _Markdown_ `syntax`. Check [this `api`](#).
+
+:::
+
+:::tip
+
+Some **content** with _Markdown_ `syntax`. Check [this `api`](#).
+
+:::
+
+:::info
+
+Some **content** with _Markdown_ `syntax`. Check [this `api`](#).
+
+:::
+
+:::caution
+
+Some **content** with _Markdown_ `syntax`. Check [this `api`](#).
+
+:::
+
+:::danger
+
+Some **content** with _Markdown_ `syntax`. Check [this `api`](#).
+
+:::
+```
+
+<BrowserWindow>
+
+:::note
+
+Some **content** with _Markdown_ `syntax`. Check [this `api`](#).
+
+:::
+
+:::tip
+
+Some **content** with _Markdown_ `syntax`. Check [this `api`](#).
+
+:::
+
+:::info
+
+Some **content** with _Markdown_ `syntax`. Check [this `api`](#).
+
+:::
+
+:::caution
+
+Some **content** with _Markdown_ `syntax`. Check [this `api`](#).
+
+:::
+
+:::danger
+
+Some **content** with _Markdown_ `syntax`. Check [this `api`](#).
+
+:::
+
+</BrowserWindow>
+
+## 与Prettier配合使用 {#usage-with-prettier}
+
+若使用[Prettier](https://prettier.io)格式化Markdown文件，其可能会将代码自动格式化为无效的告示框语法。为避免此问题，请在起始和结束指令周围添加空行。这也是为什么此处展示的示例都在内容周围留有空白行。
+
+```md
+<!-- Prettier doesn't change this -->
+:::note
+
+Hello world
+
+:::
+
+<!-- Prettier changes this -->
+:::note
+Hello world
+:::
+
+<!-- to this -->
+::: note Hello world:::
+```
+
+## 指定标题 {#specifying-title}
+
+您还可以指定可选标题。
+
+```md
+:::note Your Title
+
+Some **content** with _Markdown_ `syntax`.
+
+:::
+```
+
+<BrowserWindow>
+
+:::note[Your Title]
+
+Some **content** with _Markdown_ `syntax`.
+
+:::
+
+</BrowserWindow>
+
+## 在MDX中使用告示框 {#admonitions-with-mdx}
+
+您也可以在告示框内使用MDX！
+
+```jsx
+import Tabs from '@theme/Tabs';
+
+import TabItem from '@theme/TabItem';
+
+:::tip
+
+Use tabs in admonitions
+
+<Tabs>
+  <TabItem value="apple" label="Apple">This is an apple 🍎</TabItem>
+  <TabItem value="orange" label="Orange">This is an orange 🍊</TabItem>
+  <TabItem value="banana" label="Banana">This is a banana 🍌</TabItem>
+</Tabs>
+
+:::
+```
+
+<BrowserWindow>
+
+:::tip
+
+Use tabs in admonitions
+
+<Tabs>
+  <TabItem value="apple" label="Apple">This is an apple 🍎</TabItem>
+  <TabItem value="orange" label="Orange">This is an orange 🍊</TabItem>
+  <TabItem value="banana" label="Banana">This is a banana 🍌</TabItem>
+</Tabs>
+
+:::
+
+</BrowserWindow>
+
+## 在JSX中使用 {#usage-in-jsx}
+
+在Markdown之外，您可以使用`@theme/Admonition`组件获得相同输出效果。
+
+```jsx title="MyReactPage.jsx"
+import Admonition from '@theme/Admonition';
+
+export default function MyReactPage() {
+  return (
+    <div>
+      <Admonition type="info">
+        <p>Some information</p>
+      </Admonition>
+    </div>
+  );
+}
+```
+
+接受的类型与上述相同：`note`、`tip`、`danger`、`info`、`caution`。可选地，您可以通过传递JSX元素或字符串来指定图标，或指定标题：
+
+```jsx title="MyReactPage.jsx"
+<Admonition type="tip" icon="💡" title="Did you know...">
+  <p>
+    Use plugins to introduce shorter syntax for the most commonly used JSX
+    elements in your project.
+  </p>
+</Admonition>
+```
+
+<BrowserWindow>
+  <Admonition type="tip" icon="💡" title="Did you know...">
+    Use plugins to introduce shorter syntax for the most commonly used JSX
+    elements in your project.
+  </Admonition>
+</BrowserWindow>
+
+## 自定义告示框 {#customizing-admonitions}
+
+告示框支持两种自定义方式：**解析**和**渲染**。
+
+### 自定义渲染行为 {#customizing-rendering-behavior}
+
+您可以通过[swizzling](../../swizzling.mdx)自定义每种告示框类型的渲染方式。通常只需简单封装即可实现目标。例如在下述示例中，我们仅替换了`info`类型告示框的图标。
+
+```jsx title="src/theme/Admonition.js"
+import React from 'react';
+import Admonition from '@theme-original/Admonition';
+import MyIcon from '@site/static/img/info.svg';
+
+export default function AdmonitionWrapper(props) {
+  if (props.type !== 'info') {
+    return <Admonition {...props} />;
+  }
+  return <Admonition icon={<MyIcon />} {...props} />;
+}
+```
+
+### 自定义解析行为 {#customizing-parsing-behavior}
+
+告示框功能通过[Remark插件](./markdown-features-plugins.mdx)实现。该插件设计为可配置模式。要为特定内容插件（文档、博客、页面）自定义Remark插件，可通过`admonitions`键传递配置项。
+
+```js title="docusaurus.config.js"
+module.exports = {
+  presets: [
+    [
+      '@docusaurus/preset-classic',
+      {
+        docs: {
+          admonitions: {
+            tag: ':::',
+            keywords: ['note', 'tip', 'info', 'caution', 'danger'],
+          },
+        },
+      },
+    ],
+  ],
+};
+```
+
+插件接受两个配置项：
+
+- `tag`: 包裹告示框的标签。默认为`:::`。
+- `keywords`: 可用作告示框类型的关键字数组。注意若覆盖此配置，默认值将不会生效。
+
+`keyword`将作为`type`属性传递给`Admonition`组件。若注册的类型超出默认范围，您还需自行提供其实现——包括容器样式、图标、默认标题文本等。通常需要[弹出](../../swizzling.mdx#ejecting)`@theme/Admonition`组件，以便复用其他类型的实现基础。

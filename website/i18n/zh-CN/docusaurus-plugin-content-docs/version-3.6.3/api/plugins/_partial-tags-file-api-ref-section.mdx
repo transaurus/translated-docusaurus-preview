@@ -1,0 +1,54 @@
+## 标签文件 {#tags-file}
+
+通过 [`tags` 插件选项](#tags) 可配置 YAML 标签文件的路径。
+
+按照惯例，插件会在您的内容文件夹根目录下查找 `tags.yml` 文件。
+
+该文件可包含预定义的标签列表。您可以通过 Markdown 文件中的 [`tags` 前置元数据](#markdown-front-matter) 来引用这些标签键。
+
+:::tip[保持标签一致性]
+
+使用标签文件可确保插件内容集中的标签使用保持一致。通过 [`onInlineTags: 'throw'`](#onInlineTags) 插件选项可强制执行此一致性，并防止使用临时声明的行内标签。
+
+:::
+
+### 类型 {#tags-file-types}
+
+提供的标签文件 YAML 内容应符合以下结构：
+
+```tsx
+type Tag = {
+  label?: string; // Tag display label
+  permalink?: string; // Tag URL pathname segment
+  description?: string; // Tag description displayed in the tag page
+};
+
+type TagsFileInput = Record<string, Partial<Tag> | null>;
+```
+
+### 示例 {#tags-file-example}
+
+```yml title="tags.yml"
+releases:
+  label: 'Product releases'
+  permalink: '/product-releases'
+  description: 'Content related to product releases.'
+
+# A partial tag definition is also valid
+announcements:
+  label: 'Announcements'
+
+# An empty tag definition is also valid
+# Other attributes will be inferred from the key
+emptyTag:
+```
+
+```md title="content.md"
+---
+tags: [releases, announcements, emptyTag]
+---
+
+# Title
+
+Content
+```

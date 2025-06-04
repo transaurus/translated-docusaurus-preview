@@ -1,0 +1,173 @@
+---
+id: introduction
+description: Docusaurus uses MDX. Find out more about Docusaurus-specific features when writing Markdown.
+slug: /markdown-features
+---
+
+# Markdown 功能
+
+import BrowserWindow from '@site/src/components/BrowserWindow';
+
+Docusaurus 采用 **[Markdown](https://commonmark.org/)** 作为主要的内容创作格式。
+
+:::tip[学习 Markdown]
+
+你可以通过 [10 分钟学会 Markdown](https://commonmark.org/help/) 快速入门。
+
+:::
+
+Docusaurus 使用现代化工具链帮助你创建**交互式文档**。
+
+**[MDX](https://mdxjs.com/)** 编译器能将 **Markdown 文件转换为 React 组件**，并允许在 Markdown 内容中使用 JSX。这使你可以轻松地在内容中嵌入 React 组件，打造出色的学习体验。
+
+:::tip[使用 MDX 演练场]
+
+**[MDX 演练场](https://mdxjs.com/playground/)** 将成为你的得力助手！
+
+这个强大的调试工具能直观展示 MDX 编译器如何将 Markdown 转换为 React。
+
+**配置建议**：选择正确的格式（MDX 或 CommonMark）以及 Docusaurus 使用的以下插件：`remark-gfm`、`remark-directive`、`rehype-raw`。
+
+:::
+
+## MDX 与 CommonMark 对比 {#mdx-vs-commonmark}
+
+Docusaurus 使用 MDX 编译器将 `.md` 和 `.mdx` 文件编译为 React 组件，但**语法解析方式会因配置而异**。
+
+MDX 编译器支持 [两种格式](https://mdxjs.com/packages/mdx/#optionsformat)：
+
+- [MDX 格式](https://mdxjs.com/docs/what-is-mdx/)：支持 JSX 语法的强大解析器
+- [CommonMark 格式](https://commonmark.org/)：符合标准的 Markdown 解析器（不支持 JSX）
+
+出于历史原因，**Docusaurus v3 默认对所有文件（包括 `.md` 文件）使用 MDX 格式**。
+
+可通过 [`siteConfig.markdown.format`](../../api/docusaurus.config.js.mdx#markdown) 配置或 `mdx.format: md` 前置元数据**切换至 CommonMark 格式**。
+
+:::tip[CommonMark 使用建议]
+
+若计划使用 CommonMark，推荐配置 [`siteConfig.markdown.format: 'detect'`](../../api/docusaurus.config.js.mdx#markdown)。系统会根据文件扩展名自动选择对应格式：
+
+- `.md` 文件使用 CommonMark 格式
+- `.mdx` 文件使用 MDX 格式
+
+:::
+
+## 标准功能 {#standard-features}
+
+Markdown 是一种通过易读语法编写格式化内容的标记语言。
+
+```md
+### My Doc Section
+
+Hello world message with some **bold** text, some _italic_ text, and a [link](/)
+
+![img alt](/img/docusaurus.png)
+```
+
+<BrowserWindow>
+
+<h3>My Doc Section</h3>
+
+Hello world message with some **bold** text, some _italic_ text and a [link](/)
+
+![img alt](/img/docusaurus.png)
+
+</BrowserWindow>
+
+<details>
+
+<summary>Markdown is declarative</summary>
+
+Some may assume a 1-1 correlation between Markdown and HTML, e.g., `![Preview](/img/docusaurus.png)` will always become `<img src="/img/docusaurus.png" alt="Preview" />`, as-is. However, _that is not the case_.
+
+The Markdown syntax `![message](url)` only declaratively tells Docusaurus that an image needs to be inserted here, but we may do other things like transforming a [file path to URL path](./markdown-features-assets.mdx#images), so the generated markup may differ from the output of other Markdown renderers, or a naïve hand-transcription to the equivalent JSX/HTML code.
+
+In general, you should only assume the _semantics_ of the markup (` ``` ` fences become [code blocks](./markdown-features-code-blocks.mdx); `>` becomes [quotes](#quotes), etc.), but not the actual compiled output.
+
+</details>
+
+## 前置元数据 {#front-matter}
+
+前置元数据用于为 Markdown 文件添加元信息。所有内容插件都有专属的前置元数据架构，并通过前置元数据来增强从内容或其他配置推断出的默认元数据。
+
+前置元数据位于文件顶部，由三个破折号 `---` 包裹。其内容采用 [YAML](https://yaml.org/spec/1.2.2/) 格式解析。
+
+```md
+---
+title: My Doc Title
+more_data:
+  - Can be provided
+  - as: objects
+    or: arrays
+---
+```
+
+:::info
+
+各官方插件的 API 文档列出了支持的属性：
+
+- [文档前置元数据](../../api/plugins/plugin-content-docs.mdx#markdown-front-matter)
+- [博客前置元数据](../../api/plugins/plugin-content-blog.mdx#markdown-front-matter)
+- [页面前置元数据](../../api/plugins/plugin-content-pages.mdx#markdown-front-matter)
+
+:::
+
+## 引用块 {#quotes}
+
+Markdown 引用块具有精美的样式：
+
+```md
+> Easy to maintain open source documentation websites.
+>
+> — Docusaurus
+```
+
+<BrowserWindow>
+
+> Easy to maintain open source documentation websites.
+>
+> — Docusaurus
+
+</BrowserWindow>
+
+## 折叠区块 {#details}
+
+Markdown 可以嵌入 HTML 元素，其中 [`details`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details) 元素经过精心样式设计：
+
+```md
+### Details element example
+
+<details>
+  <summary>Toggle me!</summary>
+  <div>
+    <div>This is the detailed content</div>
+    <br/>
+    <details>
+      <summary>
+        Nested toggle! Some surprise inside...
+      </summary>
+      <div>😲😲😲😲😲</div>
+    </details>
+  </div>
+</details>
+```
+
+<BrowserWindow>
+
+<h3>Details element example</h3>
+
+<details>
+  <summary>Toggle me!</summary>
+  <div>
+    <div>This is the detailed content</div>
+    <br/>
+    <details>
+      <summary>
+        Nested toggle! Some surprise inside...
+      </summary>
+      <div>😲😲😲😲😲</div>
+    </details>
+  </div>
+</details>
+
+</BrowserWindow>

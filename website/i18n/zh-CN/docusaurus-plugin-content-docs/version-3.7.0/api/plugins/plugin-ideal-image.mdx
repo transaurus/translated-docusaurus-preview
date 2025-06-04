@@ -1,0 +1,100 @@
+---
+sidebar_position: 8
+slug: /api/plugins/@docusaurus/plugin-ideal-image
+---
+
+# 📦 plugin-ideal-image
+
+import APITable from '@site/src/components/APITable';
+
+Docusaurus插件，用于生成近乎理想的图像（响应式、懒加载和低质量占位图）。
+
+:::info
+
+默认情况下，该插件在开发环境中处于**非活动状态**，以便您始终可以查看全尺寸图像。如需调试理想图像行为，可将[`disableInDev`](#disableInDev)选项设为`false`。
+
+:::
+
+## 安装 {#installation}
+
+```bash npm2yarn
+npm install --save @docusaurus/plugin-ideal-image
+```
+
+## 使用方法 {#usage}
+
+该插件仅支持PNG和JPG格式。
+
+```jsx
+import Image from '@theme/IdealImage';
+import thumbnail from './path/to/img.png';
+
+// your React code
+<Image img={thumbnail} />
+
+// or
+<Image img={require('./path/to/img.png')} />
+```
+
+:::warning
+
+本插件会注册一个[Webpack加载器](https://webpack.js.org/loaders/)，改变导入/请求图像的类型：
+
+- 之前：`string`
+- 之后：`{preSrc: string, src: import("@theme/IdealImage").SrcImage}`
+
+:::
+
+:::warning[针对pnpm用户]
+
+从[pnpm 10](https://github.com/pnpm/pnpm/releases/tag/v10.0.0)开始，运行`pnpm install`默认不会执行依赖项的安装脚本。为了让我们的图像缩放依赖项`sharp`正确安装，您需要额外的pnpm配置（[相关issue](https://github.com/lovell/sharp/issues/4343)），例如：
+
+```json title="package.json"
+{
+  "pnpm": {
+    "onlyBuiltDependencies": ["fsevents"]
+  }
+}
+```
+
+## 配置项 {#configuration}
+
+可接受字段：
+
+<APITable>
+
+| 选项 | 类型 | 默认值 | 描述 |
+| --- | --- | --- | --- |
+| `name` | `string` | `ideal-img/[name].[hash:hex:7].[width].[ext]` | 输出文件的命名模板。 |
+| `sizes` | `number[]` | _原始尺寸_ | 指定所有需要使用的宽度。若指定尺寸超过原图宽度，则使用原图宽度（即图像不会被放大）。 |
+| `size` | `number` | _原始尺寸_ | 指定单个需要使用的宽度；若指定尺寸超过原图宽度，则使用原图宽度（即图像不会被放大） |
+| `min` | `number` |  | 作为手动指定`sizes`的替代方案，您可指定`min`、`max`和`steps`，系统将自动生成尺寸。 |
+| `max` | `number` |  | 参见上述`min`说明 |
+| `steps` | `number` | `4` | 配置在`min`和`max`之间（含）生成的图像数量 |
+| `quality` | `number` | `85` | JPEG压缩质量 |
+| `disableInDev` | `boolean` | `true` | 通过设为`false`可在开发模式测试理想图像行为。**技巧**：使用浏览器[网络节流](https://www.browserstack.com/guide/how-to-perform-network-throttling-in-chrome)模拟慢速网络。 |
+
+</APITable>
+
+### 配置示例 {#ex-config}
+
+以下为配置示例：
+
+```js title="docusaurus.config.js"
+export default {
+  plugins: [
+    [
+      '@docusaurus/plugin-ideal-image',
+      // highlight-start
+      {
+        quality: 70,
+        max: 1030, // 调整后图像的最大尺寸
+        min: 640, // 调整后图像的最小尺寸。若原图尺寸更小，则使用原图尺寸
+        steps: 2, // 在min和max之间（含）生成图像的最大数量
+        disableInDev: false,
+      },
+      // highlight-end
+    ],
+  ],
+};
+```

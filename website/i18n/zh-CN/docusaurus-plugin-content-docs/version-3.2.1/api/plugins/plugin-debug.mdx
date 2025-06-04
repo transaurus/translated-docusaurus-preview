@@ -1,0 +1,96 @@
+---
+sidebar_position: 5
+slug: /api/plugins/@docusaurus/plugin-debug
+---
+
+# 📦 plugin-debug
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+调试插件将在 [`http://localhost:3000/__docusaurus/debug`](http://localhost:3000/__docusaurus/debug) 显示有用的调试信息。
+
+该插件主要对插件开发者有用，可以更方便地检查 `.docusaurus` 文件夹中的内容（如创建的路由），同时也能检查未写入磁盘的数据结构，例如通过 `contentLoaded` 生命周期加载的插件数据。
+
+:::info
+
+若通过经典预设使用该插件，默认情况下预设会**在开发环境启用插件，在生产环境禁用**（`debug: undefined`），以避免暴露潜在敏感信息。您可以使用 `debug: true` 始终启用，或 `debug: false` 始终禁用。
+
+若以独立插件形式使用，可能需要通过环境检查实现相同效果：
+
+```js title="docusaurus.config.js"
+export default {
+  plugins: [
+    // highlight-next-line
+    process.env.NODE_ENV === 'production' && '@docusaurus/plugin-debug',
+  ].filter(Boolean),
+};
+```
+
+:::
+
+:::note
+
+提交错误报告时，我们可能会要求您在生产环境启用此插件，以便更轻松检查您的部署配置。若无敏感信息，可保持生产环境启用状态[如我们所示](/__docusaurus/debug)。
+
+:::
+
+## 安装 {#installation}
+
+```bash npm2yarn
+npm install --save @docusaurus/plugin-debug
+```
+
+:::tip
+
+若使用预设 `@docusaurus/preset-classic`，则无需单独安装此插件作为依赖项。可通过[预设选项](../../using-plugins.mdx#docusauruspreset-classic)配置该插件。
+
+:::
+
+## 配置 {#configuration}
+
+该插件当前无配置选项。
+
+### 配置示例 {#ex-config}
+
+可通过预设选项或插件选项配置此插件。
+
+:::tip
+
+多数Docusaurus用户通过预设选项配置此插件。
+
+:::
+
+<Tabs groupId="api-config-ex">
+<TabItem value="preset" label="Preset options">
+
+If you use a preset, configure this plugin through the [preset options](../../using-plugins.mdx#docusauruspreset-classic):
+
+```js title="docusaurus.config.js"
+export default {
+  presets: [
+    [
+      '@docusaurus/preset-classic',
+      {
+        // highlight-next-line
+        debug: true, // This will enable the plugin in production
+      },
+    ],
+  ],
+};
+```
+
+</TabItem>
+<TabItem value="plugin" label="Plugin Options">
+
+If you are using a standalone plugin, provide options directly to the plugin:
+
+```js title="docusaurus.config.js"
+export default {
+  // highlight-next-line
+  plugins: ['@docusaurus/plugin-debug'],
+};
+```
+
+</TabItem>
+</Tabs>

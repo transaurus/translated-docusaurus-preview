@@ -1,0 +1,210 @@
+---
+sidebar_label: Static site generation
+description: Docusaurus statically renders your React code into HTML, allowing faster load speed and better SEO.
+---
+
+# 静态站点生成（SSG）
+
+在[架构说明](architecture.mdx)中，我们提到主题是在Webpack中运行的。但请注意：这并不意味着它总能访问浏览器全局对象！主题会经历两次构建：
+
+- **服务端渲染**期间，主题会在名为[React DOM Server](https://reactjs.org/docs/react-dom-server.html)的沙箱中编译。你可以将其视为"无头浏览器"，其中不存在`window`或`document`对象，只有React。SSR会生成静态HTML页面。
+- **客户端渲染**期间，主题会被编译成最终在浏览器中执行的JavaScript，因此可以访问浏览器变量。
+
+:::info[SSR还是SSG？]
+
+_服务端渲染_与_静态站点生成_在严格意义上是不同的概念，但我们将其视为同义词。
+
+严格来说，Docusaurus是静态站点生成器，因为它没有服务端运行时——我们直接将内容静态渲染为HTML文件部署到CDN，而非在每次请求时动态预渲染。这与[Next.js](https://nextjs.org/)的工作模式不同。
+
+:::
+
+因此，虽然你可能知道不能访问Node全局对象如`process`（[真的不能吗？](#node-env)）或`'fs'`模块，但同样也不能随意访问浏览器全局对象。
+
+```jsx
+import React from 'react';
+
+export default function WhereAmI() {
+  return <span>{window.location.href}</span>;
+}
+```
+
+这看起来像是符合React惯例的代码，但如果运行`docusaurus build`命令，你会遇到错误：
+
+```
+ReferenceError: window is not defined
+```
+
+这是因为在服务端渲染期间，Docusaurus应用并非运行在真实浏览器环境中，它无法识别`window`对象。
+
+<details id="node-env">
+<summary>What about <code>process.env.NODE_ENV</code>?</summary>
+
+One exception to the "no Node globals" rule is `process.env.NODE_ENV`. In fact, you can use it in React, because Webpack injects this variable as a global:
+
+```jsx
+import React from 'react';
+
+export default function expensiveComp() {
+  if (process.env.NODE_ENV === 'development') {
+    return <>This component is not shown in development</>;
+  }
+  const res = someExpensiveOperationThatLastsALongTime();
+  return <>{res}</>;
+}
+```
+
+During Webpack build, the `process.env.NODE_ENV` will be replaced with the value, either `'development'` or `'production'`. You will then get different build results after dead code elimination:
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+<TabItem value="Development">
+
+```diff
+import React from 'react';
+
+export default function expensiveComp() {
+  // highlight-next-line
+  if ('development' === 'development') {
++   return <>This component is not shown in development</>;
+  }
+- const res = someExpensiveOperationThatLastsALongTime();
+- return <>{res}</>;
+}
+```
+
+</TabItem>
+<TabItem value="Production">
+
+```diff
+import React from 'react';
+
+export default function expensiveComp() {
+  // highlight-next-line
+- if ('production' === 'development') {
+-   return <>This component is not shown in development</>;
+- }
++ const res = someExpensiveOperationThatLastsALongTime();
++ return <>{res}</>;
+}
+```
+
+</TabItem>
+</Tabs>
+</details>
+
+## 理解SSR机制 {#understanding-ssr}
+
+React不仅是动态UI运行时——它还是模板引擎。由于Docusaurus站点主要包含静态内容，它应该能在不依赖任何JavaScript（React的运行环境）的情况下工作，仅需HTML/CSS。这正是服务端渲染提供的功能：将React代码静态渲染为HTML，不含任何动态内容。HTML文件没有客户端状态的概念（它只是纯标记语言），因此不应依赖浏览器API。
+
+当用户访问URL时（参见[路由系统](routing.mdx)），这些HTML文件会最先抵达用户浏览器。之后浏览器才会加载并执行其他JS代码来提供站点的"动态"部分——即所有通过JavaScript实现的功能。但在此之前，页面的主要内容已经可见，这实现了更快的加载速度。
+
+在纯CSR应用中，所有DOM元素都由React在客户端生成，HTML文件仅包含一个供React挂载DOM的根元素；而在SSR中，React面对的是已构建完成的HTML页面，它只需将DOM元素与虚拟DOM模型进行关联。这个步骤称为"水合"。当React完成静态标记的水合后，应用就开始像普通React应用一样运行。
+
+需要注意的是，Docusaurus本质上是单页应用，静态站点生成只是一种优化手段（称为_渐进增强_），我们的功能并不完全依赖这些HTML文件。这与[Jekyll](https://jekyllrb.com/)和[Docusaurus v1](https://v1.docusaurus.io/)等站点生成器形成对比，后者所有文件都被静态转换为标记，交互性通过`<script>`标签引入的外部JavaScript实现。如果检查构建输出，你仍会看到`build/assets/js`目录下的JS资源，它们才是Docusaurus的核心。
+
+## 应急方案 {#escape-hatches}
+
+如果你需要渲染任何依赖浏览器API才能正常工作的动态内容，例如：
+
+- 我们的[实时代码块](../guides/markdown-features/markdown-features-code-blocks.mdx#interactive-code-editor)，运行在浏览器的JS运行时中
+- 根据用户色彩方案显示不同图片的[主题化图片](../guides/markdown-features/markdown-features-assets.mdx#themed-images)
+- 调试面板中使用`window`全局变量进行样式处理的JSON查看器
+
+由于静态HTML在不知道客户端状态时无法显示有效内容，您可能需要规避服务端渲染(SSR)。
+
+:::warning
+
+客户端首次渲染必须生成与服务端渲染完全相同的DOM结构，否则React会将虚拟DOM与错误的DOM元素关联。
+
+因此，简单的`if (typeof window !== 'undefined) {/* 渲染内容 */}`检测浏览器环境的方式并不适用，因为首次客户端渲染会立即生成与服务端不同的标记。
+
+您可以在[《Rehydration的隐患》](https://www.joshwcomeau.com/react/the-perils-of-rehydration/)中了解更多关于这个陷阱的内容。
+
+:::
+
+我们提供了几种更可靠的方式来规避SSR。
+
+### `<BrowserOnly>` {#browseronly}
+
+如果某些组件需要仅在浏览器中渲染（例如依赖浏览器特性才能运行），常见做法是使用[`<BrowserOnly>`](../docusaurus-core.mdx#browseronly)包裹组件，确保其在SSR期间不可见，仅在CSR时渲染。
+
+```jsx
+import BrowserOnly from '@docusaurus/BrowserOnly';
+
+function MyComponent(props) {
+  return (
+    // highlight-start
+    <BrowserOnly fallback={<div>Loading...</div>}>
+      {() => {
+        const LibComponent =
+          require('some-lib-that-accesses-window').LibComponent;
+        return <LibComponent {...props} />;
+      }}
+    </BrowserOnly>
+    // highlight-end
+  );
+}
+```
+
+需要特别注意的是，`<BrowserOnly>`的子元素不是JSX元素，而是返回元素的函数。这是设计决策。考虑以下代码：
+
+```jsx
+import BrowserOnly from '@docusaurus/BrowserOnly';
+
+function MyComponent() {
+  return (
+    <BrowserOnly>
+      {/* highlight-start */}
+      {/* DON'T DO THIS - doesn't actually work */}
+      <span>page url = {window.location.href}</span>
+      {/* highlight-end */}
+    </BrowserOnly>
+  );
+}
+```
+
+虽然您可能认为`BrowserOnly`会在服务端渲染时隐藏子元素，但实际上它做不到。当React渲染器尝试渲染这个JSX树时，它确实会将`{window.location.href}`变量视为树的节点并尝试渲染，尽管这个变量实际上并未被使用！使用函数可以确保仅在需要时才让渲染器看到浏览器专用组件。
+
+### `useIsBrowser` {#useisbrowser}
+
+您也可以使用`useIsBrowser()`钩子来检测当前是否处于浏览器环境。在SSR时返回`false`，在首次客户端渲染后的CSR时返回`true`。当您只需要在客户端执行某些条件操作，而非渲染完全不同的UI时，可使用此钩子。
+
+```jsx
+import useIsBrowser from '@docusaurus/useIsBrowser';
+
+function MyComponent() {
+  const isBrowser = useIsBrowser();
+  const location = isBrowser ? window.location.href : 'fetching location...';
+  return <span>{location}</span>;
+}
+```
+
+### `useEffect` {#useeffect}
+
+最后，您可以将逻辑放入`useEffect()`中，延迟到首次CSR之后执行。这种方式最适合仅执行副作用但不从客户端状态获取数据的情况。
+
+```jsx
+function MyComponent() {
+  useEffect(() => {
+    // Only logged in the browser console; nothing is logged during server-side rendering
+    console.log("I'm now in the browser");
+  }, []);
+  return <span>Some content...</span>;
+}
+```
+
+### `ExecutionEnvironment` {#executionenvironment}
+
+[`ExecutionEnvironment`](../docusaurus-core.mdx#executionenvironment)命名空间包含多个值，其中`canUseDOM`是检测浏览器环境的有效方式。
+
+请注意它本质上检查`typeof window !== 'undefined'`，因此不应将其用于渲染相关逻辑，仅适用于命令式代码，例如响应用户输入发送网络请求，或动态导入库等完全不涉及DOM更新的场景。
+
+```js title="a-client-module.js"
+import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
+
+if (ExecutionEnvironment.canUseDOM) {
+  document.title = "I'm loaded!";
+}
+```

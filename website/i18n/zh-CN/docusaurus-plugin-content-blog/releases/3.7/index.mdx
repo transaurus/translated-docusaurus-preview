@@ -1,0 +1,105 @@
+---
+title: Docusaurus 3.7
+authors: [slorber]
+tags: [release]
+image: ./img/social-card.png
+date: 2025-01-03
+---
+
+我们很高兴地宣布 **Docusaurus 3.7** 正式发布。
+
+Docusaurus 现已兼容 [React 19](https://react.dev/blog/2024/12/05/react-19)。
+
+升级过程应该很顺利。我们的[发布流程](/community/release-process)遵循[语义化版本控制](https://semver.org/)，次要版本更新不会包含任何破坏性变更。
+
+![Docusaurus 博客文章社交卡片](./img/social-card.png)
+
+## 重点更新
+
+### React 19
+
+在 [#10763](https://github.com/facebook/docusaurus/pull/10763) 中，我们新增了对 [React 19](https://react.dev/blog/2024/12/05/react-19) 的支持，Docusaurus 官网已运行在 React 19 上。
+
+从现在起，所有新初始化的站点将默认运行在 React 19 上，且 React 19 将成为 Docusaurus v4 的最低要求版本。
+
+不过 React 18 仍受支持，现有 Docusaurus 站点可选择继续使用 React 18，或升级依赖至 React 19：
+
+```diff
+{
+  "name": "my-docusaurus-site",
+  "dependencies": {
+-   "react": "^18.0.0",
+-   "react-dom": "^18.0.0"
++   "react": "^19.0.0",
++   "react-dom": "^19.0.0"
+  }
+}
+```
+
+:::warning
+
+无需立即升级您的站点。
+
+React 19 比 React 18 稍显臃肿。由于我们同时支持两个版本，目前尚未利用 React 19 的独占新特性。
+
+但升级到 React 19 可为您的站点迎接 Docusaurus v4 做好准备，届时将停止对 React 18 的支持。
+
+以下是 Docusaurus v4 发布前升级站点的充分理由：
+
+- 您有自定义 React 代码并希望确保其兼容 React19
+- 您计划在自有代码中利用 React 19 的全新特性
+- 您使用自定义或第三方插件并希望确保其兼容性
+- 您使用 monorepo 并希望将所有包的 React 依赖统一至 v19
+
+:::
+
+在此过程中，我们[修复了](https://github.com/facebook/docusaurus/pull/10786) React 19 报告的所有剩余 hydration 错误，其中部分由我们激进的 HTML 压缩器设置导致。
+
+### SVGR 插件
+
+Docusaurus 内置支持 [SVGR](https://github.com/gregberge/svgr)，允许您无缝导入 SVG 文件作为 React 组件使用：
+
+```tsx
+import DocusaurusSvg from './docusaurus.svg';
+
+<DocusaurusSvg />;
+```
+
+由于无法自定义 [SVGR 选项](https://react-svgr.com/docs/options/)（特别是 [SVG 优化器](https://svgo.dev/)选项），这一内置功能曾引发多起错误报告。
+
+在 [#10677](https://github.com/facebook/docusaurus/pull/10677) 中，我们提取出新的 [`@docusaurus/plugin-svgr`](/docs/api/plugins/@docusaurus/plugin-svgr) 插件，您现在可以根据需求进行配置。该插件默认包含在我们的经典预设中：
+
+```js
+export default {
+  presets: [
+    [
+      'classic',
+      {
+        svgr: {
+          svgrConfig: {
+            // Your SVGR options ...
+            svgoConfig: {
+              // Your SVGO options ...
+              // Use "svgoConfig: undefined" to use a svgo.config.js file
+            },
+          },
+        },
+      },
+    ],
+  ],
+};
+```
+
+## 其他变更
+
+其他值得注意的变更包括：
+
+- [#10768](https://github.com/facebook/docusaurus/pull/10768): 博客作者现在支持内置的社交媒体平台图标，包括Bluesky、Mastodon、Threads、Twitch、YouTube和Instagram。
+- [#10729](https://github.com/facebook/docusaurus/pull/10729): 博客现在支持`frontMatter.sidebar_label`配置项。
+- [#10803](https://github.com/facebook/docusaurus/pull/10803): `@docusaurus/remark-plugin-npm2yarn`插件新增支持Bun包管理器的转换。
+- [#10672](https://github.com/facebook/docusaurus/pull/10672): 将Algolia DocSearch升级至`algoliasearch` v5版本。
+- [#10800](https://github.com/facebook/docusaurus/pull/10800): Docusaurus Faster功能默认启用Rspack增量构建模式。
+- [#10783](https://github.com/facebook/docusaurus/pull/10783): 优化荷兰语主题的翻译内容。
+- [#10760](https://github.com/facebook/docusaurus/pull/10760): 优化韩语主题的翻译内容。
+
+完整变更列表请查阅**[3.7.0版本更新日志](/changelog/3.7.0)**。

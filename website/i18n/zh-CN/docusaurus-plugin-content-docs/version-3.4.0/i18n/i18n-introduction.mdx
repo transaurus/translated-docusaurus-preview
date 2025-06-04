@@ -1,0 +1,137 @@
+---
+id: introduction
+slug: /i18n/introduction
+---
+
+# 国际化 - 简介
+
+借助国际化([i18n](https://en.wikipedia.org/wiki/Internationalization_and_localization))支持，**翻译Docusaurus网站非常简单**。
+
+## 目标 {#goals}
+
+理解Docusaurus国际化支持背后的**设计决策**非常重要。
+
+更多背景信息，可阅读最初的[RFC](https://github.com/facebook/docusaurus/issues/3317)和[PR](https://github.com/facebook/docusaurus/pull/3325)。
+
+### 国际化目标 {#i18n-goals}
+
+Docusaurus国际化系统的目标是：
+
+- **简单**：只需将翻译文件放在正确的文件系统位置
+- **灵活的翻译流程**：可使用Git（单体仓库、分支或子模块）、SaaS软件或FTP
+- **灵活的部署选项**：支持单域名、多域名或混合部署
+- **模块化**：允许插件作者提供国际化支持
+- **低运行时开销**：文档主要是静态内容，不需要重型JS库或polyfill
+- **可扩展的构建时间**：允许独立构建和部署本地化站点
+- **本地化资源**：站点图片可能包含需要翻译的文本
+- **无耦合**：不强制使用任何SaaS，但支持集成
+- **易于与[Crowdin](https://crowdin.com/)配合使用**：许多Docusaurus v1站点使用Crowdin，应能迁移到v2
+- **良好的SEO默认设置**：自动设置有用的SEO头信息如[`hreflang`](https://developers.google.com/search/docs/advanced/crawling/localized-versions)
+- **RTL支持**：支持从右向左阅读的语言（阿拉伯语、希伯来语等）且易于实现
+- **默认翻译**：经典主题标签已为您翻译成[多种语言](https://github.com/facebook/docusaurus/tree/main/packages/docusaurus-theme-translations/locales)
+
+### 非国际化目标 {#i18n-non-goals}
+
+我们不提供以下支持：
+
+- **自动语言检测**：这属于主观决策，最好由[服务器（您的托管服务商）](../deployment.mdx)完成
+- **翻译SaaS软件**：您需要自行了解所选外部工具
+- **slug翻译**：技术复杂且SEO价值有限
+
+## 翻译工作流程 {#translation-workflow}
+
+### 概述 {#overview}
+
+创建翻译版Docusaurus网站的工作流程概述：
+
+1. **配置**：在[`docusaurus.config.js`](../api/docusaurus.config.js.mdx#i18n)中声明默认语言和替代语言
+2. **翻译**：将翻译文件放在正确的文件系统位置
+3. **部署**：使用单域名或多域名策略构建并部署您的站点
+
+### 翻译文件 {#translation-files}
+
+您需要处理三种翻译文件。
+
+#### Markdown文件 {#markdown-files}
+
+这是Docusaurus网站的主要内容。
+
+Markdown和MDX文档整体翻译，以完整保留翻译上下文，而不是将每个句子拆分为单独字符串。
+
+#### JSON文件 {#json-files}
+
+JSON用于翻译：
+
+- 您的React代码：`src/pages`中的独立React页面或其他组件
+- 通过`themeConfig`提供的布局标签：导航栏、页脚
+- 通过插件选项提供的布局标签：文档侧边栏分类标签、博客侧边栏标题等
+
+使用的JSON格式称为**Chrome i18n**：
+
+```json
+{
+  "myTranslationKey1": {
+    "message": "Translated message 1",
+    "description": "myTranslationKey1 is used on the homepage"
+  },
+  "myTranslationKey2": {
+    "message": "Translated message 2",
+    "description": "myTranslationKey2 is used on the FAQ page"
+  }
+}
+```
+
+选择该格式有2个原因：
+
+- **描述属性**：为翻译者提供额外上下文辅助
+- **广泛支持**：[Chrome扩展](https://developer.chrome.com/docs/extensions/mv2/i18n-messages/)、[Crowdin](https://support.crowdin.com/file-formats/chrome-json/)、[Transifex](https://docs.transifex.com/formats/chrome-json)、[Phrase](https://help.phrase.com/help/chrome-json-messages)、[Applanga](https://www.applanga.com/docs/formats/chrome_i18n_json)等平台均兼容
+
+#### 数据文件 {#data-files}
+
+部分插件会从整体本地化的外部数据文件中读取内容。例如博客插件使用的[`authors.yml`](../blog.mdx#global-authors)文件，可通过在`i18n/[locale]/docusaurus-plugin-content-blog/`路径下创建副本实现翻译。
+
+### 翻译文件存放位置 {#translation-files-location}
+
+翻译文件需存放在正确的文件系统路径下。
+
+每个语言环境和插件都有独立的`i18n`子目录：
+
+```
+website/i18n/[locale]/[pluginName]/...
+```
+
+:::note
+
+多实例插件的路径格式为：`website/i18n/[locale]/[pluginName]-[pluginId]/...`
+
+:::
+
+为简单Docusaurus站点添加法语翻译后的目录结构示例：
+
+```bash
+website/i18n
+└── fr
+    ├── code.json  # Any text label present in the React code
+    │              # Includes text labels from the themes' code
+    ├── docusaurus-plugin-content-blog # translation data the blog plugin needs
+    │   └── 2020-01-01-hello.md
+    │
+    ├── docusaurus-plugin-content-docs # translation data the docs plugin needs
+    │   ├── current
+    │   │   ├── doc1.md
+    │   │   └── doc2.mdx
+    │   └── current.json
+    │
+    └── docusaurus-theme-classic # translation data the classic theme needs
+        ├── footer.json   # Text labels in your footer theme config
+        └── navbar.json   # Text labels in your navbar theme config
+```
+
+JSON文件可通过[`docusaurus write-translations`](../cli.mdx#docusaurus-write-translations-sitedir)命令行工具初始化。各插件在对应目录下管理自身翻译内容，而`code.json`文件则定义React代码中使用的所有文本标签。
+
+每个内容插件或主题都有**自定义的翻译文件存放规则**：
+
+- [文档国际化](../api/plugins/plugin-content-docs.mdx#i18n)
+- [博客国际化](../api/plugins/plugin-content-blog.mdx#i18n)
+- [页面国际化](../api/plugins/plugin-content-pages.mdx#i18n)
+- [主题国际化](../api/themes/theme-configuration.mdx#i18n)
